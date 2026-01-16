@@ -1,0 +1,100 @@
+{
+  "meta": {
+    "title": "OdontoFlow - Gestão Moderna de Clínicas Odontológicas"
+  },
+  "navbar": {
+    "features": "Funcionalidades",
+    "solutions": "Soluções",
+    "pricing": "Planos",
+    "resources": "Recursos",
+    "login": "Entrar",
+    "requestDemo": "Pedir Demo"
+  },
+  "hero": {
+    "newVersion": "Nova Versão 2.0 Disponível",
+    "titlePrefix": "O Sistema de Gestão Completo para",
+    "titleSuffix": "Clínicas Odontológicas Modernas",
+    "description": "Otimize agendamentos, finanças e atendimento ao paciente em uma plataforma intuitiva. Junte-se ao novo padrão em eficiência de gestão odontológica.",
+    "startTrial": "Começar Teste Grátis",
+    "watchVideo": "Assistir Vídeo",
+    "trustedBy": "Confiado por mais de 2.500 dentistas",
+    "dailyRevenue": "Receita Diária"
+  },
+  "stats": {
+    "clinics": "Clínicas Gerenciadas",
+    "dentists": "Dentistas Ativos",
+    "patients": "Pacientes Atendidos",
+    "uptime": "Tempo de Atividade"
+  },
+  "features": {
+    "title": "Gestão Completa da Clínica",
+    "subtitle": "Tudo o que você precisa para gerenciar seu consultório odontológico de forma eficiente em um sistema de gestão centralizado.",
+    "scheduling": {
+      "title": "Agendamento Inteligente",
+      "description": "Reduza faltas com lembretes automáticos via WhatsApp, agendamentos codificados por cores e gestão inteligente de lista de espera."
+    },
+    "financial": {
+      "title": "Saúde Financeira",
+      "description": "Acompanhe o fluxo de caixa em tempo real, gerencie o faturamento de convênios automaticamente e gere relatórios de despesas abrangentes."
+    },
+    "charts": {
+      "title": "Prontuários Digitais",
+      "description": "Anamnese completa e odontogramas interativos disponíveis em um clique. Seguro, acessível e sem papel."
+    }
+  },
+  "roles": {
+    "title": "Feito para toda a sua equipe",
+    "dentists": {
+      "title": "Para Dentistas",
+      "description": "Foco no atendimento ao paciente com acesso em 1 clique ao histórico clínico, raios-X e planos de tratamento diretamente da cadeira."
+    },
+    "receptionists": {
+      "title": "Para Recepcionistas",
+      "description": "Gerencie a recepção sem esforço. Check-ins rápidos, reagendamento fácil e comunicação automatizada com pacientes."
+    },
+    "managers": {
+      "title": "Para Gestores",
+      "description": "Tenha visibilidade total do desempenho da clínica com relatórios granulares sobre receita, estoque e produtividade da equipe."
+    }
+  },
+  "testimonials": {
+    "title": "Confiado por líderes do setor",
+    "t1": "OdontoFlow transformou completamente a forma como gerenciamos nossas três clínicas. O relatório financeiro sozinho nos economizou horas de trabalho manual toda semana.",
+    "t1_role": "Diretora Clínica, BrightSmile",
+    "t2": "A interface é tão intuitiva que minha nova equipe aprende a usar em menos de um dia. O odontograma digital é um divisor de águas para consultas com pacientes.",
+    "t2_role": "Dono, Mendez Orthodontics",
+    "t3": "Finalmente, um software que funciona em Mac, PC e tablets perfeitamente. Poder verificar minha agenda de casa me deu paz de espírito.",
+    "t3_role": "Gerente de Prática, City Dental"
+  },
+  "cta": {
+    "title": "Pronto para modernizar sua clínica?",
+    "description": "Junte-se a milhares de profissionais da odontologia que mudaram para o OdontoFlow. Comece seu teste gratuito de 14 dias hoje. Sem necessidade de cartão de crédito.",
+    "getStarted": "Começar Grátis",
+    "scheduleDemo": "Agendar Demo"
+  },
+  "footer": {
+    "description": "A plataforma de gestão tudo-em-um projetada para o ecossistema odontológico moderno. Seguro, rápido e confiável.",
+    "product": "Produto",
+    "resources": "Recursos",
+    "company": "Empresa",
+    "legal": {
+        "privacy": "Política de Privacidade",
+        "terms": "Termos de Serviço",
+        "copyright": "© 2026 OdontoFlow Inc. Todos os direitos reservados."
+    },
+    "links": {
+        "features": "Funcionalidades",
+        "pricing": "Planos",
+        "integrations": "Integrações",
+        "enterprise": "Empresarial",
+        "blog": "Blog",
+        "caseStudies": "Estudos de Caso",
+        "helpCenter": "Central de Ajuda",
+        "apiDocs": "Documentação da API",
+        "aboutUs": "Sobre Nós",
+        "careers": "Carreiras",
+        "legal": "Legal",
+        "contact": "Contato"
+    }
+  }
+}

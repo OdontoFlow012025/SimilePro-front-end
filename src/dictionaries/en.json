@@ -1,0 +1,100 @@
+{
+  "meta": {
+    "title": "OdontoFlow - Modern Dental Clinic Management"
+  },
+  "navbar": {
+    "features": "Features",
+    "solutions": "Solutions",
+    "pricing": "Pricing",
+    "resources": "Resources",
+    "login": "Login",
+    "requestDemo": "Request Demo"
+  },
+  "hero": {
+    "newVersion": "New Version 2.0 Available",
+    "titlePrefix": "The Complete Management System for",
+    "titleSuffix": "Modern Dental Clinics",
+    "description": "Streamline appointments, finances, and patient care in one intuitive platform. Join the new standard in dental management efficiency.",
+    "startTrial": "Start Free Trial",
+    "watchVideo": "Watch Video",
+    "trustedBy": "Trusted by 2,500+ dentists",
+    "dailyRevenue": "Daily Revenue"
+  },
+  "stats": {
+    "clinics": "Clinics Managed",
+    "dentists": "Active Dentists",
+    "patients": "Patients Served",
+    "uptime": "Platform Uptime"
+  },
+  "features": {
+    "title": "Comprehensive Clinic Management",
+    "subtitle": "Everything you need to run your dental practice efficiently in one centralized management system.",
+    "scheduling": {
+      "title": "Smart Scheduling",
+      "description": "Reduce no-shows with automated WhatsApp reminders, color-coded appointments, and smart waitlist management."
+    },
+    "financial": {
+      "title": "Financial Health",
+      "description": "Track real-time cash flow, manage insurance billing automatically, and generate comprehensive expense reports."
+    },
+    "charts": {
+      "title": "Digital Charts",
+      "description": "Complete anamnesis and interactive odontograms available at a click. Secure, accessible, and paperless."
+    }
+  },
+  "roles": {
+    "title": "Tailored for your entire team",
+    "dentists": {
+      "title": "For Dentists",
+      "description": "Focus on patient care with 1-click access to clinical history, X-rays, and treatment plans directly from the chair."
+    },
+    "receptionists": {
+      "title": "For Receptionists",
+      "description": "Manage the front desk effortlessly. Quick check-ins, easy rescheduling, and automated patient communication."
+    },
+    "managers": {
+      "title": "For Managers",
+      "description": "Gain full visibility into clinic performance with granular reports on revenue, inventory, and staff productivity."
+    }
+  },
+  "testimonials": {
+    "title": "Trusted by industry leaders",
+    "t1": "OdontoFlow completely transformed how we manage our three clinics. The financial reporting alone saved us hours of manual work every week.",
+    "t1_role": "Clinical Director, BrightSmile",
+    "t2": "The interface is so intuitive that my new staff learns to use it in less than a day. The digital odontogram is a game changer for patient consultations.",
+    "t2_role": "Owner, Mendez Orthodontics",
+    "t3": "Finally, a software that works on Mac, PC, and tablets seamlessly. Being able to check my schedule from home has given me peace of mind.",
+    "t3_role": "Practice Manager, City Dental"
+  },
+  "cta": {
+    "title": "Ready to modernize your clinic?",
+    "description": "Join thousands of dental professionals who have switched to OdontoFlow. Start your 14-day free trial today. No credit card required.",
+    "getStarted": "Get Started for Free",
+    "scheduleDemo": "Schedule a Demo"
+  },
+  "footer": {
+    "description": "The all-in-one management platform designed for the modern dental ecosystem. Secure, fast, and reliable.",
+    "product": "Product",
+    "resources": "Resources",
+    "company": "Company",
+    "legal": {
+        "privacy": "Privacy Policy",
+        "terms": "Terms of Service",
+        "copyright": "© 2026 OdontoFlow Inc. All rights reserved."
+    },
+    "links": {
+        "features": "Features",
+        "pricing": "Pricing",
+        "integrations": "Integrations",
+        "enterprise": "Enterprise",
+        "blog": "Blog",
+        "caseStudies": "Case Studies",
+        "helpCenter": "Help Center",
+        "apiDocs": "API Docs",
+        "aboutUs": "About Us",
+        "careers": "Careers",
+        "legal": "Legal",
+        "contact": "Contact"
+    }
+  }
+}

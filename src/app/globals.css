@@ -1,26 +1,38 @@
 @import "tailwindcss";
 
+@variant dark (&:where(.dark, .dark *));
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f1f2f3;
+  --foreground: #111418;
+  --primary: #0031FD;
+  --primary-hover: #2f5BFD;
+  --surface: #ffffff;
+  --text-main: #000000; /* Strict black as requested */
+  --text-secondary: #637588;
+  --accent-green: #10b981; /* Hospital Green */
+  --navbar-bg: #ffffff;
+  --navbar-border: var(--text-secondary);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.dark {
+  --background: #111921;
+  --foreground: #ffffff;
+  --primary: #0031FD;
+  --primary-hover: #2f5BFD;
+  --surface: #1a242f;
+  --text-main: #ffffff;
+  --text-secondary: #94a3b8;
+  --accent-green: #34d399; /* Slightly lighter for dark mode */
+  --navbar-bg: #020617; /* slate-950 */
 }
 
 body {
+  color: var(--text-main);
   background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Manrope', sans-serif;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
 }
