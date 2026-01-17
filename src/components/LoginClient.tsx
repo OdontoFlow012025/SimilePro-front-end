@@ -41,10 +41,12 @@ export default function LoginClient({ dict, locale }: LoginClientProps) {
       <div className="relative z-10 flex min-h-screen w-full max-w-[100vw] flex-col justify-center bg-white p-6 shadow-none transition-all duration-700 ease-in-out dark:bg-slate-900 md:min-h-0 md:max-w-md md:rounded-2xl md:bg-white/95 md:p-12 md:shadow-2xl md:backdrop-blur-md md:dark:bg-slate-900/95">
         {/* Logo */}
         <div className="mb-8 flex flex-col items-center justify-center gap-4 text-center">
-          <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-600 text-white shadow-lg">
-            <span className="material-symbols-outlined text-3xl">dentistry</span>
-          </div>
-          <span className="text-2xl font-bold text-slate-900 dark:text-white">OdontoFlow</span>
+          <Link href={`/${locale}`} className="flex flex-col items-center gap-4 hover:opacity-80 transition-opacity">
+            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-600 text-white shadow-lg">
+              <span className="material-symbols-outlined text-3xl">dentistry</span>
+            </div>
+            <span className="text-2xl font-bold text-slate-900 dark:text-white">OdontoFlow</span>
+          </Link>
         </div>
 
         {/* Heading */}
