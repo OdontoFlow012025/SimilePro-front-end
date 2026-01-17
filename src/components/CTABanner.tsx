@@ -1,4 +1,6 @@
-export default function CTABanner({ dict }: { dict: any }) {
+import Link from "next/link";
+
+export default function CTABanner({ dict, locale }: { dict: any; locale: string }) {
   return (
     <div className="relative py-20">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 text-center">
@@ -8,9 +10,9 @@ export default function CTABanner({ dict }: { dict: any }) {
           <h2 className="relative text-3xl font-bold tracking-tight sm:text-4xl mb-6">{dict.cta.title}</h2>
           <p className="relative text-lg text-white/90 dark:text-slate-300 mb-10 max-w-2xl mx-auto">{dict.cta.description}</p>
           <div className="relative flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="flex h-12 items-center justify-center rounded-lg bg-(--primary) px-8 text-base font-bold text-white hover:bg-(--primary-hover) transition-colors shadow-lg">
+            <Link href={`/${locale}/signup`} className="flex h-12 items-center justify-center rounded-lg bg-(--primary) px-8 text-base font-bold text-white hover:bg-(--primary-hover) transition-colors shadow-lg">
               {dict.cta.getStarted}
-            </button>
+            </Link>
 
           </div>
         </div>

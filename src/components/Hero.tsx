@@ -1,4 +1,6 @@
-export default function Hero({ dict }: { dict: any }) {
+import Link from "next/link";
+
+export default function Hero({ dict, locale }: { dict: any; locale: string }) {
   return (
     <div className="relative overflow-hidden pt-12 pb-16 lg:pt-20 lg:pb-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -14,9 +16,9 @@ export default function Hero({ dict }: { dict: any }) {
               </p>
             </div>
             <div className="flex flex-wrap gap-4 pt-2">
-              <button className="flex h-12 min-w-[160px] items-center justify-center rounded-lg bg-(--primary) px-6 text-base font-bold text-white shadow-lg shadow-blue-500/20 hover:bg-(--primary-hover) transition-all">
+              <Link href={`/${locale}/signup`} className="flex h-12 min-w-[160px] items-center justify-center rounded-lg bg-(--primary) px-6 text-base font-bold text-white shadow-lg shadow-blue-500/20 hover:bg-(--primary-hover) transition-all">
                 {dict.hero.startTrial}
-              </button>
+              </Link>
               <button className="flex h-12 min-w-[160px] items-center justify-center rounded-lg border border-slate-200 bg-surface px-6 text-base font-bold text-text-main hover:bg-slate-50 dark:border-slate-700 dark:hover:bg-slate-800 transition-all gap-2">
                 <span className="material-symbols-outlined text-[20px]">play_circle</span>
                 {dict.hero.watchVideo}
