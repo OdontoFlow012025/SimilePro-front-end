@@ -6,10 +6,10 @@ export default function Footer({ dict, locale }: { dict: any, locale: string }) 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 mb-12">
           <div className="col-span-2 lg:col-span-2">
-            <div className="flex items-center gap-2 mb-4">
+            <Link href={`/${locale}`} className="flex items-center gap-2 mb-4 hover:opacity-80 transition-opacity">
               <span className="material-symbols-outlined text-white text-2xl">dentistry</span>
               <h2 className="text-xl font-bold text-white">OdontoFlow</h2>
-            </div>
+            </Link>
             <p className="text-sm text-slate-400 max-w-xs mb-6">
               {dict.footer.description}
             </p>
