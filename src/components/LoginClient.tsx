@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { FormEvent } from "react";
 
@@ -23,7 +24,7 @@ export default function LoginClient({ dict, locale }: LoginClientProps) {
   };
 
   return (
-    <div className="relative flex min-h-screen w-full items-center justify-center">
+    <div className="relative flex min-h-screen w-full items-center justify-center overflow-hidden">
       
       {/* Background - RAW IMAGE with Overlay */}
       <div className="fixed inset-0 -z-10 bg-slate-900">
@@ -102,7 +103,7 @@ export default function LoginClient({ dict, locale }: LoginClientProps) {
 
           <button
             type="submit"
-            className="w-full rounded-lg bg-blue-600 px-5 py-3 text-center text-sm font-semibold text-white shadow-lg transition-all hover:bg-blue-700 hover:shadow-blue-500/25 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            className="w-full rounded-lg bg-blue-600 px-5 py-3 text-center text-sm font-semibold text-white shadow-lg transition-all hover:bg-blue-700 hover:shadow-blue-500/25 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-800"
           >
             {dict.auth.loginButton}
           </button>
@@ -116,11 +117,11 @@ export default function LoginClient({ dict, locale }: LoginClientProps) {
         </div>
 
         {/* Sign Up Link */}
-        <p className="text-center text-sm text-slate-500 dark:text-slate-400">
+        <p className="relative z-20 text-center text-sm text-slate-500 dark:text-slate-400">
           {dict.auth.noAccount}{' '}
-          <a href="#" className="font-semibold text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300">
+          <Link href={`/${locale}/signup`} className="font-semibold text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300">
             {dict.auth.signUp}
-          </a>
+          </Link>
         </p>
 
         {/* Footer Links */}

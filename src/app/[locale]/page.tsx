@@ -15,12 +15,12 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
   return (
     <main>
       <Navbar dict={dict} locale={locale} />
-      <Hero dict={dict} />
+      <Hero dict={dict} locale={locale} />
       <Stats dict={dict} />
       <Features dict={dict} />
       <RoleSection dict={dict} />
       <Testimonials dict={dict} />
-      <CTABanner dict={dict} />
+      <CTABanner dict={dict} locale={locale} />
       <Footer dict={dict} locale={locale} />
     </main>
   );

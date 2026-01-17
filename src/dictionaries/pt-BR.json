@@ -111,6 +111,33 @@
     "signUp": "Cadastre sua clínica",
     "copyright": "Termos de Uso Privacy Ajuda"
   },
+  "signup": {
+    "title": "Crie sua conta",
+    "subtitle": "Preencha os dados abaixo para começar a transformar a gestão da sua clínica hoje.",
+    "clinicData": {
+      "title": "Dados da Clínica",
+      "nameLabel": "Nome da Clínica",
+      "namePlaceholder": "Ex: Clínica Sorriso Saudável",
+      "cnpjLabel": "CNPJ da Clínica",
+      "cnpjPlaceholder": "00.000.000/0000-00",
+      "addressLabel": "Endereço da Clínica",
+      "addressPlaceholder": "Rua, Número, Bairro, Cidade - UF",
+      "phoneLabel": "Número de Contato da Clínica",
+      "phonePlaceholder": "(00) 00000-0000"
+    },
+    "technicalResponsible": {
+      "title": "Responsável Técnico",
+      "nameLabel": "Nome Completo",
+      "namePlaceholder": "Nome do responsável",
+      "croLabel": "CRO do Profissional",
+      "croPlaceholder": "Número do registro",
+      "specializationLabel": "Especialização",
+      "specializationPlaceholder": "Selecione uma opção"
+    },
+    "submitButton": "Criar Conta",
+    "haveAccount": "Já possui uma conta?",
+    "loginLink": "Fazer Login"
+  },
   "loginFeatures": {
     "badge": "Líder em Gestão Odontológica",
     "title": "Transforme sorrisos enquanto nós cuidamos da gestão.",

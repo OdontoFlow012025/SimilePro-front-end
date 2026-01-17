@@ -3,7 +3,7 @@ import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 import i18nConfig from '../i18nConfig';
 
-const PUBLIC_PATHS = ['/', '/login', '/register'];
+const PUBLIC_PATHS = ['/', '/login', '/signup'];
 
 export function middleware(request: NextRequest) {
   // Check for public assets to avoid unnecessary processing
