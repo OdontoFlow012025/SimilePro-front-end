@@ -6,19 +6,15 @@ export default function Hero({ dict }: { dict: any }) {
           {/* Text Content */}
           <div className="flex flex-col gap-6 lg:w-1/2">
             <div className="flex flex-col gap-4">
-              {/* <div className="inline-flex w-fit items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-xs font-medium text-primary dark:border-blue-900 dark:bg-blue-900/30 dark:text-blue-300">
-                <span className="flex h-2 w-2 rounded-full bg-primary"></span>
-                {dict.hero.newVersion}
-              </div> */}
               <h1 className="text-4xl font-extrabold tracking-tight text-text-main sm:text-5xl lg:text-6xl leading-[1.15]">
-                {dict.hero.titlePrefix} <span className="text-primary">{dict.hero.titleSuffix}</span>
+                {dict.hero.titlePrefix} <span className="text-(--primary)">{dict.hero.titleSuffix}</span>
               </h1>
               <p className="text-lg text-text-secondary max-w-xl leading-relaxed">
                 {dict.hero.description}
               </p>
             </div>
             <div className="flex flex-wrap gap-4 pt-2">
-              <button className="flex h-12 min-w-[160px] items-center justify-center rounded-lg bg-primary px-6 text-base font-bold text-white shadow-lg shadow-blue-500/20 hover:bg-primary-hover transition-all">
+              <button className="flex h-12 min-w-[160px] items-center justify-center rounded-lg bg-(--primary) px-6 text-base font-bold text-white shadow-lg shadow-blue-500/20 hover:bg-(--primary-hover) transition-all">
                 {dict.hero.startTrial}
               </button>
               <button className="flex h-12 min-w-[160px] items-center justify-center rounded-lg border border-slate-200 bg-surface px-6 text-base font-bold text-text-main hover:bg-slate-50 dark:border-slate-700 dark:hover:bg-slate-800 transition-all gap-2">
