@@ -23,6 +23,8 @@ const config: Config = {
         "background": "var(--background)",
         "foreground": "var(--foreground)",
         "surface": "var(--surface)",
+        "cta-green": "var(--cta-green)",
+        "footer-bg": "var(--footer-bg)",
       },
       fontFamily: {
         "display": ["Manrope", "sans-serif"],

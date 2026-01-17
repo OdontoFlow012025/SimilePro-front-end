@@ -11,6 +11,8 @@
   --text-main: #000000; /* Strict black as requested */
   --text-secondary: #637588;
   --accent-green: #10b981; /* Hospital Green */
+  --cta-green: #006400; /* Original CTA Green */
+  --footer-bg: #1a242f; /* Original Footer Dark BG */
   --navbar-bg: #ffffff;
   --navbar-border: var(--text-secondary);
 }
