@@ -96,5 +96,25 @@
         "legal": "Legal",
         "contact": "Contato"
     }
+  },
+  "auth": {
+    "title": "Acesse sua conta",
+    "subtitle": "Gerencie sua clínica com eficiência e simplicidade.",
+    "emailLabel": "Email ou Usuário",
+    "emailPlaceholder": "exemplo@odontoflow.com",
+    "passwordLabel": "Senha",
+    "passwordPlaceholder": "Insira sua senha",
+    "forgotPassword": "Esqueceu a senha?",
+    "loginButton": "Entrar na Plataforma",
+    "or": "OU",
+    "noAccount": "Ainda não tem uma conta?",
+    "signUp": "Cadastre sua clínica",
+    "copyright": "Termos de Uso Privacy Ajuda"
+  },
+  "loginFeatures": {
+    "badge": "Líder em Gestão Odontológica",
+    "title": "Transforme sorrisos enquanto nós cuidamos da gestão.",
+    "description": "Junte-se a mais de 5.000 clínicas que automatizaram agendamentos, faturamento e prontuários com o OdontoFlow.",
+    "testimonial": "Aprovado por especialistas"
   }
 }
