@@ -96,5 +96,25 @@
         "legal": "Legal",
         "contact": "Contact"
     }
+  },
+  "auth": {
+    "title": "Access your account",
+    "subtitle": "Manage your clinic efficiently and simply.",
+    "emailLabel": "Email or Username",
+    "emailPlaceholder": "example@odontoflow.com",
+    "passwordLabel": "Password",
+    "passwordPlaceholder": "Enter your password",
+    "forgotPassword": "Forgot password?",
+    "loginButton": "Login to Platform",
+    "or": "OR",
+    "noAccount": "Don't have an account yet?",
+    "signUp": "Register your clinic",
+    "copyright": "Terms of Use Privacy Help"
+  },
+  "loginFeatures": {
+    "badge": "Leader in Dental Management",
+    "title": "Transform smiles while we take care of management.",
+    "description": "Join over 5,000 clinics that have automated scheduling, billing, and records with OdontoFlow.",
+    "testimonial": "Approved by experts"
   }
 }
