@@ -111,6 +111,41 @@
     "signUp": "Registre su clínica",
     "copyright": "Términos de Uso Privacidad Ayuda"
   },
+  "signup": {
+    "title": "Crea tu cuenta",
+    "subtitle": "Complete los datos a continuación para comenzar a transformar la gestión de su clínica hoy.",
+    "clinicData": {
+      "title": "Datos de la Clínica",
+      "fantasyNameLabel": "Nombre de Fantasía",
+      "fantasyNamePlaceholder": "Ej: Clínica Sonrisa Saludable",
+      "companyNameLabel": "Razón Social",
+      "companyNamePlaceholder": "Razón Social S.A.",
+      "cnpjLabel": "RUC/NIT",
+      "cnpjPlaceholder": "0000000000",
+      "addressLabel": "Dirección de la Clínica",
+      "addressPlaceholder": "Calle, Número, Ciudad - Estado",
+      "phoneLabel": "Teléfono de la Clínica",
+      "phonePlaceholder": "(00) 0000-0000"
+    },
+    "userData": {
+      "title": "Datos del Profesional",
+      "nameLabel": "Nombre Completo",
+      "namePlaceholder": "Su nombre completo",
+      "emailLabel": "Correo Electrónico",
+      "emailPlaceholder": "tu@email.com",
+      "passwordLabel": "Contraseña",
+      "passwordPlaceholder": "********",
+      "phoneLabel": "Teléfono Celular",
+      "phonePlaceholder": "(00) 9000-0000",
+      "cpfLabel": "Documento de Identidad",
+      "cpfPlaceholder": "000.000.000-00",
+      "croLabel": "Licencia Profesional",
+      "croPlaceholder": "ABC-12345"
+    },
+    "submitButton": "Crear Cuenta",
+    "haveAccount": "¿Ya tienes una cuenta?",
+    "loginLink": "Iniciar Sesión"
+  },
   "loginFeatures": {
     "badge": "Líder en Gestión Odontológica",
     "title": "Transforme sonrisas mientras nosotros cuidamos la gestión.",

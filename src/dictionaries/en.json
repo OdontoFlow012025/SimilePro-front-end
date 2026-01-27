@@ -111,6 +111,41 @@
     "signUp": "Register your clinic",
     "copyright": "Terms of Use Privacy Help"
   },
+  "signup": {
+    "title": "Create your account",
+    "subtitle": "Fill in the details below to start transforming your clinic management today.",
+    "clinicData": {
+      "title": "Clinic Data",
+      "fantasyNameLabel": "Fantasy Name",
+      "fantasyNamePlaceholder": "Ex: Healthy Smile Clinic",
+      "companyNameLabel": "Business Name",
+      "companyNamePlaceholder": "Business Name LLC",
+      "cnpjLabel": "Business Tax ID",
+      "cnpjPlaceholder": "00-0000000",
+      "addressLabel": "Clinic Address",
+      "addressPlaceholder": "Street, Number, City - State",
+      "phoneLabel": "Clinic Phone",
+      "phonePlaceholder": "(000) 000-0000"
+    },
+    "userData": {
+      "title": "Professional Data",
+      "nameLabel": "Full Name",
+      "namePlaceholder": "Your full name",
+      "emailLabel": "Email",
+      "emailPlaceholder": "you@email.com",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "********",
+      "phoneLabel": "Mobile Phone",
+      "phonePlaceholder": "(000) 000-0000",
+      "cpfLabel": "Personal Tax ID",
+      "cpfPlaceholder": "000-00-0000",
+      "croLabel": "Professional License",
+      "croPlaceholder": "ABC-12345"
+    },
+    "submitButton": "Create Account",
+    "haveAccount": "Already have an account?",
+    "loginLink": "Login"
+  },
   "loginFeatures": {
     "badge": "Leader in Dental Management",
     "title": "Transform smiles while we take care of management.",

@@ -1,8 +1,9 @@
 "use client";
 
+import { api } from "@/services/api";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { FormEvent } from "react";
+import { FormEvent, useState } from "react";
 
 interface LoginClientProps {
   dict: any;
@@ -12,15 +13,34 @@ interface LoginClientProps {
 export default function LoginClient({ dict, locale }: LoginClientProps) {
   const router = useRouter();
 
-  const handleLogin = (e: FormEvent) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
+  const handleLogin = async (e: FormEvent) => {
     e.preventDefault();
-    // Simulate login logic
-    console.log("Logging in...");
-    // Set mock cookie
-    document.cookie = "auth_token=true; path=/; max-age=86400";
-    // Redirect
-    router.refresh();
-    router.push(`/${locale}/dashboard`);
+    setLoading(true);
+    setError("");
+
+    try {
+      const response = await api.auth.login({ email, senha: password });
+      
+      // Save token in cookie (assuming response structure { access_token: "..." })
+      if (response?.access_token) {
+        document.cookie = `auth_token=${response.access_token}; path=/; max-age=86400; SameSite=Lax`;
+        router.refresh(); // Update server components check if needed
+        router.push(`/${locale}/dashboard`);
+      } else {
+        throw new Error("Token de acesso não recebido.");
+      }
+    } catch (err: any) {
+      console.error("Login error:", err);
+      setError(err.message || "Erro ao realizar login. Verifique suas credenciais.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -57,6 +77,11 @@ export default function LoginClient({ dict, locale }: LoginClientProps) {
 
         {/* Form */}
         <form onSubmit={handleLogin} className="space-y-5">
+          {error && (
+            <div className="rounded-lg bg-red-100 p-3 text-sm text-red-700 dark:bg-red-900/30 dark:text-red-400">
+              {error}
+            </div>
+          )}
           <div>
             <label htmlFor="email" className="mb-1.5 block text-sm font-medium text-slate-700 dark:text-slate-200">
               {dict.auth.emailLabel}
@@ -69,6 +94,8 @@ export default function LoginClient({ dict, locale }: LoginClientProps) {
                 type="text"
                 id="email"
                 required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="block w-full rounded-lg border border-slate-300 bg-white p-2.5 pl-10 text-slate-900 placeholder:text-slate-400 focus:border-blue-500 focus:ring-blue-500 dark:border-slate-600 dark:bg-slate-800 dark:text-white dark:focus:border-blue-500"
                 placeholder={dict.auth.emailPlaceholder}
               />
@@ -86,14 +113,22 @@ export default function LoginClient({ dict, locale }: LoginClientProps) {
                 <span className="material-symbols-outlined text-slate-400 text-lg">lock</span>
               </div>
               <input
-                type="password"
+                type={showPassword ? "text" : "password"}
                 id="password"
                 required
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 className="block w-full rounded-lg border border-slate-300 bg-white p-2.5 pl-10 pr-10 text-slate-900 placeholder:text-slate-400 focus:border-blue-500 focus:ring-blue-500 dark:border-slate-600 dark:bg-slate-800 dark:text-white dark:focus:border-blue-500"
                 placeholder={dict.auth.passwordPlaceholder}
               />
-              <button type="button" className="absolute inset-y-0 right-0 flex items-center pr-3 text-slate-400 hover:text-slate-600 dark:hover:text-slate-300">
-                <span className="material-symbols-outlined text-lg">visibility</span>
+              <button 
+                type="button" 
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute inset-y-0 right-0 flex items-center pr-3 text-slate-400 hover:text-slate-600 dark:hover:text-slate-300"
+              >
+                <span className="material-symbols-outlined text-lg">
+                  {showPassword ? 'visibility_off' : 'visibility'}
+                </span>
               </button>
             </div>
             <div className="mt-2 text-right">
@@ -105,9 +140,10 @@ export default function LoginClient({ dict, locale }: LoginClientProps) {
 
           <button
             type="submit"
-            className="w-full rounded-lg bg-blue-600 px-5 py-3 text-center text-sm font-semibold text-white shadow-lg transition-all hover:bg-blue-700 hover:shadow-blue-500/25 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-800"
+            disabled={loading}
+            className="w-full rounded-lg bg-blue-600 px-5 py-3 text-center text-sm font-semibold text-white shadow-lg transition-all hover:bg-blue-700 hover:shadow-blue-500/25 focus:outline-none focus:ring-4 focus:ring-blue-300 disabled:cursor-not-allowed disabled:opacity-75 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-800"
           >
-            {dict.auth.loginButton}
+            {loading ? 'Entrando...' : dict.auth.loginButton}
           </button>
         </form>
 
