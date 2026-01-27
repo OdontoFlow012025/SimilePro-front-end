@@ -1,8 +1,9 @@
 "use client";
 
+import { api } from "@/services/api";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { FormEvent } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 
 interface SignupClientProps {
   dict: any;
@@ -11,13 +12,113 @@ interface SignupClientProps {
 
 export default function SignupClient({ dict, locale }: SignupClientProps) {
   const router = useRouter();
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  
+  const [formData, setFormData] = useState({
+    user: {
+      name: "",
+      email: "",
+      password: "",
+      phone: "",
+      cpf: "",
+      cro: "",
+    },
+    clinic: {
+      fantasyName: "",
+      companyName: "",
+      cnpj: "",
+      address: "",
+      phone: "",
+    }
+  });
 
-  const handleSignup = (e: FormEvent) => {
+  const formatValue = (name: string, value: string) => {
+    if (name === "cnpj") {
+      return value
+        .replace(/\D/g, "")
+        .replace(/^(\d{2})(\d)/, "$1.$2")
+        .replace(/^(\d{2})\.(\d{3})(\d)/, "$1.$2.$3")
+        .replace(/\.(\d{3})(\d)/, ".$1/$2")
+        .replace(/(\d{4})(\d)/, "$1-$2")
+        .replace(/(-\d{2})\d+?$/, "$1");
+    }
+    if (name === "cpf") {
+      return value
+        .replace(/\D/g, "")
+        .replace(/^(\d{3})(\d)/, "$1.$2")
+        .replace(/^(\d{3})\.(\d{3})(\d)/, "$1.$2.$3")
+        .replace(/\.(\d{3})(\d)/, ".$1-$2")
+        .replace(/(-\d{2})\d+?$/, "$1");
+    }
+    if (name === "phone") {
+      let v = value.replace(/\D/g, "");
+      v = v.slice(0, 11);
+      
+      if (v.length > 10) {
+        // Mobile 11 digit: (XX) XXXXX-XXXX
+        v = v.replace(/^(\d{2})(\d)/, "($1) $2");
+        v = v.replace(/(\d{5})(\d)/, "$1-$2");
+      } else {
+        // Landline 10 digit: (XX) XXXX-XXXX
+        v = v.replace(/^(\d{2})(\d)/, "($1) $2");
+        v = v.replace(/(\d{4})(\d)/, "$1-$2");
+      }
+      return v;
+    }
+    return value;
+  };
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { name, value, dataset } = e.target;
+    const group = dataset.group || "user";
+    const formattedValue = formatValue(name, value);
+    
+    setFormData((prev) => ({
+      ...prev,
+      // @ts-ignore
+      [group]: {
+        // @ts-ignore
+        ...prev[group],
+        [name]: formattedValue,
+      },
+    }));
+  };
+
+  const handleSignup = async (e: FormEvent) => {
     e.preventDefault();
-    // Simulate signup logic
-    console.log("Signing up...");
-    // Redirect to dashboard or login
-    router.push(`/${locale}/dashboard`);
+    setLoading(true);
+    setError("");
+
+    // Payload plano conforme esperado pelo backend
+    // Payload plano conforme esperado pelo backend
+    const payload = {
+      nome: formData.user.name,
+      email: formData.user.email,
+      senha: formData.user.password,
+      telefone: formData.user.phone,
+      cpf: formData.user.cpf,
+      cro: formData.user.cro,
+      nomeFantasia: formData.clinic.fantasyName,
+      razaoSocial: formData.clinic.companyName,
+      cnpj: formData.clinic.cnpj,
+      enderecoClinica: formData.clinic.address,
+      telefoneClinica: formData.clinic.phone,
+    };
+
+    // Log do payload para verificação
+    console.log("Payload enviado para API:", JSON.stringify(payload, null, 2));
+
+    try {
+      await api.auth.signup(payload);
+      router.push(`/${locale}/dashboard`);
+    } catch (err: any) {
+      console.error("Erro detalhado do signup:", err);
+      // Tenta mostrar a mensagem vinda do JSON stringify se for o caso
+      setError(err.message || "Ocorreu um erro ao tentar criar a conta.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -39,8 +140,112 @@ export default function SignupClient({ dict, locale }: SignupClientProps) {
 
         {/* Form */}
         <form onSubmit={handleSignup} className="flex-1 space-y-8">
-          
-          {/* Section 1: Clinic Data */}
+          {error && (
+            <div className="mb-4 rounded-lg bg-red-100 p-4 text-sm text-red-700 dark:bg-red-900/30 dark:text-red-400">
+              {error}
+            </div>
+          )}
+
+          {/* Section 1: Professional Data */}
+          <div>
+            <div className="mb-4 flex items-center gap-2 border-b border-slate-100 pb-2 dark:border-slate-800">
+              <span className="material-symbols-outlined text-blue-600">person</span>
+              <h2 className="text-lg font-semibold text-slate-900 dark:text-white">{dict.signup.userData.title}</h2>
+            </div>
+            
+            <div className="grid gap-4 md:grid-cols-2">
+              <div className="col-span-2">
+                <label className="mb-1.5 block text-sm font-medium text-slate-700 dark:text-slate-300">
+                  {dict.signup.userData.nameLabel} <span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.user.name}
+                  onChange={handleChange}
+                  required
+                  placeholder={dict.signup.userData.namePlaceholder}
+                  className="w-full rounded-lg border border-slate-300 bg-white p-2.5 text-slate-900 placeholder:text-slate-400 focus:border-blue-500 focus:ring-blue-500 dark:border-slate-600 dark:bg-slate-800 dark:text-white"
+                />
+              </div>
+
+              <div className="col-span-2 md:col-span-1">
+                <label className="mb-1.5 block text-sm font-medium text-slate-700 dark:text-slate-300">
+                  {dict.signup.userData.emailLabel} <span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.user.email}
+                  onChange={handleChange}
+                  required
+                  placeholder={dict.signup.userData.emailPlaceholder}
+                  className="w-full rounded-lg border border-slate-300 bg-white p-2.5 text-slate-900 placeholder:text-slate-400 focus:border-blue-500 focus:ring-blue-500 dark:border-slate-600 dark:bg-slate-800 dark:text-white"
+                />
+              </div>
+
+              <div className="col-span-2 md:col-span-1">
+                <label className="mb-1.5 block text-sm font-medium text-slate-700 dark:text-slate-300">
+                  {dict.signup.userData.passwordLabel} <span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="password"
+                  name="password"
+                  value={formData.user.password}
+                  onChange={handleChange}
+                  required
+                  minLength={6}
+                  placeholder={dict.signup.userData.passwordPlaceholder}
+                  className="w-full rounded-lg border border-slate-300 bg-white p-2.5 text-slate-900 placeholder:text-slate-400 focus:border-blue-500 focus:ring-blue-500 dark:border-slate-600 dark:bg-slate-800 dark:text-white"
+                />
+              </div>
+
+              <div className="col-span-2 md:col-span-1">
+                <label className="mb-1.5 block text-sm font-medium text-slate-700 dark:text-slate-300">
+                  {dict.signup.userData.phoneLabel}
+                </label>
+                <input
+                  type="tel"
+                  name="phone"
+                  value={formData.user.phone}
+                  onChange={handleChange}
+                  placeholder={dict.signup.userData.phonePlaceholder}
+                  className="w-full rounded-lg border border-slate-300 bg-white p-2.5 text-slate-900 placeholder:text-slate-400 focus:border-blue-500 focus:ring-blue-500 dark:border-slate-600 dark:bg-slate-800 dark:text-white"
+                />
+              </div>
+
+              <div className="col-span-2 md:col-span-1">
+                <label className="mb-1.5 block text-sm font-medium text-slate-700 dark:text-slate-300">
+                  {dict.signup.userData.cpfLabel}
+                </label>
+                <input
+                  type="text"
+                  name="cpf"
+                  value={formData.user.cpf}
+                  onChange={handleChange}
+                  placeholder={dict.signup.userData.cpfPlaceholder}
+                  className="w-full rounded-lg border border-slate-300 bg-white p-2.5 text-slate-900 placeholder:text-slate-400 focus:border-blue-500 focus:ring-blue-500 dark:border-slate-600 dark:bg-slate-800 dark:text-white"
+                />
+              </div>
+
+              <div className="col-span-2">
+                <label className="mb-1.5 block text-sm font-medium text-slate-700 dark:text-slate-300">
+                  {dict.signup.userData.croLabel} <span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  name="cro"
+                  value={formData.user.cro}
+                  onChange={handleChange}
+                  required
+                  placeholder={dict.signup.userData.croPlaceholder}
+                  className="w-full rounded-lg border border-slate-300 bg-white p-2.5 text-slate-900 placeholder:text-slate-400 focus:border-blue-500 focus:ring-blue-500 dark:border-slate-600 dark:bg-slate-800 dark:text-white"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Section 2: Clinic Data */}
           <div>
             <div className="mb-4 flex items-center gap-2 border-b border-slate-100 pb-2 dark:border-slate-800">
               <span className="material-symbols-outlined text-blue-600">domain</span>
@@ -50,21 +255,46 @@ export default function SignupClient({ dict, locale }: SignupClientProps) {
             <div className="grid gap-4 md:grid-cols-2">
               <div className="col-span-2 md:col-span-1">
                 <label className="mb-1.5 block text-sm font-medium text-slate-700 dark:text-slate-300">
-                  {dict.signup.clinicData.nameLabel}
+                  {dict.signup.clinicData.fantasyNameLabel} <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="text"
+                  name="fantasyName"
+                  data-group="clinic"
+                  value={formData.clinic.fantasyName}
+                  onChange={handleChange}
                   required
-                  placeholder={dict.signup.clinicData.namePlaceholder}
+                  placeholder={dict.signup.clinicData.fantasyNamePlaceholder}
                   className="w-full rounded-lg border border-slate-300 bg-white p-2.5 text-slate-900 placeholder:text-slate-400 focus:border-blue-500 focus:ring-blue-500 dark:border-slate-600 dark:bg-slate-800 dark:text-white"
                 />
               </div>
+
               <div className="col-span-2 md:col-span-1">
+                <label className="mb-1.5 block text-sm font-medium text-slate-700 dark:text-slate-300">
+                  {dict.signup.clinicData.companyNameLabel} <span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  name="companyName"
+                  data-group="clinic"
+                  value={formData.clinic.companyName}
+                  onChange={handleChange}
+                  required
+                  placeholder={dict.signup.clinicData.companyNamePlaceholder}
+                  className="w-full rounded-lg border border-slate-300 bg-white p-2.5 text-slate-900 placeholder:text-slate-400 focus:border-blue-500 focus:ring-blue-500 dark:border-slate-600 dark:bg-slate-800 dark:text-white"
+                />
+              </div>
+
+              <div className="col-span-2">
                 <label className="mb-1.5 block text-sm font-medium text-slate-700 dark:text-slate-300">
                   {dict.signup.clinicData.cnpjLabel} <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="text"
+                  name="cnpj"
+                  data-group="clinic"
+                  value={formData.clinic.cnpj}
+                  onChange={handleChange}
                   required
                   placeholder={dict.signup.clinicData.cnpjPlaceholder}
                   className="w-full rounded-lg border border-slate-300 bg-white p-2.5 text-slate-900 placeholder:text-slate-400 focus:border-blue-500 focus:ring-blue-500 dark:border-slate-600 dark:bg-slate-800 dark:text-white"
@@ -79,7 +309,10 @@ export default function SignupClient({ dict, locale }: SignupClientProps) {
                   <span className="material-symbols-outlined absolute left-3 top-2.5 text-slate-400">location_on</span>
                   <input
                     type="text"
-                    required
+                    name="address"
+                    data-group="clinic"
+                    value={formData.clinic.address}
+                    onChange={handleChange}
                     placeholder={dict.signup.clinicData.addressPlaceholder}
                     className="w-full rounded-lg border border-slate-300 bg-white p-2.5 pl-10 text-slate-900 placeholder:text-slate-400 focus:border-blue-500 focus:ring-blue-500 dark:border-slate-600 dark:bg-slate-800 dark:text-white"
                   />
@@ -88,13 +321,16 @@ export default function SignupClient({ dict, locale }: SignupClientProps) {
 
               <div className="col-span-2">
                 <label className="mb-1.5 block text-sm font-medium text-slate-700 dark:text-slate-300">
-                  {dict.signup.clinicData.phoneLabel} <span className="text-red-500">*</span>
+                  {dict.signup.clinicData.phoneLabel}
                 </label>
                 <div className="relative">
                   <span className="material-symbols-outlined absolute left-3 top-2.5 text-slate-400">call</span>
                   <input
                     type="text"
-                    required
+                    name="phone"
+                    data-group="clinic"
+                    value={formData.clinic.phone}
+                    onChange={handleChange}
                     placeholder={dict.signup.clinicData.phonePlaceholder}
                     className="w-full rounded-lg border border-slate-300 bg-white p-2.5 pl-10 text-slate-900 placeholder:text-slate-400 focus:border-blue-500 focus:ring-blue-500 dark:border-slate-600 dark:bg-slate-800 dark:text-white"
                   />
@@ -103,62 +339,14 @@ export default function SignupClient({ dict, locale }: SignupClientProps) {
             </div>
           </div>
 
-          {/* Section 2: Technical Responsible */}
-          <div>
-            <div className="mb-4 flex items-center gap-2 border-b border-slate-100 pb-2 dark:border-slate-800">
-              <span className="material-symbols-outlined text-blue-600">person</span>
-              <h2 className="text-lg font-semibold text-slate-900 dark:text-white">{dict.signup.technicalResponsible.title}</h2>
-            </div>
-            
-            <div className="grid gap-4">
-              <div>
-                <label className="mb-1.5 block text-sm font-medium text-slate-700 dark:text-slate-300">
-                  {dict.signup.technicalResponsible.nameLabel}
-                </label>
-                <input
-                  type="text"
-                  required
-                  placeholder={dict.signup.technicalResponsible.namePlaceholder}
-                  className="w-full rounded-lg border border-slate-300 bg-white p-2.5 text-slate-900 placeholder:text-slate-400 focus:border-blue-500 focus:ring-blue-500 dark:border-slate-600 dark:bg-slate-800 dark:text-white"
-                />
-              </div>
-              
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="mb-1.5 block text-sm font-medium text-slate-700 dark:text-slate-300">
-                    {dict.signup.technicalResponsible.croLabel} <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    required
-                    placeholder={dict.signup.technicalResponsible.croPlaceholder}
-                    className="w-full rounded-lg border border-slate-300 bg-white p-2.5 text-slate-900 placeholder:text-slate-400 focus:border-blue-500 focus:ring-blue-500 dark:border-slate-600 dark:bg-slate-800 dark:text-white"
-                  />
-                </div>
-                 <div>
-                  <label className="mb-1.5 block text-sm font-medium text-slate-700 dark:text-slate-300">
-                    {dict.signup.technicalResponsible.specializationLabel}
-                  </label>
-                  <select
-                    className="w-full rounded-lg border border-slate-300 bg-white p-2.5 text-slate-900 focus:border-blue-500 focus:ring-blue-500 dark:border-slate-600 dark:bg-slate-800 dark:text-white"
-                  >
-                    <option value="">{dict.signup.technicalResponsible.specializationPlaceholder}</option>
-                    <option value="orto">Ortodontia</option>
-                    <option value="implante">Implantodontia</option>
-                    <option value="clinico">Clínico Geral</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-          </div>
-
           {/* Submit Button */}
           <button
             type="submit"
-            className="flex w-full items-center justify-center gap-2 rounded-lg bg-blue-600 px-5 py-4 text-center font-semibold text-white shadow-lg transition-all hover:bg-blue-700 hover:shadow-blue-500/25 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            disabled={loading}
+            className="flex w-full items-center justify-center gap-2 rounded-lg bg-blue-600 px-5 py-4 text-center font-semibold text-white shadow-lg transition-all hover:bg-blue-700 hover:shadow-blue-500/25 focus:outline-none focus:ring-4 focus:ring-blue-300 disabled:cursor-not-allowed disabled:opacity-75 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
           >
-            {dict.signup.submitButton}
-            <span className="material-symbols-outlined text-lg">arrow_forward</span>
+            {loading ? 'Enviando...' : dict.signup.submitButton}
+            {!loading && <span className="material-symbols-outlined text-lg">arrow_forward</span>}
           </button>
           
           {/* Terms Footer */}
