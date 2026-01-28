@@ -41,8 +41,8 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL(`/${validLocale}/login`, request.url));
   }
 
-  // If authenticated and trying to access login/register, redirect to dashboard
-  if (isAuthenticated && (pathname.includes('/login') || pathname.includes('/register'))) {
+  // If authenticated and trying to access login/signup, redirect to dashboard
+  if (isAuthenticated && (pathname.includes('/login') || pathname.includes('/signup'))) {
      const locale = request.nextUrl.pathname.split('/')[1];
      const validLocale = i18nConfig.locales.includes(locale) ? locale : i18nConfig.defaultLocale;
      return NextResponse.redirect(new URL(`/${validLocale}/dashboard`, request.url));

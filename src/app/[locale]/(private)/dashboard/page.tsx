@@ -1,51 +1,51 @@
 'use client';
 
-import { ThemeToggle } from '@/components/ThemeToggle';
-import { useRouter } from 'next/navigation';
-import { use } from 'react';
+import AdminDashboard from '@/components/dashboard/AdminDashboard';
+import DentistDashboard from '@/components/dashboard/DentistDashboard';
+import { JWTPayload } from '@/types/auth'; // Ensure this type exists as per previous steps
+import { jwtDecode } from 'jwt-decode';
+import { use, useEffect, useState } from 'react';
+
+// Client component to safely access cookies (since we are in 'use client')
+function getRoleFromCookie(): string | null {
+  if (typeof document === 'undefined') return null;
+  const match = document.cookie.match(new RegExp('(^| )auth_token=([^;]+)'));
+  if (match) {
+    try {
+      const decoded = jwtDecode<JWTPayload>(match[2]);
+      // console.log("Decoded Token:", decoded); 
+      // console.log("Role/Tipo detected:", decoded.tipoUsuario || decoded.role);
+      
+      // Return the available role field
+      return decoded.tipoUsuario || decoded.role || null;
+    } catch (e) {
+      console.error("Invalid token", e);
+      return null;
+    }
+  }
+  return null;
+}
 
 export default function DashboardPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = use(params);
-  const router = useRouter();
+  const [role, setRole] = useState<string | null>(null);
+  const [isMounted, setIsMounted] = useState(false);
 
-  const handleLogout = () => {
-    // Clear the cookie
-    document.cookie = "auth_token=; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT;";
-    router.refresh();
-    router.push(`/${locale}/login`);
-  };
+  useEffect(() => {
+    setIsMounted(true);
+    const roleFromCookie = getRoleFromCookie();
+    setRole(roleFromCookie);
+  }, []);
 
-  return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
-      <nav className="bg-white shadow dark:bg-gray-800">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex h-16 justify-between">
-            <div className="flex items-center">
-              <span className="text-xl font-bold text-blue-600">OdontoFlow Dashboard</span>
-            </div>
-            <div className="flex items-center gap-4">
-              <ThemeToggle />
-              <button
-                onClick={handleLogout}
-                className="rounded-md bg-red-100 px-3 py-2 text-sm font-medium text-red-700 hover:bg-red-200 dark:bg-red-900/30 dark:text-red-400"
-              >
-                Logout
-              </button>
-            </div>
-          </div>
-        </div>
-      </nav>
+  // Prevent hydration mismatch by defining a consistent server/client initial state
+  if (!isMounted) {
+    return <DentistDashboard locale={locale} />;
+  }
 
-      <main className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
-        <div className="px-4 py-6 sm:px-0">
-          <div className="rounded-lg border-4 border-dashed border-gray-200 p-8 h-96 flex flex-col items-center justify-center text-center">
-             <h2 className="text-2xl font-semibold text-gray-700 dark:text-gray-300">Protected Area</h2>
-             <p className="mt-2 text-gray-500 dark:text-gray-400">
-               You can only see this page because the <code className="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded">auth_token</code> cookie is present.
-             </p>
-          </div>
-        </div>
-      </main>
-    </div>
-  );
+  // Check for both legacy "ADMIN" and actual backend "ADMIN_TOTAL"
+  if (role === 'ADMIN' || role === 'ADMIN_TOTAL') {
+    return <AdminDashboard />;
+  }
+ 
+  return <DentistDashboard locale={locale} />;
 }
