@@ -151,5 +151,86 @@
     "title": "Transforme sonrisas mientras nosotros cuidamos la gestión.",
     "description": "Únase a más de 5,000 clínicas que han automatizado citas, facturación y registros con OdontoFlow.",
     "testimonial": "Aprobado por expertos"
+  },
+  "dashboard": {
+    "header": {
+      "title": "Visión General de la Clínica",
+      "subtitle": "Monitoreo integrado: Administrativo y Operativo.",
+      "unitCenter": "Unidad Central",
+      "unitJardins": "Unidad Jardines",
+      "unitNorth": "Unidad Norte"
+    },
+    "sidebar": {
+      "dashboard": "Dashboard",
+      "operational": "Operativo",
+      "schedule": "Agenda Clínica",
+      "patients": "Pacientes",
+      "records": "Historiales",
+      "administrative": "Administrativo",
+      "financial": "Financiero",
+      "inventory": "Inventario",
+      "reports": "Informes BI",
+      "team": "Equipo",
+      "system": "Sistema",
+      "settings": "Configuración",
+      "logout": "Cerrar sesión",
+      "role": "Administrador"
+    },
+    "financial": {
+      "title": "Salud Financiera",
+      "dailyRevenue": "INGRESOS DIARIOS",
+      "monthlyExpenses": "GASTOS MENSUALES",
+      "netProfit": "BENEFICIO NETO REAL"
+    },
+    "attendance": {
+      "title": "Flujo de Atención en Vivo",
+      "realtime": "Tiempo Real",
+      "waitingRoom": "SALA DE ESPERA",
+      "patients": "pacientes",
+      "avgTime": "Tiempo prom.",
+      "inService": "EN ATENCIÓN",
+      "dentistsBusy": "dentistas ocupados",
+      "occupancy": "Ocupación",
+      "finishedToday": "FINALIZADOS HOY",
+      "consultations": "consultas",
+      "goal": "Meta"
+    },
+    "cashflow": {
+      "title": "Flujo de Caja",
+      "income": "Entradas",
+      "expense": "Salidas",
+      "filters": {
+        "today": "Hoy",
+        "7days": "7 Días",
+        "lastMonth": "Último Mes",
+        "last3Months": "Último Trimestre",
+        "last6Months": "Último Semestre",
+        "lastYear": "Último Año",
+        "all": "Flujo Total"
+      }
+    },
+    "pendencies": {
+      "title": "Pendientes Críticas",
+      "subtitle": "Acciones que requieren atención inmediata",
+      "pay": "Pagar",
+      "charge": "Cobrar",
+      "noData": "No se encontraron pendientes críticas",
+      "provider": "Proveedor",
+      "patient": "Paciente",
+      "due": "Vence",
+      "defaultTitle": "Pendiente"
+    },
+    "quickActions": {
+      "title": "Acciones Rápidas",
+      "newAppointment": "Nueva Cita",
+      "checkin": "Check-in Paciente",
+      "expense": "Registrar Gasto",
+      "report": "Generar PyG"
+    },
+    "bi": {
+      "title": "Indicadores BI",
+      "newPatients": "Nuevos Pacientes",
+      "currentMonth": "Mes Actual"
+    }
   }
 }

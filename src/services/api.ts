@@ -1,12 +1,20 @@
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
 
 async function request(endpoint: string, options: RequestInit = {}) {
-  const headers = {
+  const headers: Record<string, string> = {
     'Content-Type': 'application/json',
     'Bypass-Tunnel-Reminder': 'true',
     'ngrok-skip-browser-warning': 'true',
-    ...options.headers,
+    ...(options.headers as Record<string, string>),
   };
+
+  // Client-side: Auto-inject token from cookie
+  if (typeof document !== 'undefined') {
+      const match = document.cookie.match(new RegExp("(^| )auth_token=([^;]+)"));
+      if (match && match[2]) {
+          headers['Authorization'] = `Bearer ${match[2]}`;
+      }
+  }
 
   const response = await fetch(`${API_URL}${endpoint}`, {
     ...options,
@@ -17,8 +25,12 @@ async function request(endpoint: string, options: RequestInit = {}) {
 
   const data = await response.json().catch(() => ({}));
 
+  // if (response.status === 401) {
+  //   // Token expired handling disabled to prevent loops until robust refresh logic is added
+  // }
+
   if (!response.ok) {
-    console.error("API Error Details:", data); // Log para debug
+    // console.error("API Error Details:", data); // Removed to avoid channel spam on handled errors
     throw new Error(data.message || JSON.stringify(data) || `Erro na requisição: ${response.statusText}`);
   }
 
@@ -69,12 +81,13 @@ export const api = {
 
   scheduling: {
     create: (data: any) => request('/agendamentos', { method: 'POST', body: JSON.stringify(data) }),
-    list: () => request('/agendamentos'),
+    list: (query?: string) => request(`/agendamentos${query ? `?${query}` : ''}`),
     getByDentist: (dentistId: string) => request(`/agendamentos/dentista/${dentistId}`),
     getById: (id: string) => request(`/agendamentos/${id}`),
     update: (id: string, data: any) => request(`/agendamentos/${id}`, { method: 'PATCH', body: JSON.stringify(data) }),
     delete: (id: string) => request(`/agendamentos/${id}`, { method: 'DELETE' }),
     updateStatus: (id: string, data: any) => request(`/agendamentos/${id}/status`, { method: 'PATCH', body: JSON.stringify(data) }),
+    getDashboardStats: () => request('/agendamentos/dashboard/hoje'),
   },
 
   accounting: {
@@ -85,8 +98,8 @@ export const api = {
     createAccount: (data: any) => request('/contabilidade/plano-contas', { method: 'POST', body: JSON.stringify(data) }),
     listAccounts: () => request('/contabilidade/plano-contas'),
     getAccountStructure: () => request('/contabilidade/plano-contas/estrutura'),
-    getBalance: () => request('/contabilidade/relatorios/balanco'),
-    getCashFlow: () => request('/contabilidade/relatorios/fluxo-caixa'),
+    getBalance: (query?: string) => request(`/contabilidade/relatorios/balanco${query ? `?${query}` : ''}`),
+    getCashFlow: (query?: string) => request(`/contabilidade/dashboard/fluxo-caixa${query ? `?${query}` : ''}`),
     getDRE: () => request('/contabilidade/relatorios/dre'),
     getCostCenterReport: () => request('/contabilidade/relatorios/centros-custo'),
   },
@@ -170,8 +183,8 @@ export const api = {
   financialTransactions: {
     create: (data: any) => request('/transacoes-financeiras', { method: 'POST', body: JSON.stringify(data) }),
     list: () => request('/transacoes-financeiras'),
-    getByPeriod: () => request('/transacoes-financeiras/periodo'),
-    getSummary: () => request('/transacoes-financeiras/resumo'),
+    getByPeriod: (query?: string) => request(`/transacoes-financeiras/periodo${query ? `?${query}` : ''}`),
+    getSummary: (query?: string) => request(`/transacoes-financeiras/resumo${query ? `?${query}` : ''}`),
     getById: (id: string) => request(`/transacoes-financeiras/${id}`),
     update: (id: string, data: any) => request(`/transacoes-financeiras/${id}`, { method: 'PATCH', body: JSON.stringify(data) }),
     delete: (id: string) => request(`/transacoes-financeiras/${id}`, { method: 'DELETE' }),

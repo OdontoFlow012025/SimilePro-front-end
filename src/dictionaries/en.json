@@ -151,5 +151,86 @@
     "title": "Transform smiles while we take care of management.",
     "description": "Join over 5,000 clinics that have automated scheduling, billing, and records with OdontoFlow.",
     "testimonial": "Approved by experts"
+  },
+  "dashboard": {
+    "header": {
+      "title": "Clinic Overview",
+      "subtitle": "Integrated monitoring: Administrative and Operational.",
+      "unitCenter": "Center Unit",
+      "unitJardins": "Jardins Unit",
+      "unitNorth": "North Unit"
+    },
+    "sidebar": {
+      "dashboard": "Dashboard",
+      "operational": "Operational",
+      "schedule": "Clinical Schedule",
+      "patients": "Patients",
+      "records": "Medical Records",
+      "administrative": "Administrative",
+      "financial": "Financial",
+      "inventory": "Inventory",
+      "reports": "BI Reports",
+      "team": "Team",
+      "system": "System",
+      "settings": "Settings",
+      "logout": "Logout",
+      "role": "Administrator"
+    },
+    "financial": {
+      "title": "Financial Health",
+      "dailyRevenue": "DAILY REVENUE",
+      "monthlyExpenses": "MONTHLY EXPENSES",
+      "netProfit": "REAL NET PROFIT"
+    },
+    "attendance": {
+      "title": "Live Attendance Flow",
+      "realtime": "Real Time",
+      "waitingRoom": "WAITING ROOM",
+      "patients": "patients",
+      "avgTime": "Avg Time",
+      "inService": "IN SERVICE",
+      "dentistsBusy": "dentists busy",
+      "occupancy": "Occupancy",
+      "finishedToday": "FINISHED TODAY",
+      "consultations": "consultations",
+      "goal": "Goal"
+    },
+    "cashflow": {
+      "title": "Cash Flow",
+      "income": "Income",
+      "expense": "Expenses",
+      "filters": {
+        "today": "Today",
+        "7days": "7 Days",
+        "lastMonth": "Last Month",
+        "last3Months": "Last Quarter",
+        "last6Months": "Last Semester",
+        "lastYear": "Last Year",
+        "all": "Total Flow"
+      }
+    },
+    "pendencies": {
+      "title": "Critical Pendencies",
+      "subtitle": "Actions requiring immediate attention",
+      "pay": "Pay",
+      "charge": "Charge",
+      "noData": "No critical pendencies found",
+      "provider": "Provider",
+      "patient": "Patient",
+      "due": "Due",
+      "defaultTitle": "Pending Item"
+    },
+    "quickActions": {
+      "title": "Quick Actions",
+      "newAppointment": "New Appointment",
+      "checkin": "Patient Check-in",
+      "expense": "Log Expense",
+      "report": "Generate P&L"
+    },
+    "bi": {
+      "title": "BI Indicators",
+      "newPatients": "New Patients",
+      "currentMonth": "Current Month"
+    }
   }
 }
