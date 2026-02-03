@@ -310,6 +310,29 @@
       "successMessage": "¡Cita creada con éxito!",
       "authError": "Error de autenticación. Inicie sesión nuevamente.",
       "genericError": "Error al agendar"
+    },
+    "triage": {
+      "title": "Triaje y Clasificación de Riesgo",
+      "waitingQueue": "Cola de Espera",
+      "empty": "No hay pacientes esperando triaje.",
+      "startBtn": "Realizar Triaje",
+      "modalTitle": "Triaje Clínico",
+      "patientLabel": "Paciente",
+      "vitalsTitle": "Signos Vitales",
+      "pressureLabel": "PA (mmHg)",
+      "heartRateLabel": "FC (bpm)",
+      "tempLabel": "Temp (ºC)",
+      "oxygenLabel": "Sat. O2 (%)",
+      "weightLabel": "Peso (kg)",
+      "complaintLabel": "Queja Principal / Historia",
+      "complaintPlaceholder": "Describa el motivo de la visita...",
+      "riskLabel": "Clasificación de Riesgo",
+      "riskHelper": "Seleccione la gravedad (Manchester)",
+      "cancelBtn": "Cancelar",
+      "saveBtn": "Guardar Triaje",
+      "saving": "Guardando...",
+      "success": "¡Triaje guardado con éxito!",
+      "error": "Error al guardar el triaje"
     }
   }
 }

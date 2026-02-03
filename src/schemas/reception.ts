@@ -5,6 +5,8 @@ export const ReceptionStatusEnum = z.enum([
   "AGENDADO",
   "CONFIRMADO", 
   "AGUARDANDO", // "Waiting" - Critical for Reception
+  "AGUARDANDO_TRIAGEM", // Waiting for Triage
+  "EM_ESPERA_MEDICA", // Triage Finished, Waiting for Doctor
   "EM_ATENDIMENTO", // "In Service"
   "ATENDIDO", // "Finished"
   "CANCELADO",

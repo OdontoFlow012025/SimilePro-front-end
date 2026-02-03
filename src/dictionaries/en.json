@@ -308,6 +308,29 @@
       "successMessage": "Appointment created successfully!",
       "authError": "Authentication error. Please login again.",
       "genericError": "Error scheduling appointment"
+    },
+    "triage": {
+      "title": "Triage & Risk Assessment",
+      "waitingQueue": "Waiting Queue",
+      "empty": "No patients waiting for triage.",
+      "startBtn": "Start Triage",
+      "modalTitle": "Clinical Triage",
+      "patientLabel": "Patient",
+      "vitalsTitle": "Vital Signs",
+      "pressureLabel": "BP (mmHg)",
+      "heartRateLabel": "HR (bpm)",
+      "tempLabel": "Temp (ºC)",
+      "oxygenLabel": "O2 Sat (%)",
+      "weightLabel": "Weight (kg)",
+      "complaintLabel": "Chief Complaint / History",
+      "complaintPlaceholder": "Describe the reason for visit...",
+      "riskLabel": "Risk Classification",
+      "riskHelper": "Select severity (Manchester)",
+      "cancelBtn": "Cancel",
+      "saveBtn": "Save Triage",
+      "saving": "Saving...",
+      "success": "Triage saved successfully!",
+      "error": "Error saving triage"
     }
   }
 }
