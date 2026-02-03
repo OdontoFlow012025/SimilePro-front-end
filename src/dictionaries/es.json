@@ -1,6 +1,13 @@
 {
   "meta": {
+    "_cache_buster": "v1",
     "title": "OdontoFlow - Gestión Moderna de Clínicas Dentales"
+  },
+  "systemAlert": {
+    "title": "ATENCIÓN:",
+    "message": "Sistema inestable debido a la readecuación al RNDS Brasileño.",
+    "close": "Cerrar Aviso",
+    "closeTimer": "Cerrar"
   },
   "navbar": {
     "features": "Características",
@@ -109,7 +116,16 @@
     "or": "O",
     "noAccount": "¿Aún no tiene una cuenta?",
     "signUp": "Registre su clínica",
-    "copyright": "Términos de Uso Privacidad Ayuda"
+    "copyright": "Términos de Uso Privacidad Ayuda",
+    "loading": "Entrando...",
+    "loadingStart": "Iniciando el sistema...",
+    "loadingEnd": "Listo",
+    "errorGeneric": "Error al iniciar sesión. Verifique sus credenciales.",
+    "footer": {
+        "terms": "Términos",
+        "privacy": "Privacidad",
+        "help": "Ayuda"
+    }
   },
   "signup": {
     "title": "Crea tu cuenta",
@@ -144,7 +160,18 @@
     },
     "submitButton": "Crear Cuenta",
     "haveAccount": "¿Ya tienes una cuenta?",
-    "loginLink": "Iniciar Sesión"
+    "loginLink": "Iniciar Sesión",
+    "loading": "Enviando...",
+    "errorGeneric": "Ocurrió un error al intentar crear la cuenta.",
+    "termsAgreement": "Al hacer clic en \"{submitButton}\", usted acepta nuestros",
+    "termsLink": "Términos de Uso",
+    "privacyLink": "Política de Privacidad",
+    "hero": {
+        "title": "Gestión simplificada para su clínica",
+        "testimonial": "OdontoFlow cambió completamente la organización de mi consultorio. Puedo ver mi agenda y facturación desde cualquier lugar.",
+        "author": "Dra. Ana Ferreira",
+        "role": "Ortodoncista"
+    }
   },
   "loginFeatures": {
     "badge": "Líder en Gestión Odontológica",
@@ -160,10 +187,33 @@
       "unitJardins": "Unidad Jardines",
       "unitNorth": "Unidad Norte"
     },
+    "calendar": {
+        "today": "Hoy",
+        "next": "Siguiente",
+        "previous": "Anterior",
+        "month": "Mes",
+        "week": "Semana",
+        "day": "Día",
+        "agenda": "Agenda",
+        "date": "Fecha",
+        "time": "Hora",
+        "event": "Evento",
+        "noEventsInRange": "No hay eventos en este rango."
+    },
+    "sidebarFilters": {
+        "calendar": "Calendario",
+        "professionals": "Profesionales",
+        "rooms": "Salas",
+        "allRooms": "Todas las Salas"
+    },
     "sidebar": {
       "dashboard": "Dashboard",
       "operational": "Operativo",
-      "schedule": "Agenda Clínica",
+      "attendance": "Atención",
+      "reception": "Recepción",
+      "triage": "Triaje",
+      "medicalCare": "Atención Médica",
+      "schedule": "Agendamiento",
       "patients": "Pacientes",
       "records": "Historiales",
       "administrative": "Administrativo",
@@ -227,10 +277,39 @@
       "expense": "Registrar Gasto",
       "report": "Generar PyG"
     },
+    "receptionBoard": {
+      "title": "Flujo de Recepción",
+      "scheduled": "Programados Hoy",
+      "waiting": "Sala de Espera",
+      "inService": "En Atención",
+      "checkIn": "Confirmar Llegada",
+      "empty": "Ningún paciente.",
+      "time": "Hora",
+      "doctor": "Dentista",
+      "newPatientBtn": "Nuevo Paciente",
+      "scheduleBtn": "Agendar",
+      "loading": "Cargando recepción...",
+      "checkinError": "Error al realizar check-in"
+    },
     "bi": {
       "title": "Indicadores BI",
       "newPatients": "Nuevos Pacientes",
       "currentMonth": "Mes Actual"
+    },
+    "appointmentModal": {
+      "title": "Nueva Cita",
+      "patientLabel": "Paciente",
+      "patientSelect": "Seleccione un paciente...",
+      "dentistLabel": "Dentista",
+      "dentistSelect": "Seleccione un dentista...",
+      "dateLabel": "Fecha",
+      "timeLabel": "Hora",
+      "notesLabel": "Observaciones",
+      "notesPlaceholder": "Motivo de la consulta...",
+      "submitButton": "Agendar Cita",
+      "successMessage": "¡Cita creada con éxito!",
+      "authError": "Error de autenticación. Inicie sesión nuevamente.",
+      "genericError": "Error al agendar"
     }
   }
 }

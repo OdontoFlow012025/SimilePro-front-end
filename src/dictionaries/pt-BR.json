@@ -1,6 +1,13 @@
 {
   "meta": {
+    "_cache_buster": "v1",
     "title": "OdontoFlow - Gestão Moderna de Clínicas Odontológicas"
+  },
+  "systemAlert": {
+    "title": "ATENÇÃO:",
+    "message": "Sistema estará instavel devido a readequação do sistema ao RNDS Brasileiro.",
+    "close": "Fechar Aviso",
+    "closeTimer": "Fechar"
   },
   "navbar": {
     "features": "Funcionalidades",
@@ -109,7 +116,16 @@
     "or": "OU",
     "noAccount": "Ainda não tem uma conta?",
     "signUp": "Cadastre sua clínica",
-    "copyright": "Termos de Uso Privacy Ajuda"
+    "copyright": "Termos de Uso Privacidad Ajuda",
+    "loading": "Entrando...",
+    "loadingStart": "Iniciando Sistema...",
+    "loadingEnd": "Concluído",
+    "errorGeneric": "Erro ao realizar login. Verifique suas credenciais.",
+    "footer": {
+        "terms": "Termos",
+        "privacy": "Privacidade",
+        "help": "Ajuda"
+    }
   },
   "signup": {
     "title": "Crie sua conta",
@@ -144,7 +160,18 @@
     },
     "submitButton": "Criar Conta",
     "haveAccount": "Já possui uma conta?",
-    "loginLink": "Fazer Login"
+    "loginLink": "Fazer Login",
+    "loading": "Enviando...",
+    "errorGeneric": "Ocorreu um erro ao tentar criar a conta.",
+    "termsAgreement": "Ao clicar em \"{submitButton}\", você concorda com nossos",
+    "termsLink": "Termos de Uso",
+    "privacyLink": "Política de Privacidade",
+    "hero": {
+        "title": "Gestão simplificada para sua clínica",
+        "testimonial": "O OdontoFlow mudou completamente a organização do meu consultório. Consigo ver minha agenda e faturamento de qualquer lugar.",
+        "author": "Dra. Ana Ferreira",
+        "role": "Ortodontista"
+    }
   },
   "loginFeatures": {
     "badge": "Líder em Gestão Odontológica",
@@ -160,10 +187,27 @@
       "unitJardins": "Unidade Jardins",
       "unitNorth": "Unidade Norte"
     },
-    "sidebar": {
-      "dashboard": "Dashboard",
+    "calendar": {
+        "today": "Hoje",
+        "next": "Próximo",
+        "previous": "Anterior",
+        "month": "Mês",
+        "week": "Semana",
+        "day": "Dia",
+        "agenda": "Agenda",
+        "date": "Data",
+        "time": "Hora",
+        "event": "Evento",
+        "noEventsInRange": "Não há eventos neste período."
+    },
+    "sidebarFilters": {
+        "calendar": "Calendário",
       "operational": "Operacional",
-      "schedule": "Agenda Clínica",
+      "attendance": "Atendimento",
+      "reception": "Recepção",
+      "triage": "Triagem",
+      "medicalCare": "Atendimento Médico",
+      "schedule": "Agendamento",
       "patients": "Pacientes",
       "records": "Prontuários",
       "administrative": "Administrativo",
@@ -227,10 +271,39 @@
       "expense": "Lançar Despesa",
       "report": "Gerar DRE"
     },
+    "receptionBoard": {
+      "title": "Fluxo de Recepção",
+      "scheduled": "Agendados Hoje",
+      "waiting": "Sala de Espera",
+      "inService": "Em Atendimento",
+      "checkIn": "Confirmar Chegada",
+      "empty": "Nenhum paciente.",
+      "time": "Horário",
+      "doctor": "Dentista",
+      "newPatientBtn": "Novo Paciente",
+      "scheduleBtn": "Agendar",
+      "loading": "Carregando recepção...",
+      "checkinError": "Erro ao realizar check-in"
+    },
     "bi": {
       "title": "Indicadores BI",
       "newPatients": "Novos Pacientes",
       "currentMonth": "Mês Atual"
+    },
+    "appointmentModal": {
+      "title": "Novo Agendamento",
+      "patientLabel": "Paciente",
+      "patientSelect": "Selecione um paciente...",
+      "dentistLabel": "Dentista",
+      "dentistSelect": "Selecione um dentista...",
+      "dateLabel": "Data",
+      "timeLabel": "Hora",
+      "notesLabel": "Observações",
+      "notesPlaceholder": "Motivo da consulta...",
+      "submitButton": "Agendar Consulta",
+      "successMessage": "Agendamento criado com sucesso!",
+      "authError": "Erro de autenticação. Faça login novamente.",
+      "genericError": "Erro ao agendar"
     }
   }
 }

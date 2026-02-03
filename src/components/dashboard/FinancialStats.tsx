@@ -42,7 +42,7 @@ export default function FinancialStats({ dictionary }: { dictionary: any }) {
             api.financialTransactions.getSummary(monthlyQuery)
         ]);
         
-        console.log("DEBUG: Daily Transaction Summary:", dailySummary);
+
 
         // Map daily revenue explicitly from 'entradas' or 'receitas' of the summary
         const dailyVal = Number(

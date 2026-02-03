@@ -13,21 +13,15 @@ export default function Header({ dictionary }: { dictionary: any }) {
     async function fetchUnits() {
         try {
             const data = await api.clinics.list();
-            // If data is array and has items, use it
             if (Array.isArray(data) && data.length > 0) {
                 setUnits(data);
                 setSelectedUnit(data[0].nome || "Unidade Principal");
             } else {
-                 // Fallback if empty array
                  setUnits([{ nome: "Unidade Principal" }]);
                  setSelectedUnit("Unidade Principal");
             }
         } catch (err) {
-            console.warn("Failed to fetch clinics, using default.", err);
-            // Safe fallback on error (401/400 etc)
-            // For now, let's assume if it fails, we show at least one to not break layout. 
-            // Or if you want to test the multi-unit logic, we can mock 3 here.
-            // But for production, better to be safe.
+            console.warn("Failed to fetch clinics, using default.");
             setUnits([{ nome: "Unidade Principal" }]); 
             setSelectedUnit("Unidade Principal");
         }

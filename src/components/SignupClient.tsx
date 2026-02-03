@@ -107,7 +107,7 @@ export default function SignupClient({ dict, locale }: SignupClientProps) {
     };
 
     // Log do payload para verificação
-    console.log("Payload enviado para API:", JSON.stringify(payload, null, 2));
+
 
     try {
       await api.auth.signup(payload);
@@ -115,7 +115,7 @@ export default function SignupClient({ dict, locale }: SignupClientProps) {
     } catch (err: any) {
       console.error("Erro detalhado do signup:", err);
       // Tenta mostrar a mensagem vinda do JSON stringify se for o caso
-      setError(err.message || "Ocorreu um erro ao tentar criar a conta.");
+      setError(err.message || dict.signup.errorGeneric);
     } finally {
       setLoading(false);
     }
@@ -345,14 +345,14 @@ export default function SignupClient({ dict, locale }: SignupClientProps) {
             disabled={loading}
             className="flex w-full items-center justify-center gap-2 rounded-lg bg-blue-600 px-5 py-4 text-center font-semibold text-white shadow-lg transition-all hover:bg-blue-700 hover:shadow-blue-500/25 focus:outline-none focus:ring-4 focus:ring-blue-300 disabled:cursor-not-allowed disabled:opacity-75 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
           >
-            {loading ? 'Enviando...' : dict.signup.submitButton}
+            {loading ? dict.signup.loading : dict.signup.submitButton}
             {!loading && <span className="material-symbols-outlined text-lg">arrow_forward</span>}
           </button>
           
           {/* Terms Footer */}
-           <div className="text-center text-xs text-slate-500 dark:text-slate-400">
-              Ao clicar em "{dict.signup.submitButton}", você concorda com nossos <a href="#" className="text-blue-600 hover:underline">Termos de Uso</a> e <a href="#" className="text-blue-600 hover:underline">Política de Privacidade</a>.
-           </div>
+            <div className="text-center text-xs text-slate-500 dark:text-slate-400">
+              {dict.signup.termsAgreement.replace('{submitButton}', dict.signup.submitButton)} <a href="#" className="text-blue-600 hover:underline">{dict.signup.termsLink}</a> & <a href="#" className="text-blue-600 hover:underline">{dict.signup.privacyLink}</a>.
+            </div>
 
         </form>
       </div>
@@ -373,23 +373,23 @@ export default function SignupClient({ dict, locale }: SignupClientProps) {
                <div className="mb-6 h-14 w-14 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/30">
                   <span className="material-symbols-outlined text-3xl text-white">verified_user</span>
                </div>
-               <h2 className="mb-6 text-4xl font-bold leading-tight text-white lg:text-5xl">
-                 Gestão simplificada para sua clínica
-               </h2>
-               <div className="rounded-2xl bg-white/10 p-6 backdrop-blur-md border border-white/20">
-                  <p className="mb-4 text-lg text-slate-200 italic">
-                     "O OdontoFlow mudou completamente a organização do meu consultório. Consigo ver minha agenda e faturamento de qualquer lugar."
-                  </p>
-                  <div className="flex items-center gap-4">
-                     <div className="h-12 w-12 rounded-full bg-slate-400 overflow-hidden">
-                       {/* Placeholder for user avatar if available, otherwise gray circle */}
-                     </div>
-                     <div>
-                        <div className="font-bold text-white">Dra. Ana Ferreira</div>
-                        <div className="text-sm text-slate-300">Ortodontista</div>
-                     </div>
-                  </div>
-               </div>
+                 <h2 className="mb-6 text-4xl font-bold leading-tight text-white lg:text-5xl">
+                   {dict.signup.hero.title}
+                 </h2>
+                 <div className="rounded-2xl bg-white/10 p-6 backdrop-blur-md border border-white/20">
+                    <p className="mb-4 text-lg text-slate-200 italic">
+                       "{dict.signup.hero.testimonial}"
+                    </p>
+                    <div className="flex items-center gap-4">
+                       <div className="h-12 w-12 rounded-full bg-slate-400 overflow-hidden">
+                         {/* Placeholder */}
+                       </div>
+                       <div>
+                          <div className="font-bold text-white">{dict.signup.hero.author}</div>
+                          <div className="text-sm text-slate-300">{dict.signup.hero.role}</div>
+                       </div>
+                    </div>
+                 </div>
             </div>
 
         </div>

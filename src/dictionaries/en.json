@@ -1,6 +1,13 @@
 {
   "meta": {
+    "_cache_buster": "v1",
     "title": "OdontoFlow - Modern Dental Clinic Management"
+  },
+  "systemAlert": {
+    "title": "ATTENTION:",
+    "message": "System unstable due to compliance updates for Brazilian RNDS.",
+    "close": "Close Warning",
+    "closeTimer": "Close"
   },
   "navbar": {
     "features": "Features",
@@ -109,7 +116,14 @@
     "or": "OR",
     "noAccount": "Don't have an account yet?",
     "signUp": "Register your clinic",
-    "copyright": "Terms of Use Privacy Help"
+    "copyright": "Terms of Use Privacy Help",
+    "loading": "Logging in...",
+    "errorGeneric": "Login error. Please check your credentials.",
+    "footer": {
+        "terms": "Terms",
+        "privacy": "Privacy",
+        "help": "Help"
+    }
   },
   "signup": {
     "title": "Create your account",
@@ -144,7 +158,18 @@
     },
     "submitButton": "Create Account",
     "haveAccount": "Already have an account?",
-    "loginLink": "Login"
+    "loginLink": "Login",
+    "loading": "Sending...",
+    "errorGeneric": "An error occurred while trying to create the account.",
+    "termsAgreement": "By clicking \"{submitButton}\", you agree to our",
+    "termsLink": "Terms of Use",
+    "privacyLink": "Privacy Policy",
+    "hero": {
+        "title": "Simplified management for your clinic",
+        "testimonial": "OdontoFlow completely changed the organization of my office. I can see my schedule and billing from anywhere.",
+        "author": "Dr. Ana Ferreira",
+        "role": "Orthodontist"
+    }
   },
   "loginFeatures": {
     "badge": "Leader in Dental Management",
@@ -160,10 +185,33 @@
       "unitJardins": "Jardins Unit",
       "unitNorth": "North Unit"
     },
+    "calendar": {
+        "today": "Today",
+        "next": "Next",
+        "previous": "Back",
+        "month": "Month",
+        "week": "Week",
+        "day": "Day",
+        "agenda": "Agenda",
+        "date": "Date",
+        "time": "Time",
+        "event": "Event",
+        "noEventsInRange": "There are no events in this range."
+    },
+    "sidebarFilters": {
+        "calendar": "Calendar",
+        "professionals": "Professionals",
+        "rooms": "Rooms",
+        "allRooms": "All Rooms"
+    },
     "sidebar": {
       "dashboard": "Dashboard",
       "operational": "Operational",
-      "schedule": "Clinical Schedule",
+      "attendance": "Patient Care",
+      "reception": "Reception",
+      "triage": "Triage",
+      "medicalCare": "Medical Care",
+      "schedule": "Scheduling",
       "patients": "Patients",
       "records": "Medical Records",
       "administrative": "Administrative",
@@ -227,10 +275,39 @@
       "expense": "Log Expense",
       "report": "Generate P&L"
     },
+    "receptionBoard": {
+      "title": "Reception Flow",
+      "scheduled": "Scheduled Today",
+      "waiting": "Waiting Room",
+      "inService": "In Service",
+      "checkIn": "Check-in",
+      "empty": "No patients.",
+      "time": "Time",
+      "doctor": "Dentist",
+      "newPatientBtn": "New Patient",
+      "scheduleBtn": "Schedule",
+      "loading": "Loading reception...",
+      "checkinError": "Error performing check-in"
+    },
     "bi": {
       "title": "BI Indicators",
       "newPatients": "New Patients",
       "currentMonth": "Current Month"
+    },
+    "appointmentModal": {
+      "title": "New Appointment",
+      "patientLabel": "Patient",
+      "patientSelect": "Select a patient...",
+      "dentistLabel": "Dentist",
+      "dentistSelect": "Select a dentist...",
+      "dateLabel": "Date",
+      "timeLabel": "Time",
+      "notesLabel": "Notes",
+      "notesPlaceholder": "Reason for visit...",
+      "submitButton": "Schedule Appointment",
+      "successMessage": "Appointment created successfully!",
+      "authError": "Authentication error. Please login again.",
+      "genericError": "Error scheduling appointment"
     }
   }
 }

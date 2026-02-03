@@ -187,7 +187,7 @@ export default function CashFlowChart({ dictionary }: { dictionary: any }) {
                 const expenseKey = keys.find(k => /sai|desp|debit|expens/i.test(k)) || 'saidas';
                 const dateKey = keys.find(k => /dat|dt|time/i.test(k)) || 'data';
 
-                console.log(`DEBUG: Mapping Keys -> Date:${dateKey}, In:${incomeKey}, Out:${expenseKey}`);
+
 
                 result.fluxo.forEach((item: any) => {
                     const dateStr = item[dateKey];
@@ -216,7 +216,7 @@ export default function CashFlowChart({ dictionary }: { dictionary: any }) {
             // Log totals
             const tIn = finalData.reduce((a,c)=>a+c.income,0);
             const tOut = finalData.reduce((a,c)=>a+c.expense,0);
-            // console.log(`DEBUG: Total In: ${tIn}, Out: ${tOut}`);
+
 
             // Calculate Percentages for UI
             const maxValue = Math.max(

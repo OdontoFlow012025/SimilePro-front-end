@@ -1,4 +1,6 @@
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
+const API_URL = typeof window !== 'undefined' 
+  ? '/api' // Browser -> Next.js Proxy -> Backend
+  : (process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000'); // Server-side -> Direct to Backend
 
 async function request(endpoint: string, options: RequestInit = {}) {
   const headers: Record<string, string> = {
