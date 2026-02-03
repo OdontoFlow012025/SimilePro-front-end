@@ -1,6 +1,13 @@
 {
   "meta": {
+    "_cache_buster": "v1",
     "title": "OdontoFlow - Gestión Moderna de Clínicas Dentales"
+  },
+  "systemAlert": {
+    "title": "ATENCIÓN:",
+    "message": "Sistema inestable debido a la readecuación al RNDS Brasileño.",
+    "close": "Cerrar Aviso",
+    "closeTimer": "Cerrar"
   },
   "navbar": {
     "features": "Características",
@@ -109,7 +116,16 @@
     "or": "O",
     "noAccount": "¿Aún no tiene una cuenta?",
     "signUp": "Registre su clínica",
-    "copyright": "Términos de Uso Privacidad Ayuda"
+    "copyright": "Términos de Uso Privacidad Ayuda",
+    "loading": "Entrando...",
+    "loadingStart": "Iniciando el sistema...",
+    "loadingEnd": "Listo",
+    "errorGeneric": "Error al iniciar sesión. Verifique sus credenciales.",
+    "footer": {
+        "terms": "Términos",
+        "privacy": "Privacidad",
+        "help": "Ayuda"
+    }
   },
   "signup": {
     "title": "Crea tu cuenta",
@@ -144,12 +160,156 @@
     },
     "submitButton": "Crear Cuenta",
     "haveAccount": "¿Ya tienes una cuenta?",
-    "loginLink": "Iniciar Sesión"
+    "loginLink": "Iniciar Sesión",
+    "loading": "Enviando...",
+    "errorGeneric": "Ocurrió un error al intentar crear la cuenta.",
+    "termsAgreement": "Al hacer clic en \"{submitButton}\", usted acepta nuestros",
+    "termsLink": "Términos de Uso",
+    "privacyLink": "Política de Privacidad",
+    "hero": {
+        "title": "Gestión simplificada para su clínica",
+        "testimonial": "OdontoFlow cambió completamente la organización de mi consultorio. Puedo ver mi agenda y facturación desde cualquier lugar.",
+        "author": "Dra. Ana Ferreira",
+        "role": "Ortodoncista"
+    }
   },
   "loginFeatures": {
     "badge": "Líder en Gestión Odontológica",
     "title": "Transforme sonrisas mientras nosotros cuidamos la gestión.",
     "description": "Únase a más de 5,000 clínicas que han automatizado citas, facturación y registros con OdontoFlow.",
     "testimonial": "Aprobado por expertos"
+  },
+  "dashboard": {
+    "header": {
+      "title": "Visión General de la Clínica",
+      "subtitle": "Monitoreo integrado: Administrativo y Operativo.",
+      "unitCenter": "Unidad Central",
+      "unitJardins": "Unidad Jardines",
+      "unitNorth": "Unidad Norte"
+    },
+    "calendar": {
+        "today": "Hoy",
+        "next": "Siguiente",
+        "previous": "Anterior",
+        "month": "Mes",
+        "week": "Semana",
+        "day": "Día",
+        "agenda": "Agenda",
+        "date": "Fecha",
+        "time": "Hora",
+        "event": "Evento",
+        "noEventsInRange": "No hay eventos en este rango."
+    },
+    "sidebarFilters": {
+        "calendar": "Calendario",
+        "professionals": "Profesionales",
+        "rooms": "Salas",
+        "allRooms": "Todas las Salas"
+    },
+    "sidebar": {
+      "dashboard": "Dashboard",
+      "operational": "Operativo",
+      "attendance": "Atención",
+      "reception": "Recepción",
+      "triage": "Triaje",
+      "medicalCare": "Atención Médica",
+      "schedule": "Agendamiento",
+      "patients": "Pacientes",
+      "records": "Historiales",
+      "administrative": "Administrativo",
+      "financial": "Financiero",
+      "inventory": "Inventario",
+      "reports": "Informes BI",
+      "team": "Equipo",
+      "system": "Sistema",
+      "settings": "Configuración",
+      "logout": "Cerrar sesión",
+      "role": "Administrador"
+    },
+    "financial": {
+      "title": "Salud Financiera",
+      "dailyRevenue": "INGRESOS DIARIOS",
+      "monthlyExpenses": "GASTOS MENSUALES",
+      "netProfit": "BENEFICIO NETO REAL"
+    },
+    "attendance": {
+      "title": "Flujo de Atención en Vivo",
+      "realtime": "Tiempo Real",
+      "waitingRoom": "SALA DE ESPERA",
+      "patients": "pacientes",
+      "avgTime": "Tiempo prom.",
+      "inService": "EN ATENCIÓN",
+      "dentistsBusy": "dentistas ocupados",
+      "occupancy": "Ocupación",
+      "finishedToday": "FINALIZADOS HOY",
+      "consultations": "consultas",
+      "goal": "Meta"
+    },
+    "cashflow": {
+      "title": "Flujo de Caja",
+      "income": "Entradas",
+      "expense": "Salidas",
+      "filters": {
+        "today": "Hoy",
+        "7days": "7 Días",
+        "lastMonth": "Último Mes",
+        "last3Months": "Último Trimestre",
+        "last6Months": "Último Semestre",
+        "lastYear": "Último Año",
+        "all": "Flujo Total"
+      }
+    },
+    "pendencies": {
+      "title": "Pendientes Críticas",
+      "subtitle": "Acciones que requieren atención inmediata",
+      "pay": "Pagar",
+      "charge": "Cobrar",
+      "noData": "No se encontraron pendientes críticas",
+      "provider": "Proveedor",
+      "patient": "Paciente",
+      "due": "Vence",
+      "defaultTitle": "Pendiente"
+    },
+    "quickActions": {
+      "title": "Acciones Rápidas",
+      "newAppointment": "Nueva Cita",
+      "checkin": "Check-in Paciente",
+      "expense": "Registrar Gasto",
+      "report": "Generar PyG"
+    },
+    "receptionBoard": {
+      "title": "Flujo de Recepción",
+      "scheduled": "Programados Hoy",
+      "waiting": "Sala de Espera",
+      "inService": "En Atención",
+      "checkIn": "Confirmar Llegada",
+      "empty": "Ningún paciente.",
+      "time": "Hora",
+      "doctor": "Dentista",
+      "newPatientBtn": "Nuevo Paciente",
+      "scheduleBtn": "Agendar",
+      "loading": "Cargando recepción...",
+      "checkinError": "Error al realizar check-in"
+    },
+    "bi": {
+      "title": "Indicadores BI",
+      "newPatients": "Nuevos Pacientes",
+      "currentMonth": "Mes Actual"
+    },
+    "appointmentModal": {
+      "title": "Nueva Cita",
+      "patientLabel": "Paciente",
+      "patientSelect": "Seleccione un paciente...",
+      "dentistLabel": "Dentista",
+      "dentistSelect": "Seleccione un dentista...",
+      "dateLabel": "Fecha",
+      "timeLabel": "Hora",
+      "notesLabel": "Observaciones",
+      "notesPlaceholder": "Motivo de la consulta...",
+      "submitButton": "Agendar Cita",
+      "successMessage": "¡Cita creada con éxito!",
+      "authError": "Error de autenticación. Inicie sesión nuevamente.",
+      "genericError": "Error al agendar"
+    }
   }
 }

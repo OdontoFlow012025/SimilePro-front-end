@@ -1,4 +1,6 @@
+import DashboardLayout from "@/components/dashboard/DashboardLayout";
 import InactivityHandler from "@/components/InactivityHandler";
+import { getDictionary } from "@/utils/get-dictionary";
 import React from "react";
 
 export default async function PrivateLayout({
@@ -9,11 +11,14 @@ export default async function PrivateLayout({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  const dictionary = await getDictionary(locale);
   
   return (
     <>
       <InactivityHandler locale={locale} />
-      {children}
+      <DashboardLayout dictionary={dictionary} locale={locale}>
+        {children}
+      </DashboardLayout>
     </>
   );
 }

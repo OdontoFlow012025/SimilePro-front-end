@@ -10,8 +10,11 @@ interface LoginClientProps {
   locale: string;
 }
 
+import { useTransition } from "@/components/TransitionProvider";
+
 export default function LoginClient({ dict, locale }: LoginClientProps) {
   const router = useRouter();
+  const { startLoginTransition, isLoading } = useTransition();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -30,17 +33,20 @@ export default function LoginClient({ dict, locale }: LoginClientProps) {
       // Save token in cookie (assuming response structure { access_token: "..." })
       if (response?.access_token) {
         document.cookie = `auth_token=${response.access_token}; path=/; max-age=86400; SameSite=Lax`;
-        router.refresh(); // Update server components check if needed
-        router.push(`/${locale}/dashboard`);
+        
+        // Trigger global transition instead of direct push
+        startLoginTransition();
+        
       } else {
         throw new Error("Token de acesso não recebido.");
       }
     } catch (err: any) {
       console.error("Login error:", err);
-      setError(err.message || "Erro ao realizar login. Verifique suas credenciais.");
-    } finally {
-      setLoading(false);
+      // Wait for loading simulation to finish if any, but since we await API, just set error
+      setError(err.message || dict.auth.errorGeneric);
+      setLoading(false); // Only stop local loading if error
     }
+    // Note: If success, we don't setLoading(false) because the transition takes over visual loading
   };
 
   return (
@@ -57,8 +63,12 @@ export default function LoginClient({ dict, locale }: LoginClientProps) {
         <div className="absolute inset-0 bg-blue-900/40 backdrop-blur-sm"></div>
       </div>
 
-      {/* Login Card (Full screen on mobile, floating on desktop) */}
-      <div className="relative z-10 flex min-h-screen w-full max-w-[100vw] flex-col justify-center bg-white p-6 shadow-none transition-all duration-700 ease-in-out dark:bg-slate-900 md:min-h-0 md:max-w-md md:rounded-2xl md:bg-white/95 md:p-12 md:shadow-2xl md:backdrop-blur-md md:dark:bg-slate-900/95">
+      {/* Login Card */}
+      <div 
+        className={`relative z-10 flex min-h-screen w-full max-w-[100vw] flex-col justify-center bg-white p-6 shadow-none transition-all duration-700 ease-in-out dark:bg-slate-900 md:min-h-0 md:max-w-md md:rounded-2xl md:bg-white/95 md:p-12 md:shadow-2xl md:backdrop-blur-md md:dark:bg-slate-900 
+        ${isLoading ? 'opacity-0 scale-95 pointer-events-none' : 'opacity-100 scale-100'}
+        `}
+      >
         {/* Logo */}
         <div className="mb-8 flex flex-col items-center justify-center gap-4 text-center">
           <Link href={`/${locale}`} className="flex flex-col items-center gap-4 hover:opacity-80 transition-opacity">
@@ -141,9 +151,9 @@ export default function LoginClient({ dict, locale }: LoginClientProps) {
           <button
             type="submit"
             disabled={loading}
-            className="w-full rounded-lg bg-blue-600 px-5 py-3 text-center text-sm font-semibold text-white shadow-lg transition-all hover:bg-blue-700 hover:shadow-blue-500/25 focus:outline-none focus:ring-4 focus:ring-blue-300 disabled:cursor-not-allowed disabled:opacity-75 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-800"
+            className="w-full rounded-lg bg-blue-600 px-5 py-3 text-center text-sm font-semibold text-white shadow-lg transition-all hover:bg-blue-700 hover:shadow-blue-500/25 focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 dark:bg-blue-600 dark:hover:bg-blue-700"
           >
-            {loading ? 'Entrando...' : dict.auth.loginButton}
+            {loading ? dict.auth.loading : dict.auth.loginButton}
           </button>
         </form>
 
@@ -164,9 +174,9 @@ export default function LoginClient({ dict, locale }: LoginClientProps) {
 
         {/* Footer Links */}
         <div className="mt-8 flex justify-center gap-6 text-xs text-slate-400">
-           <a href="#" className="hover:text-slate-600 dark:hover:text-slate-300">Termos</a>
-           <a href="#" className="hover:text-slate-600 dark:hover:text-slate-300">Privacidade</a>
-           <a href="#" className="hover:text-slate-600 dark:hover:text-slate-300">Ajuda</a>
+           <a href="#" className="hover:text-slate-600 dark:hover:text-slate-300">{dict.auth.footer.terms}</a>
+           <a href="#" className="hover:text-slate-600 dark:hover:text-slate-300">{dict.auth.footer.privacy}</a>
+           <a href="#" className="hover:text-slate-600 dark:hover:text-slate-300">{dict.auth.footer.help}</a>
         </div>
       </div>
     </div>
