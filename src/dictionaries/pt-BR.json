@@ -304,6 +304,29 @@
       "successMessage": "Agendamento criado com sucesso!",
       "authError": "Erro de autenticação. Faça login novamente.",
       "genericError": "Erro ao agendar"
+    },
+    "triage": {
+      "title": "Triagem e Classificação de Risco",
+      "waitingQueue": "Fila de Espera",
+      "empty": "Nenhum paciente aguardando triagem.",
+      "startBtn": "Realizar Triagem",
+      "modalTitle": "Triagem Clínica",
+      "patientLabel": "Paciente",
+      "vitalsTitle": "Sinais Vitais",
+      "pressureLabel": "PA (mmHg)",
+      "heartRateLabel": "FC (bpm)",
+      "tempLabel": "Temp (ºC)",
+      "oxygenLabel": "Sat. O2 (%)",
+      "weightLabel": "Peso (kg)",
+      "complaintLabel": "Queixa Principal / História",
+      "complaintPlaceholder": "Descreva o motivo da visita...",
+      "riskLabel": "Classificação de Risco",
+      "riskHelper": "Selecione a gravidade (Manchester)",
+      "cancelBtn": "Cancelar",
+      "saveBtn": "Salvar Triagem",
+      "saving": "Salvando...",
+      "success": "Triagem salva com sucesso!",
+      "error": "Erro ao salvar triagem"
     }
   }
 }
