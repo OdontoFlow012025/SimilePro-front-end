@@ -31,8 +31,10 @@ export default function Odontogram({ dictionary }: OdontogramProps) {
 
           // Logic based on tool
           if (selectedTool === 'explorer') {
-              // Just toggle selection or info (for now reset)
-              newStatus = tooth[face] ? "" : "selected"; 
+              // Explorer now purely clears the status (like an eraser)
+              // If we want it to "select" for inspection without coloring, we'd use valid status
+              // For now, let's make it clear any existing status.
+              newStatus = ""; 
           } else if (selectedTool === 'extraction') {
              // Mark all faces
              newStatus = 'missing';

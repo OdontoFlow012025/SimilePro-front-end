@@ -30,6 +30,7 @@ export const Tooth = ({ id, x, y, data, onFaceClick, label, dictionary }: ToothP
           case 'restoration': return "#3b82f6"; // blue-500
           case 'missing': return "#1f2937"; // gray-800
           case 'crown': return "#eab308"; // yellow-500
+          case 'selected': return "#e5e7eb"; // gray-200 (Visual feedback for Explorer)
           default: return "white";
       }
   };
