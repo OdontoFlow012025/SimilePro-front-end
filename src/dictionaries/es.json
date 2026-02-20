@@ -333,6 +333,46 @@
       "saving": "Guardando...",
       "success": "¡Triaje guardado con éxito!",
       "error": "Error al guardar el triaje"
+    },
+    "medical": {
+      "title": "Atención Médica",
+      "waitingList": "Pacientes en Espera",
+      "empty": "No hay pacientes esperando atención.",
+      "startBtn": "Iniciar Consulta",
+      "patient": "Paciente",
+      "finishBtn": "Finalizar Consulta",
+      "classification": "Clasificación",
+      "noRisk": "Sin riesgo",
+      "risks": {
+        "red": "ROJO",
+        "orange": "NARANJA",
+        "yellow": "AMARILLO",
+        "green": "VERDE",
+        "blue": "AZUL"
+      },
+      "odontogram": {
+          "title": "Odontograma Visual",
+          "tools": {
+              "explorer": "Explorador (Limpiar)",
+              "cavity": "Caries (Rojo)",
+              "restoration": "Restauración (Azul)",
+              "crown": "Corona (Amarillo)",
+              "extraction": "Extraído (X)"
+          },
+          "arches": {
+              "upper": "Arcada Superior",
+              "lower": "Arcada Inferior"
+          },
+          "faces": {
+              "O": "Oclusal",
+              "V": "Vestibular",
+              "L": "Lingual",
+              "M": "Mesial",
+              "D": "Distal"
+          },
+          "toothLabel": "Diente",
+          "helpText": "Haga clic en las caras del diente para aplicar la herramienta seleccionada."
+      }
     }
   }
 }

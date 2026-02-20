@@ -104,6 +104,7 @@ export default function SignupClient({ dict, locale }: SignupClientProps) {
       cnpj: formData.clinic.cnpj,
       enderecoClinica: formData.clinic.address,
       telefoneClinica: formData.clinic.phone,
+      tipoUsuario: "ADMIN", // Adding default user type for clinic registration
     };
 
     // Log do payload para verificação

@@ -331,6 +331,46 @@
       "saving": "Saving...",
       "success": "Triage saved successfully!",
       "error": "Error saving triage"
+    },
+    "medical": {
+      "title": "Medical Care",
+      "waitingList": "Waiting List",
+      "empty": "No patients waiting for care.",
+      "startBtn": "Start Consultation",
+      "patient": "Patient",
+      "finishBtn": "Finish Consultation",
+      "classification": "Classification",
+      "noRisk": "No Risk",
+      "risks": {
+        "red": "RED",
+        "orange": "ORANGE",
+        "yellow": "YELLOW",
+        "green": "GREEN",
+        "blue": "BLUE"
+      },
+      "odontogram": {
+          "title": "Visual Odontogram",
+          "tools": {
+              "explorer": "Explorer (Clear)",
+              "cavity": "Cavity (Red)",
+              "restoration": "Restoration (Blue)",
+              "crown": "Crown (Yellow)",
+              "extraction": "Extracted (X)"
+          },
+          "arches": {
+              "upper": "Upper Arch",
+              "lower": "Lower Arch"
+          },
+          "faces": {
+              "O": "Occlusal",
+              "V": "Vestibular",
+              "L": "Lingual",
+              "M": "Mesial",
+              "D": "Distal"
+          },
+          "toothLabel": "Tooth",
+          "helpText": "Click on tooth faces to apply the selected tool."
+      }
     }
   }
 }
