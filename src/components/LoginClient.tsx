@@ -30,9 +30,11 @@ export default function LoginClient({ dict, locale }: LoginClientProps) {
     try {
       const response = await api.auth.login({ email, senha: password });
       
-      // Save token in cookie (assuming response structure { access_token: "..." })
-      if (response?.access_token) {
-        document.cookie = `auth_token=${response.access_token}; path=/; max-age=86400; SameSite=Lax`;
+      // Save token in cookie (support both access_token and token keys)
+      const token = response?.access_token || response?.token;
+
+      if (token) {
+        document.cookie = `auth_token=${token}; path=/; max-age=86400; SameSite=Lax`;
         
         // Trigger global transition instead of direct push
         startLoginTransition();

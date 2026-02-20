@@ -1,6 +1,6 @@
 const API_URL = typeof window !== 'undefined' 
   ? '/api' // Browser -> Next.js Proxy -> Backend
-  : (process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000'); // Server-side -> Direct to Backend
+  : (process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080/api'); // Server-side -> Direct to Backend
 
 async function request(endpoint: string, options: RequestInit = {}) {
   const headers: Record<string, string> = {
@@ -33,7 +33,7 @@ async function request(endpoint: string, options: RequestInit = {}) {
 
   if (!response.ok) {
     // console.error("API Error Details:", data); // Removed to avoid channel spam on handled errors
-    throw new Error(data.message || JSON.stringify(data) || `Erro na requisição: ${response.statusText}`);
+    throw new Error(data.message || data.error || JSON.stringify(data) || `Erro na requisição: ${response.statusText}`);
   }
 
   return data;
@@ -46,14 +46,15 @@ export const api = {
     login: (data: any) => request('/auth/login', { method: 'POST', body: JSON.stringify(data) }),
     register: (data: any) => request('/auth/register', { method: 'POST', body: JSON.stringify(data) }),
     signup: (data: any) => request('/auth/signup', { method: 'POST', body: JSON.stringify(data) }),
+    me: () => request('/auth/me'),
   },
 
   users: {
-    create: (data: any) => request('/user', { method: 'POST', body: JSON.stringify(data) }),
-    list: () => request('/user'),
-    getById: (id: string) => request(`/user/${id}`),
-    update: (id: string, data: any) => request(`/user/${id}`, { method: 'PATCH', body: JSON.stringify(data) }),
-    delete: (id: string) => request(`/user/${id}`, { method: 'DELETE' }),
+    create: (data: any) => request('/usuarios', { method: 'POST', body: JSON.stringify(data) }),
+    list: () => request('/usuarios'),
+    getById: (id: string) => request(`/usuarios/${id}`),
+    update: (id: string, data: any) => request(`/usuarios/${id}`, { method: 'PATCH', body: JSON.stringify(data) }),
+    delete: (id: string) => request(`/usuarios/${id}`, { method: 'DELETE' }),
   },
 
   clinics: {
