@@ -5,9 +5,9 @@ import { useEffect, useState } from "react";
 
 export default function FinancialStats({ dictionary }: { dictionary: any }) {
   const [data, setData] = useState({
-    dailyRevenue: { value: 0, growth: 0 },
-    monthlyExpenses: { value: 0, growth: 0 },
-    netProfit: { value: 0, growth: 0 }
+    dailyRevenue: { value: 0, growth: 0, target: 0 },
+    monthlyExpenses: { value: 0, growth: 0, target: 0 },
+    netProfit: { value: 0, growth: 0, target: 0 }
   });
   const [loading, setLoading] = useState(true);
 
@@ -15,62 +15,76 @@ export default function FinancialStats({ dictionary }: { dictionary: any }) {
     const fetchData = async () => {
       try {
         const now = new Date();
+        
+        // Helper to format date as YYYY-MM-DD in LOCAL time
+        const fmt = (d: Date) => {
+          const year = d.getFullYear();
+          const month = String(d.getMonth() + 1).padStart(2, '0');
+          const day = String(d.getDate()).padStart(2, '0');
+          return `${year}-${month}-${day}`;
+        };
 
-        // 1. Daily Query (YYYY-MM-DD) for "Faturamento do Dia" using Accounting Endpoint
-        const yyyy = now.getFullYear();
-        const mm = String(now.getMonth() + 1).padStart(2, '0');
-        const dd = String(now.getDate()).padStart(2, '0');
-        const todayStr = `${yyyy}-${mm}-${dd}`;
+        // Dates for Today vs Yesterday
+        const todayStr = fmt(now);
+        const yesterday = new Date(now);
+        yesterday.setDate(now.getDate() - 1);
+        const yesterdayStr = fmt(yesterday);
 
-        const dailyQuery = new URLSearchParams({
-            dataInicio: todayStr,
-            dataFim: todayStr
-        }).toString();
+        // Dates for This Month vs Last Month
+        const thisMonthStart = new Date(now.getFullYear(), now.getMonth(), 1);
+        const lastMonthStart = new Date(now.getFullYear(), now.getMonth() - 1, 1);
+        const lastMonthEnd = new Date(now.getFullYear(), now.getMonth(), 0);
 
-        // 2. Monthly Query (1st of Month to Now)
-        const monthStart = new Date(now.getFullYear(), now.getMonth(), 1);
-        const monthEnd = now;
+        // Dates for This Year vs Last Year
+        const thisYearStart = new Date(now.getFullYear(), 0, 1);
+        const lastYearStart = new Date(now.getFullYear() - 1, 0, 1);
+        const lastYearEnd = new Date(now.getFullYear() - 1, 11, 31);
 
-        const monthlyQuery = new URLSearchParams({
-            dataInicio: monthStart.toISOString(),
-            dataFim: monthEnd.toISOString()
-        }).toString();
-
-        const [dailySummary, monthlySummary] = await Promise.all([
-            // Switch to getSummary to get FLOW (transactions) instead of STOCK (balance)
-            api.financialTransactions.getSummary(dailyQuery),
-            api.financialTransactions.getSummary(monthlyQuery)
+        // Parallel requests using the stable getSummary endpoint
+        const [
+          todaySum, yesterdaySum, 
+          thisMonthSum, lastMonthSum, 
+          thisYearSum, lastYearSum
+        ] = await Promise.all([
+          api.financialTransactions.getSummary(`dataInicio=${todayStr}&dataFim=${todayStr}`),
+          api.financialTransactions.getSummary(`dataInicio=${yesterdayStr}&dataFim=${yesterdayStr}`),
+          api.financialTransactions.getSummary(`dataInicio=${fmt(thisMonthStart)}&dataFim=${fmt(now)}`),
+          api.financialTransactions.getSummary(`dataInicio=${fmt(lastMonthStart)}&dataFim=${fmt(lastMonthEnd)}`),
+          api.financialTransactions.getSummary(`dataInicio=${fmt(thisYearStart)}&dataFim=${fmt(now)}`),
+          api.financialTransactions.getSummary(`dataInicio=${fmt(lastYearStart)}&dataFim=${fmt(lastYearEnd)}`)
         ]);
-        
 
+        const calcGrowth = (curr: number, prev: number) => {
+          if (prev <= 0) return curr > 0 ? 100 : 0;
+          return Math.round(((curr - prev) / prev) * 100);
+        };
 
-        // Map daily revenue explicitly from 'entradas' or 'receitas' of the summary
-        const dailyVal = Number(
-            dailySummary?.totalEntradas || 
-            dailySummary?.totalReceitas || 
-            dailySummary?.receitas || 
-            0
-        );
+        const dailyVal = Number(todaySum?.receitas || 0);
+        const prevDailyVal = Number(yesterdaySum?.receitas || 0);
         
-        const monthlyExp = Number(monthlySummary?.totalSaidas || monthlySummary?.totalPagamentos || monthlySummary?.despesas || 0);
-        const monthlyProfit = Number(monthlySummary?.saldo || monthlySummary?.resultado || 0);
+        const monthlyExp = Number(thisMonthSum?.despesas || 0);
+        const prevMonthlyExp = Number(lastMonthSum?.despesas || 0);
+
+        const monthlyProfit = Number(thisMonthSum?.resultado || 0);
+        const prevYearProfit = Number(lastYearSum?.resultado || 0);
+        const thisYearProfit = Number(thisYearSum?.resultado || 0);
 
         setData({
-            // Daily Revenue (Only TODAY's transactions)
-            dailyRevenue: { 
-                value: isNaN(dailyVal) ? 0 : dailyVal, 
-                growth: 0 
-            }, 
-            // Monthly Expenses (Accumulated this month)
-            monthlyExpenses: { 
-                value: monthlyExp, 
-                growth: 0 
-            },
-            // Net Profit (Result of this month: Receipts - Payments)
-            netProfit: { 
-                value: monthlyProfit, 
-                growth: 0 
-            }
+          dailyRevenue: { 
+            value: dailyVal, 
+            growth: calcGrowth(dailyVal, prevDailyVal),
+            target: Math.max(prevDailyVal, dailyVal, 1) // Dynamic target for progress bar
+          },
+          monthlyExpenses: { 
+            value: monthlyExp, 
+            growth: calcGrowth(monthlyExp, prevMonthlyExp),
+            target: Math.max(prevMonthlyExp, monthlyExp, 1)
+          },
+          netProfit: { 
+            value: monthlyProfit, 
+            growth: calcGrowth(thisYearProfit, prevYearProfit),
+            target: Math.max(prevYearProfit, thisYearProfit, 1)
+          }
         });
       } catch (error) {
         console.error("Failed to fetch financial stats:", error);
@@ -80,6 +94,12 @@ export default function FinancialStats({ dictionary }: { dictionary: any }) {
     };
     fetchData();
   }, []);
+
+  const calculateProgress = (current: number, target: number) => {
+    if (target <= 0) return current > 0 ? 100 : 0;
+    const progress = (current / target) * 100;
+    return Math.min(progress, 100);
+  };
 
   const formatCurrency = (val: number) => {
     return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(val);
@@ -101,7 +121,10 @@ export default function FinancialStats({ dictionary }: { dictionary: any }) {
             <span className="text-green-600 text-xs font-bold mb-1.5">+{data.dailyRevenue.growth}%</span>
           </div>
           <div className="mt-3 w-full bg-gray-100 dark:bg-gray-800 h-1.5 rounded-full overflow-hidden">
-            <div className="bg-green-600 h-full w-3/4"></div>
+            <div 
+              className="bg-green-600 h-full transition-all duration-1000" 
+              style={{ width: `${calculateProgress(data.dailyRevenue.value, (data.dailyRevenue as any).target)}%` }}
+            ></div>
           </div>
         </div>
 
@@ -113,7 +136,10 @@ export default function FinancialStats({ dictionary }: { dictionary: any }) {
             <span className="text-red-500 text-xs font-bold mb-1.5">+{data.monthlyExpenses.growth}%</span>
           </div>
           <div className="mt-3 w-full bg-gray-100 dark:bg-gray-800 h-1.5 rounded-full overflow-hidden">
-            <div className="bg-red-500 h-full w-1/2"></div>
+            <div 
+              className="bg-red-500 h-full transition-all duration-1000" 
+              style={{ width: `${calculateProgress(data.monthlyExpenses.value, (data.monthlyExpenses as any).target)}%` }}
+            ></div>
           </div>
         </div>
 
@@ -125,7 +151,10 @@ export default function FinancialStats({ dictionary }: { dictionary: any }) {
             <span className="text-green-600 text-xs font-bold mb-1.5">+{data.netProfit.growth}%</span>
           </div>
           <div className="mt-3 w-full bg-gray-100 dark:bg-gray-800 h-1.5 rounded-full overflow-hidden">
-            <div className="bg-blue-500 h-full w-2/3"></div>
+            <div 
+              className="bg-blue-500 h-full transition-all duration-1000" 
+              style={{ width: `${calculateProgress(data.netProfit.value, (data.netProfit as any).target)}%` }}
+            ></div>
           </div>
         </div>
 

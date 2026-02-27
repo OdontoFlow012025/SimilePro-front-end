@@ -33,7 +33,6 @@ const getMenuItems = (dict: any): MenuItem[] => [
     icon: "admin_panel_settings",
     children: [
       { label: dict?.dashboard?.sidebar?.financial || "Financeiro", href: "/financeiro", icon: "payments" },
-      { label: dict?.dashboard?.sidebar?.inventory || "Estoque", href: "/estoque", icon: "inventory_2" },
       { label: dict?.dashboard?.sidebar?.reports || "Relatórios BI", href: "/relatorios", icon: "analytics" },
       { label: dict?.dashboard?.sidebar?.team || "Equipe", href: "/equipe", icon: "groups" },
     ]
