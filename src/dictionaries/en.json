@@ -11,21 +11,25 @@
   },
   "navbar": {
     "features": "Features",
-    "solutions": "Solutions",
+    "compliance": "Compliance",
     "pricing": "Pricing",
-    "resources": "Resources",
+    "support": "Support",
     "login": "Login",
-    "requestDemo": "Request Demo"
+    "register": "Sign Up"
   },
   "hero": {
-    "newVersion": "New Version 2.0 Available",
-    "titlePrefix": "The Complete Management System for",
-    "titleSuffix": "Modern Dental Clinics",
-    "description": "Streamline appointments, finances, and patient care in one intuitive platform. Join the new standard in dental management efficiency.",
-    "startTrial": "Start Free Trial",
-    "watchVideo": "Watch Video",
-    "trustedBy": "Trusted by 2,500+ dentists",
-    "dailyRevenue": "Daily Revenue"
+    "badge": "Ready for Health Interoperability",
+    "titlePrefix": "Complete Dental Management with",
+    "titleSuffix": "RNDS Interoperability",
+    "description": "The definitive platform for clinics seeking operational excellence and full compliance with the National Health Data Network.",
+    "startTrial": "Sign Up",
+    "statusRnds": "RNDS Approved"
+  },
+  "partners": {
+    "institutional": "INSTITUTIONAL PARTNERSHIP",
+    "protocols": "MS PROTOCOLS",
+    "standard": "ICP-BRAZIL STANDARD",
+    "network": "NATIONAL HEALTH NETWORK"
   },
   "stats": {
     "clinics": "Clinics Managed",
@@ -34,34 +38,47 @@
     "uptime": "Platform Uptime"
   },
   "features": {
-    "title": "Comprehensive Clinic Management",
-    "subtitle": "Everything you need to run your dental practice efficiently in one centralized management system.",
+    "title": "Integrated Dental Ecosystem",
+    "subtitle": "State-of-the-art technology to centralize your clinical operation with a focus on interoperability and efficiency.",
     "scheduling": {
       "title": "Smart Scheduling",
-      "description": "Reduce no-shows with automated WhatsApp reminders, color-coded appointments, and smart waitlist management."
+      "description": "Reduce no-shows with automated WhatsApp reminders, dynamic waitlist management."
     },
     "financial": {
-      "title": "Financial Health",
-      "description": "Track real-time cash flow, manage insurance billing automatically, and generate comprehensive expense reports."
+      "title": "Financial Management",
+      "description": "Real-time cash flow, automated insurance billing, and profitability reports."
     },
     "charts": {
-      "title": "Digital Charts",
-      "description": "Complete anamnesis and interactive odontograms available at a click. Secure, accessible, and paperless."
+      "title": "RNDS Interoperable Record",
+      "description": "Data integrated with the National Health Data Network, ensuring total patient mobility and absolute legal compliance."
+    }
+  },
+  "security": {
+    "badge": "Technical Authority",
+    "title": "Security and Legal Validity",
+    "description": "OdontoFlow uses bank-level encryption technology and is fully aligned with Ministry of Health requirements for national clinical data traffic.",
+    "signature": {
+        "title": "ICP-Brazil Digital Signature",
+        "description": "We use ICP-Brazil standard digital certificates to ensure authenticity and non-repudiation in sending information to RNDS."
+    },
+    "compliance": {
+        "title": "LGPD Health Compliance",
+        "description": "Rigorous treatment of sensitive health data, following the highest standards of the General Data Protection Law."
     }
   },
   "roles": {
-    "title": "Tailored for your entire team",
+    "title": "Developed for the entire network",
     "dentists": {
       "title": "For Dentists",
-      "description": "Focus on patient care with 1-click access to clinical history, X-rays, and treatment plans directly from the chair."
+      "description": "Full patient focus with a record that loads the citizen's national history via RNDS."
     },
     "receptionists": {
-      "title": "For Receptionists",
-      "description": "Manage the front desk effortlessly. Quick check-ins, easy rescheduling, and automated patient communication."
+      "title": "For Reception",
+      "description": "Agile check-ins and automated communication integrated into the service flow."
     },
     "managers": {
       "title": "For Managers",
-      "description": "Gain full visibility into clinic performance with granular reports on revenue, inventory, and staff productivity."
+      "description": "Complete analytical view and legal peace of mind in compliance with Brazilian health regulations."
     }
   },
   "testimonials": {
@@ -74,10 +91,9 @@
     "t3_role": "Practice Manager, City Dental"
   },
   "cta": {
-    "title": "Ready to modernize your clinic?",
-    "description": "Join thousands of dental professionals who have switched to OdontoFlow. Start your 14-day free trial today. No credit card required.",
-    "getStarted": "Get Started for Free",
-    "scheduleDemo": "Schedule a Demo"
+    "title": "Ready for the new era of health?",
+    "description": "Join the largest interoperability network in Brazil and modernize your clinic right now.",
+    "getStarted": "Register Now"
   },
   "footer": {
     "description": "The all-in-one management platform designed for the modern dental ecosystem. Secure, fast, and reliable.",
@@ -165,10 +181,8 @@
     "termsLink": "Terms of Use",
     "privacyLink": "Privacy Policy",
     "hero": {
-        "title": "Simplified management for your clinic",
-        "testimonial": "OdontoFlow completely changed the organization of my office. I can see my schedule and billing from anywhere.",
-        "author": "Dr. Ana Ferreira",
-        "role": "Orthodontist"
+      "title": "Elevate your clinic's standard",
+      "subtitle": "The management you deserve, the technology your patients trust. Join the OdontoFlow revolution."
     }
   },
   "loginFeatures": {

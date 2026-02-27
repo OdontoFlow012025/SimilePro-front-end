@@ -32,7 +32,6 @@ async function request(endpoint: string, options: RequestInit = {}) {
   // }
 
   if (!response.ok) {
-    // console.error("API Error Details:", data); // Removed to avoid channel spam on handled errors
     throw new Error(data.message || data.error || JSON.stringify(data) || `Erro na requisição: ${response.statusText}`);
   }
 
@@ -192,5 +191,11 @@ export const api = {
     update: (id: string, data: any) => request(`/transacoes-financeiras/${id}`, { method: 'PATCH', body: JSON.stringify(data) }),
     delete: (id: string) => request(`/transacoes-financeiras/${id}`, { method: 'DELETE' }),
     updateStatus: (id: string, data: any) => request(`/transacoes-financeiras/${id}/status`, { method: 'PATCH', body: JSON.stringify(data) }),
+  },
+
+  inventory: {
+    listProducts: () => request('/estoque/produtos'),
+    createProduct: (data: any) => request('/estoque/produtos', { method: 'POST', body: JSON.stringify(data) }),
+    createInvoice: (data: any) => request('/estoque/notas-fiscais', { method: 'POST', body: JSON.stringify(data) }),
   },
 };

@@ -11,21 +11,25 @@
   },
   "navbar": {
     "features": "Funcionalidades",
-    "solutions": "Soluções",
-    "pricing": "Planos",
-    "resources": "Recursos",
-    "login": "Entrar",
-    "requestDemo": "Pedir Demo"
+    "compliance": "Conformidade",
+    "pricing": "Preços",
+    "support": "Suporte",
+    "login": "Login",
+    "register": "Cadastre-se"
   },
   "hero": {
-    "newVersion": "Nova Versão 2.0 Disponível",
-    "titlePrefix": "O Sistema de Gestão Completo para",
-    "titleSuffix": "Clínicas Odontológicas Modernas",
-    "description": "Otimize agendamentos, finanças e atendimento ao paciente em uma plataforma intuitiva. Junte-se ao novo padrão em eficiência de gestão odontológica.",
-    "startTrial": "Começar Teste Grátis",
-    "watchVideo": "Assistir Vídeo",
-    "trustedBy": "Confiado por mais de 2.500 dentistas",
-    "dailyRevenue": "Receita Diária"
+    "badge": "Pronto para a Interoperabilidade Saúde",
+    "titlePrefix": "Gestão Odontológica Completa com",
+    "titleSuffix": "Interoperabilidade RNDS",
+    "description": "A plataforma definitiva para clínicas que buscam excelência operacional e conformidade total com a Rede Nacional de Dados em Saúde.",
+    "startTrial": "Cadastre-se",
+    "statusRnds": "Homologação RNDS"
+  },
+  "partners": {
+    "institutional": "PARCERIA INSTITUCIONAL",
+    "protocols": "PROTOCOLOS MS",
+    "standard": "PADRÃO ICP-BRASIL",
+    "network": "REDE NACIONAL SAÚDE"
   },
   "stats": {
     "clinics": "Clínicas Gerenciadas",
@@ -34,34 +38,47 @@
     "uptime": "Tempo de Atividade"
   },
   "features": {
-    "title": "Gestão Completa da Clínica",
-    "subtitle": "Tudo o que você precisa para gerenciar seu consultório odontológico de forma eficiente em um sistema de gestão centralizado.",
+    "title": "Ecossistema Odontológico Integrado",
+    "subtitle": "Tecnologia de ponta para centralizar sua operação clínica com foco em interoperabilidade e eficiência.",
     "scheduling": {
       "title": "Agendamento Inteligente",
-      "description": "Reduza faltas com lembretes automáticos via WhatsApp, agendamentos codificados por cores e gestão inteligente de lista de espera."
+      "description": "Reduza faltas com lembretes automáticos via WhatsApp, gestão dinâmica de listas de espera."
     },
     "financial": {
-      "title": "Saúde Financeira",
-      "description": "Acompanhe o fluxo de caixa em tempo real, gerencie o faturamento de convênios automaticamente e gere relatórios de despesas abrangentes."
+      "title": "Gestão Financeira",
+      "description": "Fluxo de caixa em tempo real, faturamento automatizado de convênios e relatórios de lucratividade."
     },
     "charts": {
-      "title": "Prontuários Digitais",
-      "description": "Anamnese completa e odontogramas interativos disponíveis em um clique. Seguro, acessível e sem papel."
+      "title": "Prontuário Interoperável RNDS",
+      "description": "Dados integrados à Rede Nacional de Dados em Saúde, garantindo a mobilidade total do paciente e conformidade legal absoluta."
+    }
+  },
+  "security": {
+    "badge": "Autoridade Técnica",
+    "title": "Segurança e Validade Jurídica",
+    "description": "O OdontoFlow utiliza tecnologia de criptografia de nível bancário e está plenamente alinhado às exigências do Ministério da Saúde para o tráfego de dados clínicos nacionais.",
+    "signature": {
+        "title": "Assinatura Digital ICP-Brasil",
+        "description": "Utilizamos certificados digitais padrão ICP-Brasil para garantir a autenticidade e o não repúdio no envio de informações à RNDS."
+    },
+    "compliance": {
+        "title": "Conformidade LGPD Health",
+        "description": "Tratamento rigoroso de dados sensíveis de saúde, seguindo os mais altos padrões da Lei Geral de Proteção de Dados."
     }
   },
   "roles": {
-    "title": "Feito para toda a sua equipe",
+    "title": "Desenvolvido para toda a rede",
     "dentists": {
       "title": "Para Dentistas",
-      "description": "Foco no atendimento ao paciente com acesso em 1 clique ao histórico clínico, raios-X e planos de tratamento diretamente da cadeira."
+      "description": "Focotal no paciente com prontuário que carrega o histórico nacional do cidadão via RNDS."
     },
     "receptionists": {
-      "title": "Para Recepcionistas",
-      "description": "Gerencie a recepção sem esforço. Check-ins rápidos, reagendamento fácil e comunicação automatizada com pacientes."
+      "title": "Para Recepção",
+      "description": "Check-ins ágeis e comunicação automatizada integrada ao fluxo de atendimento."
     },
     "managers": {
       "title": "Para Gestores",
-      "description": "Tenha visibilidade total do desempenho da clínica com relatórios granulares sobre receita, estoque e produtividade da equipe."
+      "description": "Visão analítica completa e tranquilidade jurídica no cumprimento das normativas de saúde brasileiras."
     }
   },
   "testimonials": {
@@ -74,10 +91,9 @@
     "t3_role": "Gerente de Prática, City Dental"
   },
   "cta": {
-    "title": "Pronto para modernizar sua clínica?",
-    "description": "Junte-se a milhares de profissionais da odontologia que mudaram para o OdontoFlow. Comece seu teste gratuito de 14 dias hoje. Sem necessidade de cartão de crédito.",
-    "getStarted": "Começar Grátis",
-    "scheduleDemo": "Agendar Demo"
+    "title": "Pronto para a nova era da saúde?",
+    "description": "Junte-se à maior rede de interoperabilidade do Brasil e modernize sua clínica agora mesmo.",
+    "getStarted": "Cadastre-se agora"
   },
   "footer": {
     "description": "A plataforma de gestão tudo-em-um projetada para o ecossistema odontológico moderno. Seguro, rápido e confiável.",
@@ -167,10 +183,8 @@
     "termsLink": "Termos de Uso",
     "privacyLink": "Política de Privacidade",
     "hero": {
-        "title": "Gestão simplificada para sua clínica",
-        "testimonial": "O OdontoFlow mudou completamente a organização do meu consultório. Consigo ver minha agenda e faturamento de qualquer lugar.",
-        "author": "Dra. Ana Ferreira",
-        "role": "Ortodontista"
+      "title": "Eleve o padrão da sua clínica",
+      "subtitle": "A gestão que você merece, a tecnologia que seus pacientes confiam. Junte-se à revolução OdontoFlow."
     }
   },
   "loginFeatures": {
