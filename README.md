@@ -1,36 +1,78 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# OdontoFlow - Dental Clinic Management System
 
-## Getting Started
+**OdontoFlow** is a modern, comprehensive web application designed to streamline the management of dental clinics. It integrates administrative, financial, and clinical workflows into a single, intuitive platform.
 
-First, run the development server:
+## 🚀 Key Features
 
+*   **Multi-Tenant Architecture:** Designed to serve multiple clinics and units efficiently.
+*   **Internationalization (i18n):** Native support for **Portuguese (pt-BR)**, **English (en)**, and **Spanish (es)**.
+*   **Reception Module:**
+    *   **Patient Check-in:** Streamlined flow for tracking patient arrival and waiting times.
+    *   **Kanban Board:** Visual management of appointments (Scheduled, Waiting, In Service).
+    *   **RNDS Compliance:** Patient registration form aligned with Brazilian National Health Data Network standards.
+*   **Scheduling:** Smart calendar validation, preventing conflicts and organizing daily agendas.
+*   **Dashboard:** Real-time metrics for clinic performance (Revenue, Appointments, Occupancy).
+*   **Authentication:** Secure login and customized access for Dentists, Receptionists, and Managers.
+
+## 🛠️ Tech Stack
+
+*   **Framework:** [Next.js 16](https://nextjs.org/) (App Router)
+*   **Language:** JavaScript / TypeScript
+*   **Styling:** Tailwind CSS
+*   **Internationalization:** `next-i18n-router`
+*   **State/Validation:** `zod` for schemas, React Hooks.
+*   **Icons:** Google Material Symbols
+
+## 📦 Getting Started
+
+### Prerequisites
+
+- Node.js 18+
+- Yarn or NPM
+
+### Installation
+
+1.  Clone the repository:
+    ```bash
+    git clone https://github.com/OdontoFlow012025/odontoflow-front-end.git
+    cd odontoflow-front-end
+    ```
+
+2.  Install dependencies:
+    ```bash
+    yarn install
+    # or
+    npm install
+    ```
+
+3.  Run the development server:
+    ```bash
+    yarn dev
+    # or
+    npm run dev
+    ```
+
+4.  Open [http://localhost:3000](http://localhost:3000) (or the port shown in your terminal) to view the application.
+
+## 🌐 Localization
+
+The application automatically detects the browser language or uses the URL path prefix:
+- `/pt-BR/...` for Portuguese
+- `/en/...` for English
+- `/es/...` for Spanish
+
+To update translations, edit the JSON files in `src/dictionaries/`.
+
+## 🤝 Contributing
+
+Please ensure you create a feature branch for any changes:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git checkout -b feat/your-feature-name
+```
+For bug fixes:
+```bash
+git checkout -b fix/your-fix-name
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+© 2026 OdontoFlow Inc.

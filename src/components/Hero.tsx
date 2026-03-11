@@ -1,59 +1,68 @@
-export default function Hero({ dict }: { dict: any }) {
+import Image from "next/image";
+
+export default function Hero({ dict, locale }: { dict: any; locale: string }) {
   return (
-    <div className="relative overflow-hidden pt-12 pb-16 lg:pt-20 lg:pb-24">
+    <section className="relative overflow-hidden pt-16 pb-20 lg:pt-24 lg:pb-32 bg-slate-100 dark:bg-slate-950">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-center">
           {/* Text Content */}
-          <div className="flex flex-col gap-6 lg:w-1/2">
-            <div className="flex flex-col gap-4">
-              <h1 className="text-4xl font-extrabold tracking-tight text-text-main sm:text-5xl lg:text-6xl leading-[1.15]">
-                {dict.hero.titlePrefix} <span className="text-(--primary)">{dict.hero.titleSuffix}</span>
-              </h1>
-              <p className="text-lg text-text-secondary max-w-xl leading-relaxed">
-                {dict.hero.description}
-              </p>
-            </div>
-            <div className="flex flex-wrap gap-4 pt-2">
-              <button className="flex h-12 min-w-[160px] items-center justify-center rounded-lg bg-(--primary) px-6 text-base font-bold text-white shadow-lg shadow-blue-500/20 hover:bg-(--primary-hover) transition-all">
-                {dict.hero.startTrial}
-              </button>
-              <button className="flex h-12 min-w-[160px] items-center justify-center rounded-lg border border-slate-200 bg-surface px-6 text-base font-bold text-text-main hover:bg-slate-50 dark:border-slate-700 dark:hover:bg-slate-800 transition-all gap-2">
-                <span className="material-symbols-outlined text-[20px]">play_circle</span>
-                {dict.hero.watchVideo}
-              </button>
-            </div>
-            <div className="flex items-center gap-4 text-sm text-text-secondary dark:text-slate-500 pt-2">
-              <div className="flex -space-x-2">
-                <div className="h-8 w-8 rounded-full border-2 border-white dark:border-background-dark bg-slate-200 bg-cover bg-center" style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuAUtTojdIp7mKUJWMVQeBnQdODem0_-mp0AT7sI631K8H9AD6LglyaxK32sigoF1QH2Z09Z0TY31OQkMpjpMIelPdHyWKgBRE8GTABRVBAMx8cDm7VbbAkNNoDTbvDq9lgmja_Q7GMGMbM_l2At-ISfjysw3HYoYhRY2nBZdP6CeRC92IBvqtIdlR-qvq6IKu-aUdLigTw5e49EgMO0ah5ninv-dbYepv4cWO3pt1fPMLK2KljxacLzQ4ioEgcCfKHs7S-oC40l36s')" }}></div>
-                <div className="h-8 w-8 rounded-full border-2 border-white dark:border-background-dark bg-slate-300 bg-cover bg-center" style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuDoiTybBKAMnKaD7ZymxuljxhSCrvkZr0RojtSUK-XINVrCKj0IDpjd3JCpyVjYFigamZgnd0JW7TFQ6TVu42ipzGms3OSrWdk0-Acq5_uhsUtNVMnOmgqerAUJvVSP7Y3UYyfODAx7BQlojPfB5c0-70uPQLNSFU6JEhjBcwFcZVedG8SonO5nC3p_ERNX4zN_1CDm2zC6K3abWw2bpQ-2GR4McN49YVuICCg8w3JFgaXFo7OXz9NJasprgWr7_QMSj2hJ6OYkYFY')" }}></div>
-                <div className="h-8 w-8 rounded-full border-2 border-white dark:border-background-dark bg-slate-400 bg-cover bg-center" style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuAAR6ml5d7A3oMU_pfoWyTVu-kqVjtMuhk_dWDMP1lnixMUMLSBwII-bYjlXgpr1fiPUc9getTISXel7P0yQA4T7Es-1e6QgaXHG-xxuSEnUrUtvVIje1PphIgJpQpL8cDiNphJ_uLJoha2rkX1DJsV67iAss9UmjlfTZtw9RG5obz7JMTya1c7m6BS-_Qccl7aOAXUZYEqrbbLSNhnLXikeSg0M2VmxcUq_6QDNzgkPh2WZGQZkCTw1sqta1Rc3oN2uVc-9XtUBtE')" }}></div>
+          <div className="flex flex-col gap-8 lg:w-1/2">
+            <div className="flex flex-col gap-6">
+              <div className="flex flex-col gap-6">
+              <div className="flex flex-wrap items-center gap-4 mb-6">
+                <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-600/10 text-blue-500 text-[10px] font-black uppercase tracking-[0.2em] border border-blue-500/20">
+                  <span className="h-1.5 w-1.5 rounded-full bg-blue-500 animate-pulse"></span>
+                  {dict.hero.badge}
+                </span>
+                <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#0B1221] border border-white/10 shadow-2xl">
+                  <span className="material-symbols-outlined text-green-500 text-sm">check_circle</span>
+                  <span className="text-[10px] font-bold text-white uppercase tracking-wider">{dict.hero.statusRnds}</span>
+                </div>
               </div>
-              <p>{dict.hero.trustedBy}</p>
+                <h1 className="text-5xl font-black tracking-tighter text-slate-900 sm:text-6xl lg:text-8xl leading-[0.95] dark:text-white">
+                  <span className="block mb-4 text-slate-900 dark:text-white/40">{dict.hero.titlePrefix}</span>
+                  <span className="text-blue-600">{dict.hero.titleSuffix}</span>
+                </h1>
+              </div>
             </div>
           </div>
+
           {/* Image Content */}
-          <div className="lg:w-1/2 w-full">
-            <div className="relative rounded-2xl bg-linear-to-b from-slate-100 to-slate-200 p-2 dark:from-slate-800 dark:to-slate-900 shadow-2xl ring-1 ring-slate-900/10">
-              <div className="relative aspect-video w-full overflow-hidden rounded-xl bg-surface-light dark:bg-surface-dark shadow-inner">
-                {/* Simulated Dashboard UI */}
-                <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuBI42WLrwQIhZkct9BJbRgiUgFCaQytpWO_m3Q3T3sBxQ9TZkP30Rb77SnlaorvxynmAK8RHdAuwC1AfFoSfuvPBkZ-qXpTtkIoKIA4JVLcd6fhjsO1U_7b81nrjqXC-49tq72d7DGYm4GoTDd4WTU3Ml7n7eNVyDZAP6HSKlREbLabDShWRseY3j9uPbYSueicY69WBw77MAjLQ2NJ_ZGI3gNrDlgTv5SHFGKYbFr4knnGawE9mPFbODJG2owOFXERG2SO-FVrysA')" }}></div>
-                {/* Floating Card Element */}
-                <div className="absolute -bottom-6 -left-6 hidden md:flex flex-col gap-2 rounded-xl bg-surface-light p-4 shadow-xl ring-1 ring-black/5 dark:bg-surface-dark dark:ring-white/10 max-w-[220px]">
-                  <div className="flex items-center gap-3">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-green-100 text-green-600 dark:bg-green-900/30 dark:text-green-400">
-                      <span className="material-symbols-outlined">check_circle</span>
-                    </div>
-                    <div>
-                      <p className="text-xs font-medium text-text-secondary dark:text-slate-400">{dict.hero.dailyRevenue}</p>
-                      <p className="text-lg font-bold text-text-main dark:text-white">$4,250.00</p>
-                    </div>
+          <div className="lg:w-1/2 w-full relative">
+            <div className="relative rounded-3xl bg-white p-3 dark:bg-slate-800 shadow-[0_20px_50px_rgba(0,0,0,0.1)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.3)] ring-1 ring-slate-200 dark:ring-slate-700 group">
+              <div className="relative aspect-4/3 w-full overflow-hidden rounded-2xl bg-slate-100 dark:bg-slate-900">
+                {/* Dashboard Image */}
+                <Image
+                  src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=1200"
+                  alt="OdontoFlow Dashboard"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  priority
+                />
+                <div className="absolute inset-0 bg-linear-to-t from-black/20 to-transparent"></div>
+                
+                {/* Floating Status Card */}
+                <div className="absolute bottom-6 left-6 flex items-center gap-3 rounded-2xl bg-white/90 backdrop-blur-md p-4 shadow-2xl ring-1 ring-black/5 dark:bg-slate-800/90 dark:ring-white/10 animate-float">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-blue-600 dark:bg-blue-900/50 dark:text-blue-400">
+                    <span className="material-symbols-outlined text-3xl animate-spin-slow">sync</span>
+                  </div>
+                  <div className="pr-4">
+                    <p className="text-[10px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 leading-tight">Sincronização RNDS</p>
+                    <p className="text-lg font-black text-slate-900 dark:text-white leading-tight">ATIVA E EM DIA</p>
                   </div>
                 </div>
               </div>
             </div>
+            
+            {/* Background elements */}
+            <div className="absolute -top-20 -right-20 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl animate-blob dark:bg-blue-600/20"></div>
+            <div className="absolute -bottom-20 -left-20 w-96 h-96 bg-emerald-600/10 rounded-full blur-3xl animate-blob animation-delay-2000 dark:bg-emerald-600/20"></div>
           </div>
         </div>
       </div>
-    </div>
+      
+      {/* Global background glow */}
+      <div className="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-500/5 rounded-full blur-[120px] -z-10"></div>
+    </section>
   );
 }

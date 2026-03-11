@@ -4,8 +4,8 @@ import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
 import RoleSection from "@/components/RoleSection";
+import SecuritySection from "@/components/SecuritySection";
 import Stats from "@/components/Stats";
-import Testimonials from "@/components/Testimonials";
 import { getDictionary } from "@/utils/get-dictionary";
 
 export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
@@ -13,14 +13,14 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
   const dict = await getDictionary(locale);
 
   return (
-    <main>
+    <main className="pt-16">
       <Navbar dict={dict} locale={locale} />
-      <Hero dict={dict} />
+      <Hero dict={dict} locale={locale} />
       <Stats dict={dict} />
       <Features dict={dict} />
+      <SecuritySection dict={dict} />
       <RoleSection dict={dict} />
-      <Testimonials dict={dict} />
-      <CTABanner dict={dict} />
+      <CTABanner dict={dict} locale={locale} />
       <Footer dict={dict} locale={locale} />
     </main>
   );

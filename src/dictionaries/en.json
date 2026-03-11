@@ -1,24 +1,35 @@
 {
   "meta": {
+    "_cache_buster": "v1",
     "title": "OdontoFlow - Modern Dental Clinic Management"
+  },
+  "systemAlert": {
+    "title": "ATTENTION:",
+    "message": "System unstable due to compliance updates for Brazilian RNDS.",
+    "close": "Close Warning",
+    "closeTimer": "Close"
   },
   "navbar": {
     "features": "Features",
-    "solutions": "Solutions",
+    "compliance": "Compliance",
     "pricing": "Pricing",
-    "resources": "Resources",
+    "support": "Support",
     "login": "Login",
-    "requestDemo": "Request Demo"
+    "register": "Sign Up"
   },
   "hero": {
-    "newVersion": "New Version 2.0 Available",
-    "titlePrefix": "The Complete Management System for",
-    "titleSuffix": "Modern Dental Clinics",
-    "description": "Streamline appointments, finances, and patient care in one intuitive platform. Join the new standard in dental management efficiency.",
-    "startTrial": "Start Free Trial",
-    "watchVideo": "Watch Video",
-    "trustedBy": "Trusted by 2,500+ dentists",
-    "dailyRevenue": "Daily Revenue"
+    "badge": "Ready for Health Interoperability",
+    "titlePrefix": "Complete Dental Management with",
+    "titleSuffix": "RNDS Interoperability",
+    "description": "The definitive platform for clinics seeking operational excellence and full compliance with the National Health Data Network.",
+    "startTrial": "Sign Up",
+    "statusRnds": "RNDS Approved"
+  },
+  "partners": {
+    "institutional": "INSTITUTIONAL PARTNERSHIP",
+    "protocols": "MS PROTOCOLS",
+    "standard": "ICP-BRAZIL STANDARD",
+    "network": "NATIONAL HEALTH NETWORK"
   },
   "stats": {
     "clinics": "Clinics Managed",
@@ -27,34 +38,47 @@
     "uptime": "Platform Uptime"
   },
   "features": {
-    "title": "Comprehensive Clinic Management",
-    "subtitle": "Everything you need to run your dental practice efficiently in one centralized management system.",
+    "title": "Integrated Dental Ecosystem",
+    "subtitle": "State-of-the-art technology to centralize your clinical operation with a focus on interoperability and efficiency.",
     "scheduling": {
       "title": "Smart Scheduling",
-      "description": "Reduce no-shows with automated WhatsApp reminders, color-coded appointments, and smart waitlist management."
+      "description": "Reduce no-shows with automated WhatsApp reminders, dynamic waitlist management."
     },
     "financial": {
-      "title": "Financial Health",
-      "description": "Track real-time cash flow, manage insurance billing automatically, and generate comprehensive expense reports."
+      "title": "Financial Management",
+      "description": "Real-time cash flow, automated insurance billing, and profitability reports."
     },
     "charts": {
-      "title": "Digital Charts",
-      "description": "Complete anamnesis and interactive odontograms available at a click. Secure, accessible, and paperless."
+      "title": "RNDS Interoperable Record",
+      "description": "Data integrated with the National Health Data Network, ensuring total patient mobility and absolute legal compliance."
+    }
+  },
+  "security": {
+    "badge": "Technical Authority",
+    "title": "Security and Legal Validity",
+    "description": "OdontoFlow uses bank-level encryption technology and is fully aligned with Ministry of Health requirements for national clinical data traffic.",
+    "signature": {
+        "title": "ICP-Brazil Digital Signature",
+        "description": "We use ICP-Brazil standard digital certificates to ensure authenticity and non-repudiation in sending information to RNDS."
+    },
+    "compliance": {
+        "title": "LGPD Health Compliance",
+        "description": "Rigorous treatment of sensitive health data, following the highest standards of the General Data Protection Law."
     }
   },
   "roles": {
-    "title": "Tailored for your entire team",
+    "title": "Developed for the entire network",
     "dentists": {
       "title": "For Dentists",
-      "description": "Focus on patient care with 1-click access to clinical history, X-rays, and treatment plans directly from the chair."
+      "description": "Full patient focus with a record that loads the citizen's national history via RNDS."
     },
     "receptionists": {
-      "title": "For Receptionists",
-      "description": "Manage the front desk effortlessly. Quick check-ins, easy rescheduling, and automated patient communication."
+      "title": "For Reception",
+      "description": "Agile check-ins and automated communication integrated into the service flow."
     },
     "managers": {
       "title": "For Managers",
-      "description": "Gain full visibility into clinic performance with granular reports on revenue, inventory, and staff productivity."
+      "description": "Complete analytical view and legal peace of mind in compliance with Brazilian health regulations."
     }
   },
   "testimonials": {
@@ -67,10 +91,9 @@
     "t3_role": "Practice Manager, City Dental"
   },
   "cta": {
-    "title": "Ready to modernize your clinic?",
-    "description": "Join thousands of dental professionals who have switched to OdontoFlow. Start your 14-day free trial today. No credit card required.",
-    "getStarted": "Get Started for Free",
-    "scheduleDemo": "Schedule a Demo"
+    "title": "Ready for the new era of health?",
+    "description": "Join the largest interoperability network in Brazil and modernize your clinic right now.",
+    "getStarted": "Register Now"
   },
   "footer": {
     "description": "The all-in-one management platform designed for the modern dental ecosystem. Secure, fast, and reliable.",
@@ -95,6 +118,359 @@
         "careers": "Careers",
         "legal": "Legal",
         "contact": "Contact"
+    }
+  },
+  "auth": {
+    "title": "Access your account",
+    "subtitle": "Manage your clinic efficiently and simply.",
+    "emailLabel": "Email or Username",
+    "emailPlaceholder": "example@odontoflow.com",
+    "passwordLabel": "Password",
+    "passwordPlaceholder": "Enter your password",
+    "forgotPassword": "Forgot password?",
+    "loginButton": "Login to Platform",
+    "or": "OR",
+    "noAccount": "Don't have an account yet?",
+    "signUp": "Register your clinic",
+    "copyright": "Terms of Use Privacy Help",
+    "loading": "Logging in...",
+    "errorGeneric": "Login error. Please check your credentials.",
+    "footer": {
+        "terms": "Terms",
+        "privacy": "Privacy",
+        "help": "Help"
+    }
+  },
+  "signup": {
+    "title": "Create your account",
+    "subtitle": "Fill in the details below to start transforming your clinic management today.",
+    "clinicData": {
+      "title": "Clinic Data",
+      "fantasyNameLabel": "Fantasy Name",
+      "fantasyNamePlaceholder": "Ex: Healthy Smile Clinic",
+      "companyNameLabel": "Business Name",
+      "companyNamePlaceholder": "Business Name LLC",
+      "cnpjLabel": "Business Tax ID",
+      "cnpjPlaceholder": "00-0000000",
+      "addressLabel": "Clinic Address",
+      "addressPlaceholder": "Street, Number, City - State",
+      "phoneLabel": "Clinic Phone",
+      "phonePlaceholder": "(000) 000-0000"
+    },
+    "userData": {
+      "title": "Professional Data",
+      "nameLabel": "Full Name",
+      "namePlaceholder": "Your full name",
+      "emailLabel": "Email",
+      "emailPlaceholder": "you@email.com",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "********",
+      "phoneLabel": "Mobile Phone",
+      "phonePlaceholder": "(000) 000-0000",
+      "cpfLabel": "Personal Tax ID",
+      "cpfPlaceholder": "000-00-0000",
+      "croLabel": "Professional License",
+      "croPlaceholder": "ABC-12345"
+    },
+    "submitButton": "Create Account",
+    "haveAccount": "Already have an account?",
+    "loginLink": "Login",
+    "loading": "Sending...",
+    "errorGeneric": "An error occurred while trying to create the account.",
+    "termsAgreement": "By clicking \"{submitButton}\", you agree to our",
+    "termsLink": "Terms of Use",
+    "privacyLink": "Privacy Policy",
+    "hero": {
+      "title": "Elevate your clinic's standard",
+      "subtitle": "The management you deserve, the technology your patients trust. Join the OdontoFlow revolution."
+    }
+  },
+  "loginFeatures": {
+    "badge": "Leader in Dental Management",
+    "title": "Transform smiles while we take care of management.",
+    "description": "Join over 5,000 clinics that have automated scheduling, billing, and records with OdontoFlow.",
+    "testimonial": "Approved by experts"
+  },
+  "dashboard": {
+    "header": {
+      "title": "Clinic Overview",
+      "subtitle": "Integrated monitoring: Administrative and Operational.",
+      "unitCenter": "Center Unit",
+      "unitJardins": "Jardins Unit",
+      "unitNorth": "North Unit"
+    },
+    "calendar": {
+        "today": "Today",
+        "next": "Next",
+        "previous": "Back",
+        "month": "Month",
+        "week": "Week",
+        "day": "Day",
+        "agenda": "Agenda",
+        "date": "Date",
+        "time": "Time",
+        "event": "Event",
+        "noEventsInRange": "There are no events in this range."
+    },
+    "sidebarFilters": {
+        "calendar": "Calendar",
+        "professionals": "Professionals",
+        "rooms": "Rooms",
+        "allRooms": "All Rooms"
+    },
+    "sidebar": {
+      "dashboard": "Dashboard",
+      "operational": "Operational",
+      "attendance": "Patient Care",
+      "reception": "Reception",
+      "triage": "Triage",
+      "medicalCare": "Medical Care",
+      "schedule": "Scheduling",
+      "patients": "Patients",
+      "records": "Medical Records",
+      "administrative": "Administrative",
+      "financial": "Financial",
+      "inventory": "Inventory",
+      "reports": "BI Reports",
+      "team": "Team",
+      "system": "System",
+      "settings": "Settings",
+      "logout": "Logout",
+      "role": "Administrator"
+    },
+    "financial": {
+      "title": "Financial Health",
+      "dailyRevenue": "DAILY REVENUE",
+      "monthlyExpenses": "MONTHLY EXPENSES",
+      "netProfit": "REAL NET PROFIT"
+    },
+    "attendance": {
+      "title": "Live Attendance Flow",
+      "realtime": "Real Time",
+      "waitingRoom": "WAITING ROOM",
+      "patients": "patients",
+      "avgTime": "Avg Time",
+      "inService": "IN SERVICE",
+      "dentistsBusy": "dentists busy",
+      "occupancy": "Occupancy",
+      "finishedToday": "FINISHED TODAY",
+      "consultations": "consultations",
+      "goal": "Goal"
+    },
+    "cashflow": {
+      "title": "Cash Flow",
+      "income": "Income",
+      "expense": "Expenses",
+      "filters": {
+        "today": "Today",
+        "7days": "7 Days",
+        "lastMonth": "Last Month",
+        "last3Months": "Last Quarter",
+        "last6Months": "Last Semester",
+        "lastYear": "Last Year",
+        "all": "Total Flow"
+      }
+    },
+    "pendencies": {
+      "title": "Critical Pendencies",
+      "subtitle": "Actions requiring immediate attention",
+      "pay": "Pay",
+      "charge": "Charge",
+      "noData": "No critical pendencies found",
+      "provider": "Provider",
+      "patient": "Patient",
+      "due": "Due",
+      "defaultTitle": "Pending Item"
+    },
+    "quickActions": {
+      "title": "Quick Actions",
+      "newAppointment": "New Appointment",
+      "checkin": "Patient Check-in",
+      "expense": "Log Expense",
+      "report": "Generate P&L"
+    },
+    "receptionBoard": {
+      "title": "Reception Flow",
+      "scheduled": "Scheduled Today",
+      "waiting": "Waiting Room",
+      "inService": "In Service",
+      "checkIn": "Check-in",
+      "empty": "No patients.",
+      "time": "Time",
+      "doctor": "Dentist",
+      "newPatientBtn": "New Patient",
+      "scheduleBtn": "Schedule",
+      "loading": "Loading reception...",
+      "checkinError": "Error performing check-in"
+    },
+    "bi": {
+      "title": "BI Indicators",
+      "newPatients": "New Patients",
+      "currentMonth": "Current Month"
+    },
+    "appointmentModal": {
+      "title": "New Appointment",
+      "patientLabel": "Patient",
+      "patientSelect": "Select a patient...",
+      "dentistLabel": "Dentist",
+      "dentistSelect": "Select a dentist...",
+      "dateLabel": "Date",
+      "timeLabel": "Time",
+      "notesLabel": "Notes",
+      "notesPlaceholder": "Reason for visit...",
+      "submitButton": "Schedule Appointment",
+      "successMessage": "Appointment created successfully!",
+      "authError": "Authentication error. Please login again.",
+      "genericError": "Error scheduling appointment"
+    },
+    "triage": {
+      "title": "Triage & Risk Assessment",
+      "waitingQueue": "Waiting Queue",
+      "empty": "No patients waiting for triage.",
+      "startBtn": "Start Triage",
+      "modalTitle": "Clinical Triage",
+      "patientLabel": "Patient",
+      "vitalsTitle": "Vital Signs",
+      "pressureLabel": "BP (mmHg)",
+      "heartRateLabel": "HR (bpm)",
+      "tempLabel": "Temp (ºC)",
+      "oxygenLabel": "O2 Sat (%)",
+      "weightLabel": "Weight (kg)",
+      "complaintLabel": "Chief Complaint / History",
+      "complaintPlaceholder": "Describe the reason for visit...",
+      "riskLabel": "Risk Classification",
+      "riskHelper": "Select severity (Manchester)",
+      "cancelBtn": "Cancel",
+      "saveBtn": "Save Triage",
+      "saving": "Saving...",
+      "success": "Triage saved successfully!",
+      "error": "Error saving triage"
+    },
+    "medical": {
+      "title": "Medical Care",
+      "waitingList": "Waiting List",
+      "empty": "No patients waiting for care.",
+      "startBtn": "Start Consultation",
+      "patient": "Patient",
+      "finishBtn": "Finish Consultation",
+      "classification": "Classification",
+      "noRisk": "No Risk",
+      "risks": {
+        "red": "RED",
+        "orange": "ORANGE",
+        "yellow": "YELLOW",
+        "green": "GREEN",
+        "blue": "BLUE"
+      },
+      "odontogram": {
+          "title": "Visual Odontogram",
+          "tools": {
+              "explorer": "Explorer (Clear)",
+              "cavity": "Cavity (Red)",
+              "restoration": "Restoration (Blue)",
+              "crown": "Crown (Yellow)",
+              "extraction": "Extracted (X)"
+          },
+          "arches": {
+              "upper": "Upper Arch",
+              "lower": "Lower Arch"
+          },
+          "faces": {
+              "O": "Occlusal",
+              "V": "Vestibular",
+              "L": "Lingual",
+              "M": "Mesial",
+              "D": "Distal"
+          },
+          "toothLabel": "Tooth",
+          "helpText": "Click on tooth faces to apply the selected tool."
+      }
+    }
+  },
+  "inventory": {
+    "title": "Stock & Invoice Entry",
+    "subtitle": "Control of supplies and incoming goods.",
+    "newNfBtn": "New Invoice",
+    "cancelBtn": "Cancel",
+    "nfDataTitle": "Invoice Details",
+    "nfNumberLabel": "Invoice Number",
+    "providerLabel": "Provider",
+    "addProductsTitle": "Add Products",
+    "productLabel": "Product",
+    "quantityLabel": "Qty.",
+    "unitPriceLabel": "Unit Price ($)",
+    "addBtn": "Add",
+    "selectProduct": "Select a product...",
+    "subtotalLabel": "Subtotal",
+    "totalValueLabel": "Total Value:",
+    "saveBtn": "Save Invoice and Generate Expense",
+
+    "tabs": {
+        "products": "Products in Stock",
+        "invoices": "Incoming Invoices"
+    },
+    "productsTable": {
+        "product": "Product",
+        "sku": "SKU",
+        "currentStock": "Current Stock",
+        "unit": "Unit",
+        "status": "Status",
+        "loading": "Loading stock...",
+        "empty": "No products registered.",
+        "lowStatus": "LOW",
+        "okStatus": "OK"
+    },
+    "invoicesTable": {
+        "nfNumber": "Invoice Num.",
+        "provider": "Provider",
+        "issueDate": "Issue Date",
+        "items": "Items",
+        "totalValue": "Total Value",
+        "loading": "Loading invoices...",
+        "empty": "No invoices registered."
+    },
+    "errors": {
+        "emptyNf": "Add at least one product to the Invoice.",
+        "successNf": "Invoice created successfully!",
+        "failNf": "Error creating invoice: "
+    }
+  },
+  "financial": {
+    "title": "Financial Management",
+    "subtitle": "Complete control of cash, billing, and inventory.",
+    "tabs": {
+        "general": "General",
+        "patients": "Patients",
+        "insurances": "Insurances",
+        "inventory": "Stock & Invoices"
+    }
+  },
+  "placeholder": {
+    "construction": "Page Under Construction",
+    "desc1": "The",
+    "desc2": "module is still under development. You will soon have access to all features in this area."
+  },
+  "reports": {
+    "title": "BI Reports",
+    "subtitle": "Advanced analytics and clinic performance indicators.",
+    "filters": {
+        "thisMonth": "This Month",
+        "lastMonth": "Last Month",
+        "thisYear": "This Year",
+        "oneDay": "1 Day",
+        "oneWeek": "1 Week",
+        "oneMonth": "1 Month",
+        "oneQuarter": "1 Quarter"
+    },
+    "metrics": {
+      "revenue": "Total Revenue",
+      "patients": "Active Patients",
+      "appointments": "Appointments Held",
+      "pending": "Pending Payments"
+    },
+    "charts": {
+      "revenue": "Revenue Evolution",
+      "procedures": "Appointments by Procedure"
     }
   }
 }

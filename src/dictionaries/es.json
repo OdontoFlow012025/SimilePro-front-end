@@ -1,24 +1,35 @@
 {
   "meta": {
+    "_cache_buster": "v1",
     "title": "OdontoFlow - Gestión Moderna de Clínicas Dentales"
   },
+  "systemAlert": {
+    "title": "ATENCIÓN:",
+    "message": "Sistema inestable debido a la readecuación al RNDS Brasileño.",
+    "close": "Cerrar Aviso",
+    "closeTimer": "Cerrar"
+  },
   "navbar": {
-    "features": "Características",
-    "solutions": "Soluciones",
+    "features": "Funcionalidades",
+    "compliance": "Cumplimiento",
     "pricing": "Precios",
-    "resources": "Recursos",
-    "login": "Iniciar Sesión",
-    "requestDemo": "Solicitar Demo"
+    "support": "Soporte",
+    "login": "Login",
+    "register": "Registrarse"
   },
   "hero": {
-    "newVersion": "Nueva Versión 2.0 Disponible",
-    "titlePrefix": "El Sistema de Gestión Completo para",
-    "titleSuffix": "Clínicas Dentales Modernas",
-    "description": "Optimice citas, finanzas y atención al paciente en una plataforma intuitiva. Únase al nuevo estándar en eficiencia de gestión dental.",
-    "startTrial": "Empezar Prueba Gratis",
-    "watchVideo": "Ver Video",
-    "trustedBy": "Confiado por más de 2,500 dentistas",
-    "dailyRevenue": "Ingresos Diarios"
+    "badge": "Listo para la Interoperabilidad de Salud",
+    "titlePrefix": "Gestión Odontológica Completa con",
+    "titleSuffix": "Interoperabilidad RNDS",
+    "description": "La plataforma definitiva para clínicas que buscan excelencia operativa e total conformidad con la Red Nacional de Datos de Salud.",
+    "startTrial": "Registrarse",
+    "statusRnds": "Homologación RNDS"
+  },
+  "partners": {
+    "institutional": "ALIANZA INSTITUCIONAL",
+    "protocols": "PROTOCOLOS MS",
+    "standard": "ESTÁNDAR ICP-BRASIL",
+    "network": "RED NACIONAL DE SALUD"
   },
   "stats": {
     "clinics": "Clínicas Gestionadas",
@@ -27,34 +38,47 @@
     "uptime": "Tiempo de Actividad"
   },
   "features": {
-    "title": "Gestión Integral de Clínicas",
-    "subtitle": "Todo lo que necesita para administrar su consultorio dental de manera eficiente en un sistema de gestión centralizado.",
+    "title": "Ecosistema Odontológico Integrado",
+    "subtitle": "Tecnología de vanguardia para centralizar su operación clínica con foco en interoperabilidad y eficiencia.",
     "scheduling": {
-      "title": "Programación Inteligente",
-      "description": "Reduzca ausencias con recordatorios automáticos por WhatsApp, citas codificadas por colores y gestión inteligente de listas de espera."
+      "title": "Agendamiento Inteligente",
+      "description": "Reduzca ausencias con recordatorios automáticos por WhatsApp, gestión dinámica de listas de espera."
     },
     "financial": {
-      "title": "Salud Financiera",
-      "description": "Rastree el flujo de caja en tiempo real, gestione la facturación de seguros automáticamente y genere informes de gastos completos."
+      "title": "Gestión Financiera",
+      "description": "Flujo de caja en tiempo real, facturación automatizada de seguros e informes de rentabilidad."
     },
     "charts": {
-      "title": "Historiales Digitales",
-      "description": "Anamnesis completa y odontogramas interactivos disponibles con un clic. Seguro, accesible y sin papel."
+      "title": "Expediente Interoperable RNDS",
+      "description": "Datos integrados a la Red Nacional de Datos de Salud, garantizando la movilidad total del paciente y conformidad legal absoluta."
+    }
+  },
+  "security": {
+    "badge": "Autoridad Técnica",
+    "title": "Seguridad y Validez Jurídica",
+    "description": "OdontoFlow utiliza tecnología de cifrado de nivel bancario y está plenamente alineado con las exigencias del Ministerio de Salud para el tráfico de datos clínicos nacionales.",
+    "signature": {
+        "title": "Firma Digital ICP-Brasil",
+        "description": "Utilizamos certificados digitales estándar ICP-Brasil para garantizar la autenticidad y el no repudio en el envío de información a la RNDS."
+    },
+    "compliance": {
+        "title": "Conformidad LGPD Health",
+        "description": "Tratamiento riguroso de datos sensibles de salud, siguiendo los más altos estándares de la Ley General de Protección de Datos."
     }
   },
   "roles": {
-    "title": "Diseñado para todo su equipo",
+    "title": "Desarrollado para toda la red",
     "dentists": {
       "title": "Para Dentistas",
-      "description": "Enfoque en la atención al paciente con acceso en 1 clic al historial clínico, rayos X y planes de tratamiento directamente desde el sillón."
+      "description": "Enfoque total en el paciente con un expediente que carga el historial nacional del ciudadano vía RNDS."
     },
     "receptionists": {
-      "title": "Para Recepcionistas",
-      "description": "Gestione la recepción sin esfuerzo. Check-ins rápidos, reprogramación fácil y comunicación automatizada con pacientes."
+      "title": "Para Recepción",
+      "description": "Check-ins ágiles y comunicación automatizada integrada al flujo de atención."
     },
     "managers": {
       "title": "Para Gerentes",
-      "description": "Obtenga visibilidad total del rendimiento de la clínica con informes granulares sobre ingresos, inventario y productividad del personal."
+      "description": "Visión analítica completa y tranquilidad jurídica en el cumplimiento de las normativas de salud brasileñas."
     }
   },
   "testimonials": {
@@ -67,10 +91,9 @@
     "t3_role": "Gerente de Práctica, City Dental"
   },
   "cta": {
-    "title": "¿Listo para modernizar su clínica?",
-    "description": "Únase a miles de profesionales dentales que han cambiado a OdontoFlow. Comience su prueba gratuita de 14 días hoy. No se requiere tarjeta de crédito.",
-    "getStarted": "Empezar Gratis",
-    "scheduleDemo": "Agendar Demo"
+    "title": "¿Listo para la nueva era de la salud?",
+    "description": "Únase a la mayor red de interoperabilidad de Brasil y modernice su clínica ahora mismo.",
+    "getStarted": "Regístrese ahora"
   },
   "footer": {
     "description": "La plataforma de gestión todo en uno diseñada para el ecosistema dental moderno. Seguro, rápido y confiable.",
@@ -95,6 +118,361 @@
         "careers": "Carreras",
         "legal": "Legal",
         "contact": "Contacto"
+    }
+  },
+  "auth": {
+    "title": "Acceda a su cuenta",
+    "subtitle": "Administre su clínica con eficiencia y simplicidad.",
+    "emailLabel": "Correo electrónico o Usuario",
+    "emailPlaceholder": "ejemplo@odontoflow.com",
+    "passwordLabel": "Contraseña",
+    "passwordPlaceholder": "Ingrese su contraseña",
+    "forgotPassword": "¿Olvidó su contraseña?",
+    "loginButton": "Ingresar a la Plataforma",
+    "or": "O",
+    "noAccount": "¿Aún no tiene una cuenta?",
+    "signUp": "Registre su clínica",
+    "copyright": "Términos de Uso Privacidad Ayuda",
+    "loading": "Entrando...",
+    "loadingStart": "Iniciando el sistema...",
+    "loadingEnd": "Listo",
+    "errorGeneric": "Error al iniciar sesión. Verifique sus credenciales.",
+    "footer": {
+        "terms": "Términos",
+        "privacy": "Privacidad",
+        "help": "Ayuda"
+    }
+  },
+  "signup": {
+    "title": "Crea tu cuenta",
+    "subtitle": "Complete los datos a continuación para comenzar a transformar la gestión de su clínica hoy.",
+    "clinicData": {
+      "title": "Datos de la Clínica",
+      "fantasyNameLabel": "Nombre de Fantasía",
+      "fantasyNamePlaceholder": "Ej: Clínica Sonrisa Saludable",
+      "companyNameLabel": "Razón Social",
+      "companyNamePlaceholder": "Razón Social S.A.",
+      "cnpjLabel": "RUC/NIT",
+      "cnpjPlaceholder": "0000000000",
+      "addressLabel": "Dirección de la Clínica",
+      "addressPlaceholder": "Calle, Número, Ciudad - Estado",
+      "phoneLabel": "Teléfono de la Clínica",
+      "phonePlaceholder": "(00) 0000-0000"
+    },
+    "userData": {
+      "title": "Datos del Profesional",
+      "nameLabel": "Nombre Completo",
+      "namePlaceholder": "Su nombre completo",
+      "emailLabel": "Correo Electrónico",
+      "emailPlaceholder": "tu@email.com",
+      "passwordLabel": "Contraseña",
+      "passwordPlaceholder": "********",
+      "phoneLabel": "Teléfono Celular",
+      "phonePlaceholder": "(00) 9000-0000",
+      "cpfLabel": "Documento de Identidad",
+      "cpfPlaceholder": "000.000.000-00",
+      "croLabel": "Licencia Profesional",
+      "croPlaceholder": "ABC-12345"
+    },
+    "submitButton": "Crear Cuenta",
+    "haveAccount": "¿Ya tienes una cuenta?",
+    "loginLink": "Iniciar Sesión",
+    "loading": "Enviando...",
+    "errorGeneric": "Ocurrió un error al intentar crear la cuenta.",
+    "termsAgreement": "Al hacer clic en \"{submitButton}\", usted acepta nuestros",
+    "termsLink": "Términos de Uso",
+    "privacyLink": "Política de Privacidad",
+    "hero": {
+      "title": "Eleve el estándar de su clínica",
+      "subtitle": "La gestión que usted merece, la tecnología en la que sus pacientes confían. Únase a la revolución de OdontoFlow."
+    }
+  },
+  "loginFeatures": {
+    "badge": "Líder en Gestión Odontológica",
+    "title": "Transforme sonrisas mientras nosotros cuidamos la gestión.",
+    "description": "Únase a más de 5,000 clínicas que han automatizado citas, facturación y registros con OdontoFlow.",
+    "testimonial": "Aprobado por expertos"
+  },
+  "dashboard": {
+    "header": {
+      "title": "Visión General de la Clínica",
+      "subtitle": "Monitoreo integrado: Administrativo y Operativo.",
+      "unitCenter": "Unidad Central",
+      "unitJardins": "Unidad Jardines",
+      "unitNorth": "Unidad Norte"
+    },
+    "calendar": {
+        "today": "Hoy",
+        "next": "Siguiente",
+        "previous": "Anterior",
+        "month": "Mes",
+        "week": "Semana",
+        "day": "Día",
+        "agenda": "Agenda",
+        "date": "Fecha",
+        "time": "Hora",
+        "event": "Evento",
+        "noEventsInRange": "No hay eventos en este rango."
+    },
+    "sidebarFilters": {
+        "calendar": "Calendario",
+        "professionals": "Profesionales",
+        "rooms": "Salas",
+        "allRooms": "Todas las Salas"
+    },
+    "sidebar": {
+      "dashboard": "Dashboard",
+      "operational": "Operativo",
+      "attendance": "Atención",
+      "reception": "Recepción",
+      "triage": "Triaje",
+      "medicalCare": "Atención Médica",
+      "schedule": "Agendamiento",
+      "patients": "Pacientes",
+      "records": "Historiales",
+      "administrative": "Administrativo",
+      "financial": "Financiero",
+      "inventory": "Inventario",
+      "reports": "Informes BI",
+      "team": "Equipo",
+      "system": "Sistema",
+      "settings": "Configuración",
+      "logout": "Cerrar sesión",
+      "role": "Administrador"
+    },
+    "financial": {
+      "title": "Salud Financiera",
+      "dailyRevenue": "INGRESOS DIARIOS",
+      "monthlyExpenses": "GASTOS MENSUALES",
+      "netProfit": "BENEFICIO NETO REAL"
+    },
+    "attendance": {
+      "title": "Flujo de Atención en Vivo",
+      "realtime": "Tiempo Real",
+      "waitingRoom": "SALA DE ESPERA",
+      "patients": "pacientes",
+      "avgTime": "Tiempo prom.",
+      "inService": "EN ATENCIÓN",
+      "dentistsBusy": "dentistas ocupados",
+      "occupancy": "Ocupación",
+      "finishedToday": "FINALIZADOS HOY",
+      "consultations": "consultas",
+      "goal": "Meta"
+    },
+    "cashflow": {
+      "title": "Flujo de Caja",
+      "income": "Entradas",
+      "expense": "Salidas",
+      "filters": {
+        "today": "Hoy",
+        "7days": "7 Días",
+        "lastMonth": "Último Mes",
+        "last3Months": "Último Trimestre",
+        "last6Months": "Último Semestre",
+        "lastYear": "Último Año",
+        "all": "Flujo Total"
+      }
+    },
+    "pendencies": {
+      "title": "Pendientes Críticas",
+      "subtitle": "Acciones que requieren atención inmediata",
+      "pay": "Pagar",
+      "charge": "Cobrar",
+      "noData": "No se encontraron pendientes críticas",
+      "provider": "Proveedor",
+      "patient": "Paciente",
+      "due": "Vence",
+      "defaultTitle": "Pendiente"
+    },
+    "quickActions": {
+      "title": "Acciones Rápidas",
+      "newAppointment": "Nueva Cita",
+      "checkin": "Check-in Paciente",
+      "expense": "Registrar Gasto",
+      "report": "Generar PyG"
+    },
+    "receptionBoard": {
+      "title": "Flujo de Recepción",
+      "scheduled": "Programados Hoy",
+      "waiting": "Sala de Espera",
+      "inService": "En Atención",
+      "checkIn": "Confirmar Llegada",
+      "empty": "Ningún paciente.",
+      "time": "Hora",
+      "doctor": "Dentista",
+      "newPatientBtn": "Nuevo Paciente",
+      "scheduleBtn": "Agendar",
+      "loading": "Cargando recepción...",
+      "checkinError": "Error al realizar check-in"
+    },
+    "bi": {
+      "title": "Indicadores BI",
+      "newPatients": "Nuevos Pacientes",
+      "currentMonth": "Mes Actual"
+    },
+    "appointmentModal": {
+      "title": "Nueva Cita",
+      "patientLabel": "Paciente",
+      "patientSelect": "Seleccione un paciente...",
+      "dentistLabel": "Dentista",
+      "dentistSelect": "Seleccione un dentista...",
+      "dateLabel": "Fecha",
+      "timeLabel": "Hora",
+      "notesLabel": "Observaciones",
+      "notesPlaceholder": "Motivo de la consulta...",
+      "submitButton": "Agendar Cita",
+      "successMessage": "¡Cita creada con éxito!",
+      "authError": "Error de autenticación. Inicie sesión nuevamente.",
+      "genericError": "Error al agendar"
+    },
+    "triage": {
+      "title": "Triaje y Clasificación de Riesgo",
+      "waitingQueue": "Cola de Espera",
+      "empty": "No hay pacientes esperando triaje.",
+      "startBtn": "Realizar Triaje",
+      "modalTitle": "Triaje Clínico",
+      "patientLabel": "Paciente",
+      "vitalsTitle": "Signos Vitales",
+      "pressureLabel": "PA (mmHg)",
+      "heartRateLabel": "FC (bpm)",
+      "tempLabel": "Temp (ºC)",
+      "oxygenLabel": "Sat. O2 (%)",
+      "weightLabel": "Peso (kg)",
+      "complaintLabel": "Queja Principal / Historia",
+      "complaintPlaceholder": "Describa el motivo de la visita...",
+      "riskLabel": "Clasificación de Riesgo",
+      "riskHelper": "Seleccione la gravedad (Manchester)",
+      "cancelBtn": "Cancelar",
+      "saveBtn": "Guardar Triaje",
+      "saving": "Guardando...",
+      "success": "¡Triaje guardado con éxito!",
+      "error": "Error al guardar el triaje"
+    },
+    "medical": {
+      "title": "Atención Médica",
+      "waitingList": "Pacientes en Espera",
+      "empty": "No hay pacientes esperando atención.",
+      "startBtn": "Iniciar Consulta",
+      "patient": "Paciente",
+      "finishBtn": "Finalizar Consulta",
+      "classification": "Clasificación",
+      "noRisk": "Sin riesgo",
+      "risks": {
+        "red": "ROJO",
+        "orange": "NARANJA",
+        "yellow": "AMARILLO",
+        "green": "VERDE",
+        "blue": "AZUL"
+      },
+      "odontogram": {
+          "title": "Odontograma Visual",
+          "tools": {
+              "explorer": "Explorador (Limpiar)",
+              "cavity": "Caries (Rojo)",
+              "restoration": "Restauración (Azul)",
+              "crown": "Corona (Amarillo)",
+              "extraction": "Extraído (X)"
+          },
+          "arches": {
+              "upper": "Arcada Superior",
+              "lower": "Arcada Inferior"
+          },
+          "faces": {
+              "O": "Oclusal",
+              "V": "Vestibular",
+              "L": "Lingual",
+              "M": "Mesial",
+              "D": "Distal"
+          },
+          "toothLabel": "Diente",
+          "helpText": "Haga clic en las caras del diente para aplicar la herramienta seleccionada."
+      }
+    }
+  },
+  "inventory": {
+    "title": "Inventario y Entrada de Facturas",
+    "subtitle": "Control de insumos y entrada de mercancías.",
+    "newNfBtn": "Nueva Factura",
+    "cancelBtn": "Cancelar",
+    "nfDataTitle": "Datos de la Factura",
+    "nfNumberLabel": "Número de Factura",
+    "providerLabel": "Proveedor",
+    "addProductsTitle": "Añadir Productos",
+    "productLabel": "Producto",
+    "quantityLabel": "Cant.",
+    "unitPriceLabel": "Precio Unit. ($)",
+    "addBtn": "Añadir",
+    "selectProduct": "Seleccione un producto...",
+    "subtotalLabel": "Subtotal",
+    "totalValueLabel": "Valor Total:",
+    "saveBtn": "Guardar Factura y Generar Gasto",
+
+    "tabs": {
+        "products": "Productos en Stock",
+        "invoices": "Facturas de Entrada"
+    },
+    "productsTable": {
+        "product": "Producto",
+        "sku": "SKU",
+        "currentStock": "Stock Actual",
+        "unit": "Unid.",
+        "status": "Estado",
+        "loading": "Cargando stock...",
+        "empty": "No hay productos registrados.",
+        "lowStatus": "BAJO",
+        "okStatus": "OK"
+    },
+    "invoicesTable": {
+        "nfNumber": "Número Factura",
+        "provider": "Proveedor",
+        "issueDate": "Fecha Emisión",
+        "items": "Ítems",
+        "totalValue": "Valor Total",
+        "loading": "Cargando facturas...",
+        "empty": "No hay facturas registradas."
+    },
+    "errors": {
+        "emptyNf": "Añada al menos un producto a la Factura.",
+        "successNf": "¡Factura lanzada con éxito!",
+        "failNf": "Error al lanzar la factura: "
+    }
+  },
+  "financial": {
+    "title": "Gestión Financiera",
+    "subtitle": "Control completo de caja, facturación e inventario.",
+    "tabs": {
+        "general": "General",
+        "patients": "Pacientes",
+        "insurances": "Seguros",
+        "inventory": "Inventario y Facturas"
+    }
+  },
+  "placeholder": {
+    "construction": "Página en Construcción",
+    "desc1": "El módulo",
+    "desc2": "aún está en desarrollo. Pronto tendrás acceso a todas las funciones en esta área."
+  },
+  "reports": {
+    "title": "Informes BI",
+    "subtitle": "Análisis avanzado e indicadores de rendimiento de la clínica.",
+    "filters": {
+        "thisMonth": "Este Mes",
+        "lastMonth": "Mes Pasado",
+        "thisYear": "Este Año",
+        "oneDay": "1 Día",
+        "oneWeek": "1 Semana",
+        "oneMonth": "1 Mes",
+        "oneQuarter": "1 Trimestre"
+    },
+    "metrics": {
+      "revenue": "Ingresos Totales",
+      "patients": "Pacientes Activos",
+      "appointments": "Consultas Realizadas",
+      "pending": "Pagos Pendientes"
+    },
+    "charts": {
+      "revenue": "Evolución de Ingresos",
+      "procedures": "Consultas por Procedimiento"
     }
   }
 }
