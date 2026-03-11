@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 
 export default function Hero({ dict, locale }: { dict: any; locale: string }) {
   return (
@@ -9,32 +8,21 @@ export default function Hero({ dict, locale }: { dict: any; locale: string }) {
           {/* Text Content */}
           <div className="flex flex-col gap-8 lg:w-1/2">
             <div className="flex flex-col gap-6">
-              <div>
-                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-600 text-xs font-bold uppercase tracking-wider dark:bg-blue-900/30 dark:text-blue-400 mb-6">
-                  <span className="h-2 w-2 rounded-full bg-blue-600 animate-pulse"></span>
+              <div className="flex flex-col gap-6">
+              <div className="flex flex-wrap items-center gap-4 mb-6">
+                <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-600/10 text-blue-500 text-[10px] font-black uppercase tracking-[0.2em] border border-blue-500/20">
+                  <span className="h-1.5 w-1.5 rounded-full bg-blue-500 animate-pulse"></span>
                   {dict.hero.badge}
                 </span>
-                <h1 className="text-4xl font-black tracking-tight text-slate-900 sm:text-5xl lg:text-7xl leading-[1.1] dark:text-white">
-                  <span className="block mb-2 text-slate-900 dark:text-slate-400">{dict.hero.titlePrefix}</span>
+                <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#0B1221] border border-white/10 shadow-2xl">
+                  <span className="material-symbols-outlined text-green-500 text-sm">check_circle</span>
+                  <span className="text-[10px] font-bold text-white uppercase tracking-wider">{dict.hero.statusRnds}</span>
+                </div>
+              </div>
+                <h1 className="text-5xl font-black tracking-tighter text-slate-900 sm:text-6xl lg:text-8xl leading-[0.95] dark:text-white">
+                  <span className="block mb-4 text-slate-900 dark:text-white/40">{dict.hero.titlePrefix}</span>
                   <span className="text-blue-600">{dict.hero.titleSuffix}</span>
                 </h1>
-              </div>
-              <p className="text-xl text-slate-600 max-w-xl leading-relaxed dark:text-slate-400">
-                {dict.hero.description}
-              </p>
-            </div>
-            <div className="flex flex-wrap items-center gap-6 pt-4">
-              <Link
-                href={`/${locale}/signup`}
-                className="flex h-14 min-w-[200px] items-center justify-center rounded-xl bg-blue-600 px-8 text-lg font-bold text-white shadow-xl shadow-blue-500/25 hover:bg-blue-700 hover:-translate-y-0.5 transition-all duration-300 active:scale-95"
-              >
-                {dict.hero.startTrial}
-              </Link>
-              <div className="flex items-center gap-2 group cursor-pointer">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-green-100 text-green-600 dark:bg-green-900/30 dark:text-green-400 group-hover:scale-110 transition-transform">
-                  <span className="material-symbols-outlined text-[18px]">verified</span>
-                </div>
-                <span className="text-sm font-semibold text-slate-700 dark:text-slate-300">{dict.hero.statusRnds}</span>
               </div>
             </div>
           </div>

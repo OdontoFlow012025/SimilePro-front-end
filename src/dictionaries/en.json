@@ -386,5 +386,91 @@
           "helpText": "Click on tooth faces to apply the selected tool."
       }
     }
+  },
+  "inventory": {
+    "title": "Stock & Invoice Entry",
+    "subtitle": "Control of supplies and incoming goods.",
+    "newNfBtn": "New Invoice",
+    "cancelBtn": "Cancel",
+    "nfDataTitle": "Invoice Details",
+    "nfNumberLabel": "Invoice Number",
+    "providerLabel": "Provider",
+    "addProductsTitle": "Add Products",
+    "productLabel": "Product",
+    "quantityLabel": "Qty.",
+    "unitPriceLabel": "Unit Price ($)",
+    "addBtn": "Add",
+    "selectProduct": "Select a product...",
+    "subtotalLabel": "Subtotal",
+    "totalValueLabel": "Total Value:",
+    "saveBtn": "Save Invoice and Generate Expense",
+
+    "tabs": {
+        "products": "Products in Stock",
+        "invoices": "Incoming Invoices"
+    },
+    "productsTable": {
+        "product": "Product",
+        "sku": "SKU",
+        "currentStock": "Current Stock",
+        "unit": "Unit",
+        "status": "Status",
+        "loading": "Loading stock...",
+        "empty": "No products registered.",
+        "lowStatus": "LOW",
+        "okStatus": "OK"
+    },
+    "invoicesTable": {
+        "nfNumber": "Invoice Num.",
+        "provider": "Provider",
+        "issueDate": "Issue Date",
+        "items": "Items",
+        "totalValue": "Total Value",
+        "loading": "Loading invoices...",
+        "empty": "No invoices registered."
+    },
+    "errors": {
+        "emptyNf": "Add at least one product to the Invoice.",
+        "successNf": "Invoice created successfully!",
+        "failNf": "Error creating invoice: "
+    }
+  },
+  "financial": {
+    "title": "Financial Management",
+    "subtitle": "Complete control of cash, billing, and inventory.",
+    "tabs": {
+        "general": "General",
+        "patients": "Patients",
+        "insurances": "Insurances",
+        "inventory": "Stock & Invoices"
+    }
+  },
+  "placeholder": {
+    "construction": "Page Under Construction",
+    "desc1": "The",
+    "desc2": "module is still under development. You will soon have access to all features in this area."
+  },
+  "reports": {
+    "title": "BI Reports",
+    "subtitle": "Advanced analytics and clinic performance indicators.",
+    "filters": {
+        "thisMonth": "This Month",
+        "lastMonth": "Last Month",
+        "thisYear": "This Year",
+        "oneDay": "1 Day",
+        "oneWeek": "1 Week",
+        "oneMonth": "1 Month",
+        "oneQuarter": "1 Quarter"
+    },
+    "metrics": {
+      "revenue": "Total Revenue",
+      "patients": "Active Patients",
+      "appointments": "Appointments Held",
+      "pending": "Pending Payments"
+    },
+    "charts": {
+      "revenue": "Revenue Evolution",
+      "procedures": "Appointments by Procedure"
+    }
   }
 }

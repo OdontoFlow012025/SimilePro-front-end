@@ -25,8 +25,8 @@ export default function QuickActions({ dictionary }: { dictionary: any }) {
           <span className="text-xs font-bold text-gray-600 dark:text-gray-400">{dictionary?.dashboard?.quickActions?.expense || "Lançar Despesa"}</span>
         </Link>
         <Link href={`/${locale}/relatorios`} className="flex flex-col items-center justify-center gap-2 p-4 bg-white dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-800 shadow-sm hover:border-blue-500 hover:bg-blue-50/30 transition-all group cursor-pointer">
-          <span className="material-symbols-outlined text-blue-500 text-3xl group-hover:scale-110 transition-transform">description</span>
-          <span className="text-xs font-bold text-gray-600 dark:text-gray-400">{dictionary?.dashboard?.quickActions?.report || "Gerar DRE"}</span>
+          <span className="material-symbols-outlined text-blue-500 text-3xl group-hover:scale-110 transition-transform">analytics</span>
+          <span className="text-xs font-bold text-gray-600 dark:text-gray-400">{dictionary?.dashboard?.quickActions?.report || "Relatórios BI"}</span>
         </Link>
       </div>
     </section>

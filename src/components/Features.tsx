@@ -20,11 +20,11 @@ export default function Features({ dict }: { dict: any }) {
   return (
     <section className="py-24 lg:py-32 bg-slate-100 dark:bg-slate-900" id="features">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-20">
-          <h2 className="text-4xl font-black tracking-tight text-slate-900 sm:text-5xl mb-6 dark:text-white">
+        <div className="text-center max-w-4xl mx-auto mb-20">
+          <h2 className="text-5xl font-black tracking-tighter text-slate-900 sm:text-6xl mb-6 dark:text-white">
             {dict.features.title}
           </h2>
-          <p className="text-xl text-slate-600 dark:text-slate-400">
+          <p className="text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed">
             {dict.features.subtitle}
           </p>
         </div>

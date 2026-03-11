@@ -59,6 +59,7 @@ export const api = {
   clinics: {
     create: (data: any) => request('/clinicas', { method: 'POST', body: JSON.stringify(data) }),
     list: () => request('/clinicas'),
+    getNetworkClinics: () => request('/clinicas/rede'),
     getById: (id: string) => request(`/clinicas/${id}`),
     linkUser: (id: string, data: any) => request(`/clinicas/${id}/vincular`, { method: 'POST', body: JSON.stringify(data) }),
   },
@@ -102,6 +103,7 @@ export const api = {
     getAccountStructure: () => request('/contabilidade/plano-contas/estrutura'),
     getBalance: (query?: string) => request(`/contabilidade/relatorios/balanco${query ? `?${query}` : ''}`),
     getCashFlow: (query?: string) => request(`/contabilidade/dashboard/fluxo-caixa${query ? `?${query}` : ''}`),
+    getBIDashboard: (query?: string) => request(`/contabilidade/dashboard/bi-metrics${query ? `?${query}` : ''}`),
     getDRE: () => request('/contabilidade/relatorios/dre'),
     getCostCenterReport: () => request('/contabilidade/relatorios/centros-custo'),
   },
@@ -196,6 +198,7 @@ export const api = {
   inventory: {
     listProducts: () => request('/estoque/produtos'),
     createProduct: (data: any) => request('/estoque/produtos', { method: 'POST', body: JSON.stringify(data) }),
+    listInvoices: () => request('/estoque/notas-fiscais'),
     createInvoice: (data: any) => request('/estoque/notas-fiscais', { method: 'POST', body: JSON.stringify(data) }),
   },
 };

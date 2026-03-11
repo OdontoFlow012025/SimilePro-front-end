@@ -388,5 +388,91 @@
           "helpText": "Haga clic en las caras del diente para aplicar la herramienta seleccionada."
       }
     }
+  },
+  "inventory": {
+    "title": "Inventario y Entrada de Facturas",
+    "subtitle": "Control de insumos y entrada de mercancías.",
+    "newNfBtn": "Nueva Factura",
+    "cancelBtn": "Cancelar",
+    "nfDataTitle": "Datos de la Factura",
+    "nfNumberLabel": "Número de Factura",
+    "providerLabel": "Proveedor",
+    "addProductsTitle": "Añadir Productos",
+    "productLabel": "Producto",
+    "quantityLabel": "Cant.",
+    "unitPriceLabel": "Precio Unit. ($)",
+    "addBtn": "Añadir",
+    "selectProduct": "Seleccione un producto...",
+    "subtotalLabel": "Subtotal",
+    "totalValueLabel": "Valor Total:",
+    "saveBtn": "Guardar Factura y Generar Gasto",
+
+    "tabs": {
+        "products": "Productos en Stock",
+        "invoices": "Facturas de Entrada"
+    },
+    "productsTable": {
+        "product": "Producto",
+        "sku": "SKU",
+        "currentStock": "Stock Actual",
+        "unit": "Unid.",
+        "status": "Estado",
+        "loading": "Cargando stock...",
+        "empty": "No hay productos registrados.",
+        "lowStatus": "BAJO",
+        "okStatus": "OK"
+    },
+    "invoicesTable": {
+        "nfNumber": "Número Factura",
+        "provider": "Proveedor",
+        "issueDate": "Fecha Emisión",
+        "items": "Ítems",
+        "totalValue": "Valor Total",
+        "loading": "Cargando facturas...",
+        "empty": "No hay facturas registradas."
+    },
+    "errors": {
+        "emptyNf": "Añada al menos un producto a la Factura.",
+        "successNf": "¡Factura lanzada con éxito!",
+        "failNf": "Error al lanzar la factura: "
+    }
+  },
+  "financial": {
+    "title": "Gestión Financiera",
+    "subtitle": "Control completo de caja, facturación e inventario.",
+    "tabs": {
+        "general": "General",
+        "patients": "Pacientes",
+        "insurances": "Seguros",
+        "inventory": "Inventario y Facturas"
+    }
+  },
+  "placeholder": {
+    "construction": "Página en Construcción",
+    "desc1": "El módulo",
+    "desc2": "aún está en desarrollo. Pronto tendrás acceso a todas las funciones en esta área."
+  },
+  "reports": {
+    "title": "Informes BI",
+    "subtitle": "Análisis avanzado e indicadores de rendimiento de la clínica.",
+    "filters": {
+        "thisMonth": "Este Mes",
+        "lastMonth": "Mes Pasado",
+        "thisYear": "Este Año",
+        "oneDay": "1 Día",
+        "oneWeek": "1 Semana",
+        "oneMonth": "1 Mes",
+        "oneQuarter": "1 Trimestre"
+    },
+    "metrics": {
+      "revenue": "Ingresos Totales",
+      "patients": "Pacientes Activos",
+      "appointments": "Consultas Realizadas",
+      "pending": "Pagos Pendientes"
+    },
+    "charts": {
+      "revenue": "Evolución de Ingresos",
+      "procedures": "Consultas por Procedimiento"
+    }
   }
 }
