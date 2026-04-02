@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { api } from "@/services/api";
 
 type MenuItem = {
   label: string;
@@ -32,9 +33,11 @@ const getMenuItems = (dict: any): MenuItem[] => [
     label: dict?.dashboard?.sidebar?.administrative || "Administrativo", 
     icon: "admin_panel_settings",
     children: [
-      { label: dict?.dashboard?.sidebar?.financial || "Financeiro", href: "/financeiro", icon: "payments" },
+      { label: dict?.dashboard?.sidebar?.financial || "Financeiro Operacional", href: "/financeiro", icon: "payments" },
+      { label: dict?.dashboard?.sidebar?.team || "Gestão de Equipe", href: "/equipe", icon: "groups" },
+      { label: dict?.dashboard?.sidebar?.hr || "Recursos Humanos", href: "/rh", icon: "badge" },
+      { label: dict?.dashboard?.sidebar?.accounting || "Contábil & Fiscal", href: "/contabil", icon: "account_balance" },
       { label: dict?.dashboard?.sidebar?.reports || "Relatórios BI", href: "/relatorios", icon: "analytics" },
-      { label: dict?.dashboard?.sidebar?.team || "Equipe", href: "/equipe", icon: "groups" },
     ]
   },
 
@@ -50,14 +53,41 @@ const getSystemItems = (dict: any): MenuItem[] => [
 export default function Sidebar({ dictionary, locale }: { dictionary: any; locale: string }) {
   const router = useRouter();
   const pathname = usePathname();
-  // Filter out system items from main menu for separate rendering
   const ALL_ITEMS = getMenuItems(dictionary);
-  const MENU_ITEMS = ALL_ITEMS.filter(item => item.section !== 'System' && item.label !== (dictionary?.dashboard?.sidebar?.settings || "Configurações") && item.label !== (dictionary?.dashboard?.sidebar?.system || "Sistema"));
   const SYSTEM_ITEMS = getSystemItems(dictionary);
 
-  
   // State for expanded menus, default empty or check current path to auto-expand
   const [expandedMenus, setExpandedMenus] = useState<string[]>([]);
+  const [userRole, setUserRole] = useState<string | null>(null);
+
+  useEffect(() => {
+    async function fetchUser() {
+        try {
+            const data = await api.auth.me();
+            if (data) {
+                const role = data.tipoUsuario || (data.user && data.user.tipoUsuario);
+                if (role) setUserRole(role);
+            }
+        } catch (e) {
+            console.error("Failed to load user role", e);
+        }
+    }
+    fetchUser();
+  }, []);
+
+  // Filter items based on user role
+  const MENU_ITEMS = ALL_ITEMS.filter(item => item.section !== 'System' && item.label !== (dictionary?.dashboard?.sidebar?.settings || "Configurações") && item.label !== (dictionary?.dashboard?.sidebar?.system || "Sistema")).map(item => {
+      if (item.label === (dictionary?.dashboard?.sidebar?.administrative || "Administrativo")) {
+          // Clone the children array to avoid mutating the original
+          const children = [...(item.children || [])];
+          if (userRole === "ADMIN_TOTAL") {
+              // Add Unidades if ADMIN_TOTAL
+              children.push({ label: dictionary?.dashboard?.sidebar?.units || "Unidades", href: "/unidades", icon: "domain" });
+          }
+          return { ...item, children };
+      }
+      return item;
+  });
 
   const toggleMenu = (label: string) => {
     if (expandedMenus.includes(label)) {

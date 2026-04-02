@@ -19,9 +19,9 @@ export default function Hero({ dict, locale }: { dict: any; locale: string }) {
                   <span className="text-[10px] font-bold text-white uppercase tracking-wider">{dict.hero.statusRnds}</span>
                 </div>
               </div>
-                <h1 className="text-5xl font-black tracking-tighter text-slate-900 sm:text-6xl lg:text-8xl leading-[0.95] dark:text-white">
+                <h1 className="text-5xl font-black tracking-tighter text-slate-900 sm:text-6xl lg:text-6xl xl:text-7xl leading-[0.95] dark:text-white break-words w-full">
                   <span className="block mb-4 text-slate-900 dark:text-white/40">{dict.hero.titlePrefix}</span>
-                  <span className="text-blue-600">{dict.hero.titleSuffix}</span>
+                  <span className="text-blue-600 break-words block">{dict.hero.titleSuffix}</span>
                 </h1>
               </div>
             </div>

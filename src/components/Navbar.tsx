@@ -14,7 +14,7 @@ export default function Navbar({ dict, locale }: { dict: any, locale: string }) 
         <nav className="hidden md:flex flex-1 justify-center gap-8">
           <Link className="text-sm font-bold hover:text-blue-600 transition-colors text-slate-600 dark:text-slate-400 dark:hover:text-blue-400" href={`/${locale}#features`}>{dict.navbar.features}</Link>
           <Link className="text-sm font-bold hover:text-blue-600 transition-colors text-slate-600 dark:text-slate-400 dark:hover:text-blue-400" href={`/${locale}#compliance`}>{dict.navbar.compliance}</Link>
-          <Link className="text-sm font-bold hover:text-blue-600 transition-colors text-slate-600 dark:text-slate-400 dark:hover:text-blue-400" href={`/${locale}#pricing`}>{dict.navbar.pricing}</Link>
+          <Link className="text-sm font-bold hover:text-blue-600 transition-colors text-slate-600 dark:text-slate-400 dark:hover:text-blue-400" href={`/${locale}/pricing`}>{dict.navbar.pricing}</Link>
           <Link className="text-sm font-bold hover:text-blue-600 transition-colors text-slate-600 dark:text-slate-400 dark:hover:text-blue-400" href={`/${locale}#support`}>{dict.navbar.support}</Link>
         </nav>
         <div className="flex items-center gap-4 lg:gap-8">

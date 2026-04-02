@@ -44,16 +44,16 @@ export default function ReportsDashboard({ dict }: { dict: any }) {
             value={selectedFilter}
             onChange={(e) => setSelectedFilter(e.target.value)}
           >
-            <option value="all">Rede Completa (Todas as Unidades)</option>
+            <option value="all">{dict?.reports?.allUnits || "Rede Completa (Todas as Unidades)"}</option>
             {clinics.map(c => (
               <option key={c.id} value={c.id}>
-                {c.nomeFantasia} {c.matrizId ? "" : "(Matriz)"}
+                {c.nomeFantasia} {c.matrizId ? "" : (dict?.reports?.headquarters || "(Matriz)")}
               </option>
             ))}
           </select>
           <button className="flex items-center gap-2 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white hover:bg-gray-50 dark:hover:bg-gray-800 focus:ring-4 focus:ring-gray-100 font-bold rounded-lg text-sm px-4 py-2.5 transition-colors">
             <span className="material-symbols-outlined text-[18px]">download</span>
-            Exportar
+            {dict?.reports?.exportBtn || "Exportar"}
           </button>
         </div>
       </div>

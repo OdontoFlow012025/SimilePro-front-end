@@ -10,15 +10,28 @@ async function request(endpoint: string, options: RequestInit = {}) {
     ...(options.headers as Record<string, string>),
   };
 
-  // Client-side: Auto-inject token from cookie
+  // Client-side: Auto-inject token from cookie and attach selected clinic if present
+  let finalUrl = `${API_URL}${endpoint}`;
+  
   if (typeof document !== 'undefined') {
       const match = document.cookie.match(new RegExp("(^| )auth_token=([^;]+)"));
       if (match && match[2]) {
           headers['Authorization'] = `Bearer ${match[2]}`;
       }
+
+      // Automatically append clinicaId to GET requests 
+      // so ADMIN_TOTAL users can filter data by the selected clinic.
+      const method = options.method || 'GET';
+      if (method.toUpperCase() === 'GET') {
+          const clinicaId = localStorage.getItem('selectedClinicaId');
+          if (clinicaId) {
+             const separator = finalUrl.includes('?') ? '&' : '?';
+             finalUrl = `${finalUrl}${separator}clinicaId=${clinicaId}`;
+          }
+      }
   }
 
-  const response = await fetch(`${API_URL}${endpoint}`, {
+  const response = await fetch(finalUrl, {
     ...options,
     headers,
   });
@@ -32,7 +45,13 @@ async function request(endpoint: string, options: RequestInit = {}) {
   // }
 
   if (!response.ok) {
-    throw new Error(data.message || data.error || JSON.stringify(data) || `Erro na requisição: ${response.statusText}`);
+    let errMsg = `Erro na requisição: ${response.status} ${response.statusText}`;
+    if (data && typeof data === 'object' && Object.keys(data).length > 0) {
+        errMsg = data.message || data.error || JSON.stringify(data);
+    } else if (typeof data === 'string' && data.length > 0) {
+        errMsg = data;
+    }
+    throw new Error(errMsg);
   }
 
   return data;
@@ -106,6 +125,7 @@ export const api = {
     getBIDashboard: (query?: string) => request(`/contabilidade/dashboard/bi-metrics${query ? `?${query}` : ''}`),
     getDRE: () => request('/contabilidade/relatorios/dre'),
     getCostCenterReport: () => request('/contabilidade/relatorios/centros-custo'),
+    getDREMensal: (mes: number, ano: number) => request(`/contabilidade/dre/mensal?mes=${mes}&ano=${ano}`),
   },
 
   educational: {
@@ -139,6 +159,7 @@ export const api = {
     getById: (id: string) => request(`/funcionarios/${id}`),
     update: (id: string, data: any) => request(`/funcionarios/${id}`, { method: 'PATCH', body: JSON.stringify(data) }),
     delete: (id: string) => request(`/funcionarios/${id}`, { method: 'DELETE' }),
+    dismiss: (id: string, data: any) => request(`/funcionarios/${id}/demitir`, { method: 'PATCH', body: JSON.stringify(data) }),
   },
 
   patients: {
@@ -200,5 +221,15 @@ export const api = {
     createProduct: (data: any) => request('/estoque/produtos', { method: 'POST', body: JSON.stringify(data) }),
     listInvoices: () => request('/estoque/notas-fiscais'),
     createInvoice: (data: any) => request('/estoque/notas-fiscais', { method: 'POST', body: JSON.stringify(data) }),
+  },
+
+  hr: {
+    processPayroll: (data: { mes: number, ano: number }) => request('/rh/folha/processar', { method: 'POST', body: JSON.stringify(data) }),
+    getPayroll: (mes: number, ano: number) => request(`/rh/folha?mes=${mes}&ano=${ano}`),
+  },
+
+  fiscal: {
+    listInvoices: () => request('/fiscal/nfs'),
+    issueInvoice: (data: any) => request('/fiscal/nfs/emitir', { method: 'POST', body: JSON.stringify(data) }),
   },
 };
