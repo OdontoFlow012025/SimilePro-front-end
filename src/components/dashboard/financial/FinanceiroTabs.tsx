@@ -36,10 +36,10 @@ export default function FinanceiroTabs({ dictionary, locale }: Props) {
   };
 
   const tabs = [
-    { id: "geral", label: "Geral", icon: "payments" },
-    { id: "pacientes", label: "Pacientes", icon: "person" },
-    { id: "convenios", label: "Convênios", icon: "account_balance" },
-    { id: "estoque", label: "Estoque e NFs", icon: "inventory_2" },
+    { id: "geral", label: dictionary.financial?.tabs?.general || "Geral", icon: "payments" },
+    { id: "pacientes", label: dictionary.financial?.tabs?.patients || "Pacientes", icon: "person" },
+    { id: "convenios", label: dictionary.financial?.tabs?.insurances || "Convênios", icon: "account_balance" },
+    { id: "estoque", label: dictionary.financial?.tabs?.inventory || "Estoque", icon: "inventory_2" },
   ] as const;
 
   return (

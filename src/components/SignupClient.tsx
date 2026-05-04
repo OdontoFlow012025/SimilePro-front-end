@@ -374,23 +374,12 @@ export default function SignupClient({ dict, locale }: SignupClientProps) {
                <div className="mb-6 h-14 w-14 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/30">
                   <span className="material-symbols-outlined text-3xl text-white">verified_user</span>
                </div>
-                 <h2 className="mb-6 text-4xl font-bold leading-tight text-white lg:text-5xl">
-                   {dict.signup.hero.title}
-                 </h2>
-                 <div className="rounded-2xl bg-white/10 p-6 backdrop-blur-md border border-white/20">
-                    <p className="mb-4 text-lg text-slate-200 italic">
-                       "{dict.signup.hero.testimonial}"
-                    </p>
-                    <div className="flex items-center gap-4">
-                       <div className="h-12 w-12 rounded-full bg-slate-400 overflow-hidden">
-                         {/* Placeholder */}
-                       </div>
-                       <div>
-                          <div className="font-bold text-white">{dict.signup.hero.author}</div>
-                          <div className="text-sm text-slate-300">{dict.signup.hero.role}</div>
-                       </div>
-                    </div>
-                 </div>
+               <h2 className="mb-6 text-5xl font-black leading-tight text-white lg:text-6xl tracking-tight">
+                 {dict.signup.hero.title}
+               </h2>
+               <p className="text-xl text-white/90 leading-relaxed max-w-xl font-medium">
+                 {dict.signup.hero.subtitle}
+               </p>
             </div>
 
         </div>

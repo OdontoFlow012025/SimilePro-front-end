@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 export default function BIIndicators({ dictionary }: { dictionary?: any }) {
   const [indicators, setIndicators] = useState({
       occupancy: 0,
+      occupancyDelta: 0,
       newPatients: 0
   });
 
@@ -16,6 +17,7 @@ export default function BIIndicators({ dictionary }: { dictionary?: any }) {
             if (data) {
                 setIndicators({
                     occupancy: data.occupancyRate || 0,
+                    occupancyDelta: data.occupancyDelta || 0,
                     newPatients: data.newPatientsCount || 0
                 });
             }
@@ -25,6 +27,17 @@ export default function BIIndicators({ dictionary }: { dictionary?: any }) {
     };
     fetchIndicators();
   }, []);
+
+  const getDeltaColor = (delta: number) => {
+      if (delta > 0) return "text-green-500";
+      if (delta < 0) return "text-red-500";
+      return "text-gray-500";
+  };
+
+  const getDeltaSign = (delta: number) => {
+      if (delta > 0) return "+";
+      return "";
+  };
 
   return (
     <div className="bg-white dark:bg-gray-900 p-6 rounded-xl border border-gray-100 dark:border-gray-800 shadow-sm flex flex-col gap-6">
@@ -37,7 +50,9 @@ export default function BIIndicators({ dictionary }: { dictionary?: any }) {
         </div>
         <div>
           <p className="text-sm font-bold dark:text-white">{dictionary?.dashboard?.attendance?.occupancy || "Ocupação das Salas"}</p>
-          <p className="text-xs text-gray-500">+5% vs mês anterior</p>
+          <p className={`text-xs ${getDeltaColor(indicators.occupancyDelta)}`}>
+            {getDeltaSign(indicators.occupancyDelta)}{indicators.occupancyDelta}% {dictionary?.dashboard?.bi?.vsPrevMonth || "vs mês anterior"}
+          </p>
         </div>
       </div>
 

@@ -53,17 +53,154 @@
       "description": "Data integrated with the National Health Data Network, ensuring total patient mobility and absolute legal compliance."
     }
   },
+  "compliancePage": {
+    "title": "Trust and Compliance Center",
+    "subtitle": "Enterprise-grade data security and legal adequacy for your clinic.",
+    "cards": {
+      "lgpd": {
+        "title": "LGPD in Healthcare",
+        "desc": "OdontoFlow fully complies with the General Data Protection Law. Sensitive data is stored in encrypted clouds (AES-256) with strict access control."
+      },
+      "icp": {
+        "title": "ICP-Brasil Certification",
+        "desc": "All documents, medical certificates, and electronic health records support digital signatures via ICP-Brasil certificates, ensuring non-repudiation and full legal validity."
+      },
+      "rnds": {
+        "title": "RNDS Interoperability",
+        "desc": "Our system is developed based on the Brazilian Ministry of Health regulations for native integration with the National Health Data Network (RNDS)."
+      },
+      "hipaa": {
+        "title": "International Standards",
+        "desc": "We use scalable infrastructure that follows global compliance standards, including guidelines similar to HIPAA (Health Insurance Portability and Accountability Act)."
+      },
+      "cfo": {
+        "title": "CFO-226/2020 Resolution",
+        "desc": "Strict alignment with the Federal Dentistry Council regarding the practice of remote dentistry (Telemonitoring) and digital certificate issuance."
+      },
+      "tiss": {
+        "title": "TISS / TUSS Standard",
+        "desc": "Full support for Supplementary Health Information Exchange (TISS), ensuring accurate billing with dental insurance providers (ANS)."
+      },
+      "iso": {
+        "title": "ISO 27001 Practices",
+        "desc": "OdontoFlow engineering processes are inspired by ISO 27001 requirements, the highest standard for Information Security Management Systems."
+      },
+      "backup": {
+        "title": "Legal Retention (99.9% SLA)",
+        "desc": "Continuous backup policies and health record retention in compliance with laws requiring electronic records storage for at least 20 years."
+      }
+    }
+  },
+  "supportPage": {
+    "title": "How can we help you today?",
+    "subtitle": "Search for articles, tutorials, or contact our team directly.",
+    "searchPlaceholder": "Ex: How to issue a digital certificate...",
+    "categories": {
+      "title": "Help Categories",
+      "items": [
+        { "title": "Getting Started", "slug": "getting-started", "desc": "Clinic and staff configuration", "icon": "rocket_launch" },
+        { "title": "Scheduling", "slug": "scheduling", "desc": "Calendar and returns management", "icon": "calendar_month" },
+        { "title": "Health Records", "slug": "health-records", "desc": "Clinical notes and interoperability", "icon": "medical_information" },
+        { "title": "Billing", "slug": "billing", "desc": "Insurance, billing, and plans", "icon": "payments" }
+      ]
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "items": [
+        { "q": "How do I change my subscription plan?", "a": "You can change your plan at any time by going to Settings > Subscription in your dashboard. Billing will be prorated." },
+        { "q": "Does OdontoFlow do automatic backups?", "a": "Yes! We perform hourly backups across different cloud regions, ensuring secure retention for up to 20 years as required by law." },
+        { "q": "Can I use it on my phone?", "a": "Yes, the platform is 100% responsive and can be accessed from any smartphone or tablet browser. However, for the best team experience (especially with the odontogram and billing), we highly recommend using a computer or laptop." },
+        { "q": "How do I configure digital signatures?", "a": "Go to Settings > Professional and upload your A1 certificate, or install the browser extension for A3 certificates." }
+      ]
+    },
+    "contact": {
+      "title": "Still need help?",
+      "whatsapp": {
+        "title": "Premium Support",
+        "desc": "Fast support via WhatsApp (paid plans only).",
+        "btn": "Message on WhatsApp"
+      },
+      "email": {
+        "title": "Open a Ticket",
+        "desc": "Send a detailed email to our technical team.",
+        "btn": "Send Email"
+      }
+    }
+  },
+  "supportArticles": {
+    "getting-started": {
+      "title": "Getting Started",
+      "subtitle": "Quick guide to set up your clinic and invite your team to OdontoFlow.",
+      "sections": [
+        { "h": "1. Clinic Setup", "p": "To start, go to Settings > Clinic. Fill in the address, TAX ID, and operating hours. This data will appear on your medical certificate headers." },
+        { "h": "2. Inviting the Team", "p": "Access the 'Team' tab and click 'New User'. You can define the permission level (Dentist, Receptionist, or Administrator). An invitation will be sent via email." }
+      ],
+      "nextSlug": "scheduling",
+      "nextTitle": "Next: Scheduling"
+    },
+    "scheduling": {
+      "title": "Scheduling",
+      "subtitle": "How to organize the clinic's calendar and optimize dentists' time.",
+      "sections": [
+        { "h": "1. Creating an Appointment", "p": "In the Dashboard, click the blue 'New Appointment' button. Select the patient, dentist, time slot, and reason for the visit." },
+        { "h": "2. Status and Confirmation", "p": "You can change the appointment status (Confirmed, Waiting, In Service) by clicking the appointment card. The status color updates automatically." }
+      ],
+      "nextSlug": "health-records",
+      "nextTitle": "Next: Health Records"
+    },
+    "health-records": {
+      "title": "Health Records",
+      "subtitle": "Secure clinical records and interoperability.",
+      "sections": [
+        { "h": "1. Interactive Odontogram", "p": "Inside the patient chart, click the 'Odontogram' tab. You can select teeth and mark procedures (e.g., Caries, Filling, Extraction) using the color palette." },
+        { "h": "2. RNDS Synchronization", "p": "If your clinic is integrated, any digitally signed clinical note can be sent directly to the Ministry of Health by clicking the 'Sync RNDS' button." }
+      ],
+      "nextSlug": "billing",
+      "nextTitle": "Next: Billing"
+    },
+    "billing": {
+      "title": "Billing",
+      "subtitle": "Management of invoicing, budgets, and treatment plans.",
+      "sections": [
+        { "h": "1. Creating Budgets", "p": "In the medical record, access 'Treatment Plan'. Add the procedures that need to be done. The system will calculate the total value based on your standard price list." },
+        { "h": "2. Insurance Billing", "p": "For insured patients, upon finishing the plan, you can export the XML file in the standard format under the 'Billing' tab to send to the insurance provider." }
+      ],
+      "nextSlug": "getting-started",
+      "nextTitle": "Back to Start"
+    }
+  },
+  "ticketPage": {
+    "title": "Open a Ticket",
+    "subtitle": "Our technical team will respond as soon as possible.",
+    "form": {
+      "email": "Contact Email",
+      "emailPlaceholder": "your@email.com",
+      "subject": "Ticket Subject",
+      "subjectPlaceholder": "Ex: Error issuing certificate",
+      "message": "Describe the issue",
+      "messagePlaceholder": "Describe what happened in as much detail as possible...",
+      "charLimit": "characters remaining",
+      "submit": "Submit Ticket",
+      "submitting": "Submitting..."
+    },
+    "success": {
+      "title": "Ticket Created Successfully!",
+      "subtitle": "Save your protocol number for tracking.",
+      "protocol": "Protocol Number",
+      "back": "Back to Support"
+    }
+  },
   "security": {
     "badge": "Technical Authority",
     "title": "Security and Legal Validity",
     "description": "OdontoFlow uses bank-level encryption technology and is fully aligned with Ministry of Health requirements for national clinical data traffic.",
     "signature": {
-        "title": "ICP-Brazil Digital Signature",
-        "description": "We use ICP-Brazil standard digital certificates to ensure authenticity and non-repudiation in sending information to RNDS."
+      "title": "ICP-Brazil Digital Signature",
+      "description": "We use ICP-Brazil standard digital certificates to ensure authenticity and non-repudiation in sending information to RNDS."
     },
     "compliance": {
-        "title": "LGPD Health Compliance",
-        "description": "Rigorous treatment of sensitive health data, following the highest standards of the General Data Protection Law."
+      "title": "LGPD Health Compliance",
+      "description": "Rigorous treatment of sensitive health data, following the highest standards of the General Data Protection Law."
     }
   },
   "roles": {
@@ -95,29 +232,174 @@
     "description": "Join the largest interoperability network in Brazil and modernize your clinic right now.",
     "getStarted": "Register Now"
   },
+  "pricing": {
+    "title": "Plans that fit your pocket",
+    "subtitle": "Choose the best option for your clinic or your studies.",
+    "bestChoice": "BEST CHOICE",
+    "plans": {
+      "free": {
+        "name": "Free",
+        "price": "$ 0.00",
+        "period": "/month",
+        "description": "Ideal to start with no costs.",
+        "features": [
+          "Basic patient attendance",
+          "Current day view",
+          "No access to advanced scheduling",
+          "No financial features"
+        ],
+        "buttonText": "Start for Free",
+        "blocked": false
+      },
+      "monthly": {
+        "name": "Monthly",
+        "price": "$ 45.00",
+        "period": "/month",
+        "description": "Full access with flexible renewal.",
+        "features": [
+          "Full platform access",
+          "Complete schedule",
+          "Financial & Billing Management",
+          "Complete medical record",
+          "Restricted access at the end of the month without renewal"
+        ],
+        "buttonText": "Subscribe Monthly",
+        "blocked": false
+      },
+      "annual": {
+        "name": "Annual",
+        "price": "$ 31.50",
+        "period": "/month",
+        "description": "The best long-term value.",
+        "features": [
+          "All benefits of the Monthly plan",
+          "30% discount compared to monthly",
+          "Uninterrupted full access",
+          "Priority support",
+          "Single billing of $ 378.00/year"
+        ],
+        "buttonText": "Subscribe Annually",
+        "blocked": false
+      },
+      "student": {
+        "name": "Student",
+        "price": "Coming soon",
+        "period": "",
+        "description": "Full platform access focused on learning.",
+        "features": [
+          "Full platform access",
+          "Integrated educational materials",
+          "College student discount"
+        ],
+        "buttonText": "In implementation",
+        "blocked": true
+      }
+    }
+  },
+  "financial": {
+    "title": "Financial",
+    "subtitle": "Complete management of receipts, expenses, and billing.",
+    "tabs": {
+      "general": "General",
+      "patients": "Patients",
+      "insurances": "Insurances",
+      "inventory": "Inventory"
+    },
+    "bills": {
+      "cancelPrompt": "Are you sure you want to cancel this invoice?"
+    },
+    "errors": {
+      "loadTransactions": "Failed to load transactions.",
+      "cancelBill": "Failed to cancel invoice."
+    },
+    "status": {
+      "ALL": "ALL",
+      "paid": "Paid",
+      "pending": "Pending",
+      "canceled": "Canceled"
+    }
+  },
+  "inventory": {
+    "title": "Inventory & Stock",
+    "subtitle": "Manage your products, materials, and purchase invoices.",
+    "newNfBtn": "New Invoice",
+    "cancelBtn": "Cancel",
+    "nfDataTitle": "Invoice Details",
+    "nfNumberLabel": "Invoice Number",
+    "providerLabel": "Provider",
+    "addProductsTitle": "Add Products",
+    "productLabel": "Product",
+    "selectProduct": "Select a product...",
+    "quantityLabel": "Quantity",
+    "unitPriceLabel": "Unit Price",
+    "addBtn": "Add Item",
+    "subtotalLabel": "Subtotal",
+    "totalValueLabel": "Total Value",
+    "saveBtn": "Save Invoice & Update Stock",
+    "tabs": {
+      "products": "Product List",
+      "invoices": "Purchase Invoices"
+    },
+    "productsTable": {
+      "product": "Product",
+      "sku": "SKU",
+      "currentStock": "Current Stock",
+      "unit": "Unit",
+      "status": "Status",
+      "loading": "Loading products...",
+      "empty": "No products found.",
+      "lowStatus": "LOW",
+      "okStatus": "OK"
+    },
+    "invoicesTable": {
+      "nfNumber": "Number",
+      "provider": "Provider",
+      "issueDate": "Issue Date",
+      "items": "Items",
+      "totalValue": "Total Value",
+      "loading": "Loading invoices...",
+      "empty": "No invoices found."
+    },
+    "errors": {
+      "emptyNf": "Add at least one item to the invoice.",
+      "successNf": "Invoice submitted successfully!",
+      "failNf": "Failed to submit invoice: "
+    }
+  },
+  "dashboard": {
+    "bi": {
+      "title": "BI Indicators",
+      "newPatients": "New Patients",
+      "currentMonth": "Current Month",
+      "vsPrevMonth": "vs previous month"
+    },
+    "attendance": {
+      "occupancy": "Room Occupancy"
+    }
+  },
   "footer": {
     "description": "The all-in-one management platform designed for the modern dental ecosystem. Secure, fast, and reliable.",
     "product": "Product",
     "resources": "Resources",
     "company": "Company",
     "legal": {
-        "privacy": "Privacy Policy",
-        "terms": "Terms of Service",
-        "copyright": "© 2026 OdontoFlow Inc. All rights reserved."
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "copyright": "© 2026 OdontoFlow Inc. All rights reserved."
     },
     "links": {
-        "features": "Features",
-        "pricing": "Pricing",
-        "integrations": "Integrations",
-        "enterprise": "Enterprise",
-        "blog": "Blog",
-        "caseStudies": "Case Studies",
-        "helpCenter": "Help Center",
-        "apiDocs": "API Docs",
-        "aboutUs": "About Us",
-        "careers": "Careers",
-        "legal": "Legal",
-        "contact": "Contact"
+      "features": "Features",
+      "pricing": "Pricing",
+      "integrations": "Integrations",
+      "enterprise": "Enterprise",
+      "blog": "Blog",
+      "caseStudies": "Case Studies",
+      "helpCenter": "Help Center",
+      "apiDocs": "API Docs",
+      "aboutUs": "About Us",
+      "careers": "Careers",
+      "legal": "Legal",
+      "contact": "Contact"
     }
   },
   "auth": {
@@ -136,9 +418,9 @@
     "loading": "Logging in...",
     "errorGeneric": "Login error. Please check your credentials.",
     "footer": {
-        "terms": "Terms",
-        "privacy": "Privacy",
-        "help": "Help"
+      "terms": "Terms",
+      "privacy": "Privacy",
+      "help": "Help"
     }
   },
   "signup": {
@@ -200,23 +482,17 @@
       "unitNorth": "North Unit"
     },
     "calendar": {
-        "today": "Today",
-        "next": "Next",
-        "previous": "Back",
-        "month": "Month",
-        "week": "Week",
-        "day": "Day",
-        "agenda": "Agenda",
-        "date": "Date",
-        "time": "Time",
-        "event": "Event",
-        "noEventsInRange": "There are no events in this range."
-    },
-    "sidebarFilters": {
-        "calendar": "Calendar",
-        "professionals": "Professionals",
-        "rooms": "Rooms",
-        "allRooms": "All Rooms"
+      "today": "Today",
+      "next": "Next",
+      "previous": "Back",
+      "month": "Month",
+      "week": "Week",
+      "day": "Day",
+      "agenda": "Agenda",
+      "date": "Date",
+      "time": "Time",
+      "event": "Event",
+      "noEventsInRange": "There are no events in this range."
     },
     "sidebar": {
       "dashboard": "Dashboard",
@@ -233,6 +509,7 @@
       "inventory": "Inventory",
       "reports": "BI Reports",
       "team": "Team",
+      "units": "Units",
       "system": "System",
       "settings": "Settings",
       "logout": "Logout",
@@ -287,7 +564,7 @@
       "newAppointment": "New Appointment",
       "checkin": "Patient Check-in",
       "expense": "Log Expense",
-      "report": "Generate P&L"
+      "report": "BI Reports"
     },
     "receptionBoard": {
       "title": "Reception Flow",
@@ -301,7 +578,91 @@
       "newPatientBtn": "New Patient",
       "scheduleBtn": "Schedule",
       "loading": "Loading reception...",
-      "checkinError": "Error performing check-in"
+      "checkinError": "Error performing check-in",
+      "checkinSuccess": "Check-in performed successfully!",
+      "min": "min",
+      "wait": "wait",
+      "noName": "Unnamed Patient",
+      "triage": {
+        "modalTitle": "Clinical Triage",
+        "patientLabel": "Patient",
+        "vitalsTitle": "Vital Signs",
+        "pressureLabel": "BP (mmHg)",
+        "heartRateLabel": "HR (bpm)",
+        "tempLabel": "Temp (ºC)",
+        "oxygenLabel": "O2 Sat (%)",
+        "weightLabel": "Weight (kg)",
+        "complaintLabel": "Main Complaint / History",
+        "complaintPlaceholder": "Describe the reason for the visit...",
+        "riskLabel": "Risk Classification",
+        "riskHelper": "Select severity (Manchester)",
+        "cancelBtn": "Cancel",
+        "saveBtn": "Save Triage",
+        "saving": "Saving...",
+        "success": "Triage saved successfully!",
+        "error": "Error saving triage.",
+        "triageNote": {
+          "header": "[TRIAGE]",
+          "pressure": "BP",
+          "heartRate": "HR",
+          "temp": "Temp",
+          "oxygen": "Sat",
+          "weight": "Weight",
+          "complaint": "Complaint",
+          "risk": "Risk",
+          "footer": "[TRIAGE_COMPLETED]"
+        }
+      },
+      "patientRegistration": {
+        "title": "New Patient",
+        "subtitle": "RNDS Standard Registration",
+        "steps": {
+          "identification": "1. Identification",
+          "affiliation": "2. Affiliation and Data",
+          "contact": "3. Contact and Address"
+        },
+        "labels": {
+          "fullName": "Full Name *",
+          "socialName": "Social Name",
+          "cpf": "Tax ID (CPF) *",
+          "cns": "National Health Card (CNS) *",
+          "dob": "Date of Birth *",
+          "gender": "Gender *",
+          "motherName": "Mother's Name *",
+          "fatherName": "Father's Name",
+          "race": "Race/Color *",
+          "nationality": "Nationality *",
+          "birthCity": "Birth City",
+          "phone": "Primary Phone *",
+          "email": "Email",
+          "addressTitle": "Residential Address",
+          "zip": "Zip Code *",
+          "street": "Street/Road *",
+          "number": "Number *",
+          "neighborhood": "Neighborhood *",
+          "city": "City *",
+          "state": "State *",
+          "complement": "Comp."
+        },
+        "placeholders": {
+          "cns": "15 digits",
+          "select": "Select",
+          "state": "NY"
+        },
+        "buttons": {
+          "back": "Back",
+          "next": "Next",
+          "save": "Save Patient"
+        },
+        "messages": {
+          "success": "Patient registered successfully! (RNDS fields not supported by the server were ignored)",
+          "error": "Registration error",
+          "errorRnds": "RNDS validation error",
+          "addressString": {
+            "cep": " - Zip: "
+          }
+        }
+      }
     },
     "bi": {
       "title": "BI Indicators",
@@ -363,28 +724,505 @@
         "blue": "BLUE"
       },
       "odontogram": {
-          "title": "Visual Odontogram",
-          "tools": {
-              "explorer": "Explorer (Clear)",
-              "cavity": "Cavity (Red)",
-              "restoration": "Restoration (Blue)",
-              "crown": "Crown (Yellow)",
-              "extraction": "Extracted (X)"
-          },
-          "arches": {
-              "upper": "Upper Arch",
-              "lower": "Lower Arch"
-          },
-          "faces": {
-              "O": "Occlusal",
-              "V": "Vestibular",
-              "L": "Lingual",
-              "M": "Mesial",
-              "D": "Distal"
-          },
-          "toothLabel": "Tooth",
-          "helpText": "Click on tooth faces to apply the selected tool."
+        "title": "Visual Odontogram",
+        "tools": {
+          "explorer": "Explorer (Clear)",
+          "cavity": "Cavity (Red)",
+          "restoration": "Restoration (Blue)",
+          "crown": "Crown (Yellow)",
+          "extraction": "Extracted (X)"
+        },
+        "arches": {
+          "upper": "Upper Arch",
+          "lower": "Lower Arch"
+        },
+        "faces": {
+          "O": "Occlusal",
+          "V": "Vestibular",
+          "L": "Lingual",
+          "M": "Mesial",
+          "D": "Distal"
+        },
+        "toothLabel": "Tooth",
+        "helpText": "Click on tooth faces to apply the selected tool."
+      },
+      "attendanceRoom": {
+        "title": "Dental Care",
+        "finishBtn": "Finish Care",
+        "cancelBtn": "Cancel",
+        "loading": "Loading patient...",
+        "errorLoad": "Error loading care",
+        "errorFinish": "Error finishing care",
+        "successFinish": "Care finished successfully!",
+        "diagnostics": "Diagnostics and Procedures",
+        "notes": "Clinical Evolution / Notes",
+        "notesPlaceholder": "Describe the procedure performed...",
+        "confirmFinish": "Do you want to finish this consultation?",
+        "notFound": "Patient not found.",
+        "triageTitle": "Triage",
+        "noTriageData": "No triage data available."
       }
+    }
+  },
+  "inventory": {
+    "title": "Stock & Invoice Entry",
+    "subtitle": "Control of supplies and incoming goods.",
+    "newNfBtn": "New Invoice",
+    "cancelBtn": "Cancel",
+    "nfDataTitle": "Invoice Details",
+    "nfNumberLabel": "Invoice Number",
+    "providerLabel": "Provider",
+    "addProductsTitle": "Add Products",
+    "productLabel": "Product",
+    "quantityLabel": "Qty.",
+    "unitPriceLabel": "Unit Price ($)",
+    "addBtn": "Add",
+    "selectProduct": "Select a product...",
+    "subtotalLabel": "Subtotal",
+    "totalValueLabel": "Total Value:",
+    "saveBtn": "Save Invoice and Generate Expense",
+    "tabs": {
+      "products": "Products in Stock",
+      "invoices": "Incoming Invoices"
+    },
+    "productsTable": {
+      "product": "Product",
+      "sku": "SKU",
+      "currentStock": "Current Stock",
+      "unit": "Unit",
+      "status": "Status",
+      "loading": "Loading stock...",
+      "empty": "No products registered.",
+      "lowStatus": "LOW",
+      "okStatus": "OK"
+    },
+    "invoicesTable": {
+      "nfNumber": "Invoice Num.",
+      "provider": "Provider",
+      "issueDate": "Issue Date",
+      "items": "Items",
+      "totalValue": "Total Value",
+      "loading": "Loading invoices...",
+      "empty": "No invoices registered."
+    },
+    "errors": {
+      "emptyNf": "Add at least one product to the Invoice.",
+      "successNf": "Invoice created successfully!",
+      "failNf": "Error creating invoice: "
+    }
+  },
+  "financial": {
+    "title": "Financial Management",
+    "subtitle": "Complete control of cash, billing, and inventory.",
+    "tabs": {
+      "general": "General",
+      "patients": "Patients",
+      "insurances": "Insurances",
+      "inventory": "Inventory & Invoices"
+    },
+    "status": {
+      "paid": "Paid",
+      "pending": "Pending",
+      "canceled": "Canceled",
+      "ALL": "ALL",
+      "PAID": "PAID",
+      "PENDING": "PENDING",
+      "CANCELED": "CANCELED"
+    },
+    "errors": {
+      "loadTransactions": "Error loading transactions",
+      "cancelBill": "Error cancelling invoice.",
+      "loadBills": "Error loading invoices"
+    },
+    "accountFlow": {
+      "title": "Latest Cash Flow",
+      "general": "General",
+      "empty": "No transactions recorded.",
+      "table": {
+        "launch": "Launch",
+        "category": "Category",
+        "date": "Date",
+        "status": "Status",
+        "value": "Value"
+      }
+    },
+    "bills": {
+      "title": "Accounts Receivable",
+      "subtitle": "Invoice management and receipt tracking.",
+      "cancelPrompt": "Are you sure you want to cancel this invoice?",
+      "patientId": "Patient ID: ",
+      "plan": "Plan #",
+      "loose": "Loose",
+      "delayed": "Delayed",
+      "payTitle": "Receive Payment / Mark Paid",
+      "cancelTitle": "Cancel Invoice",
+      "receiptTitle": "Receipt",
+      "emptyTitle": "No invoices found",
+      "emptyAll": "No invoices registered in the system. Generate budgets in the clinical chart to bill.",
+      "emptyFilter": "No invoices with status {status}.",
+      "table": {
+        "invoice": "Invoice / Patient",
+        "treatment": "Linked Treatment",
+        "dueDate": "Due Date",
+        "value": "Value ($)",
+        "status": "Status",
+        "actions": "Actions"
+      }
+    },
+    "payModal": {
+      "title": "Receive Payment",
+      "amountToReceive": "Amount to Receive",
+      "invoiceLabel": "Invoice #",
+      "paymentMethod": "Payment Method",
+      "methods": {
+        "pix": "PIX",
+        "credit": "Credit Card",
+        "debit": "Debit Card",
+        "cash": "Cash",
+        "transfer": "Bank Transfer"
+      },
+      "infoText": "Upon confirmation, the invoice status will change to **PAID** and an **Income** Financial Transaction will automatically be posted to the clinic's Cash Flow.",
+      "cancel": "Cancel",
+      "processing": "Processing...",
+      "confirm": "Confirm Receipt"
+    }
+  },
+  "placeholder": {
+    "construction": "Page Under Construction",
+    "desc1": "The module",
+    "desc2": "is still being developed. Soon you will have access to all features in this area."
+  },
+  "reports": {
+    "title": "BI Reports",
+    "subtitle": "Advanced analytics and clinic performance indicators.",
+    "filters": {
+      "thisMonth": "This Month",
+      "lastMonth": "Last Month",
+      "thisYear": "This Year",
+      "oneDay": "1 Day",
+      "oneWeek": "1 Week",
+      "oneMonth": "1 Month",
+      "oneQuarter": "1 Quarter"
+    },
+    "metrics": {
+      "revenue": "Total Revenue",
+      "patients": "Active Patients",
+      "appointments": "Appointments Held",
+      "pending": "Pending Payments"
+    },
+    "charts": {
+      "revenue": "Revenue Evolution",
+      "procedures": "Appointments by Procedure"
+    },
+    "allUnits": "Complete Network (All Units)",
+    "headquarters": "(Headquarters)",
+    "exportBtn": "Export"
+  },
+  "team": {
+    "title": "Team Management",
+    "subtitle": "Manage entire clinical and administrative team.",
+    "addMemberBtn": "Add Member",
+    "tabs": {
+      "dentists": "Dentists",
+      "technicians": "Technicians (ASB/TSB)",
+      "receptionists": "Receptionists",
+      "finance": "Secretaries (Finan/HR)",
+      "admins": "Administrators"
+    },
+    "list": {
+      "loading": "Loading list...",
+      "emptyTitle": "No members found",
+      "emptyDesc": "You haven't registered any {role} in this unit yet.",
+      "roles": {
+        "dentistas": "dentist",
+        "tecnicos": "technician",
+        "secretarias": "secretary",
+        "recepcionistas": "receptionist",
+        "administradores": "administrator"
+      },
+      "table": {
+        "name": "Name",
+        "contact": "Contact",
+        "roleProfile": "Role / Profile",
+        "specialist": "License / Spec.",
+        "status": "Status",
+        "actions": "Actions"
+      },
+      "status": {
+        "active": "Active"
+      },
+      "actions": {
+        "edit": "Edit",
+        "delete": "Remove"
+      },
+      "noName": "No Name",
+      "noCro": "No License",
+      "general": "General",
+      "basicAccess": "Basic Access",
+      "owner": "Owner",
+      "admin": "Administrator"
+    },
+    "messages": {
+      "deleteOwnerError": "Cannot delete the default clinic owner.",
+      "deleteConfirm": "Are you sure you want to delete this member?",
+      "deleteError": "Error deleting. Please try again.",
+      "saveError": "An error occurred while saving data.",
+      "saveSuccess": "Staff member saved successfully!",
+      "userFetchError": "Failed to retrieve the ID of the new user created. Check the API."
+    },
+    "form": {
+      "editTitle": "Edit Member",
+      "newTitle": "New Member",
+      "profiles": {
+        "dentist": "Dentist",
+        "technician": "Technician",
+        "reception": "Reception",
+        "finance": "Finance/HR",
+        "admin": "Administrator"
+      },
+      "labels": {
+        "fullName": "Full Name *",
+        "email": "Email *",
+        "phone": "Phone (WhatsApp)",
+        "password": "Provisional Password *",
+        "specialistData": "Specialist Data",
+        "hiringData": "Hiring Data",
+        "cro": "License *",
+        "specialty": "Main Specialty",
+        "accessLevel": "System Access Level",
+        "specificRole": "Specific Role",
+        "linkUnit": "Link to Unit"
+      },
+      "placeholders": {
+        "name": "Professional's name",
+        "email": "email@clinic.com",
+        "phone": "(00) 00000-0000",
+        "password": "Min. 6 characters",
+        "cro": "00.000",
+        "specialty": "Ex: Orthodontics",
+        "role": "Ex: Clinic Secretary"
+      },
+      "accessLevels": {
+        "receptionist": "Receptionist",
+        "assistant": "Assistant (ASB/TSB)",
+        "billing": "Billing / Finance",
+        "unitManager": "Unit Manager (ADMIN_GERENCIAL)",
+        "owner": "Owner / Network (ADMIN_TOTAL)"
+      },
+      "helpers": {
+        "autoFill": "Automatically filled by the chosen category.",
+        "adminChoice": "Choose if this administrator manages only one unit or the entire network."
+      },
+      "buttons": {
+        "cancel": "Cancel",
+        "saveChanges": "Save Changes",
+        "complete": "Complete Registration"
+      },
+      "defaultCargos": {
+        "technician": "Specialized Technician",
+        "finance": "HR and Accounting",
+        "reception": "Attendant / Secretary",
+        "admin": "Unit Manager"
+      }
+    }
+  },
+  "units": {
+    "title": "Unit Management",
+    "subtitle": "Manage network clinics (branches).",
+    "newUnitBtn": "New Unit",
+    "listTitle": "Registered Clinics",
+    "loading": "Fetching branches...",
+    "loadingAuth": "Validating permissions...",
+    "empty": "No units registered in the system.",
+    "mainUnit": "Primary Unit",
+    "noInfo": "Not informed",
+    "emptyCnpj": "No Tax ID",
+    "table": {
+      "name": "Unit Name",
+      "phone": "Phone",
+      "address": "Address",
+      "actions": "Actions"
+    },
+    "form": {
+      "newTitle": "New Unit",
+      "editTitle": "Edit Unit",
+      "newSubtitle": "Add a new branch to the network",
+      "editSubtitle": "Update clinic data",
+      "nameLabel": "Unit Trade Name *",
+      "namePlaceholder": "Ex: Downtown Clinic",
+      "razaoLabel": "Business Name *",
+      "razaoPlaceholder": "Ex: OdontoFlow Clinic LTD",
+      "cnpjLabel": "Business Tax ID *",
+      "cnpjPlaceholder": "00.000.000/0001-00",
+      "phoneLabel": "Unit Phone",
+      "phonePlaceholder": "(00) 0000-0000",
+      "addressLabel": "Primary Address",
+      "addressPlaceholder": "Street, Neighborhood",
+      "numberPlaceholder": "Number",
+      "cancelBtn": "Cancel",
+      "saveBtn": "Save Unit",
+      "saving": "Saving...",
+      "errorUpdate": "Clinic editing via the dashboard is not yet implemented in the backend",
+      "errorGeneric": "An error occurred while saving the unit."
+    }
+  },
+  "hr": {
+    "title": "Human Resources",
+    "subtitle": "Complete management of payroll, admissions, and legal members.",
+    "tabs": {
+      "payroll": "Overview & Payroll",
+      "employees": "Employees (Admission)",
+      "dismissals": "Dismissals"
+    },
+    "runPayrollBtn": "Run Monthly Payroll",
+    "payroll": {
+      "month": "Month/Year",
+      "base": "Gross Salary (Total)",
+      "inss": "Total Social Tax",
+      "irrf": "Total Income Tax",
+      "net": "Net Payable",
+      "status": "Status",
+      "actions": "Actions",
+      "empty": "No payroll processed. Click 'Run Monthly Payroll' to generate payslips.",
+      "generate": "Generate",
+      "processed": "Processed",
+      "admin": "Administrative",
+      "processing": "Processing...",
+      "matricula": "ID #",
+      "table": {
+        "base": "Base",
+        "discounts": "Discounts",
+        "net": "Net"
+      }
+    },
+    "employees": {
+      "admitBtn": "Admit Employee",
+      "table": {
+        "employee": "Employee",
+        "role": "Role",
+        "admission": "Admission",
+        "salary": "Salary",
+        "status": "Status"
+      },
+      "noName": "No name registered",
+      "emptyTitle": "No employee",
+      "emptyDesc": "You haven't registered any employees to the payroll. Click Admit Employee to start."
+    },
+    "dismissals": {
+      "registerBtn": "Register Dismissal",
+      "table": {
+        "exEmployee": "Ex-Employee",
+        "role": "Role",
+        "date": "Dismissal Date",
+        "reason": "Reason",
+        "status": "Status"
+      },
+      "emptyTitle": "No Dismissals",
+      "emptyDesc": "No dismissal history found in the system."
+    },
+    "add": {
+      "title": "Admit Employee",
+      "emailLabel": "Employee Email *",
+      "searching": "Searching...",
+      "verify": "Verify",
+      "existingTitle": "Existing user found!",
+      "existingDesc": "User {nome} already has an account. They will be linked as an employee without changing their current password.",
+      "newTitle": "New User!",
+      "newDesc": "No account found with this email. A new access will be created with a secure password.",
+      "nameLabel": "Full Name *",
+      "namePlaceholder": "Employee name",
+      "passwordLabel": "Auto-generated Password *",
+      "generatePw": "Generate new password",
+      "roleLabel": "Role *",
+      "rolePlaceholder": "Ex: Receptionist",
+      "admissionLabel": "Admission Date *",
+      "salaryLabel": "Salary *",
+      "cancel": "Cancel",
+      "saving": "Saving...",
+      "finish": "Complete Admission",
+      "successAlert": "Employee Registered!\\n\\nA new user was created.\\nThe highly secure generated password is:\\n\\n{senha}\\n\\nPlease copy and send it to the collaborator."
+    },
+    "dismiss": {
+      "title": "Register Dismissal",
+      "selectLabel": "Select Employee *",
+      "selectPlaceholder": "Select someone...",
+      "dateLabel": "Dismissal Date *",
+      "reasonLabel": "Dismissal Reason *",
+      "reasonPlaceholder": "Describe the reason (optional)",
+      "warningTitle": "Warning!",
+      "warningDesc": "The user will immediately lose access to clinic modules after dismissal.",
+      "cancel": "Cancel",
+      "saving": "Saving...",
+      "finish": "Confirm Dismissal"
+    },
+    "errors": {
+      "verifyEmail": "Error verifying email. Please try again.",
+      "admit": "Error admitting employee.",
+      "noClinic": "Clinic not selected.",
+      "dismiss": "Error registering dismissal."
+    }
+  },
+  "accounting": {
+    "title": "Accounting & Tax",
+    "subtitle": "Analysis of managerial income statements, tax forms, and NFS-e issuance hub.",
+    "tabs": {
+      "dre": "Income Statement (P&L)",
+      "nfse": "Invoices (NFS-e)",
+      "taxes": "Taxes (Forms)"
+    },
+    "dre": {
+      "period": "Assessment Period",
+      "grossRevenue": "Gross Service Revenue",
+      "taxes": "(-) Taxes and Withholdings",
+      "netRevenue": "(=) Net Revenue",
+      "costs": "(-) Direct Operating Costs",
+      "grossMargin": "(=) Gross Profit",
+      "expenses": "(-) Fixed / Administrative Expenses",
+      "netIncome": "(=) Net Income",
+      "generateBtn": "Process Monthly Statement"
+    },
+    "nfse": {
+      "issueBtn": "Issue Invoice",
+      "number": "Invoice Number",
+      "rps": "Batch RPS",
+      "value": "Value",
+      "status": "City Hall Integration",
+      "actions": "Download PDF",
+      "empty": "No invoices issued yet."
+    },
+    "nfsePrint": {
+      "title": "Electronic Services Invoice - NFS-e",
+      "cityHall": "Local City Hall",
+      "coatOfArms": "City Hall Coat of Arms",
+      "number": "Number:",
+      "date": "Competence:",
+      "verificationCode": "Verification Code:",
+      "provider": "Service Provider",
+      "taker": "Service Taker",
+      "pacient": "Patient / System Client",
+      "consumer": "Final Consumer",
+      "cpfCnpj": "Tax ID:",
+      "refInvoice": "Referent to Invoice ID:",
+      "notInformed": "Not informed",
+      "description": "Services Description",
+      "defaultDesc": "Dental services.",
+      "serviceCode": "Service Code LC 116/03",
+      "monthYear": "Competence Month/Year",
+      "location": "Service Location",
+      "fixedLocation": "Fixed Establishment",
+      "deductions": "Deductions",
+      "discount": "Uncond. Discount",
+      "calcBase": "Calculation Base",
+      "issRate": "Tax Rate (%)",
+      "issValue": "Tax Value",
+      "netValue": "Net Invoice Value",
+      "issRetained": "Retained Tax",
+      "yes": "YES",
+      "no": "NO",
+      "footer1": "Document issued electronically by the OdontoFlow system.",
+      "footer2": "To verify authenticity access the city hall portal.",
+      "viewTitle": "NFS-e Visualization",
+      "printSave": "Save as PDF / Print"
     }
   }
 }

@@ -262,7 +262,7 @@ function PatientCard({ appt, dictionary, actionLabel, onAction, isProcessing, sh
       
       <div className="mb-3">
         <h4 className="font-bold text-gray-800 dark:text-gray-200 text-lg leading-tight p-0.5">
-          {appt.paciente?.nome || "Paciente Sem Nome"}
+          {appt.paciente?.nome || dictionary.dashboard?.receptionBoard?.noName || "Paciente Sem Nome"}
         </h4>
         <p className="text-sm text-gray-500 dark:text-gray-400 mt-1 flex items-center gap-1">
            <span className="material-symbols-outlined text-[16px]">dentistry</span> 

@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 
 export default function Header({ dictionary }: { dictionary: any }) {
   const [units, setUnits] = useState<any[]>([]);
-  const [selectedUnit, setSelectedUnit] = useState<string>("");
+  const [selectedUnit, setSelectedUnit] = useState<any>(null);
 
   useEffect(() => {
     async function fetchUnits() {
@@ -15,19 +15,39 @@ export default function Header({ dictionary }: { dictionary: any }) {
             const data = await api.clinics.list();
             if (Array.isArray(data) && data.length > 0) {
                 setUnits(data);
-                setSelectedUnit(data[0].nome || "Unidade Principal");
+                
+                // Try to load from localStorage first
+                const savedId = localStorage.getItem('selectedClinicaId');
+                if (savedId) {
+                    const found = data.find(u => u.id.toString() === savedId);
+                    if (found) {
+                        setSelectedUnit(found);
+                        return;
+                    }
+                }
+                
+                setSelectedUnit(data[0]);
+                localStorage.setItem('selectedClinicaId', data[0].id.toString());
             } else {
-                 setUnits([{ nome: "Unidade Principal" }]);
-                 setSelectedUnit("Unidade Principal");
+                  setUnits([{ id: 0, nomeFantasia: dictionary?.units?.mainUnit || "Unidade Principal" }]);
+                  setSelectedUnit({ id: 0, nomeFantasia: dictionary?.units?.mainUnit || "Unidade Principal" });
             }
         } catch (err) {
             console.warn("Failed to fetch clinics, using default.");
-            setUnits([{ nome: "Unidade Principal" }]); 
-            setSelectedUnit("Unidade Principal");
+            setUnits([{ id: 0, nomeFantasia: dictionary?.units?.mainUnit || "Unidade Principal" }]); 
+            setSelectedUnit({ id: 0, nomeFantasia: dictionary?.units?.mainUnit || "Unidade Principal" });
         }
     }
     fetchUnits();
   }, []);
+
+  const handleSelectUnit = (unit: any) => {
+      setSelectedUnit(unit);
+      if (unit.id) {
+          localStorage.setItem('selectedClinicaId', unit.id.toString());
+          window.dispatchEvent(new Event('clinicChanged'));
+      }
+  };
 
   const hasBranches = units.length > 1;
 
@@ -43,7 +63,7 @@ export default function Header({ dictionary }: { dictionary: any }) {
             <div className={`hidden sm:flex items-center gap-2 bg-gray-100 dark:bg-gray-800 px-3 py-1.5 rounded-lg border border-gray-200 dark:border-gray-700 transition-colors ${hasBranches ? 'cursor-pointer hover:border-blue-500 group' : 'cursor-default opacity-80'}`}>
                 <span className="material-symbols-outlined text-blue-500 text-lg">location_on</span>
                 <span className="text-sm font-medium dark:text-white min-w-[120px]">
-                    {selectedUnit}
+                    {selectedUnit ? selectedUnit.nomeFantasia : (dictionary?.units?.loading || dictionary?.common?.loading || "Carregando...")}
                 </span>
                 {hasBranches && (
                     <span className="material-symbols-outlined text-gray-400 text-lg group-hover:text-blue-500 transition-colors">expand_more</span>
@@ -57,11 +77,11 @@ export default function Header({ dictionary }: { dictionary: any }) {
                         {units.map((unit, idx) => (
                             <li 
                                 key={idx} 
-                                onClick={() => setSelectedUnit(unit.nome)}
+                                onClick={() => handleSelectUnit(unit)}
                                 className="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-blue-50 dark:hover:bg-gray-700 hover:text-blue-600 dark:hover:text-blue-400 cursor-pointer transition-colors first:rounded-t-xl last:rounded-b-xl"
                             >
-                                <span className={`size-1.5 rounded-full ${selectedUnit === unit.nome ? 'bg-blue-500' : 'bg-transparent'}`}></span>
-                                {unit.nome}
+                                <span className={`size-1.5 rounded-full ${selectedUnit?.id === unit.id ? 'bg-blue-500' : 'bg-transparent'}`}></span>
+                                {unit.nomeFantasia}
                             </li>
                         ))}
                     </ul>

@@ -94,7 +94,7 @@ export default function MedicalBoard({ dictionary, dateDisplay }: Props) {
             <button 
                 onClick={fetchAppointments} 
                 className="p-2 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
-                title="Atualizar"
+                title={dictionary.common?.refresh || "Atualizar"}
             >
                 <span className="material-symbols-outlined">refresh</span>
             </button>
@@ -111,7 +111,7 @@ export default function MedicalBoard({ dictionary, dateDisplay }: Props) {
         
         <div className="overflow-y-auto flex-1 p-4 space-y-3">
              {loading ? (
-                 <div className="text-center py-10 text-gray-500 animate-pulse">Carregando...</div>
+                 <div className="text-center py-10 text-gray-500 animate-pulse">{dictionary.common?.loading || "Carregando..."}</div>
              ) : appointments.length === 0 ? (
                  <div className="text-center py-20 text-gray-400 flex flex-col items-center gap-2">
                      <span className="material-symbols-outlined text-4xl opacity-50">ward</span>
@@ -120,9 +120,21 @@ export default function MedicalBoard({ dictionary, dateDisplay }: Props) {
              ) : (
                  appointments.map(appt => {
                      // Extract Risk for Display
-                     const match = appt.motivoConsulta?.match(/Risco:\s*(AZUL|VERDE|AMARELO|LARANJA|VERMELHO)/i);
-                     const riskKey = match ? match[1].toUpperCase() : null;
+                     // Support Risco (PT), Risk (EN), Riesgo (ES)
+                     const match = appt.motivoConsulta?.match(/(Risco|Risk|Riesgo):\s*(AZUL|VERDE|AMARELO|LARANJA|VERMELHO|BLUE|GREEN|YELLOW|ORANGE|RED)/i);
+                     const riskVal = match ? match[2].toUpperCase() : null;
+
+                     // Map translations to canonical keys
+                     const riskMap: any = {
+                        "VERMELHO": "VERMELHO", "RED": "VERMELHO",
+                        "LARANJA": "LARANJA", "ORANGE": "LARANJA",
+                        "AMARELO": "AMARELO", "YELLOW": "AMARELO",
+                        "VERDE": "VERDE", "GREEN": "VERDE",
+                        "AZUL": "AZUL", "BLUE": "AZUL"
+                     };
                      
+                     const riskKey = riskVal ? riskMap[riskVal] : null;
+
                      const riskColors: any = {
                         "VERMELHO": "bg-red-500 text-white shadow-red-200",
                         "LARANJA": "bg-orange-500 text-white shadow-orange-200",
@@ -155,7 +167,7 @@ export default function MedicalBoard({ dictionary, dateDisplay }: Props) {
                                     {appt.paciente?.nome}
                                  </h4>
                                  <div className="text-sm text-gray-500 flex items-center gap-3 mt-1">
-                                    <span className="flex items-center gap-1" title="Chegada"><span className="material-symbols-outlined text-[16px]">schedule</span> {appt.dataHoraInicio.split('T')[1].substring(0, 5)}</span>
+                                    <span className="flex items-center gap-1" title={dictionary.common?.arrival || "Chegada"}><span className="material-symbols-outlined text-[16px]">schedule</span> {appt.dataHoraInicio.split('T')[1].substring(0, 5)}</span>
                                  </div>
                              </div>
                          </div>

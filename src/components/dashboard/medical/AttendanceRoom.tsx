@@ -24,11 +24,9 @@ export default function AttendanceRoom({ dictionary, appointmentId, locale }: Pr
         try {
             const data = await api.scheduling.getById(appointmentId);
             setAppointment(data);
-            // Pre-fill evolution with previous notes if needed, or start fresh
-            // setEvolution(data.motivoConsulta || ""); 
         } catch (e) {
             console.error(e);
-            alert("Erro ao carregar atendimento");
+            alert(dictionary.dashboard?.medical?.attendanceRoom?.errorLoad || "Erro ao carregar atendimento");
             router.back();
         } finally {
             setLoading(false);
@@ -38,24 +36,25 @@ export default function AttendanceRoom({ dictionary, appointmentId, locale }: Pr
   }, [appointmentId, router]);
 
   const handleFinish = async () => {
-    if (!confirm("Deseja finalizar este atendimento?")) return;
+    const confirmMsg = dictionary.dashboard?.medical?.attendanceRoom?.confirmFinish || (locale === "pt-BR" ? "Deseja finalizar este atendimento?" : "Finish this attendance?");
+    if (!confirm(confirmMsg)) return;
     
     try {
-        // Backend restriction: Status must be ATENDIDO
+        const evolutionHeader = dictionary.dashboard?.medical?.attendanceRoom?.evolutionNote?.header || "[EVOLUÇÃO]";
         await api.scheduling.update(appointmentId, {
             status: "ATENDIDO",
-            motivoConsulta: (appointment?.motivoConsulta || "") + "\n\n[EVOLUÇÃO]\n" + evolution
+            motivoConsulta: (appointment?.motivoConsulta || "") + `\n\n${evolutionHeader}\n` + evolution
         });
-        alert("Atendimento finalizado com sucesso!");
+        alert(dictionary.dashboard?.medical?.attendanceRoom?.successFinish || "Atendimento finalizado com sucesso!");
         router.push(`/${locale}/atendimento`);
     } catch (e) {
         console.error(e);
-        alert("Erro ao finalizar atendimento");
+        alert(dictionary.dashboard?.medical?.attendanceRoom?.errorFinish || "Erro ao finalizar atendimento");
     }
   };
 
-  if (loading) return <div className="p-8 text-center">Carregando paciente...</div>;
-  if (!appointment) return <div className="p-8 text-center">Paciente não encontrado.</div>;
+  if (loading) return <div className="p-8 text-center">{dictionary.dashboard?.medical?.attendanceRoom?.loading || "Carregando paciente..."}</div>;
+  if (!appointment) return <div className="p-8 text-center">{dictionary.dashboard?.medical?.attendanceRoom?.notFound || "Paciente não encontrado."}</div>;
 
   return (
     <div className="flex flex-col h-full bg-gray-50 dark:bg-gray-900">
@@ -102,24 +101,24 @@ export default function AttendanceRoom({ dictionary, appointmentId, locale }: Pr
                         className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${activeTab === 'odontogram' ? 'bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-400 font-bold' : 'text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800'}`}
                     >
                         <span className="material-symbols-outlined">dentistry</span>
-                        Odontograma
+                        {dictionary.dashboard?.medical?.odontogram?.title || "Odontograma"}
                     </button>
                     <button 
                          onClick={() => setActiveTab('evolution')}
                          className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${activeTab === 'evolution' ? 'bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-400 font-bold' : 'text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800'}`}
                     >
                         <span className="material-symbols-outlined">edit_note</span>
-                        Evolução / Notas
+                        {dictionary.dashboard?.medical?.attendanceRoom?.notes || "Evolução / Notas"}
                     </button>
                 </nav>
                 
                 {/* Triage Summary Mini-View */}
                 <div className="p-4 bg-yellow-50 dark:bg-yellow-900/10 border-t border-yellow-100 dark:border-yellow-900/30">
                     <h4 className="text-xs font-bold text-yellow-800 dark:text-yellow-500 uppercase mb-2 flex items-center gap-1">
-                        <span className="material-symbols-outlined text-[14px]">health_metrics</span> Triagem
+                        <span className="material-symbols-outlined text-[14px]">health_metrics</span> {dictionary.dashboard?.medical?.attendanceRoom?.triageTitle || "Triagem"}
                     </h4>
                     <pre className="text-xs text-gray-600 dark:text-gray-400 whitespace-pre-wrap font-sans">
-                        {appointment.motivoConsulta?.split('[TRIAGEM_REALIZADA]')[0] || "Sem dados de triagem."}
+                        {appointment.motivoConsulta?.split('[TRIAGEM_REALIZADA]')[0] || (dictionary.dashboard?.medical?.attendanceRoom?.noTriageData || "Sem dados de triagem.")}
                     </pre>
                 </div>
             </div>
@@ -128,9 +127,8 @@ export default function AttendanceRoom({ dictionary, appointmentId, locale }: Pr
             <div className="flex-1 bg-gray-50 dark:bg-gray-900 p-6 overflow-y-auto">
                 {activeTab === 'odontogram' && (
                     <div className="h-full flex flex-col">
-                         <h2 className="text-xl font-bold mb-4 text-gray-800 dark:text-gray-200">Odontograma Visual</h2>
+                         <h2 className="text-xl font-bold mb-4 text-gray-800 dark:text-gray-200">{dictionary.dashboard?.medical?.attendanceRoom?.diagnostics || "Diagnóstico e Procedimentos"}</h2>
                          <div className="flex-1 bg-white dark:bg-gray-800 rounded-xl shadow border border-gray-200 dark:border-gray-700 p-8 flex items-center justify-center relative overflow-hidden">
-                             {/* SVG Odontogram will go here */}
                              <Odontogram dictionary={dictionary} />
                          </div>
                     </div>
@@ -138,10 +136,10 @@ export default function AttendanceRoom({ dictionary, appointmentId, locale }: Pr
 
                 {activeTab === 'evolution' && (
                     <div className="h-full flex flex-col max-w-3xl mx-auto">
-                        <h2 className="text-xl font-bold mb-4 text-gray-800 dark:text-gray-200">Evolução Clínica</h2>
+                        <h2 className="text-xl font-bold mb-4 text-gray-800 dark:text-gray-200">{dictionary.dashboard?.medical?.attendanceRoom?.notes || "Evolução Clínica"}</h2>
                         <textarea 
                             className="flex-1 w-full p-6 text-lg rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm focus:ring-2 ring-emerald-500 outline-none resize-none leading-relaxed"
-                            placeholder="Descreva o procedimento realizado, observações clínicas e plano de tratamento..."
+                            placeholder={dictionary.dashboard?.medical?.attendanceRoom?.notesPlaceholder || "Descreva o procedimento realizado..."}
                             value={evolution}
                             onChange={e => setEvolution(e.target.value)}
                         />
