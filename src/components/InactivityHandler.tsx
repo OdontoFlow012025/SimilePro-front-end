@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useEffect, useRef } from "react";
+import { api } from "@/services/api";
 
 const INACTIVITY_LIMIT_MS = 60 * 60 * 1000; // 1 hour
 const CHECK_INTERVAL_MS = 60 * 1000; // Check every minute
@@ -14,8 +15,12 @@ export default function InactivityHandler({ locale }: InactivityHandlerProps) {
   const router = useRouter();
   const lastActivityRef = useRef<number>(Date.now());
   
-  const logout = () => {
-    document.cookie = "auth_token=; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT;";
+  const logout = async () => {
+    try {
+      await api.auth.logout();
+    } catch (err) {
+      console.error("Failed to logout on inactivity:", err);
+    }
     router.push(`/${locale}/login`);
     router.refresh();
   };

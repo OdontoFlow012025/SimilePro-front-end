@@ -53,6 +53,143 @@
       "description": "Data integrated with the National Health Data Network, ensuring total patient mobility and absolute legal compliance."
     }
   },
+  "compliancePage": {
+    "title": "Trust and Compliance Center",
+    "subtitle": "Enterprise-grade data security and legal adequacy for your clinic.",
+    "cards": {
+      "lgpd": {
+        "title": "LGPD in Healthcare",
+        "desc": "OdontoFlow fully complies with the General Data Protection Law. Sensitive data is stored in encrypted clouds (AES-256) with strict access control."
+      },
+      "icp": {
+        "title": "ICP-Brasil Certification",
+        "desc": "All documents, medical certificates, and electronic health records support digital signatures via ICP-Brasil certificates, ensuring non-repudiation and full legal validity."
+      },
+      "rnds": {
+        "title": "RNDS Interoperability",
+        "desc": "Our system is developed based on the Brazilian Ministry of Health regulations for native integration with the National Health Data Network (RNDS)."
+      },
+      "hipaa": {
+        "title": "International Standards",
+        "desc": "We use scalable infrastructure that follows global compliance standards, including guidelines similar to HIPAA (Health Insurance Portability and Accountability Act)."
+      },
+      "cfo": {
+        "title": "CFO-226/2020 Resolution",
+        "desc": "Strict alignment with the Federal Dentistry Council regarding the practice of remote dentistry (Telemonitoring) and digital certificate issuance."
+      },
+      "tiss": {
+        "title": "TISS / TUSS Standard",
+        "desc": "Full support for Supplementary Health Information Exchange (TISS), ensuring accurate billing with dental insurance providers (ANS)."
+      },
+      "iso": {
+        "title": "ISO 27001 Practices",
+        "desc": "OdontoFlow engineering processes are inspired by ISO 27001 requirements, the highest standard for Information Security Management Systems."
+      },
+      "backup": {
+        "title": "Legal Retention (99.9% SLA)",
+        "desc": "Continuous backup policies and health record retention in compliance with laws requiring electronic records storage for at least 20 years."
+      }
+    }
+  },
+  "supportPage": {
+    "title": "How can we help you today?",
+    "subtitle": "Search for articles, tutorials, or contact our team directly.",
+    "searchPlaceholder": "Ex: How to issue a digital certificate...",
+    "categories": {
+      "title": "Help Categories",
+      "items": [
+        { "title": "Getting Started", "slug": "getting-started", "desc": "Clinic and staff configuration", "icon": "rocket_launch" },
+        { "title": "Scheduling", "slug": "scheduling", "desc": "Calendar and returns management", "icon": "calendar_month" },
+        { "title": "Health Records", "slug": "health-records", "desc": "Clinical notes and interoperability", "icon": "medical_information" },
+        { "title": "Billing", "slug": "billing", "desc": "Insurance, billing, and plans", "icon": "payments" }
+      ]
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "items": [
+        { "q": "How do I change my subscription plan?", "a": "You can change your plan at any time by going to Settings > Subscription in your dashboard. Billing will be prorated." },
+        { "q": "Does OdontoFlow do automatic backups?", "a": "Yes! We perform hourly backups across different cloud regions, ensuring secure retention for up to 20 years as required by law." },
+        { "q": "Can I use it on my phone?", "a": "Yes, the platform is 100% responsive and can be accessed from any smartphone or tablet browser. However, for the best team experience (especially with the odontogram and billing), we highly recommend using a computer or laptop." },
+        { "q": "How do I configure digital signatures?", "a": "Go to Settings > Professional and upload your A1 certificate, or install the browser extension for A3 certificates." }
+      ]
+    },
+    "contact": {
+      "title": "Still need help?",
+      "whatsapp": {
+        "title": "Premium Support",
+        "desc": "Fast support via WhatsApp (paid plans only).",
+        "btn": "Message on WhatsApp"
+      },
+      "email": {
+        "title": "Open a Ticket",
+        "desc": "Send a detailed email to our technical team.",
+        "btn": "Send Email"
+      }
+    }
+  },
+  "supportArticles": {
+    "getting-started": {
+      "title": "Getting Started",
+      "subtitle": "Quick guide to set up your clinic and invite your team to OdontoFlow.",
+      "sections": [
+        { "h": "1. Clinic Setup", "p": "To start, go to Settings > Clinic. Fill in the address, TAX ID, and operating hours. This data will appear on your medical certificate headers." },
+        { "h": "2. Inviting the Team", "p": "Access the 'Team' tab and click 'New User'. You can define the permission level (Dentist, Receptionist, or Administrator). An invitation will be sent via email." }
+      ],
+      "nextSlug": "scheduling",
+      "nextTitle": "Next: Scheduling"
+    },
+    "scheduling": {
+      "title": "Scheduling",
+      "subtitle": "How to organize the clinic's calendar and optimize dentists' time.",
+      "sections": [
+        { "h": "1. Creating an Appointment", "p": "In the Dashboard, click the blue 'New Appointment' button. Select the patient, dentist, time slot, and reason for the visit." },
+        { "h": "2. Status and Confirmation", "p": "You can change the appointment status (Confirmed, Waiting, In Service) by clicking the appointment card. The status color updates automatically." }
+      ],
+      "nextSlug": "health-records",
+      "nextTitle": "Next: Health Records"
+    },
+    "health-records": {
+      "title": "Health Records",
+      "subtitle": "Secure clinical records and interoperability.",
+      "sections": [
+        { "h": "1. Interactive Odontogram", "p": "Inside the patient chart, click the 'Odontogram' tab. You can select teeth and mark procedures (e.g., Caries, Filling, Extraction) using the color palette." },
+        { "h": "2. RNDS Synchronization", "p": "If your clinic is integrated, any digitally signed clinical note can be sent directly to the Ministry of Health by clicking the 'Sync RNDS' button." }
+      ],
+      "nextSlug": "billing",
+      "nextTitle": "Next: Billing"
+    },
+    "billing": {
+      "title": "Billing",
+      "subtitle": "Management of invoicing, budgets, and treatment plans.",
+      "sections": [
+        { "h": "1. Creating Budgets", "p": "In the medical record, access 'Treatment Plan'. Add the procedures that need to be done. The system will calculate the total value based on your standard price list." },
+        { "h": "2. Insurance Billing", "p": "For insured patients, upon finishing the plan, you can export the XML file in the standard format under the 'Billing' tab to send to the insurance provider." }
+      ],
+      "nextSlug": "getting-started",
+      "nextTitle": "Back to Start"
+    }
+  },
+  "ticketPage": {
+    "title": "Open a Ticket",
+    "subtitle": "Our technical team will respond as soon as possible.",
+    "form": {
+      "email": "Contact Email",
+      "emailPlaceholder": "your@email.com",
+      "subject": "Ticket Subject",
+      "subjectPlaceholder": "Ex: Error issuing certificate",
+      "message": "Describe the issue",
+      "messagePlaceholder": "Describe what happened in as much detail as possible...",
+      "charLimit": "characters remaining",
+      "submit": "Submit Ticket",
+      "submitting": "Submitting..."
+    },
+    "success": {
+      "title": "Ticket Created Successfully!",
+      "subtitle": "Save your protocol number for tracking.",
+      "protocol": "Protocol Number",
+      "back": "Back to Support"
+    }
+  },
   "security": {
     "badge": "Technical Authority",
     "title": "Security and Legal Validity",
@@ -98,6 +235,7 @@
   "pricing": {
     "title": "Plans that fit your pocket",
     "subtitle": "Choose the best option for your clinic or your studies.",
+    "bestChoice": "BEST CHOICE",
     "plans": {
       "free": {
         "name": "Free",
@@ -156,6 +294,87 @@
         "buttonText": "In implementation",
         "blocked": true
       }
+    }
+  },
+  "financial": {
+    "title": "Financial",
+    "subtitle": "Complete management of receipts, expenses, and billing.",
+    "tabs": {
+      "general": "General",
+      "patients": "Patients",
+      "insurances": "Insurances",
+      "inventory": "Inventory"
+    },
+    "bills": {
+      "cancelPrompt": "Are you sure you want to cancel this invoice?"
+    },
+    "errors": {
+      "loadTransactions": "Failed to load transactions.",
+      "cancelBill": "Failed to cancel invoice."
+    },
+    "status": {
+      "ALL": "ALL",
+      "paid": "Paid",
+      "pending": "Pending",
+      "canceled": "Canceled"
+    }
+  },
+  "inventory": {
+    "title": "Inventory & Stock",
+    "subtitle": "Manage your products, materials, and purchase invoices.",
+    "newNfBtn": "New Invoice",
+    "cancelBtn": "Cancel",
+    "nfDataTitle": "Invoice Details",
+    "nfNumberLabel": "Invoice Number",
+    "providerLabel": "Provider",
+    "addProductsTitle": "Add Products",
+    "productLabel": "Product",
+    "selectProduct": "Select a product...",
+    "quantityLabel": "Quantity",
+    "unitPriceLabel": "Unit Price",
+    "addBtn": "Add Item",
+    "subtotalLabel": "Subtotal",
+    "totalValueLabel": "Total Value",
+    "saveBtn": "Save Invoice & Update Stock",
+    "tabs": {
+      "products": "Product List",
+      "invoices": "Purchase Invoices"
+    },
+    "productsTable": {
+      "product": "Product",
+      "sku": "SKU",
+      "currentStock": "Current Stock",
+      "unit": "Unit",
+      "status": "Status",
+      "loading": "Loading products...",
+      "empty": "No products found.",
+      "lowStatus": "LOW",
+      "okStatus": "OK"
+    },
+    "invoicesTable": {
+      "nfNumber": "Number",
+      "provider": "Provider",
+      "issueDate": "Issue Date",
+      "items": "Items",
+      "totalValue": "Total Value",
+      "loading": "Loading invoices...",
+      "empty": "No invoices found."
+    },
+    "errors": {
+      "emptyNf": "Add at least one item to the invoice.",
+      "successNf": "Invoice submitted successfully!",
+      "failNf": "Failed to submit invoice: "
+    }
+  },
+  "dashboard": {
+    "bi": {
+      "title": "BI Indicators",
+      "newPatients": "New Patients",
+      "currentMonth": "Current Month",
+      "vsPrevMonth": "vs previous month"
+    },
+    "attendance": {
+      "occupancy": "Room Occupancy"
     }
   },
   "footer": {

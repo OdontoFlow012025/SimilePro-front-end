@@ -10,17 +10,10 @@ async function request(endpoint: string, options: RequestInit = {}) {
     ...(options.headers as Record<string, string>),
   };
 
-  // Client-side: Auto-inject token from cookie and attach selected clinic if present
+  // Client-side: attach selected clinic if present via query param
   let finalUrl = `${API_URL}${endpoint}`;
   
-  if (typeof document !== 'undefined') {
-      const match = document.cookie.match(new RegExp("(^| )auth_token=([^;]+)"));
-      if (match && match[2]) {
-          headers['Authorization'] = `Bearer ${match[2]}`;
-      }
-
-      // Automatically append clinicaId to GET requests 
-      // so ADMIN_TOTAL users can filter data by the selected clinic.
+  if (typeof window !== 'undefined') {
       const method = options.method || 'GET';
       if (method.toUpperCase() === 'GET') {
           const clinicaId = localStorage.getItem('selectedClinicaId');
@@ -31,9 +24,11 @@ async function request(endpoint: string, options: RequestInit = {}) {
       }
   }
 
+  // Use credentials: 'include' to ensure cookies are sent automatically
   const response = await fetch(finalUrl, {
     ...options,
     headers,
+    credentials: 'include', 
   });
 
   if (response.status === 204) return null;
@@ -62,6 +57,7 @@ export const api = {
 
   auth: {
     login: (data: any) => request('/auth/login', { method: 'POST', body: JSON.stringify(data) }),
+    logout: () => request('/auth/logout', { method: 'POST' }),
     register: (data: any) => request('/auth/register', { method: 'POST', body: JSON.stringify(data) }),
     signup: (data: any) => request('/auth/signup', { method: 'POST', body: JSON.stringify(data) }),
     me: () => request('/auth/me'),
@@ -231,5 +227,12 @@ export const api = {
   fiscal: {
     listInvoices: () => request('/fiscal/nfs'),
     issueInvoice: (data: any) => request('/fiscal/nfs/emitir', { method: 'POST', body: JSON.stringify(data) }),
+  },
+  
+  subscription: {
+    getPlans: () => request('/assinaturas/planos'),
+    getStatus: () => request('/assinaturas/status'),
+    subscribe: (data: { plano: string, periodicidade?: 'MENSAL' | 'ANUAL' }) => 
+      request('/assinaturas/', { method: 'POST', body: JSON.stringify(data) }),
   },
 };

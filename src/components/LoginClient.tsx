@@ -30,18 +30,9 @@ export default function LoginClient({ dict, locale }: LoginClientProps) {
     try {
       const response = await api.auth.login({ email, senha: password });
       
-      // Save token in cookie (support both access_token and token keys)
-      const token = response?.access_token || response?.token;
-
-      if (token) {
-        document.cookie = `auth_token=${token}; path=/; max-age=86400; SameSite=Lax`;
-        
-        // Trigger global transition instead of direct push
-        startLoginTransition();
-        
-      } else {
-        throw new Error("Token de acesso não recebido.");
-      }
+      // The auth_token is now set as a Secure HttpOnly cookie by the server.
+      // We just trigger the transition to the dashboard.
+      startLoginTransition();
     } catch (err: any) {
       console.error("Login error:", err);
       // Wait for loading simulation to finish if any, but since we await API, just set error

@@ -53,6 +53,143 @@
       "description": "Datos integrados a la Red Nacional de Datos de Salud, garantizando la movilidad total del paciente y conformidad legal absoluta."
     }
   },
+  "compliancePage": {
+    "title": "Centro de Confianza y Cumplimiento",
+    "subtitle": "Seguridad de datos de nivel empresarial y adecuación legal para su clínica.",
+    "cards": {
+      "lgpd": {
+        "title": "LGPD en la Salud",
+        "desc": "OdontoFlow cumple íntegramente con la Ley General de Protección de Datos. Los datos confidenciales se almacenan en nubes cifradas (AES-256) con estricto control de acceso."
+      },
+      "icp": {
+        "title": "Certificación ICP-Brasil",
+        "desc": "Todos los documentos, certificados médicos e historias clínicas electrónicas soportan firmas digitales a través de certificados ICP-Brasil, asegurando su validez legal plena."
+      },
+      "rnds": {
+        "title": "Interoperabilidad RNDS",
+        "desc": "Nuestro sistema se desarrolla en base a las normativas del Ministerio de Salud para la integración nativa con la Red Nacional de Datos de Salud (RNDS)."
+      },
+      "hipaa": {
+        "title": "Estándares Internacionales",
+        "desc": "Utilizamos una infraestructura escalable que sigue los estándares de cumplimiento globales, incluidas pautas similares a la HIPAA."
+      },
+      "cfo": {
+        "title": "Resolución CFO-226/2020",
+        "desc": "Estricta alineación con el Consejo Federal de Odontología (CFO) respecto a la teleodontología y emisión de certificados digitales."
+      },
+      "tiss": {
+        "title": "Estándar TISS / TUSS",
+        "desc": "Soporte completo para el Intercambio de Información de Salud Suplementaria (TISS), asegurando una facturación precisa con los seguros dentales."
+      },
+      "iso": {
+        "title": "Prácticas ISO 27001",
+        "desc": "Los procesos de ingeniería de OdontoFlow están inspirados en los requisitos de ISO 27001, el estándar más alto para la Seguridad de la Información."
+      },
+      "backup": {
+        "title": "Retención Legal (SLA 99.9%)",
+        "desc": "Políticas de copias de seguridad continuas y retención en cumplimiento con las leyes que exigen el almacenamiento de historiales durante al menos 20 años."
+      }
+    }
+  },
+  "supportPage": {
+    "title": "¿Cómo podemos ayudarle hoy?",
+    "subtitle": "Busque artículos, tutoriales o contacte directamente a nuestro equipo.",
+    "searchPlaceholder": "Ej: Cómo emitir un certificado digital...",
+    "categories": {
+      "title": "Categorías de Ayuda",
+      "items": [
+        { "title": "Primeros Pasos", "slug": "getting-started", "desc": "Configuración de clínica y equipo", "icon": "rocket_launch" },
+        { "title": "Citas", "slug": "scheduling", "desc": "Gestión de agenda y retornos", "icon": "calendar_month" },
+        { "title": "Historias Clínicas", "slug": "health-records", "desc": "Evoluciones e interoperabilidad", "icon": "medical_information" },
+        { "title": "Facturación", "slug": "billing", "desc": "Seguros, facturación y planes", "icon": "payments" }
+      ]
+    },
+    "faq": {
+      "title": "Preguntas Frecuentes",
+      "items": [
+        { "q": "¿Cómo cambio mi plan de suscripción?", "a": "Puede cambiar su plan en cualquier momento yendo a Configuración > Suscripción. El cobro será prorrateado." },
+        { "q": "¿OdontoFlow hace copias de seguridad automáticas?", "a": "¡Sí! Realizamos copias de seguridad por hora en diferentes regiones de la nube, asegurando retención por hasta 20 años." },
+        { "q": "¿Puedo usarlo en el celular?", "a": "Sí, la plataforma es 100% responsiva y se puede acceder desde el navegador de cualquier teléfono o tableta. Sin embargo, para una mejor experiencia del equipo (especialmente en el odontograma y facturación), recomendamos encarecidamente el uso de una computadora o laptop." },
+        { "q": "¿Cómo configuro las firmas digitales?", "a": "Vaya a Configuración > Profesional y suba su certificado A1, o instale la extensión para certificados A3." }
+      ]
+    },
+    "contact": {
+      "title": "¿Aún necesita ayuda?",
+      "whatsapp": {
+        "title": "Soporte Premium",
+        "desc": "Soporte rápido vía WhatsApp (solo planes de pago).",
+        "btn": "Contactar por WhatsApp"
+      },
+      "email": {
+        "title": "Abrir un Ticket",
+        "desc": "Envíe un correo detallado a nuestro equipo técnico.",
+        "btn": "Enviar Correo"
+      }
+    }
+  },
+  "supportArticles": {
+    "getting-started": {
+      "title": "Primeros Pasos",
+      "subtitle": "Guía rápida para configurar su clínica e invitar a su equipo a OdontoFlow.",
+      "sections": [
+        { "h": "1. Configuración de Clínica", "p": "Para comenzar, vaya a Configuración > Clínica. Complete la dirección, RUT/NIT y horarios de operación. Estos datos aparecerán en los encabezados de sus certificados." },
+        { "h": "2. Invitando al Equipo", "p": "Acceda a la pestaña 'Equipo' y haga clic en 'Nuevo Usuario'. Puede definir el nivel de permiso (Dentista, Recepcionista o Administrador). Se enviará una invitación por correo electrónico." }
+      ],
+      "nextSlug": "scheduling",
+      "nextTitle": "Próximo: Citas"
+    },
+    "scheduling": {
+      "title": "Citas",
+      "subtitle": "Cómo organizar la agenda de la clínica y optimizar el tiempo de los dentistas.",
+      "sections": [
+        { "h": "1. Creando una Cita", "p": "En el Tablero, haga clic en el botón azul 'Nueva Cita'. Seleccione el paciente, dentista, horario y motivo de la visita." },
+        { "h": "2. Estado y Confirmación", "p": "Puede cambiar el estado de la cita (Confirmado, En Espera, En Atención) haciendo clic en la tarjeta de la cita. El color de estado se actualiza automáticamente." }
+      ],
+      "nextSlug": "health-records",
+      "nextTitle": "Próximo: Historias Clínicas"
+    },
+    "health-records": {
+      "title": "Historias Clínicas",
+      "subtitle": "Registro clínico seguro e interoperabilidad.",
+      "sections": [
+        { "h": "1. Odontograma Interactivo", "p": "Dentro de la ficha del paciente, haga clic en la pestaña 'Odontograma'. Puede seleccionar dientes y marcar procedimientos (ej. Caries, Empaste, Extracción) usando la paleta de colores." },
+        { "h": "2. Sincronización RNDS", "p": "Si su clínica está integrada, cualquier nota clínica firmada digitalmente puede enviarse directamente al Ministerio de Salud haciendo clic en el botón 'Sincronizar RNDS'." }
+      ],
+      "nextSlug": "billing",
+      "nextTitle": "Próximo: Facturación"
+    },
+    "billing": {
+      "title": "Facturación",
+      "subtitle": "Gestión de facturación, presupuestos y planes de tratamiento.",
+      "sections": [
+        { "h": "1. Creando Presupuestos", "p": "En el historial médico, acceda a 'Plan de Tratamiento'. Agregue los procedimientos que deben realizarse. El sistema calculará el valor total según su lista de precios estándar." },
+        { "h": "2. Facturación de Seguros", "p": "Para pacientes asegurados, al finalizar el plan, puede exportar el archivo XML en el formato estándar en la pestaña 'Facturación' para enviarlo a la aseguradora." }
+      ],
+      "nextSlug": "getting-started",
+      "nextTitle": "Volver al Inicio"
+    }
+  },
+  "ticketPage": {
+    "title": "Abrir un Ticket",
+    "subtitle": "Nuestro equipo técnico responderá lo antes posible.",
+    "form": {
+      "email": "Correo de contacto",
+      "emailPlaceholder": "tu@correo.com",
+      "subject": "Asunto del Ticket",
+      "subjectPlaceholder": "Ej: Error al emitir certificado",
+      "message": "Describa el problema",
+      "messagePlaceholder": "Describa con el mayor detalle posible lo que sucedió...",
+      "charLimit": "caracteres restantes",
+      "submit": "Enviar Ticket",
+      "submitting": "Enviando..."
+    },
+    "success": {
+      "title": "¡Ticket Creado con Éxito!",
+      "subtitle": "Guarde su número de protocolo para seguimiento.",
+      "protocol": "Número de Protocolo",
+      "back": "Volver al Soporte"
+    }
+  },
   "security": {
     "badge": "Autoridad Técnica",
     "title": "Seguridad y Validez Jurídica",
@@ -96,8 +233,9 @@
     "getStarted": "Regístrese ahora"
   },
   "pricing": {
-    "title": "Planes que se ajustan a tu bolsillo",
+    "title": "Planes que caben en tu bolsillo",
     "subtitle": "Elige la mejor opción para tu clínica o para tus estudios.",
+    "bestChoice": "MEJOR OPCIÓN",
     "plans": {
       "free": {
         "name": "Gratuito",
@@ -145,7 +283,7 @@
       },
       "student": {
         "name": "Estudiantil",
-        "price": "Próximamente",
+        "price": "Muy pronto",
         "period": "",
         "description": "Acceso total a la plataforma centrado en el aprendizaje.",
         "features": [
@@ -156,6 +294,87 @@
         "buttonText": "En implementación",
         "blocked": true
       }
+    }
+  },
+  "financial": {
+    "title": "Financiero",
+    "subtitle": "Gestión completa de ingresos, gastos y facturación.",
+    "tabs": {
+      "general": "General",
+      "patients": "Pacientes",
+      "insurances": "Seguros",
+      "inventory": "Inventario"
+    },
+    "bills": {
+      "cancelPrompt": "¿Estás seguro de que quieres cancelar esta factura?"
+    },
+    "errors": {
+      "loadTransactions": "Error al cargar las transacciones.",
+      "cancelBill": "Error al cancelar la factura."
+    },
+    "status": {
+      "ALL": "TODOS",
+      "paid": "Pagado",
+      "pending": "Pendiente",
+      "canceled": "Cancelado"
+    }
+  },
+  "inventory": {
+    "title": "Inventario y Almacén",
+    "subtitle": "Gestiona tus productos, materiales y facturas de compra.",
+    "newNfBtn": "Nueva Factura",
+    "cancelBtn": "Cancelar",
+    "nfDataTitle": "Detalles de la Factura",
+    "nfNumberLabel": "Número de Factura",
+    "providerLabel": "Proveedor",
+    "addProductsTitle": "Añadir Productos",
+    "productLabel": "Producto",
+    "selectProduct": "Seleccione un producto...",
+    "quantityLabel": "Cantidad",
+    "unitPriceLabel": "Precio Unitario",
+    "addBtn": "Añadir Artículo",
+    "subtotalLabel": "Subtotal",
+    "totalValueLabel": "Valor Total",
+    "saveBtn": "Guardar Factura y Actualizar",
+    "tabs": {
+      "products": "Lista de Productos",
+      "invoices": "Facturas de Compra"
+    },
+    "productsTable": {
+      "product": "Producto",
+      "sku": "SKU",
+      "currentStock": "Stock Actual",
+      "unit": "Unidad",
+      "status": "Estado",
+      "loading": "Cargando productos...",
+      "empty": "No se encontraron productos.",
+      "lowStatus": "BAJO",
+      "okStatus": "OK"
+    },
+    "invoicesTable": {
+      "nfNumber": "Número",
+      "provider": "Proveedor",
+      "issueDate": "Fecha Emisión",
+      "items": "Artículos",
+      "totalValue": "Valor Total",
+      "loading": "Cargando facturas...",
+      "empty": "No se encontraron facturas."
+    },
+    "errors": {
+      "emptyNf": "Añade al menos un artículo a la factura.",
+      "successNf": "Factura enviada con éxito!",
+      "failNf": "Error al enviar la factura: "
+    }
+  },
+  "dashboard": {
+    "bi": {
+      "title": "Indicadores BI",
+      "newPatients": "Nuevos Pacientes",
+      "currentMonth": "Mes Actual",
+      "vsPrevMonth": "vs mes anterior"
+    },
+    "attendance": {
+      "occupancy": "Ocupación de Salas"
     }
   },
   "footer": {

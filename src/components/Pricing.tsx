@@ -27,10 +27,10 @@ export default function Pricing({ dict, locale }: { dict: any, locale: string })
           {plansList.map((plan, idx) => (
             <div key={idx} className={`rounded-2xl p-8 flex flex-col ${getPlanClass(idx)} transition-all duration-300 hover:shadow-lg`}>
               {idx === 2 && (
-                <div className="absolute top-0 right-0 -mr-2 -mt-2 w-32 h-32 overflow-hidden z-20">
-                    <div className="absolute top-0 right-0 w-8 h-8 opacity-20 -mr-4 -mt-4 bg-primary text-transparent" />
-                    <div className="absolute left-0 top-6 rotate-45 transform text-center text-xs font-bold text-white bg-primary py-1 w-full right-0 shadow-md">
-                        Melhor Escolha
+                <div className="absolute top-0 right-0 w-32 h-32 overflow-hidden z-20 pointer-events-none">
+                    {/* The ribbon bar itself */}
+                    <div className="absolute left-0 top-[32px] rotate-45 transform text-center text-[9px] uppercase tracking-[0.15em] font-extrabold text-white bg-green-500 py-2 w-[141%] shadow-lg">
+                        {texts.bestChoice}
                     </div>
                 </div>
               )}
@@ -38,7 +38,7 @@ export default function Pricing({ dict, locale }: { dict: any, locale: string })
               <div className="mb-6">
                 <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-2">{plan.name}</h3>
                 <p className="text-slate-500 dark:text-slate-400 text-sm h-10">{plan.description}</p>
-                <div className="mt-4 flex items-baseline text-4xl font-extrabold text-slate-900 dark:text-white relative">
+                <div className="mt-4 flex items-baseline text-3xl sm:text-4xl lg:text-3xl xl:text-4xl font-extrabold text-slate-900 dark:text-white relative break-words whitespace-pre-wrap">
                   {plan.price}
                   {plan.period && <span className="ml-1 text-base font-medium text-slate-500 dark:text-slate-400">{plan.period}</span>}
                 </div>

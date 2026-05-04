@@ -1,11 +1,22 @@
 import { i18nRouter } from 'next-i18n-router';
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
+import { jwtVerify } from 'jose';
 import i18nConfig from '../i18nConfig';
 
-const PUBLIC_PATHS = ['/', '/login', '/signup', '/pricing'];
+const PUBLIC_PATHS = ['/', '/login', '/signup', '/pricing', '/compliance', '/support'];
+const JWT_SECRET = new TextEncoder().encode(process.env.JWT_SECRET || 'supersecretkey');
 
-export function middleware(request: NextRequest) {
+async function verifyAuth(token: string): Promise<boolean> {
+  try {
+    await jwtVerify(token, JWT_SECRET);
+    return true;
+  } catch (err) {
+    return false;
+  }
+}
+
+export async function middleware(request: NextRequest) {
   // Check for public assets to avoid unnecessary processing
   if (
     request.nextUrl.pathname.startsWith('/_next') ||
@@ -22,19 +33,19 @@ export function middleware(request: NextRequest) {
   
   // Check if it's a public path (ignoring locale prefix for the check)
   const isPublicPath = PUBLIC_PATHS.some(path => {
-    // Check exact match
-    if (pathname === path) return true;
+    // Check exact match or if it's a subroute of /support
+    if (pathname === path || pathname.startsWith('/support/')) return true;
     
     // Check with locale prefixes
     return i18nConfig.locales.some(locale => {
-      return pathname === `/${locale}${path}` || (path === '/' && pathname === `/${locale}`);
+      return pathname === `/${locale}${path}` || pathname.startsWith(`/${locale}/support/`) || (path === '/' && pathname === `/${locale}`);
     });
   });
 
-  const isAuthenticated = request.cookies.has('auth_token');
+  const token = request.cookies.get('auth_token')?.value;
+  const isAuthenticated = token ? await verifyAuth(token) : false;
 
   // If trying to access a private route without auth, redirect to login
-  // We need to keep the locale if present, or default to defaultLocale
   if (!isPublicPath && !isAuthenticated) {
     const locale = request.nextUrl.pathname.split('/')[1];
     const validLocale = i18nConfig.locales.includes(locale) ? locale : i18nConfig.defaultLocale;

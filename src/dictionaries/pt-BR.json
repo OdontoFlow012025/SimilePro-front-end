@@ -53,6 +53,143 @@
       "description": "Dados integrados à Rede Nacional de Dados em Saúde, garantindo a mobilidade total do paciente e conformidade legal absoluta."
     }
   },
+  "compliancePage": {
+    "title": "Central de Confiança e Conformidade",
+    "subtitle": "Segurança de dados e adequação legal em nível corporativo para sua clínica.",
+    "cards": {
+      "lgpd": {
+        "title": "LGPD na Saúde",
+        "desc": "O OdontoFlow cumpre integralmente a Lei Geral de Proteção de Dados (Lei nº 13.709/2018). Dados sensíveis são armazenados em nuvens criptografadas (AES-256) com controle de acesso rigoroso."
+      },
+      "icp": {
+        "title": "Certificação ICP-Brasil",
+        "desc": "Todos os documentos, atestados e prontuários eletrônicos possuem suporte para assinatura digital via certificado ICP-Brasil, garantindo não-repúdio e validade jurídica plena."
+      },
+      "rnds": {
+        "title": "Interoperabilidade RNDS",
+        "desc": "Nosso sistema é desenvolvido com base nas normativas do Ministério da Saúde para integração nativa com a Rede Nacional de Dados em Saúde, permitindo o intercâmbio legal de registros clínicos."
+      },
+      "hipaa": {
+        "title": "Padrões Internacionais",
+        "desc": "Utilizamos infraestrutura escalável que segue os padrões de conformidade globais, incluindo diretrizes semelhantes à HIPAA (Health Insurance Portability and Accountability Act)."
+      },
+      "cfo": {
+        "title": "Resolução CFO-226/2020",
+        "desc": "Alinhamento estrito com o Conselho Federal de Odontologia quanto ao exercício da Odontologia a distância (Telemonitoramento) e emissão de atestados digitais."
+      },
+      "tiss": {
+        "title": "Padrão TISS / TUSS",
+        "desc": "Suporte completo para a Troca de Informação de Saúde Suplementar (TISS), garantindo o faturamento preciso e sem glosas junto aos convênios odontológicos (ANS)."
+      },
+      "iso": {
+        "title": "Práticas ISO 27001",
+        "desc": "Os processos de engenharia do OdontoFlow são desenhados inspirados nas exigências da ISO 27001, o mais alto padrão de Sistema de Gestão de Segurança da Informação."
+      },
+      "backup": {
+        "title": "Retenção Legal (SLA 99.9%)",
+        "desc": "Políticas de backup contínuo e retenção de prontuários em conformidade com as leis que exigem armazenamento de prontuários eletrônicos por no mínimo 20 anos."
+      }
+    }
+  },
+  "supportPage": {
+    "title": "Como podemos ajudar você hoje?",
+    "subtitle": "Busque por artigos, tutoriais ou entre em contato direto com nossa equipe.",
+    "searchPlaceholder": "Ex: Como emitir um atestado com ICP-Brasil...",
+    "categories": {
+      "title": "Categorias de Ajuda",
+      "items": [
+        { "title": "Primeiros Passos", "slug": "getting-started", "desc": "Configuração da clínica e equipe", "icon": "rocket_launch" },
+        { "title": "Agendamentos", "slug": "scheduling", "desc": "Gerenciamento de agenda e retornos", "icon": "calendar_month" },
+        { "title": "Prontuários & RNDS", "slug": "health-records", "desc": "Evoluções e interoperabilidade", "icon": "medical_information" },
+        { "title": "Financeiro", "slug": "billing", "desc": "TISS, faturamento e planos", "icon": "payments" }
+      ]
+    },
+    "faq": {
+      "title": "Perguntas Frequentes",
+      "items": [
+        { "q": "Como altero meu plano de assinatura?", "a": "Você pode alterar seu plano a qualquer momento acessando Configurações > Assinatura no seu painel. A cobrança será ajustada pro-rata." },
+        { "q": "O OdontoFlow faz backup automático?", "a": "Sim! Realizamos backups a cada hora em diferentes regiões da nuvem, garantindo retenção segura por até 20 anos conforme manda a lei." },
+        { "q": "Consigo usar no celular?", "a": "Sim, a plataforma é 100% responsiva e pode ser acessada pelo navegador de qualquer smartphone ou tablet. Porém, para uma melhor experiência da equipe (especialmente no odontograma e faturamento), recomendamos fortemente o uso de um computador ou notebook." },
+        { "q": "Como configuro a assinatura ICP-Brasil?", "a": "Vá em Configurações > Profissional e faça o upload do seu certificado A1, ou instale a extensão do navegador para certificados A3." }
+      ]
+    },
+    "contact": {
+      "title": "Ainda precisa de ajuda?",
+      "whatsapp": {
+        "title": "Suporte Premium",
+        "desc": "Atendimento rápido via WhatsApp (apenas planos pagos).",
+        "btn": "Chamar no WhatsApp"
+      },
+      "email": {
+        "title": "Abertura de Ticket",
+        "desc": "Envie um e-mail detalhado para nossa equipe técnica.",
+        "btn": "Enviar E-mail"
+      }
+    }
+  },
+  "supportArticles": {
+    "getting-started": {
+      "title": "Primeiros Passos",
+      "subtitle": "Guia rápido para configurar sua clínica e convidar sua equipe para o OdontoFlow.",
+      "sections": [
+        { "h": "1. Configurando sua Clínica", "p": "Para iniciar, vá em Configurações > Clínica. Preencha os dados de endereço, CNPJ e horário de funcionamento. Esses dados aparecerão nos cabeçalhos dos seus atestados." },
+        { "h": "2. Convidando a Equipe", "p": "Acesse a aba 'Equipe' e clique em 'Novo Usuário'. Você pode definir o nível de permissão (Dentista, Recepcionista ou Administrador). O convite será enviado por e-mail." }
+      ],
+      "nextSlug": "scheduling",
+      "nextTitle": "Próximo: Agendamentos"
+    },
+    "scheduling": {
+      "title": "Agendamentos",
+      "subtitle": "Como organizar a agenda da clínica e otimizar o tempo dos dentistas.",
+      "sections": [
+        { "h": "1. Criando uma Consulta", "p": "No Dashboard, clique no botão azul 'Novo Agendamento'. Selecione o paciente, o dentista, o horário e o motivo da consulta." },
+        { "h": "2. Status e Confirmação", "p": "Você pode alterar o status da consulta (Confirmado, Aguardando, Em Atendimento) clicando no card da consulta na agenda. O status muda de cor automaticamente." }
+      ],
+      "nextSlug": "health-records",
+      "nextTitle": "Próximo: Prontuários & RNDS"
+    },
+    "health-records": {
+      "title": "Prontuários & RNDS",
+      "subtitle": "Registro clínico seguro e interoperabilidade com a Rede Nacional de Saúde.",
+      "sections": [
+        { "h": "1. Odontograma Interativo", "p": "Dentro da ficha do paciente, clique na aba 'Odontograma'. Você pode selecionar dentes e marcar procedimentos (Ex: Cárie, Restauração, Extração) usando a paleta de cores." },
+        { "h": "2. Sincronização RNDS", "p": "Se sua clínica estiver integrada, toda evolução clínica assinada digitalmente (ICP-Brasil) pode ser enviada diretamente para o Ministério da Saúde clicando no botão 'Sincronizar RNDS'." }
+      ],
+      "nextSlug": "billing",
+      "nextTitle": "Próximo: Financeiro"
+    },
+    "billing": {
+      "title": "Financeiro",
+      "subtitle": "Gestão de faturamento, orçamentos e planos de tratamento.",
+      "sections": [
+        { "h": "1. Criando Orçamentos", "p": "No prontuário, acesse 'Plano de Tratamento'. Adicione os procedimentos que precisam ser feitos. O sistema calculará o valor total com base na tabela de preços padrão (VRPO ou particular)." },
+        { "h": "2. Faturamento TISS", "p": "Para pacientes de convênio, ao finalizar o plano, você pode exportar o arquivo XML no formato TISS na aba 'Faturamento' para enviar ao plano de saúde." }
+      ],
+      "nextSlug": "getting-started",
+      "nextTitle": "Voltar para o Início"
+    }
+  },
+  "ticketPage": {
+    "title": "Abertura de Ticket",
+    "subtitle": "Nossa equipe técnica responderá o mais rápido possível.",
+    "form": {
+      "email": "E-mail para contato",
+      "emailPlaceholder": "seu@email.com",
+      "subject": "Assunto do Ticket",
+      "subjectPlaceholder": "Ex: Erro ao emitir atestado",
+      "message": "Descreva o problema",
+      "messagePlaceholder": "Descreva com o máximo de detalhes possível o que aconteceu...",
+      "charLimit": "caracteres restantes",
+      "submit": "Enviar Ticket",
+      "submitting": "Enviando..."
+    },
+    "success": {
+      "title": "Ticket Criado com Sucesso!",
+      "subtitle": "Guarde o número do seu protocolo para acompanhamento.",
+      "protocol": "Número do Protocolo",
+      "back": "Voltar para o Suporte"
+    }
+  },
   "security": {
     "badge": "Autoridade Técnica",
     "title": "Segurança e Validade Jurídica",
@@ -98,6 +235,7 @@
   "pricing": {
     "title": "Planos que cabem no seu bolso",
     "subtitle": "Escolha a melhor opção para a sua clínica ou para seus estudos.",
+    "bestChoice": "MELHOR ESCOLHA",
     "plans": {
       "free": {
         "name": "Gratuito",
@@ -156,6 +294,87 @@
         "buttonText": "Em implementação",
         "blocked": true
       }
+    }
+  },
+  "financial": {
+    "title": "Financeiro",
+    "subtitle": "Gestão completa de recebimentos, despesas e faturamento.",
+    "tabs": {
+      "general": "Geral",
+      "patients": "Pacientes",
+      "insurances": "Convênios",
+      "inventory": "Estoque"
+    },
+    "bills": {
+      "cancelPrompt": "Tem certeza que deseja cancelar essa fatura?"
+    },
+    "errors": {
+      "loadTransactions": "Erro ao carregar transações.",
+      "cancelBill": "Falha ao cancelar fatura."
+    },
+    "status": {
+      "ALL": "TODOS",
+      "paid": "Pago",
+      "pending": "Pendente",
+      "canceled": "Cancelado"
+    }
+  },
+  "inventory": {
+    "title": "Estoque e Almoxarifado",
+    "subtitle": "Gerencie seus produtos, materiais e notas fiscais de entrada.",
+    "newNfBtn": "Nova Nota Fiscal",
+    "cancelBtn": "Cancelar",
+    "nfDataTitle": "Dados da Nota Fiscal",
+    "nfNumberLabel": "Número da NF",
+    "providerLabel": "Fornecedor",
+    "addProductsTitle": "Adicionar Produtos",
+    "productLabel": "Produto",
+    "selectProduct": "Selecione o produto...",
+    "quantityLabel": "Quantidade",
+    "unitPriceLabel": "Preço Unitário",
+    "addBtn": "Adicionar Item",
+    "subtotalLabel": "Subtotal",
+    "totalValueLabel": "Valor Total",
+    "saveBtn": "Salvar NF e Atualizar Estoque",
+    "tabs": {
+      "products": "Lista de Produtos",
+      "invoices": "Notas Fiscais de Entrada"
+    },
+    "productsTable": {
+      "product": "Produto",
+      "sku": "SKU",
+      "currentStock": "Estoque Atual",
+      "unit": "Unidade",
+      "status": "Status",
+      "loading": "Carregando produtos...",
+      "empty": "Nenhum produto cadastrado.",
+      "lowStatus": "BAIXO",
+      "okStatus": "OK"
+    },
+    "invoicesTable": {
+      "nfNumber": "Número",
+      "provider": "Fornecedor",
+      "issueDate": "Data Emissão",
+      "items": "Itens",
+      "totalValue": "Valor Total",
+      "loading": "Carregando notas fiscais...",
+      "empty": "Nenhuma nota fiscal encontrada."
+    },
+    "errors": {
+      "emptyNf": "Adicione pelo menos um item na NF.",
+      "successNf": "Nota Fiscal lançada com sucesso!",
+      "failNf": "Erro ao lançar NF: "
+    }
+  },
+  "dashboard": {
+    "bi": {
+      "title": "Indicadores BI",
+      "newPatients": "Novos Pacientes",
+      "currentMonth": "Mês Atual",
+      "vsPrevMonth": "vs mês anterior"
+    },
+    "attendance": {
+      "occupancy": "Ocupação das Salas"
     }
   },
   "footer": {
