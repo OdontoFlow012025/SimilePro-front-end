@@ -8,7 +8,10 @@ import './calendar-custom.css';
 
 import { format, getDay, parse, startOfWeek } from 'date-fns';
 import CustomToolbar from './CustomToolbar';
-import { EVENTS, RESOURCES } from './mockData';
+import { useEffect, useCallback } from 'react';
+import { api } from '@/services/api';
+import AppointmentDetailsModal from './AppointmentDetailsModal';
+import AppointmentModal from '../reception/AppointmentModal';
 
 const locales = {
   'en': enUS,
@@ -27,13 +30,31 @@ const localizer = dateFnsLocalizer({
 interface CalendarWrapperProps {
     locale: string;
     dictionary: any;
+    selectedProfessionalsIds: number[];
+}
+
+interface Professional {
+    id: number;
+    nome: string;
+    cro: string;
+}
+
+interface AppEvent {
+    id: number;
+    title: string;
+    type: string;
+    status: string;
+    resourceId: number;
+    start: Date;
+    end: Date;
+    patientId?: number;
 }
 
 const EventComponent = ({ event }: any) => {
     let bgColor = 'bg-blue-100 dark:bg-blue-900/40 border-l-4 border-blue-500';
     let textColor = 'text-blue-700 dark:text-blue-200';
 
-    if (event.status === 'cancelled') {
+    if (event.status === 'cancelado' || event.status === 'CANCELADO' || event.status === 'cancelled') {
         bgColor = 'bg-red-100 dark:bg-red-900/40 border-l-4 border-red-500';
         textColor = 'text-red-700 dark:text-red-200';
     } else if (event.type === 'checkup') {
@@ -47,11 +68,13 @@ const EventComponent = ({ event }: any) => {
         textColor = 'text-purple-700 dark:text-purple-200';
     }
 
+    const isCancelled = event.status === 'cancelado' || event.status === 'CANCELADO' || event.status === 'cancelled';
+
     return (
-        <div className={`h-full w-full p-1 text-xs font-semibold rounded-md ${bgColor} ${textColor} overflow-hidden`}>
+        <div className={`h-full w-full p-1 text-xs font-semibold rounded-md ${bgColor} ${textColor} overflow-hidden ${isCancelled ? 'opacity-70' : ''}`}>
             <div>{event.title}</div>
             <div className="opacity-75 font-normal capitalize">{event.type}</div>
-            {event.status === 'cancelled' && <div className="text-[10px] uppercase font-bold text-red-600 dark:text-red-400">Cancelado</div>}
+            {isCancelled && <div className="text-[10px] uppercase font-bold text-red-600 dark:text-red-400">Cancelado</div>}
         </div>
     );
 };
@@ -65,11 +88,65 @@ const ResourceHeader = ({ label }: { label: React.ReactNode }) => {
 };
 
 
-export default function CalendarWrapper({ locale, dictionary }: CalendarWrapperProps) {
+export default function CalendarWrapper({ locale, dictionary, selectedProfessionalsIds }: CalendarWrapperProps) {
   const [view, setView] = useState<View>(Views.DAY);
   const [date, setDate] = useState(new Date());
+  const [events, setEvents] = useState<AppEvent[]>([]);
+  const [resources, setResources] = useState<any[]>([]);
+
+  const [selectedEvent, setSelectedEvent] = useState<AppEvent | null>(null);
+  const [isDetailsModalOpen, setIsDetailsModalOpen] = useState(false);
+  
+  const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
+  const [preSelectedPatient, setPreSelectedPatient] = useState<{ id: number; nome: string } | undefined>(undefined);
 
   const culture = locale;
+
+  const fetchResources = async () => {
+    try {
+        const data = await api.dentists.getAgendaProfessionals();
+        const formattedResources = data.map((p: Professional) => ({
+            id: p.id,
+            title: `Dr(a). ${p.nome}`,
+        }));
+        setResources(formattedResources);
+    } catch (error) {
+        console.error("Failed to fetch professionals for resources:", error);
+    }
+  };
+
+  const fetchEvents = useCallback(async () => {
+    if (!selectedProfessionalsIds || selectedProfessionalsIds.length === 0) {
+        setEvents([]);
+        return;
+    }
+
+    try {
+        const ids = selectedProfessionalsIds.join(',');
+        const data = await api.scheduling.list(`profissionais_ids=${ids}`);
+        const formattedEvents = data.map((a: any) => ({
+            id: a.id,
+            title: a.paciente ? a.paciente.nome : 'Agendamento',
+            type: a.motivo || 'consulta',
+            status: a.status,
+            resourceId: a.dentistaId,
+            start: new Date(a.dataHoraInicio),
+            end: new Date(a.dataHoraFim),
+            patientId: a.pacienteId,
+        }));
+        setEvents(formattedEvents);
+    } catch (error) {
+        console.error("Failed to fetch events:", error);
+    }
+  }, [selectedProfessionalsIds]);
+
+  useEffect(() => {
+    fetchResources();
+  }, []);
+
+  useEffect(() => {
+    fetchEvents();
+  }, [fetchEvents]);
 
   // Map dictionary keys to React-Big-Calendar messages
   const messages = {
@@ -88,11 +165,25 @@ export default function CalendarWrapper({ locale, dictionary }: CalendarWrapperP
     showMore: (total: number) => dictionary?.dashboard?.calendar?.showMore?.replace('{total}', total.toString()) || `+${total} mais`,
   };
 
+  const handleSelectEvent = (event: AppEvent) => {
+    setSelectedEvent(event);
+    setIsDetailsModalOpen(true);
+  };
+
+  const handleReschedule = (event: AppEvent) => {
+    if (event.patientId && event.title) {
+        setPreSelectedPatient({ id: event.patientId, nome: event.title });
+    } else {
+        setPreSelectedPatient(undefined);
+    }
+    setIsCreateModalOpen(true);
+  };
+
   return (
-    <div className="h-[calc(100vh-140px)] bg-white dark:bg-gray-800 rounded-xl shadow-sm p-4 overflow-hidden flex flex-col">
+    <div className="h-[calc(100vh-140px)] bg-white dark:bg-gray-800 rounded-xl shadow-sm p-4 overflow-hidden flex flex-col relative">
       <Calendar
         localizer={localizer}
-        events={EVENTS}
+        events={events}
         defaultView={Views.DAY}
         views={[Views.DAY, Views.WEEK, Views.MONTH]}
         step={30}
@@ -103,8 +194,10 @@ export default function CalendarWrapper({ locale, dictionary }: CalendarWrapperP
         view={view}
         culture={culture}
         messages={messages}
+        onSelectEvent={handleSelectEvent}
+        dayLayoutAlgorithm="no-overlap"
         
-        resources={view === Views.DAY ? RESOURCES : undefined}
+        resources={view === Views.DAY ? resources : undefined}
         resourceIdAccessor="id"
         resourceTitleAccessor="title"
         
@@ -114,6 +207,22 @@ export default function CalendarWrapper({ locale, dictionary }: CalendarWrapperP
         }}
         
         className="flex-1"
+      />
+
+      <AppointmentDetailsModal 
+         isOpen={isDetailsModalOpen}
+         onClose={() => setIsDetailsModalOpen(false)}
+         event={selectedEvent}
+         onUpdate={fetchEvents}
+         onReschedule={handleReschedule}
+      />
+
+      <AppointmentModal 
+         isOpen={isCreateModalOpen}
+         onClose={() => setIsCreateModalOpen(false)}
+         onSuccess={fetchEvents}
+         dictionary={dictionary}
+         preSelectedPatient={preSelectedPatient}
       />
     </div>
   );

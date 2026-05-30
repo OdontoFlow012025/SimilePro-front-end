@@ -1,15 +1,25 @@
 import { i18nRouter } from 'next-i18n-router';
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
-import { jwtVerify } from 'jose';
+import { jwtVerify, importSPKI } from 'jose';
 import i18nConfig from '../i18nConfig';
 
-const PUBLIC_PATHS = ['/', '/login', '/signup', '/pricing', '/compliance', '/support'];
-const JWT_SECRET = new TextEncoder().encode(process.env.JWT_SECRET || 'supersecretkey');
+const PUBLIC_PATHS = ['/', '/login', '/signup', '/pricing', '/compliance', '/support', '/features', '/api-docs'];
+
+const PUBLIC_KEY_PEM = process.env.JWT_PUBLIC_KEY || `-----BEGIN PUBLIC KEY-----
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwIoHYbqhXApNeXUa30ob
+yzdmf0ajn8MvJQ5XabruXt0e3Amd4GIjrYoFC0FU6rcCUhD7sU+VnHfjgfVacKCN
+hfvsJdSSU6W7opyRCQ+UXWMASdZ8FfFMiwbamqkF2mvSbXZPCIP2SdM3p5jhMsHs
+MeHYmSMz1ZWkOWLkw/+/YMADnfUK9PB/1gUKKKo7XsRz68In9x2hQOvBWMk+1U1r
+x5aBRMA82Bj/OGdLcpmn3QdW+PLgaJ/qhd1W0dcDulaR2kan0X4PKBpiDbugr6FN
+/dbYVbzj+JkXe6ISeZZN09ysyPWMdrKcW+vw9ubayKJ747ONh62n+TNcFJQpLrJi
+ZwIDAQAB
+-----END PUBLIC KEY-----`;
 
 async function verifyAuth(token: string): Promise<boolean> {
   try {
-    await jwtVerify(token, JWT_SECRET);
+    const publicKey = await importSPKI(PUBLIC_KEY_PEM, 'RS256');
+    await jwtVerify(token, publicKey, { algorithms: ['RS256'] });
     return true;
   } catch (err) {
     return false;

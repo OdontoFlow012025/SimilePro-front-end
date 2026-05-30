@@ -20,6 +20,7 @@ export default function SignupClient({ dict, locale }: SignupClientProps) {
       name: "",
       email: "",
       password: "",
+      confirmPassword: "",
       phone: "",
       cpf: "",
       cro: "",
@@ -91,6 +92,13 @@ export default function SignupClient({ dict, locale }: SignupClientProps) {
     setError("");
 
     // Payload plano conforme esperado pelo backend
+    // Validar se as senhas coincidem
+    if (formData.user.password !== formData.user.confirmPassword) {
+      setError(dict.signup.passwordsNotMatch || "As senhas não coincidem.");
+      setLoading(false);
+      return;
+    }
+
     // Payload plano conforme esperado pelo backend
     const payload = {
       nome: formData.user.name,
@@ -187,6 +195,20 @@ export default function SignupClient({ dict, locale }: SignupClientProps) {
 
               <div className="col-span-2 md:col-span-1">
                 <label className="mb-1.5 block text-sm font-medium text-slate-700 dark:text-slate-300">
+                  {dict.signup.userData.phoneLabel}
+                </label>
+                <input
+                  type="tel"
+                  name="phone"
+                  value={formData.user.phone}
+                  onChange={handleChange}
+                  placeholder={dict.signup.userData.phonePlaceholder}
+                  className="w-full rounded-lg border border-slate-300 bg-white p-2.5 text-slate-900 placeholder:text-slate-400 focus:border-blue-500 focus:ring-blue-500 dark:border-slate-600 dark:bg-slate-800 dark:text-white"
+                />
+              </div>
+
+              <div className="col-span-2 md:col-span-1">
+                <label className="mb-1.5 block text-sm font-medium text-slate-700 dark:text-slate-300">
                   {dict.signup.userData.passwordLabel} <span className="text-red-500">*</span>
                 </label>
                 <input
@@ -203,14 +225,16 @@ export default function SignupClient({ dict, locale }: SignupClientProps) {
 
               <div className="col-span-2 md:col-span-1">
                 <label className="mb-1.5 block text-sm font-medium text-slate-700 dark:text-slate-300">
-                  {dict.signup.userData.phoneLabel}
+                  {dict.signup.userData.confirmPasswordLabel || "Confirmar Senha"} <span className="text-red-500">*</span>
                 </label>
                 <input
-                  type="tel"
-                  name="phone"
-                  value={formData.user.phone}
+                  type="password"
+                  name="confirmPassword"
+                  value={formData.user.confirmPassword}
                   onChange={handleChange}
-                  placeholder={dict.signup.userData.phonePlaceholder}
+                  required
+                  minLength={6}
+                  placeholder={dict.signup.userData.confirmPasswordPlaceholder || "Confirme sua senha"}
                   className="w-full rounded-lg border border-slate-300 bg-white p-2.5 text-slate-900 placeholder:text-slate-400 focus:border-blue-500 focus:ring-blue-500 dark:border-slate-600 dark:bg-slate-800 dark:text-white"
                 />
               </div>

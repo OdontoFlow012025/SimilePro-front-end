@@ -72,6 +72,15 @@ export default function AddEmployeeModal({ isOpen, onClose, onSuccess, dict }: A
   const [cargo, setCargo] = useState("");
   const [dataAdmissao, setDataAdmissao] = useState(new Date().toISOString().split('T')[0]);
   const [salario, setSalario] = useState("");
+  const [cpf, setCpf] = useState("");
+  const [rg, setRg] = useState("");
+  const [pis, setPis] = useState("");
+  const [ctps, setCtps] = useState("");
+  const [cnpj, setCnpj] = useState("");
+  const [endereco, setEndereco] = useState("");
+  const [dadosBanco, setDadosBanco] = useState("");
+  const [cargaHoraria, setCargaHoraria] = useState("220");
+  const [dependentes, setDependentes] = useState("0");
   
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -85,6 +94,15 @@ export default function AddEmployeeModal({ isOpen, onClose, onSuccess, dict }: A
       setCargo("");
       setSalario("");
       setDataAdmissao(new Date().toISOString().split('T')[0]);
+      setCpf("");
+      setRg("");
+      setPis("");
+      setCtps("");
+      setCnpj("");
+      setEndereco("");
+      setDadosBanco("");
+      setCargaHoraria("220");
+      setDependentes("0");
       setExistingUser(null);
       setUserChecked(false);
       setError(null);
@@ -132,7 +150,8 @@ export default function AddEmployeeModal({ isOpen, onClose, onSuccess, dict }: A
           nome,
           email,
           senha,
-          role: "FUNCIONARIO" // ou genérico
+          role: "FUNCIONARIO",
+          cpf: cpf
         });
         finalUserId = newUser.id;
       }
@@ -147,8 +166,16 @@ export default function AddEmployeeModal({ isOpen, onClose, onSuccess, dict }: A
         usuarioId: Number(finalUserId),
         clinicaId: Number(clinicaIdStr),
         cargo,
-        dataAdmissao: new Date(dataAdmissao).toISOString(), // RFC3339
-        salario: Number(salario.replace(',', '.'))
+        dataAdmissao: new Date(dataAdmissao).toISOString(),
+        salario: Number(salario.replace(',', '.')),
+        pis,
+        ctps,
+        rg,
+        cnpj,
+        endereco,
+        dadosBanco,
+        cargaHoraria: Number(cargaHoraria),
+        dependentes: Number(dependentes)
       });
 
       onSuccess();
@@ -171,7 +198,7 @@ export default function AddEmployeeModal({ isOpen, onClose, onSuccess, dict }: A
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
-      <div className="bg-white dark:bg-[#111827] w-full max-w-lg rounded-2xl shadow-xl overflow-hidden animate-in fade-in zoom-in duration-200">
+      <div className="bg-white dark:bg-[#111827] w-full max-w-2xl rounded-2xl shadow-xl overflow-hidden animate-in fade-in zoom-in duration-200 max-h-[90vh] flex flex-col">
         
         <div className="flex justify-between items-center p-6 border-b border-gray-100 dark:border-gray-800">
           <h2 className="text-xl font-bold dark:text-white flex items-center gap-2">
@@ -183,7 +210,7 @@ export default function AddEmployeeModal({ isOpen, onClose, onSuccess, dict }: A
           </button>
         </div>
 
-        <form onSubmit={handleSubmit} className="p-6">
+        <form onSubmit={handleSubmit} className="p-6 overflow-y-auto flex-1 custom-scrollbar">
           {error && (
             <div className="mb-4 p-3 bg-red-50 text-red-600 text-sm rounded-lg flex items-center gap-2">
               <span className="material-symbols-outlined text-[18px]">error</span>
@@ -286,14 +313,31 @@ export default function AddEmployeeModal({ isOpen, onClose, onSuccess, dict }: A
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 border-t border-gray-100 dark:border-gray-800 pt-4 mt-2 animate-in fade-in slide-in-from-top-2">
                 <div className="md:col-span-1">
                     <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{hrDict.add?.roleLabel}</label>
-                    <input
-                        type="text"
+                    <select
                         required
                         value={cargo}
                         onChange={e => setCargo(e.target.value)}
                         className="w-full p-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg outline-none focus:ring-2 focus:ring-blue-500 dark:text-white"
-                        placeholder={hrDict.add?.rolePlaceholder}
-                    />
+                    >
+                        <option value="" disabled>{hrDict.add?.rolePlaceholder}</option>
+                        <option value="Recepcionista">Recepcionista</option>
+                        <option value="Cirurgião-Dentista (Clínico Geral)">Cirurgião-Dentista (Clínico Geral)</option>
+                        <option value="Cirurgião-Dentista (Ortodontia)">Cirurgião-Dentista (Ortodontia)</option>
+                        <option value="Cirurgião-Dentista (Implantodontia)">Cirurgião-Dentista (Implantodontia)</option>
+                        <option value="Cirurgião-Dentista (Endodontia)">Cirurgião-Dentista (Endodontia)</option>
+                        <option value="Cirurgião-Dentista (Odontopediatria)">Cirurgião-Dentista (Odontopediatria)</option>
+                        <option value="Cirurgião-Dentista (Periodontia)">Cirurgião-Dentista (Periodontia)</option>
+                        <option value="Cirurgião-Dentista (Prótese)">Cirurgião-Dentista (Prótese)</option>
+                        <option value="Cirurgião-Dentista (Harmonização Orofacial)">Cirurgião-Dentista (Harmonização Orofacial)</option>
+                        <option value="Cirurgião-Dentista (Cirurgia Bucomaxilofacial)">Cirurgião-Dentista (Cirurgia Bucomaxilofacial)</option>
+                        <option value="Auxiliar de Saúde Bucal (ASB)">Auxiliar de Saúde Bucal (ASB)</option>
+                        <option value="Técnico em Saúde Bucal (TSB)">Técnico em Saúde Bucal (TSB)</option>
+                        <option value="Gerente Administrativo">Gerente Administrativo</option>
+                        <option value="Auxiliar de Limpeza">Auxiliar de Limpeza</option>
+                        <option value="Financeiro">Financeiro</option>
+                        <option value="Secretária">Secretária</option>
+                        <option value="Outro">Outro</option>
+                    </select>
                 </div>
                 <div className="md:col-span-1">
                     <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{hrDict.add?.admissionLabel}</label>
@@ -315,6 +359,113 @@ export default function AddEmployeeModal({ isOpen, onClose, onSuccess, dict }: A
                         onChange={e => setSalario(e.target.value)}
                         className="w-full p-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg outline-none focus:ring-2 focus:ring-blue-500 dark:text-white"
                         placeholder="2500.00"
+                    />
+                </div>
+              </div>
+            )}
+
+            {/* DADOS DOCUMENTAIS E ENDEREÇO */}
+            {userChecked && (
+              <div className="space-y-4 border-t border-gray-100 dark:border-gray-800 pt-4 mt-2 animate-in fade-in slide-in-from-top-2">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">CPF *</label>
+                    <input
+                      type="text"
+                      required
+                      value={cpf}
+                      onChange={e => setCpf(e.target.value)}
+                      className="w-full p-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg outline-none focus:ring-2 focus:ring-blue-500 dark:text-white"
+                      placeholder="000.000.000-00"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">RG</label>
+                    <input
+                      type="text"
+                      value={rg}
+                      onChange={e => setRg(e.target.value)}
+                      className="w-full p-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg outline-none focus:ring-2 focus:ring-blue-500 dark:text-white"
+                      placeholder="00.000.000-0"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">PIS</label>
+                    <input
+                      type="text"
+                      value={pis}
+                      onChange={e => setPis(e.target.value)}
+                      className="w-full p-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg outline-none focus:ring-2 focus:ring-blue-500 dark:text-white"
+                      placeholder="000.00000.00-0"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">CTPS</label>
+                    <input
+                      type="text"
+                      value={ctps}
+                      onChange={e => setCtps(e.target.value)}
+                      className="w-full p-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg outline-none focus:ring-2 focus:ring-blue-500 dark:text-white"
+                      placeholder="Série/Número"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">CNPJ (Opcional)</label>
+                        <input
+                            type="text"
+                            value={cnpj}
+                            onChange={e => setCnpj(e.target.value)}
+                            className="w-full p-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg outline-none focus:ring-2 focus:ring-blue-500 dark:text-white"
+                            placeholder="00.000.000/0000-00"
+                        />
+                    </div>
+                    <div className="grid grid-cols-2 gap-2">
+                        <div>
+                            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Carga Horária</label>
+                            <input
+                                type="number"
+                                value={cargaHoraria}
+                                onChange={e => setCargaHoraria(e.target.value)}
+                                className="w-full p-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg outline-none focus:ring-2 focus:ring-blue-500 dark:text-white"
+                            />
+                        </div>
+                        <div>
+                            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Dependentes</label>
+                            <input
+                                type="number"
+                                value={dependentes}
+                                onChange={e => setDependentes(e.target.value)}
+                                className="w-full p-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg outline-none focus:ring-2 focus:ring-blue-500 dark:text-white"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Endereço Completo</label>
+                    <textarea
+                        value={endereco}
+                        onChange={e => setEndereco(e.target.value)}
+                        rows={2}
+                        className="w-full p-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg outline-none focus:ring-2 focus:ring-blue-500 dark:text-white"
+                        placeholder="Rua, Número, Bairro, Cidade - UF"
+                    />
+                </div>
+
+                <div>
+                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Dados Bancários</label>
+                    <input
+                        type="text"
+                        value={dadosBanco}
+                        onChange={e => setDadosBanco(e.target.value)}
+                        className="w-full p-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg outline-none focus:ring-2 focus:ring-blue-500 dark:text-white"
+                        placeholder="Banco, Agência, Conta..."
                     />
                 </div>
               </div>

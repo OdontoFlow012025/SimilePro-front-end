@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { api } from "@/services/api";
 import { formatCurrency } from "@/utils/formatters";
+import DOMPurify from 'dompurify';
 
 type PayInvoiceModalProps = {
   isOpen: boolean;
@@ -107,7 +108,9 @@ export default function PayInvoiceModal({ isOpen, onClose, onSuccess, fatura, di
                 <span className="material-symbols-outlined text-[16px]">info</span>
                 <div 
                     dangerouslySetInnerHTML={{ 
-                        __html: String(fDict.payModal?.infoText || "Ao confirmar, o status será alterado para **PAGO**").replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') 
+                        __html: DOMPurify.sanitize(
+                            String(fDict.payModal?.infoText || "Ao confirmar, o status será alterado para **PAGO**").replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                        )
                     }} 
                 />
             </div>

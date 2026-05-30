@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import { getDictionary } from "@/utils/get-dictionary";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import MermaidDiagram from "@/components/MermaidDiagram";
 
 export default async function SupportArticlePage({ 
   params 
@@ -48,7 +49,8 @@ export default async function SupportArticlePage({
               {content.sections.map((sec: any, idx: number) => (
                 <div key={idx} className="mb-10 last:mb-0">
                   <h2 className="text-2xl text-slate-900 dark:text-white mb-4">{sec.h}</h2>
-                  <p className="text-slate-600 dark:text-slate-400 leading-relaxed">{sec.p}</p>
+                  <p className="text-slate-600 dark:text-slate-400 leading-relaxed whitespace-pre-wrap">{sec.p}</p>
+                  {sec.mermaid && <MermaidDiagram chart={sec.mermaid} />}
                 </div>
               ))}
             </div>

@@ -10,6 +10,7 @@
     "closeTimer": "Fechar"
   },
   "navbar": {
+    "home": "Início",
     "features": "Funcionalidades",
     "compliance": "Conformidade",
     "pricing": "Preços",
@@ -52,6 +53,42 @@
       "title": "Prontuário Interoperável RNDS",
       "description": "Dados integrados à Rede Nacional de Dados em Saúde, garantindo a mobilidade total do paciente e conformidade legal absoluta."
     }
+  },
+  "featuresPage": {
+    "title": "Funcionalidades do Sistema",
+    "subtitle": "Tudo o que você precisa para gerenciar sua clínica odontológica com excelência.",
+    "items": [
+      {
+        "title": "Agendamento Inteligente",
+        "description": "Organize sua agenda com facilidade. Reduza faltas com lembretes automáticos via WhatsApp e gerencie múltiplas cadeiras de atendimento.",
+        "icon": "calendar_month"
+      },
+      {
+        "title": "Prontuário Eletrônico",
+        "description": "Registre a evolução clínica dos pacientes de forma segura. Inclui odontograma visual interativo e histórico completo de tratamentos.",
+        "icon": "medical_information"
+      },
+      {
+        "title": "Gestão Financeira",
+        "description": "Controle total do fluxo de caixa, contas a pagar e receber. Emita recibos e acompanhe a lucratividade da sua clínica em tempo real.",
+        "icon": "payments"
+      },
+      {
+        "title": "Faturamento TISS",
+        "description": "Gere arquivos no padrão TISS automaticamente para faturamento ágil e sem glosas com os principais convênios odontológicos.",
+        "icon": "receipt_long"
+      },
+      {
+        "title": "Assinatura Digital ICP-Brasil",
+        "description": "Assine atestados, receitas e evoluções com validade jurídica usando seu certificado digital padrão ICP-Brasil.",
+        "icon": "history_edu"
+      },
+      {
+        "title": "Interoperabilidade RNDS",
+        "description": "Conectado à Rede Nacional de Dados em Saúde, garantindo o compartilhamento seguro do histórico clínico do cidadão.",
+        "icon": "hub"
+      }
+    ]
   },
   "compliancePage": {
     "title": "Central de Confiança e Conformidade",
@@ -98,19 +135,57 @@
     "categories": {
       "title": "Categorias de Ajuda",
       "items": [
-        { "title": "Primeiros Passos", "slug": "getting-started", "desc": "Configuração da clínica e equipe", "icon": "rocket_launch" },
-        { "title": "Agendamentos", "slug": "scheduling", "desc": "Gerenciamento de agenda e retornos", "icon": "calendar_month" },
-        { "title": "Prontuários & RNDS", "slug": "health-records", "desc": "Evoluções e interoperabilidade", "icon": "medical_information" },
-        { "title": "Financeiro", "slug": "billing", "desc": "TISS, faturamento e planos", "icon": "payments" }
+        {
+          "title": "Primeiros Passos",
+          "slug": "getting-started",
+          "desc": "Configuração da clínica e equipe",
+          "icon": "rocket_launch"
+        },
+        {
+          "title": "Agendamentos",
+          "slug": "scheduling",
+          "desc": "Gerenciamento de agenda e retornos",
+          "icon": "calendar_month"
+        },
+        {
+          "title": "Prontuários & RNDS",
+          "slug": "health-records",
+          "desc": "Evoluções e interoperabilidade",
+          "icon": "medical_information"
+        },
+        {
+          "title": "Financeiro",
+          "slug": "billing",
+          "desc": "TISS, faturamento e planos",
+          "icon": "payments"
+        },
+        {
+          "title": "Entenda o fluxograma",
+          "slug": "system-flowchart",
+          "desc": "Visão geral e operabilidade do sistema",
+          "icon": "account_tree"
+        }
       ]
     },
     "faq": {
       "title": "Perguntas Frequentes",
       "items": [
-        { "q": "Como altero meu plano de assinatura?", "a": "Você pode alterar seu plano a qualquer momento acessando Configurações > Assinatura no seu painel. A cobrança será ajustada pro-rata." },
-        { "q": "O OdontoFlow faz backup automático?", "a": "Sim! Realizamos backups a cada hora em diferentes regiões da nuvem, garantindo retenção segura por até 20 anos conforme manda a lei." },
-        { "q": "Consigo usar no celular?", "a": "Sim, a plataforma é 100% responsiva e pode ser acessada pelo navegador de qualquer smartphone ou tablet. Porém, para uma melhor experiência da equipe (especialmente no odontograma e faturamento), recomendamos fortemente o uso de um computador ou notebook." },
-        { "q": "Como configuro a assinatura ICP-Brasil?", "a": "Vá em Configurações > Profissional e faça o upload do seu certificado A1, ou instale a extensão do navegador para certificados A3." }
+        {
+          "q": "Como altero meu plano de assinatura?",
+          "a": "Você pode alterar seu plano a qualquer momento acessando Configurações > Assinatura no seu painel. A cobrança será ajustada pro-rata."
+        },
+        {
+          "q": "O OdontoFlow faz backup automático?",
+          "a": "Sim! Realizamos backups a cada hora em diferentes regiões da nuvem, garantindo retenção segura por até 20 anos conforme manda a lei."
+        },
+        {
+          "q": "Consigo usar no celular?",
+          "a": "Sim, a plataforma é 100% responsiva e pode ser acessada pelo navegador de qualquer smartphone ou tablet. Porém, para uma melhor experiência da equipe (especialmente no odontograma e faturamento), recomendamos fortemente o uso de um computador ou notebook."
+        },
+        {
+          "q": "Como configuro a assinatura ICP-Brasil?",
+          "a": "Vá em Configurações > Profissional e faça o upload do seu certificado A1, ou instale a extensão do navegador para certificados A3."
+        }
       ]
     },
     "contact": {
@@ -129,41 +204,110 @@
   },
   "supportArticles": {
     "getting-started": {
-      "title": "Primeiros Passos",
-      "subtitle": "Guia rápido para configurar sua clínica e convidar sua equipe para o OdontoFlow.",
+      "title": "Primeiros Passos e Configuração",
+      "subtitle": "Veja como é simples deixar sua clínica pronta para os primeiros atendimentos no OdontoFlow.",
       "sections": [
-        { "h": "1. Configurando sua Clínica", "p": "Para iniciar, vá em Configurações > Clínica. Preencha os dados de endereço, CNPJ e horário de funcionamento. Esses dados aparecerão nos cabeçalhos dos seus atestados." },
-        { "h": "2. Convidando a Equipe", "p": "Acesse a aba 'Equipe' e clique em 'Novo Usuário'. Você pode definir o nível de permissão (Dentista, Recepcionista ou Administrador). O convite será enviado por e-mail." }
+        {
+          "h": "1. Dados da sua Clínica",
+          "p": "O primeiro passo é acessar 'Configurações > Clínica' e preencher os dados básicos, como nome, endereço e telefone. Isso é super importante porque o sistema vai usar essas informações para montar o cabeçalho bonitinho de todos os atestados, receitas e recibos que você entregar para os pacientes."
+        },
+        {
+          "h": "2. Trazendo sua Equipe",
+          "p": "Na aba 'Equipe', você convida quem trabalha com você. O sistema é bem prático: se você convidar uma recepcionista, ela só vai ver a agenda e a recepção. Se for um dentista, ele vai ter acesso direto aos prontuários dos pacientes dele. Cada um no seu quadrado, sem confusão."
+        },
+        {
+          "h": "3. Preparando os Dentistas",
+          "p": "Para os dentistas, basta entrar no perfil e cadastrar o número do CRO. Depois, é só configurar o Certificado Digital (aquela assinatura eletrônica). Com isso pronto, o dentista nunca mais vai precisar carimbar papel, ele assina as receitas direto no sistema."
+        }
       ],
       "nextSlug": "scheduling",
       "nextTitle": "Próximo: Agendamentos"
     },
     "scheduling": {
-      "title": "Agendamentos",
-      "subtitle": "Como organizar a agenda da clínica e otimizar o tempo dos dentistas.",
+      "title": "Como usar a Agenda e a Recepção",
+      "subtitle": "Organize o dia a dia da clínica e nunca mais deixe um paciente esperando sem saber.",
       "sections": [
-        { "h": "1. Criando uma Consulta", "p": "No Dashboard, clique no botão azul 'Novo Agendamento'. Selecione o paciente, o dentista, o horário e o motivo da consulta." },
-        { "h": "2. Status e Confirmação", "p": "Você pode alterar o status da consulta (Confirmado, Aguardando, Em Atendimento) clicando no card da consulta na agenda. O status muda de cor automaticamente." }
+        {
+          "h": "1. Marcando Consultas",
+          "p": "Usar a agenda é como usar um calendário no celular. Você escolhe o dia, vê qual dentista tem horário livre e marca o paciente. O bloco da consulta muda de cor sozinho para te avisar se o paciente confirmou que vem, se ele acabou de chegar ou se já está lá dentro sendo atendido."
+        },
+        {
+          "h": "2. A Chegada na Recepção",
+          "p": "Quando o paciente abre a porta da clínica, a recepção clica em 'Check-in'. Na mesma hora, o computador do dentista avisa que o paciente das 14h chegou. É o fim daquele telefone tocando na sala do dentista toda hora."
+        },
+        {
+          "h": "3. Fazendo a Triagem",
+          "p": "Se a clínica costuma aferir a pressão ou perguntar o motivo da visita antes do dentista, a aba de Triagem serve para isso. Você anota tudo rapidinho e o dentista já lê essas informações antes mesmo do paciente sentar na cadeira."
+        }
       ],
       "nextSlug": "health-records",
-      "nextTitle": "Próximo: Prontuários & RNDS"
+      "nextTitle": "Próximo: Prontuários e Atendimento"
     },
     "health-records": {
-      "title": "Prontuários & RNDS",
-      "subtitle": "Registro clínico seguro e interoperabilidade com a Rede Nacional de Saúde.",
+      "title": "Prontuários e o Atendimento ao Paciente",
+      "subtitle": "Esqueça as fichas de papel. Veja como o atendimento clínico funciona na prática.",
       "sections": [
-        { "h": "1. Odontograma Interativo", "p": "Dentro da ficha do paciente, clique na aba 'Odontograma'. Você pode selecionar dentes e marcar procedimentos (Ex: Cárie, Restauração, Extração) usando a paleta de cores." },
-        { "h": "2. Sincronização RNDS", "p": "Se sua clínica estiver integrada, toda evolução clínica assinada digitalmente (ICP-Brasil) pode ser enviada diretamente para o Ministério da Saúde clicando no botão 'Sincronizar RNDS'." }
+        {
+          "h": "1. O Odontograma na Prática",
+          "p": "A tela principal do dentista tem um desenho completo da boca do paciente. Se precisar fazer uma restauração, é só clicar no dente e marcar. O sistema já entende o que você fez e anota isso no histórico do paciente automaticamente."
+        },
+        {
+          "h": "2. Anotações e Receitas",
+          "p": "Na hora de escrever como foi a consulta, o dentista tem um espaço livre para digitar (a evolução). Se precisar de remédio ou atestado para o trabalho, o sistema já tem modelos prontos. É só preencher os dias de repouso e mandar imprimir ou enviar por WhatsApp."
+        },
+        {
+          "h": "3. Assinando sem Papel",
+          "p": "No final do atendimento, o sistema pede a senha do dentista (a assinatura digital). Isso serve para 'trancar' a ficha daquele dia, garantindo que ninguém altere o que foi feito e dando validade total ao que foi escrito, igualzinho a um documento registrado em cartório."
+        }
       ],
       "nextSlug": "billing",
-      "nextTitle": "Próximo: Financeiro"
+      "nextTitle": "Próximo: Financeiro e Estoque"
     },
     "billing": {
-      "title": "Financeiro",
-      "subtitle": "Gestão de faturamento, orçamentos e planos de tratamento.",
+      "title": "Financeiro, Estoque e Resultados",
+      "subtitle": "Descubra como o OdontoFlow cuida do seu dinheiro enquanto você cuida dos pacientes.",
       "sections": [
-        { "h": "1. Criando Orçamentos", "p": "No prontuário, acesse 'Plano de Tratamento'. Adicione os procedimentos que precisam ser feitos. O sistema calculará o valor total com base na tabela de preços padrão (VRPO ou particular)." },
-        { "h": "2. Faturamento TISS", "p": "Para pacientes de convênio, ao finalizar o plano, você pode exportar o arquivo XML no formato TISS na aba 'Faturamento' para enviar ao plano de saúde." }
+        {
+          "h": "1. Do Orçamento ao Pagamento",
+          "p": "Sabe aquele desenho que o dentista fez no dente do paciente? A recepção consegue transformar aquilo num orçamento com um clique. O paciente aprovou? O sistema já cria a continha para ele pagar na máquina de cartão ou PIX, e o dinheiro já entra no fluxo de caixa."
+        },
+        {
+          "h": "2. Compras e Estoque",
+          "p": "Quando chegar uma caixa de luvas ou anestesia, você lança a nota fiscal no sistema. O OdontoFlow já guarda as luvas no seu armário virtual (estoque) e te lembra lá no financeiro que você tem um boleto para pagar para aquele fornecedor na semana que vem."
+        },
+        {
+          "h": "3. Acompanhando o Dinheiro",
+          "p": "Na tela principal (Dashboard), o gestor tem gráficos super fáceis de ler. Dá para ver na hora se a clínica fechou o mês no azul, quantos pacientes novos entraram pela porta e qual dentista atendeu mais pessoas. Tudo mastigado para ajudar a clínica a crescer."
+        }
+      ],
+      "nextSlug": "system-flowchart",
+      "nextTitle": "Próximo: Entenda o Fluxograma"
+    },
+    "system-flowchart": {
+      "title": "Entenda o fluxograma",
+      "subtitle": "Descubra como os módulos do OdontoFlow se conectam de ponta a ponta.",
+      "sections": [
+        {
+          "h": "Visão Geral da Arquitetura",
+          "p": "O OdontoFlow foi desenhado para eliminar o retrabalho. O gráfico abaixo detalha como uma ação na recepção reflete automaticamente nos módulos clínicos e financeiros.",
+          "mermaid": "graph TD\n    classDef auth fill:#e1f5fe,stroke:#039be5,stroke-width:2px;\n    classDef dashboard fill:#fff3e0,stroke:#f57c00,stroke-width:2px;\n    classDef clinical fill:#e8f5e9,stroke:#388e3c,stroke-width:2px;\n    classDef reception fill:#fce4ec,stroke:#c2185b,stroke-width:2px;\n    classDef admin fill:#e8eaf6,stroke:#3f51b5,stroke-width:2px;\n    classDef integration fill:#f3e5f5,stroke:#8e24aa,stroke-width:2px,stroke-dasharray: 5 5;\n    A([Acesso]) --> B{Logado?}\n    B -- Nao --> C[Página de Login]\n    C --> D[Criação de Conta]\n    D --> E[Validação]\n    E --> F([Dashboard])\n    B -- Sim --> F\n    C:::auth\n    D:::auth\n    E:::auth\n    F:::dashboard\n    F --> G[Recepção]\n    F --> H[Triagem]\n    F --> I[Clínico Médico]\n    F --> J[Administrativo Financeiro]\n    G:::reception\n    G --> G1[Agendamento]\n    G --> G2[Check-in]\n    G --> G3[Cadastro RNDS]\n    G2 --> H\n    H:::clinical\n    H --> H1[Sinais Vitais]\n    H --> H2[Classificação Risco]\n    H1 --> H3[Fila de Atendimento]\n    H2 --> H3\n    H3 --> I\n    I:::clinical\n    I --> I1[Odontograma / Diagnóstico]\n    I --> I2[Evolução Clínica]\n    I --> I3[Atestados / Receitas]\n    I --> I4[Plano Tratamento / Orçamentos]\n    I1 --> I5[[Assinatura ICP-Brasil]]\n    I2 --> I5\n    I3 --> I5\n    I5 --> I6[[Sincronização RNDS Min. Saúde]]\n    I5:::integration\n    I6:::integration\n    I4 --> J1[Geração Faturas / TISS]\n    J:::admin\n    J1 --> J2[Contas a Receber]\n    J --> J3[Estoque]\n    J --> J4[Lançamento NFs]\n    J3 --> J5[Atualização Insumos]\n    J4 --> J6[Contas a Pagar]\n    J2 --> J7[Fluxo de Caixa / Relatórios]\n    J6 --> J7"
+        },
+        {
+          "h": "1. O Início de Tudo (Recepção)",
+          "p": "Tudo começa quando o paciente entra em contato. A recepcionista faz o agendamento e, no dia da consulta, dá o 'Check-in'. O mais legal aqui é que não há retrabalho: o nome e os dados que a recepção digitou são os mesmos que vão aparecer na ficha do dentista e no recibo de pagamento."
+        },
+        {
+          "h": "2. Na Sala de Espera (Triagem)",
+          "p": "Enquanto o paciente aguarda, a equipe pode anotar se ele está com muita dor ou medir a pressão (Triagem). O sistema é inteligente: se o paciente relatar algo urgente, o nome dele ganha destaque na tela do dentista, ajudando a organizar quem precisa ser atendido primeiro."
+        },
+        {
+          "h": "3. Na Cadeira do Dentista (Clínico)",
+          "p": "Lá dentro, o dentista abre o Odontograma Visual e apenas clica nos dentes para dizer o que precisa ser feito (como tratar uma cárie). Quando termina, ele faz as anotações, gera a receita médica e assina tudo com a senha dele no computador. Nada de pastas de papel circulando pela clínica!"
+        },
+        {
+          "h": "4. No Caixa da Clínica (Financeiro)",
+          "p": "Na hora de ir embora, aquele plano que o dentista desenhou no dente já aparece no computador da recepção com os valores prontos para o paciente pagar. Ao mesmo tempo, o dono da clínica já consegue ver no gráfico do celular que o dinheiro entrou no caixa."
+        }
       ],
       "nextSlug": "getting-started",
       "nextTitle": "Voltar para o Início"
@@ -297,183 +441,127 @@
     }
   },
   "financial": {
-    "title": "Financeiro",
-    "subtitle": "Gestão completa de recebimentos, despesas e faturamento.",
+    "title": "Gestão Financeira",
+    "subtitle": "Controle completo de caixa, faturamentos e estoque.",
     "tabs": {
       "general": "Geral",
       "patients": "Pacientes",
       "insurances": "Convênios",
-      "inventory": "Estoque"
-    },
-    "bills": {
-      "cancelPrompt": "Tem certeza que deseja cancelar essa fatura?"
-    },
-    "errors": {
-      "loadTransactions": "Erro ao carregar transações.",
-      "cancelBill": "Falha ao cancelar fatura."
+      "inventory": "Estoque e NFs"
     },
     "status": {
-      "ALL": "TODOS",
       "paid": "Pago",
       "pending": "Pendente",
-      "canceled": "Cancelado"
+      "canceled": "Cancelado",
+      "ALL": "TODOS",
+      "PAID": "PAGA",
+      "PENDING": "PENDENTE",
+      "CANCELED": "CANCELADA"
+    },
+    "errors": {
+      "loadTransactions": "Erro ao carregar transações",
+      "cancelBill": "Erro ao cancelar fatura.",
+      "loadBills": "Erro ao carregar faturas"
+    },
+    "accountFlow": {
+      "title": "Últimas Movimentações de Caixa",
+      "general": "Geral",
+      "empty": "Nenhuma transação registrada.",
+      "table": {
+        "launch": "Lançamento",
+        "category": "Categoria",
+        "date": "Data",
+        "status": "Status",
+        "value": "Valor"
+      }
+    },
+    "bills": {
+      "title": "Contas a Receber (Pacientes)",
+      "subtitle": "Gestão de faturas e acompanhamento de recebimentos.",
+      "cancelPrompt": "Tem certeza que deseja cancelar essa fatura?",
+      "patientId": "ID Paciente: ",
+      "plan": "Plano #",
+      "loose": "Avulso",
+      "delayed": "Atrasada",
+      "payTitle": "Receber Pagamento / Dar Baixa",
+      "cancelTitle": "Cancelar Fatura",
+      "receiptTitle": "Recibo",
+      "emptyTitle": "Nenhuma fatura encontrada",
+      "emptyAll": "Não há faturas cadastradas no sistema. Gere orçamentos no prontuário para faturar.",
+      "emptyFilter": "Não há faturas com status {status}.",
+      "table": {
+        "invoice": "Fatura / Paciente",
+        "treatment": "Tratamento Vinculado",
+        "dueDate": "Vencimento",
+        "value": "Valor (R$)",
+        "status": "Status",
+        "actions": "Ações"
+      }
+    },
+    "payModal": {
+      "title": "Receber Pagamento",
+      "amountToReceive": "Valor a Receber",
+      "invoiceLabel": "Fatura #",
+      "paymentMethod": "Forma de Pagamento",
+      "methods": {
+        "pix": "PIX",
+        "credit": "Cartão de Crédito",
+        "debit": "Cartão de Débito",
+        "cash": "Dinheiro",
+        "transfer": "Transferência Bancária"
+      },
+      "infoText": "Ao confirmar, o status da fatura será alterado para **PAGO** e uma Transação Financeira de **Receita** será automaticamente lançada no Caixa da clínica.",
+      "cancel": "Cancelar",
+      "processing": "Processando...",
+      "confirm": "Confirmar Recebimento"
     }
   },
   "inventory": {
-    "title": "Estoque e Almoxarifado",
-    "subtitle": "Gerencie seus produtos, materiais e notas fiscais de entrada.",
-    "newNfBtn": "Nova Nota Fiscal",
+    "title": "Estoque e Lançamento de NFs",
+    "subtitle": "Controle de insumos e entrada de mercadorias.",
+    "newNfBtn": "Nova NF",
     "cancelBtn": "Cancelar",
     "nfDataTitle": "Dados da Nota Fiscal",
     "nfNumberLabel": "Número da NF",
     "providerLabel": "Fornecedor",
     "addProductsTitle": "Adicionar Produtos",
     "productLabel": "Produto",
-    "selectProduct": "Selecione o produto...",
-    "quantityLabel": "Quantidade",
-    "unitPriceLabel": "Preço Unitário",
-    "addBtn": "Adicionar Item",
+    "quantityLabel": "Qtd.",
+    "unitPriceLabel": "Preço Unit. (R$)",
+    "addBtn": "Adicionar",
+    "selectProduct": "Selecione um produto...",
     "subtotalLabel": "Subtotal",
-    "totalValueLabel": "Valor Total",
-    "saveBtn": "Salvar NF e Atualizar Estoque",
+    "totalValueLabel": "Valor Total:",
+    "saveBtn": "Salvar NF e Gerar Despesa",
     "tabs": {
-      "products": "Lista de Produtos",
+      "products": "Produtos em Estoque",
       "invoices": "Notas Fiscais de Entrada"
     },
     "productsTable": {
       "product": "Produto",
       "sku": "SKU",
       "currentStock": "Estoque Atual",
-      "unit": "Unidade",
+      "unit": "Unid.",
       "status": "Status",
-      "loading": "Carregando produtos...",
+      "loading": "Carregando estoque...",
       "empty": "Nenhum produto cadastrado.",
       "lowStatus": "BAIXO",
       "okStatus": "OK"
     },
     "invoicesTable": {
-      "nfNumber": "Número",
+      "nfNumber": "Número NF",
       "provider": "Fornecedor",
       "issueDate": "Data Emissão",
       "items": "Itens",
       "totalValue": "Valor Total",
-      "loading": "Carregando notas fiscais...",
-      "empty": "Nenhuma nota fiscal encontrada."
+      "loading": "Carregando NFs...",
+      "empty": "Nenhuma NF registrada."
     },
     "errors": {
-      "emptyNf": "Adicione pelo menos um item na NF.",
+      "emptyNf": "Adicione pelo menos um produto à Nota Fiscal.",
       "successNf": "Nota Fiscal lançada com sucesso!",
       "failNf": "Erro ao lançar NF: "
     }
-  },
-  "dashboard": {
-    "bi": {
-      "title": "Indicadores BI",
-      "newPatients": "Novos Pacientes",
-      "currentMonth": "Mês Atual",
-      "vsPrevMonth": "vs mês anterior"
-    },
-    "attendance": {
-      "occupancy": "Ocupação das Salas"
-    }
-  },
-  "footer": {
-    "description": "A plataforma de gestão tudo-em-um projetada para o ecossistema odontológico moderno. Seguro, rápido e confiável.",
-    "product": "Produto",
-    "resources": "Recursos",
-    "company": "Empresa",
-    "legal": {
-      "privacy": "Política de Privacidade",
-      "terms": "Termos de Serviço",
-      "copyright": "© 2026 OdontoFlow Inc. Todos os direitos reservados."
-    },
-    "links": {
-      "features": "Funcionalidades",
-      "pricing": "Planos",
-      "integrations": "Integrações",
-      "enterprise": "Empresarial",
-      "blog": "Blog",
-      "caseStudies": "Estudos de Caso",
-      "helpCenter": "Central de Ajuda",
-      "apiDocs": "Documentação da API",
-      "aboutUs": "Sobre Nós",
-      "careers": "Carreiras",
-      "legal": "Legal",
-      "contact": "Contato"
-    }
-  },
-  "auth": {
-    "title": "Acesse sua conta",
-    "subtitle": "Gerencie sua clínica com eficiência e simplicidade.",
-    "emailLabel": "Email ou Usuário",
-    "emailPlaceholder": "exemplo@odontoflow.com",
-    "passwordLabel": "Senha",
-    "passwordPlaceholder": "Insira sua senha",
-    "forgotPassword": "Esqueceu a senha?",
-    "loginButton": "Entrar na Plataforma",
-    "or": "OU",
-    "noAccount": "Ainda não tem uma conta?",
-    "signUp": "Cadastre sua clínica",
-    "copyright": "Termos de Uso Privacidad Ajuda",
-    "loading": "Entrando...",
-    "loadingStart": "Iniciando Sistema...",
-    "loadingEnd": "Concluído",
-    "errorGeneric": "Erro ao realizar login. Verifique suas credenciais.",
-    "footer": {
-      "terms": "Termos",
-      "privacy": "Privacidade",
-      "help": "Ajuda"
-    }
-  },
-  "signup": {
-    "title": "Crie sua conta",
-    "subtitle": "Preencha os dados abaixo para começar a transformar a gestão da sua clínica hoje.",
-    "clinicData": {
-      "title": "Dados da Clínica",
-      "fantasyNameLabel": "Nome Fantasia",
-      "fantasyNamePlaceholder": "Ex: Clínica Sorriso Saudável",
-      "companyNameLabel": "Razão Social",
-      "companyNamePlaceholder": "Razão Social Ltda",
-      "cnpjLabel": "CNPJ",
-      "cnpjPlaceholder": "00.000.000/0000-00",
-      "addressLabel": "Endereço da Clínica",
-      "addressPlaceholder": "Rua, Número, Bairro, Cidade - UF",
-      "phoneLabel": "Telefone da Clínica",
-      "phonePlaceholder": "(00) 00000-0000"
-    },
-    "userData": {
-      "title": "Dados do Profissional",
-      "nameLabel": "Nome Completo",
-      "namePlaceholder": "Seu nome completo",
-      "emailLabel": "E-mail",
-      "emailPlaceholder": "seu@email.com",
-      "passwordLabel": "Senha",
-      "passwordPlaceholder": "********",
-      "phoneLabel": "Telefone Celular",
-      "phonePlaceholder": "(00) 90000-0000",
-      "cpfLabel": "CPF",
-      "cpfPlaceholder": "000.000.000-00",
-      "croLabel": "CRO",
-      "croPlaceholder": "UF-00000"
-    },
-    "submitButton": "Criar Conta",
-    "haveAccount": "Já possui uma conta?",
-    "loginLink": "Fazer Login",
-    "loading": "Enviando...",
-    "errorGeneric": "Ocorreu um erro ao tentar criar a conta.",
-    "termsAgreement": "Ao clicar em \"{submitButton}\", você concorda com nossos",
-    "termsLink": "Termos de Uso",
-    "privacyLink": "Política de Privacidade",
-    "hero": {
-      "title": "Eleve o padrão da sua clínica",
-      "subtitle": "A gestão que você merece, a tecnologia que seus pacientes confiam. Junte-se à revolução OdontoFlow."
-    }
-  },
-  "loginFeatures": {
-    "badge": "Líder em Gestão Odontológica",
-    "title": "Transforme sorrisos enquanto nós cuidamos da gestão.",
-    "description": "Junte-se a mais de 5.000 clínicas que automatizaram agendamentos, faturamento e prontuários com o OdontoFlow.",
-    "testimonial": "Aprovado por especialistas"
   },
   "dashboard": {
     "header": {
@@ -667,6 +755,107 @@
       }
     }
   },
+  "footer": {
+    "description": "A plataforma de gestão tudo-em-um projetada para o ecossistema odontológico moderno. Seguro, rápido e confiável.",
+    "product": "Produto",
+    "resources": "Recursos",
+    "company": "Empresa",
+    "legal": {
+      "privacy": "Política de Privacidade",
+      "terms": "Termos de Serviço",
+      "copyright": "© 2026 OdontoFlow Inc. Todos os direitos reservados."
+    },
+    "links": {
+      "features": "Funcionalidades",
+      "pricing": "Planos",
+      "integrations": "Integrações",
+      "enterprise": "Empresarial",
+      "blog": "Blog",
+      "caseStudies": "Estudos de Caso",
+      "helpCenter": "Central de Ajuda",
+      "apiDocs": "Documentação da API",
+      "aboutUs": "Sobre Nós",
+      "careers": "Carreiras",
+      "legal": "Legal",
+      "contact": "Contato"
+    }
+  },
+  "auth": {
+    "title": "Acesse sua conta",
+    "subtitle": "Gerencie sua clínica com eficiência e simplicidade.",
+    "emailLabel": "Email ou Usuário",
+    "emailPlaceholder": "exemplo@odontoflow.com",
+    "passwordLabel": "Senha",
+    "passwordPlaceholder": "Insira sua senha",
+    "forgotPassword": "Esqueceu a senha?",
+    "loginButton": "Entrar na Plataforma",
+    "or": "OU",
+    "noAccount": "Ainda não tem uma conta?",
+    "signUp": "Cadastre sua clínica",
+    "copyright": "Termos de Uso Privacidad Ajuda",
+    "loading": "Entrando...",
+    "loadingStart": "Iniciando Sistema...",
+    "loadingEnd": "Concluído",
+    "errorGeneric": "Erro ao realizar login. Verifique suas credenciais.",
+    "footer": {
+      "terms": "Termos",
+      "privacy": "Privacidade",
+      "help": "Ajuda"
+    }
+  },
+  "signup": {
+    "title": "Crie sua conta",
+    "subtitle": "Preencha os dados abaixo para começar a transformar a gestão da sua clínica hoje.",
+    "clinicData": {
+      "title": "Dados da Clínica",
+      "fantasyNameLabel": "Nome Fantasia",
+      "fantasyNamePlaceholder": "Ex: Clínica Sorriso Saudável",
+      "companyNameLabel": "Razão Social",
+      "companyNamePlaceholder": "Razão Social Ltda",
+      "cnpjLabel": "CNPJ",
+      "cnpjPlaceholder": "00.000.000/0000-00",
+      "addressLabel": "Endereço da Clínica",
+      "addressPlaceholder": "Rua, Número, Bairro, Cidade - UF",
+      "phoneLabel": "Telefone da Clínica",
+      "phonePlaceholder": "(00) 00000-0000"
+    },
+    "userData": {
+      "title": "Dados do Profissional",
+      "nameLabel": "Nome Completo",
+      "namePlaceholder": "Seu nome completo",
+      "emailLabel": "E-mail",
+      "emailPlaceholder": "seu@email.com",
+      "passwordLabel": "Senha",
+      "passwordPlaceholder": "********",
+      "confirmPasswordLabel": "Confirmar Senha",
+      "confirmPasswordPlaceholder": "Confirme sua senha",
+      "phoneLabel": "Telefone Celular",
+      "phonePlaceholder": "(00) 90000-0000",
+      "cpfLabel": "CPF",
+      "cpfPlaceholder": "000.000.000-00",
+      "croLabel": "CRO",
+      "croPlaceholder": "UF-00000"
+    },
+    "submitButton": "Criar Conta",
+    "haveAccount": "Já possui uma conta?",
+    "loginLink": "Fazer Login",
+    "loading": "Enviando...",
+    "errorGeneric": "Ocorreu um erro ao tentar criar a conta.",
+    "passwordsNotMatch": "As senhas não coincidem.",
+    "termsAgreement": "Ao clicar em \"{submitButton}\", você concorda com nossos",
+    "termsLink": "Termos de Uso",
+    "privacyLink": "Política de Privacidade",
+    "hero": {
+      "title": "Eleve o padrão da sua clínica",
+      "subtitle": "A gestão que você merece, a tecnologia que seus pacientes confiam. Junte-se à revolução OdontoFlow."
+    }
+  },
+  "loginFeatures": {
+    "badge": "Líder em Gestão Odontológica",
+    "title": "Transforme sorrisos enquanto nós cuidamos da gestão.",
+    "description": "Junte-se a mais de 5.000 clínicas que automatizaram agendamentos, faturamento e prontuários com o OdontoFlow.",
+    "testimonial": "Aprovado por especialistas"
+  },
   "bi": {
     "title": "Indicadores BI",
     "newPatients": "Novos Pacientes",
@@ -767,129 +956,6 @@
       "evolutionNote": {
         "header": "[EVOLUÇÃO]"
       }
-    }
-  },
-  "inventory": {
-    "title": "Estoque e Lançamento de NFs",
-    "subtitle": "Controle de insumos e entrada de mercadorias.",
-    "newNfBtn": "Nova NF",
-    "cancelBtn": "Cancelar",
-    "nfDataTitle": "Dados da Nota Fiscal",
-    "nfNumberLabel": "Número da NF",
-    "providerLabel": "Fornecedor",
-    "addProductsTitle": "Adicionar Produtos",
-    "productLabel": "Produto",
-    "quantityLabel": "Qtd.",
-    "unitPriceLabel": "Preço Unit. (R$)",
-    "addBtn": "Adicionar",
-    "selectProduct": "Selecione um produto...",
-    "subtotalLabel": "Subtotal",
-    "totalValueLabel": "Valor Total:",
-    "saveBtn": "Salvar NF e Gerar Despesa",
-    "tabs": {
-      "products": "Produtos em Estoque",
-      "invoices": "Notas Fiscais de Entrada"
-    },
-    "productsTable": {
-      "product": "Produto",
-      "sku": "SKU",
-      "currentStock": "Estoque Atual",
-      "unit": "Unid.",
-      "status": "Status",
-      "loading": "Carregando estoque...",
-      "empty": "Nenhum produto cadastrado.",
-      "lowStatus": "BAIXO",
-      "okStatus": "OK"
-    },
-    "invoicesTable": {
-      "nfNumber": "Número NF",
-      "provider": "Fornecedor",
-      "issueDate": "Data Emissão",
-      "items": "Itens",
-      "totalValue": "Valor Total",
-      "loading": "Carregando NFs...",
-      "empty": "Nenhuma NF registrada."
-    },
-    "errors": {
-      "emptyNf": "Adicione pelo menos um produto à Nota Fiscal.",
-      "successNf": "Nota Fiscal lançada com sucesso!",
-      "failNf": "Erro ao lançar NF: "
-    }
-  },
-  "financial": {
-    "title": "Gestão Financeira",
-    "subtitle": "Controle completo de caixa, faturamentos e estoque.",
-    "tabs": {
-      "general": "Geral",
-      "patients": "Pacientes",
-      "insurances": "Convênios",
-      "inventory": "Estoque e NFs"
-    },
-    "status": {
-      "paid": "Pago",
-      "pending": "Pendente",
-      "canceled": "Cancelado",
-      "ALL": "TODOS",
-      "PAID": "PAGA",
-      "PENDING": "PENDENTE",
-      "CANCELED": "CANCELADA"
-    },
-    "errors": {
-      "loadTransactions": "Erro ao carregar transações",
-      "cancelBill": "Erro ao cancelar fatura.",
-      "loadBills": "Erro ao carregar faturas"
-    },
-    "accountFlow": {
-      "title": "Últimas Movimentações de Caixa",
-      "general": "Geral",
-      "empty": "Nenhuma transação registrada.",
-      "table": {
-        "launch": "Lançamento",
-        "category": "Categoria",
-        "date": "Data",
-        "status": "Status",
-        "value": "Valor"
-      }
-    },
-    "bills": {
-      "title": "Contas a Receber (Pacientes)",
-      "subtitle": "Gestão de faturas e acompanhamento de recebimentos.",
-      "cancelPrompt": "Tem certeza que deseja cancelar essa fatura?",
-      "patientId": "ID Paciente: ",
-      "plan": "Plano #",
-      "loose": "Avulso",
-      "delayed": "Atrasada",
-      "payTitle": "Receber Pagamento / Dar Baixa",
-      "cancelTitle": "Cancelar Fatura",
-      "receiptTitle": "Recibo",
-      "emptyTitle": "Nenhuma fatura encontrada",
-      "emptyAll": "Não há faturas cadastradas no sistema. Gere orçamentos no prontuário para faturar.",
-      "emptyFilter": "Não há faturas com status {status}.",
-      "table": {
-        "invoice": "Fatura / Paciente",
-        "treatment": "Tratamento Vinculado",
-        "dueDate": "Vencimento",
-        "value": "Valor (R$)",
-        "status": "Status",
-        "actions": "Ações"
-      }
-    },
-    "payModal": {
-      "title": "Receber Pagamento",
-      "amountToReceive": "Valor a Receber",
-      "invoiceLabel": "Fatura #",
-      "paymentMethod": "Forma de Pagamento",
-      "methods": {
-        "pix": "PIX",
-        "credit": "Cartão de Crédito",
-        "debit": "Cartão de Débito",
-        "cash": "Dinheiro",
-        "transfer": "Transferência Bancária"
-      },
-      "infoText": "Ao confirmar, o status da fatura será alterado para **PAGO** e uma Transação Financeira de **Receita** será automaticamente lançada no Caixa da clínica.",
-      "cancel": "Cancelar",
-      "processing": "Processando...",
-      "confirm": "Confirmar Recebimento"
     }
   },
   "placeholder": {
