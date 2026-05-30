@@ -1,7 +1,7 @@
 "use client";
 
 import { Appointment } from "@/schemas/reception";
-import { api } from "@/services/api"; // You might need a specific triage API or use scheduling.updateStatus + metadata
+import { api } from "@/services/api";
 import { useState } from "react";
 
 interface Props {
@@ -14,6 +14,8 @@ interface Props {
 
 export default function TriageModal({ isOpen, onClose, appointment, dictionary, onSuccess }: Props) {
   const [loading, setLoading] = useState(false);
+  const triageDict = dictionary?.dashboard?.receptionBoard?.triage;
+  const noteDict = triageDict?.triageNote;
   
   // Form State
   const [formData, setFormData] = useState({
@@ -29,29 +31,22 @@ export default function TriageModal({ isOpen, onClose, appointment, dictionary, 
   const handleSubmit = async () => {
     setLoading(true);
     try {
-        // Here we ideally send to a Triage endpoint.
-        // For now, let's assume we update the appointment status and maybe save triage data in 'notes' (motivoConsulta) 
-        // OR a hypothetical api.triage.create endpoint.
-        // Assuming we just update status to EM_ESPERA_MEDICA and append notes for MVP.
-        
-        const triageNote = `[TRIAGEM] 
-PA: ${formData.pressure} | FC: ${formData.heartRate} | Temp: ${formData.temp} | Sat: ${formData.oxygen} | Peso: ${formData.weight}
-Queixa: ${formData.complaint}
-Risco: ${formData.risk}`;
+        const triageNote = `${noteDict?.header || "[TRIAGEM]"} 
+${noteDict?.pressure || "PA"}: ${formData.pressure} | ${noteDict?.heartRate || "FC"}: ${formData.heartRate} | ${noteDict?.temp || "Temp"}: ${formData.temp} | ${noteDict?.oxygen || "Sat"}: ${formData.oxygen} | ${noteDict?.weight || "Peso"}: ${formData.weight}
+${noteDict?.complaint || "Queixa"}: ${formData.complaint}
+${noteDict?.risk || "Risco"}: ${formData.risk}`;
 
-        // Update Appointment
-        // Backend restricts status to: AGENDADO, CONFIRMADO, CANCELADO, ATENDIDO, NAO_COMPARECEU
-        // We will keep it as 'CONFIRMADO' but the appended note will serve as a flag for the frontend to know it's triaged.
         await api.scheduling.update(appointment.id.toString(), {
-            motivoConsulta: (appointment.motivoConsulta || "") + "\n\n" + triageNote + "\n[TRIAGEM_REALIZADA]",
-            status: "CONFIRMADO" // Keeping valid status
+            motivoConsulta: (appointment.motivoConsulta || "") + "\n\n" + triageNote + "\n" + (noteDict?.footer || "[TRIAGEM_REALIZADA]"),
+            status: "CONFIRMADO" 
         });
 
+        alert(triageDict?.success || "Triagem salva com sucesso!");
         onSuccess();
         onClose();
     } catch (error) {
         console.error(error);
-        alert(dictionary.triage?.error || "Erro ao salvar triagem.");
+        alert(triageDict?.error || "Erro ao salvar triagem.");
     } finally {
         setLoading(false);
     }
@@ -68,9 +63,9 @@ Risco: ${formData.risk}`;
             <div>
                 <h2 className="text-xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
                     <span className="material-symbols-outlined text-emerald-600">health_metrics</span>
-                    {dictionary.triage?.modalTitle || "Triagem Clínica"}
+                    {triageDict?.modalTitle || "Triagem Clínica"}
                 </h2>
-                <p className="text-sm text-gray-500 mt-1">{dictionary.triage?.patientLabel || "Paciente"}: <span className="font-semibold">{appointment.paciente?.nome}</span></p>
+                <p className="text-sm text-gray-500 mt-1">{triageDict?.patientLabel || "Paciente"}: <span className="font-semibold">{appointment.paciente?.nome}</span></p>
             </div>
             <button onClick={onClose} className="text-gray-400 hover:text-gray-600">
                 <span className="material-symbols-outlined">close</span>
@@ -84,35 +79,35 @@ Risco: ${formData.risk}`;
             <div className="bg-slate-50 dark:bg-slate-900/50 p-4 rounded-lg border border-slate-100 dark:border-slate-800">
                 <h3 className="font-semibold text-gray-700 dark:text-gray-300 mb-4 flex items-center gap-2">
                     <span className="material-symbols-outlined text-[18px]">vital_signs</span>
-                    {dictionary.triage?.vitalsTitle || "Sinais Vitais"}
+                    {triageDict?.vitalsTitle || "Sinais Vitais"}
                 </h3>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                     <div>
-                        <label className="text-xs font-bold text-gray-500 uppercase mb-1 block">{dictionary.triage?.pressureLabel || "PA (mmHg)"}</label>
+                        <label className="text-xs font-bold text-gray-500 uppercase mb-1 block">{triageDict?.pressureLabel || "PA (mmHg)"}</label>
                         <input type="text" placeholder="120/80" className="w-full p-2 border rounded bg-white dark:bg-gray-800 dark:border-gray-700"
                             value={formData.pressure} onChange={e => setFormData({...formData, pressure: e.target.value})}
                         />
                     </div>
                     <div>
-                        <label className="text-xs font-bold text-gray-500 uppercase mb-1 block">{dictionary.triage?.heartRateLabel || "FC (bpm)"}</label>
+                        <label className="text-xs font-bold text-gray-500 uppercase mb-1 block">{triageDict?.heartRateLabel || "FC (bpm)"}</label>
                         <input type="number" placeholder="80" className="w-full p-2 border rounded bg-white dark:bg-gray-800 dark:border-gray-700"
                              value={formData.heartRate} onChange={e => setFormData({...formData, heartRate: e.target.value})}
                         />
                     </div>
                     <div>
-                        <label className="text-xs font-bold text-gray-500 uppercase mb-1 block">{dictionary.triage?.tempLabel || "Temp (ºC)"}</label>
+                        <label className="text-xs font-bold text-gray-500 uppercase mb-1 block">{triageDict?.tempLabel || "Temp (ºC)"}</label>
                         <input type="number" placeholder="36.5" className="w-full p-2 border rounded bg-white dark:bg-gray-800 dark:border-gray-700"
                              value={formData.temp} onChange={e => setFormData({...formData, temp: e.target.value})}
                         />
                     </div>
                     <div>
-                        <label className="text-xs font-bold text-gray-500 uppercase mb-1 block">{dictionary.triage?.oxygenLabel || "Sat. O2 (%)"}</label>
+                        <label className="text-xs font-bold text-gray-500 uppercase mb-1 block">{triageDict?.oxygenLabel || "Sat. O2 (%)"}</label>
                         <input type="number" placeholder="98" className="w-full p-2 border rounded bg-white dark:bg-gray-800 dark:border-gray-700"
                              value={formData.oxygen} onChange={e => setFormData({...formData, oxygen: e.target.value})}
                         />
                     </div>
-                    <div>
-                        <label className="text-xs font-bold text-gray-500 uppercase mb-1 block">{dictionary.triage?.weightLabel || "Peso (kg)"}</label>
+                    <div className="md:col-span-1">
+                        <label className="text-xs font-bold text-gray-500 uppercase mb-1 block">{triageDict?.weightLabel || "Peso (kg)"}</label>
                         <input type="number" placeholder="70" className="w-full p-2 border rounded bg-white dark:bg-gray-800 dark:border-gray-700"
                              value={formData.weight} onChange={e => setFormData({...formData, weight: e.target.value})}
                         />
@@ -122,18 +117,18 @@ Risco: ${formData.risk}`;
 
             {/* Complaint */}
             <div>
-                <label className="text-sm font-bold text-gray-700 dark:text-gray-300 mb-1 block">{dictionary.triage?.complaintLabel || "Queixa Principal / História"}</label>
+                <label className="text-sm font-bold text-gray-700 dark:text-gray-300 mb-1 block">{triageDict?.complaintLabel || "Queixa Principal / História"}</label>
                 <textarea 
                     rows={4} 
                     className="w-full p-3 border rounded-lg bg-white dark:bg-gray-800 dark:border-gray-700 focus:ring-2 ring-emerald-500"
-                    placeholder={dictionary.triage?.complaintPlaceholder || "Descreva o motivo da visita..."}
+                    placeholder={triageDict?.complaintPlaceholder || "Descreva o motivo da visita..."}
                     value={formData.complaint} onChange={e => setFormData({...formData, complaint: e.target.value})}
                 />
             </div>
 
             {/* Risk Classification */}
             <div>
-                <label className="text-sm font-bold text-gray-700 dark:text-gray-300 mb-2 block">{dictionary.triage?.riskLabel || "Classificação de Risco"}</label>
+                <label className="text-sm font-bold text-gray-700 dark:text-gray-300 mb-2 block">{triageDict?.riskLabel || "Classificação de Risco"}</label>
                 <div className="flex gap-2">
                     {["AZUL", "VERDE", "AMARELO", "LARANJA", "VERMELHO"].map(risk => {
                         const colors: any = {
@@ -148,7 +143,7 @@ Risco: ${formData.risk}`;
                             <button
                                 key={risk}
                                 onClick={() => setFormData({...formData, risk})}
-                                className={`h-10 flex-1 round-lg transition-all border-2 ${isSelected ? 'border-gray-800 dark:border-white scale-105 shadow-md' : 'border-transparent opacity-60 hover:opacity-100'} ${colors[risk]}`}
+                                className={`h-10 flex-1 rounded-lg transition-all border-2 ${isSelected ? 'border-gray-800 dark:border-white scale-105 shadow-md' : 'border-transparent opacity-60 hover:opacity-100'} ${colors[risk]}`}
                                 title={risk}
                             >
                                 <span className="sr-only">{risk}</span>
@@ -157,21 +152,21 @@ Risco: ${formData.risk}`;
                         )
                     })}
                 </div>
-                <p className="text-xs text-center mt-2 text-gray-500">{dictionary.triage?.riskHelper || "Selecione a gravidade (Manchester)"}</p>
+                <p className="text-xs text-center mt-2 text-gray-500">{triageDict?.riskHelper || "Selecione a gravidade (Manchester)"}</p>
             </div>
 
         </div>
 
         {/* Footer */}
         <div className="p-6 border-t border-gray-200 dark:border-gray-800 flex justify-end gap-3 bg-gray-50 dark:bg-gray-800">
-            <button onClick={onClose} className="px-5 py-2 text-gray-600 hover:text-gray-900 font-medium">{dictionary.triage?.cancelBtn || "Cancelar"}</button>
+            <button onClick={onClose} className="px-5 py-2 text-gray-600 hover:text-gray-900 font-medium">{triageDict?.cancelBtn || "Cancelar"}</button>
             <button 
                 onClick={handleSubmit} 
                 disabled={loading || !formData.complaint}
                 className="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-2 rounded-lg font-bold shadow-lg disabled:opacity-50 flex items-center gap-2"
             >
                 {loading && <span className="animate-spin h-4 w-4 border-2 border-white border-t-transparent rounded-full"></span>}
-                {loading ? (dictionary.triage?.saving || "Salvando...") : (dictionary.triage?.saveBtn || "Salvar Triagem")}
+                {loading ? (triageDict?.saving || "Salvando...") : (triageDict?.saveBtn || "Salvar Triagem")}
             </button>
         </div>
 

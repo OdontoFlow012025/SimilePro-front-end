@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { api } from "@/services/api";
 
 type MenuItem = {
   label: string;
@@ -10,6 +11,7 @@ type MenuItem = {
   icon?: string;
   section?: string;
   isHeader?: boolean;
+  isLocked?: boolean;
   children?: MenuItem[];
 };
 
@@ -32,9 +34,11 @@ const getMenuItems = (dict: any): MenuItem[] => [
     label: dict?.dashboard?.sidebar?.administrative || "Administrativo", 
     icon: "admin_panel_settings",
     children: [
-      { label: dict?.dashboard?.sidebar?.financial || "Financeiro", href: "/financeiro", icon: "payments" },
+      { label: dict?.dashboard?.sidebar?.financial || "Financeiro Operacional", href: "/financeiro", icon: "payments" },
+      { label: dict?.dashboard?.sidebar?.team || "Gestão de Equipe", href: "/equipe", icon: "groups" },
+      { label: dict?.dashboard?.sidebar?.hr || "Recursos Humanos", href: "/rh", icon: "badge" },
+      { label: dict?.dashboard?.sidebar?.accounting || "Contábil & Fiscal", href: "/contabil", icon: "account_balance" },
       { label: dict?.dashboard?.sidebar?.reports || "Relatórios BI", href: "/relatorios", icon: "analytics" },
-      { label: dict?.dashboard?.sidebar?.team || "Equipe", href: "/equipe", icon: "groups" },
     ]
   },
 
@@ -50,14 +54,59 @@ const getSystemItems = (dict: any): MenuItem[] => [
 export default function Sidebar({ dictionary, locale }: { dictionary: any; locale: string }) {
   const router = useRouter();
   const pathname = usePathname();
-  // Filter out system items from main menu for separate rendering
   const ALL_ITEMS = getMenuItems(dictionary);
-  const MENU_ITEMS = ALL_ITEMS.filter(item => item.section !== 'System' && item.label !== (dictionary?.dashboard?.sidebar?.settings || "Configurações") && item.label !== (dictionary?.dashboard?.sidebar?.system || "Sistema"));
   const SYSTEM_ITEMS = getSystemItems(dictionary);
 
-  
   // State for expanded menus, default empty or check current path to auto-expand
   const [expandedMenus, setExpandedMenus] = useState<string[]>([]);
+  const [userRole, setUserRole] = useState<string | null>(null);
+  const [subscription, setSubscription] = useState<{ isActive: boolean, status: string } | null>(null);
+
+  useEffect(() => {
+    async function fetchData() {
+        try {
+            const [userData, subData] = await Promise.all([
+                api.auth.me(),
+                api.subscription.getStatus()
+            ]);
+            
+            if (userData) {
+                const role = userData.tipoUsuario || (userData.user && userData.user.tipoUsuario);
+                if (role) setUserRole(role);
+            }
+            if (subData) {
+                setSubscription(subData);
+            }
+        } catch (e) {
+            console.error("Failed to load sidebar data", e);
+        }
+    }
+    fetchData();
+  }, []);
+
+  // Helper to identify premium modules
+  const isPremium = (href?: string) => {
+    if (!href) return false;
+    const premiumPaths = ["/financeiro", "/rh", "/contabil", "/relatorios", "/estoque"];
+    return premiumPaths.some(p => href.includes(p));
+  };
+
+  // Filter items based on user role and subscription
+  const MENU_ITEMS = ALL_ITEMS.filter(item => item.section !== 'System' && item.label !== (dictionary?.dashboard?.sidebar?.settings || "Configurações") && item.label !== (dictionary?.dashboard?.sidebar?.system || "Sistema")).map(item => {
+      // Check if it's an administrative parent that might contain premium children
+      if (item.label === (dictionary?.dashboard?.sidebar?.administrative || "Administrativo")) {
+          const children = [...(item.children || [])].map(child => {
+              const locked = !!(subscription && !subscription.isActive && isPremium(child.href));
+              return { ...child, isLocked: locked };
+          });
+          
+          if (userRole === "ADMIN_TOTAL") {
+              children.push({ label: dictionary?.dashboard?.sidebar?.units || "Unidades", href: "/unidades", icon: "domain", isLocked: false });
+          }
+          return { ...item, children };
+      }
+      return item;
+  });
 
   const toggleMenu = (label: string) => {
     if (expandedMenus.includes(label)) {
@@ -67,10 +116,14 @@ export default function Sidebar({ dictionary, locale }: { dictionary: any; local
     }
   };
 
-  const handleLogout = () => {
-    document.cookie = "auth_token=; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT;";
-    router.refresh();
+  const handleLogout = async () => {
+    try {
+      await api.auth.logout();
+    } catch (e) {
+      console.error("Logout failed", e);
+    }
     router.push("/login"); 
+    router.refresh();
   };
 
   const isActive = (href?: string) => {
@@ -136,19 +189,29 @@ export default function Sidebar({ dictionary, locale }: { dictionary: any; local
                             <div className="pl-4 space-y-1 border-l-2 border-gray-100 dark:border-gray-800 ml-6">
                                 {item.children.map((child, cIndex) => {
                                     const active = isActive(child.href);
-                                    const hrefWithLocale = child.href ? `/${locale}${child.href}` : '#';
+                                    // If locked, redirect to pricing page
+                                    const hrefWithLocale = child.isLocked 
+                                        ? `/${locale}/pricing` 
+                                        : (child.href ? `/${locale}${child.href}` : '#');
+                                        
                                     return (
                                         <Link 
                                             key={cIndex}
                                             href={hrefWithLocale}
-                                            className={`flex items-center gap-3 px-4 py-2 rounded-lg transition-all text-sm font-medium border
+                                            className={`flex items-center justify-between px-4 py-2 rounded-lg transition-all text-sm font-medium border group
                                               ${active 
                                                 ? 'bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 border-blue-200 dark:border-blue-800/30' 
                                                 : 'border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800/50'}
+                                              ${child.isLocked ? 'opacity-50 grayscale hover:grayscale-0' : ''}
                                             `}
                                         >
-                                           <span className="material-symbols-outlined text-[18px]">{child.icon}</span>
-                                           {child.label}
+                                           <div className="flex items-center gap-3">
+                                               <span className="material-symbols-outlined text-[18px]">{child.icon}</span>
+                                               {child.label}
+                                           </div>
+                                           {child.isLocked && (
+                                               <span className="material-symbols-outlined text-xs text-amber-500 group-hover:scale-110 transition-transform">lock</span>
+                                           )}
                                         </Link>
                                     )
                                 })}

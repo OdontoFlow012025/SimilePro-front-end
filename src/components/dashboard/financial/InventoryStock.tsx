@@ -68,7 +68,7 @@ export default function InventoryStock({ dictionary }: { dictionary: any }) {
   const handleSubmitNF = async (e: React.FormEvent) => {
      e.preventDefault();
      if (nfItems.length === 0) {
-       alert(dictionary.inventory.errors.emptyNf);
+       alert(dictionary?.inventory?.errors.emptyNf);
        return;
      }
 
@@ -80,7 +80,7 @@ export default function InventoryStock({ dictionary }: { dictionary: any }) {
            dataEmissao: new Date().toISOString(),
            itens: nfItems
         });
-        alert(dictionary.inventory.errors.successNf);
+        alert(dictionary?.inventory?.errors.successNf);
         setShowNFForm(false);
         setNfItems([]);
         setNfNumber("");
@@ -88,7 +88,7 @@ export default function InventoryStock({ dictionary }: { dictionary: any }) {
         setActiveTab("nfs");
         loadData();
      } catch (e: any) {
-        alert(dictionary.inventory.errors.failNf + e.message);
+        alert(dictionary?.inventory?.errors.failNf + e.message);
      }
   };
 
@@ -96,31 +96,31 @@ export default function InventoryStock({ dictionary }: { dictionary: any }) {
     <div className="bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800 p-6">
        <div className="flex justify-between items-center mb-6">
           <div>
-            <h2 className="text-xl font-bold dark:text-white">{dictionary.inventory.title}</h2>
-            <p className="text-sm text-gray-500 dark:text-gray-400">{dictionary.inventory.subtitle}</p>
+            <h2 className="text-xl font-bold dark:text-white">{dictionary?.inventory?.title}</h2>
+            <p className="text-sm text-gray-500 dark:text-gray-400">{dictionary?.inventory?.subtitle}</p>
           </div>
           <button 
             onClick={() => setShowNFForm(!showNFForm)}
             className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-bold flex items-center gap-2 transition-colors"
           >
             <span className="material-symbols-outlined">{showNFForm ? 'close' : 'add'}</span>
-            {showNFForm ? dictionary.inventory.cancelBtn : dictionary.inventory.newNfBtn}
+            {showNFForm ? dictionary?.inventory?.cancelBtn : dictionary?.inventory?.newNfBtn}
           </button>
        </div>
 
        {showNFForm && (
          <form onSubmit={handleSubmitNF} className="mb-8 p-6 bg-gray-50 dark:bg-gray-800 rounded-xl border border-gray-100 dark:border-gray-700 space-y-4 animate-in fade-in slide-in-from-top-4 duration-300">
-            <h3 className="font-bold text-gray-900 dark:text-white mb-2">{dictionary.inventory.nfDataTitle}</h3>
+            <h3 className="font-bold text-gray-900 dark:text-white mb-2">{dictionary?.inventory?.nfDataTitle}</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                 <div>
-                   <label className="block text-xs font-bold text-gray-400 uppercase mb-1">{dictionary.inventory.nfNumberLabel}</label>
+                   <label className="block text-xs font-bold text-gray-400 uppercase mb-1">{dictionary?.inventory?.nfNumberLabel}</label>
                    <input 
                      type="text" required value={nfNumber} onChange={e => setNfNumber(e.target.value)}
                      className="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 outline-none focus:ring-2 ring-blue-500"
                    />
                 </div>
                 <div>
-                   <label className="block text-xs font-bold text-gray-400 uppercase mb-1">{dictionary.inventory.providerLabel}</label>
+                   <label className="block text-xs font-bold text-gray-400 uppercase mb-1">{dictionary?.inventory?.providerLabel}</label>
                    <input 
                      type="text" required value={provider} onChange={e => setProvider(e.target.value)}
                      className="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 outline-none focus:ring-2 ring-blue-500"
@@ -129,10 +129,10 @@ export default function InventoryStock({ dictionary }: { dictionary: any }) {
             </div>
 
             <div className="border-t border-gray-200 dark:border-gray-700 pt-4 mb-4">
-                <h4 className="font-bold text-sm text-gray-900 dark:text-white mb-3">{dictionary.inventory.addProductsTitle}</h4>
+                <h4 className="font-bold text-sm text-gray-900 dark:text-white mb-3">{dictionary?.inventory?.addProductsTitle}</h4>
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-3 items-end">
                     <div className="md:col-span-5">
-                        <label className="block text-xs font-bold text-gray-400 uppercase mb-1">{dictionary.inventory.productLabel}</label>
+                        <label className="block text-xs font-bold text-gray-400 uppercase mb-1">{dictionary?.inventory?.productLabel}</label>
                         <select 
                             value={selectedProductId} 
                             onChange={e => {
@@ -143,21 +143,21 @@ export default function InventoryStock({ dictionary }: { dictionary: any }) {
                             }}
                             className="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 outline-none focus:ring-2 ring-blue-500"
                         >
-                            <option value="">{dictionary.inventory.selectProduct}</option>
+                            <option value="">{dictionary?.inventory?.selectProduct}</option>
                             {products.map(p => (
                                 <option key={p.id} value={p.id}>{p.nome}</option>
                             ))}
                         </select>
                     </div>
                     <div className="md:col-span-2">
-                        <label className="block text-xs font-bold text-gray-400 uppercase mb-1">{dictionary.inventory.quantityLabel}</label>
+                        <label className="block text-xs font-bold text-gray-400 uppercase mb-1">{dictionary?.inventory?.quantityLabel}</label>
                         <input 
                             type="number" min="0.01" step="0.01" value={itemQuantity} onChange={e => setItemQuantity(Number(e.target.value))}
                             className="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 outline-none focus:ring-2 ring-blue-500"
                         />
                     </div>
                     <div className="md:col-span-3">
-                        <label className="block text-xs font-bold text-gray-400 uppercase mb-1">{dictionary.inventory.unitPriceLabel}</label>
+                        <label className="block text-xs font-bold text-gray-400 uppercase mb-1">{dictionary?.inventory?.unitPriceLabel}</label>
                         <input 
                             type="number" min="0" step="0.01" value={itemPrice} onChange={e => setItemPrice(Number(e.target.value))}
                             className="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 outline-none focus:ring-2 ring-blue-500"
@@ -170,7 +170,7 @@ export default function InventoryStock({ dictionary }: { dictionary: any }) {
                             disabled={!selectedProductId}
                             className="w-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 font-bold py-2 rounded-lg transition-colors disabled:opacity-50"
                         >
-                            {dictionary.inventory.addBtn}
+                            {dictionary?.inventory?.addBtn}
                         </button>
                     </div>
                 </div>
@@ -181,10 +181,10 @@ export default function InventoryStock({ dictionary }: { dictionary: any }) {
                     <table className="w-full text-left text-sm">
                         <thead className="bg-gray-50 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
                             <tr>
-                                <th className="px-4 py-2 font-bold text-gray-500 dark:text-gray-400 uppercase text-xs">{dictionary.inventory.productLabel}</th>
-                                <th className="px-4 py-2 font-bold text-gray-500 dark:text-gray-400 uppercase text-xs">{dictionary.inventory.quantityLabel}</th>
-                                <th className="px-4 py-2 font-bold text-gray-500 dark:text-gray-400 uppercase text-xs">{dictionary.inventory.unitPriceLabel}</th>
-                                <th className="px-4 py-2 font-bold text-gray-500 dark:text-gray-400 uppercase text-xs text-right">{dictionary.inventory.subtotalLabel}</th>
+                                <th className="px-4 py-2 font-bold text-gray-500 dark:text-gray-400 uppercase text-xs">{dictionary?.inventory?.productLabel}</th>
+                                <th className="px-4 py-2 font-bold text-gray-500 dark:text-gray-400 uppercase text-xs">{dictionary?.inventory?.quantityLabel}</th>
+                                <th className="px-4 py-2 font-bold text-gray-500 dark:text-gray-400 uppercase text-xs">{dictionary?.inventory?.unitPriceLabel}</th>
+                                <th className="px-4 py-2 font-bold text-gray-500 dark:text-gray-400 uppercase text-xs text-right">{dictionary?.inventory?.subtotalLabel}</th>
                                 <th className="px-4 py-2"></th>
                             </tr>
                         </thead>
@@ -208,7 +208,7 @@ export default function InventoryStock({ dictionary }: { dictionary: any }) {
                         </tbody>
                         <tfoot className="bg-gray-50 dark:bg-gray-800">
                             <tr>
-                                <td colSpan={3} className="px-4 py-2 text-right font-bold dark:text-white text-xs uppercase">{dictionary.inventory.totalValueLabel}</td>
+                                <td colSpan={3} className="px-4 py-2 text-right font-bold dark:text-white text-xs uppercase">{dictionary?.inventory?.totalValueLabel}</td>
                                 <td className="px-4 py-2 text-right font-bold text-emerald-600 dark:text-emerald-400">R$ {totalValue.toFixed(2)}</td>
                                 <td></td>
                             </tr>
@@ -218,7 +218,7 @@ export default function InventoryStock({ dictionary }: { dictionary: any }) {
             )}
 
             <button type="submit" className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-lg transition-colors shadow-sm">
-                {dictionary.inventory.saveBtn}
+                {dictionary?.inventory?.saveBtn}
             </button>
          </form>
        )}
@@ -228,14 +228,14 @@ export default function InventoryStock({ dictionary }: { dictionary: any }) {
              onClick={() => setActiveTab("produtos")}
              className={`pb-4 text-sm font-bold transition-colors relative ${activeTab === "produtos" ? "text-blue-600 dark:text-blue-400" : "text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"}`}
            >
-             {dictionary.inventory.tabs.products}
+             {dictionary?.inventory?.tabs.products}
              {activeTab === "produtos" && <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-600 dark:bg-blue-400 rounded-t-full"></div>}
            </button>
            <button 
              onClick={() => setActiveTab("nfs")}
              className={`pb-4 text-sm font-bold transition-colors relative ${activeTab === "nfs" ? "text-blue-600 dark:text-blue-400" : "text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"}`}
            >
-             {dictionary.inventory.tabs.invoices}
+             {dictionary?.inventory?.tabs.invoices}
              {activeTab === "nfs" && <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-600 dark:bg-blue-400 rounded-t-full"></div>}
            </button>
         </div>
@@ -245,18 +245,18 @@ export default function InventoryStock({ dictionary }: { dictionary: any }) {
               <table className="w-full text-left">
                  <thead>
                     <tr className="border-b border-gray-100 dark:border-gray-800">
-                       <th className="py-4 text-xs font-bold text-gray-400 uppercase">{dictionary.inventory.productsTable.product}</th>
-                       <th className="py-4 text-xs font-bold text-gray-400 uppercase">{dictionary.inventory.productsTable.sku}</th>
-                       <th className="py-4 text-xs font-bold text-gray-400 uppercase">{dictionary.inventory.productsTable.currentStock}</th>
-                       <th className="py-4 text-xs font-bold text-gray-400 uppercase">{dictionary.inventory.productsTable.unit}</th>
-                       <th className="py-4 text-xs font-bold text-gray-400 uppercase text-right">{dictionary.inventory.productsTable.status}</th>
+                       <th className="py-4 text-xs font-bold text-gray-400 uppercase">{dictionary?.inventory?.productsTable.product}</th>
+                       <th className="py-4 text-xs font-bold text-gray-400 uppercase">{dictionary?.inventory?.productsTable.sku}</th>
+                       <th className="py-4 text-xs font-bold text-gray-400 uppercase">{dictionary?.inventory?.productsTable.currentStock}</th>
+                       <th className="py-4 text-xs font-bold text-gray-400 uppercase">{dictionary?.inventory?.productsTable.unit}</th>
+                       <th className="py-4 text-xs font-bold text-gray-400 uppercase text-right">{dictionary?.inventory?.productsTable.status}</th>
                     </tr>
                  </thead>
                  <tbody>
                     {loading ? (
-                      <tr><td colSpan={5} className="py-8 text-center text-gray-500">{dictionary.inventory.productsTable.loading}</td></tr>
+                      <tr><td colSpan={5} className="py-8 text-center text-gray-500">{dictionary?.inventory?.productsTable.loading}</td></tr>
                     ) : products.length === 0 ? (
-                      <tr><td colSpan={5} className="py-8 text-center text-gray-500">{dictionary.inventory.productsTable.empty}</td></tr>
+                      <tr><td colSpan={5} className="py-8 text-center text-gray-500">{dictionary?.inventory?.productsTable.empty}</td></tr>
                     ) : (
                       products.map((p) => (
                         <tr key={p.id} className="border-b border-gray-50 dark:border-gray-800/50 hover:bg-gray-50 dark:hover:bg-gray-800/30 transition-colors">
@@ -266,7 +266,7 @@ export default function InventoryStock({ dictionary }: { dictionary: any }) {
                            <td className="py-4 text-gray-500">{p.unidadeMedida}</td>
                            <td className="py-4 text-right">
                               <span className={`px-2 py-1 rounded-full text-[10px] font-bold ${p.estoqueAtual <= p.estoqueMinimo ? 'bg-red-100 text-red-600' : 'bg-green-100 text-green-600'}`}>
-                                 {p.estoqueAtual <= p.estoqueMinimo ? dictionary.inventory.productsTable.lowStatus : dictionary.inventory.productsTable.okStatus}
+                                 {p.estoqueAtual <= p.estoqueMinimo ? dictionary?.inventory?.productsTable.lowStatus : dictionary?.inventory?.productsTable.okStatus}
                               </span>
                            </td>
                         </tr>
@@ -278,18 +278,18 @@ export default function InventoryStock({ dictionary }: { dictionary: any }) {
               <table className="w-full text-left">
                  <thead>
                     <tr className="border-b border-gray-100 dark:border-gray-800">
-                       <th className="py-4 text-xs font-bold text-gray-400 uppercase">{dictionary.inventory.invoicesTable.nfNumber}</th>
-                       <th className="py-4 text-xs font-bold text-gray-400 uppercase">{dictionary.inventory.invoicesTable.provider}</th>
-                       <th className="py-4 text-xs font-bold text-gray-400 uppercase">{dictionary.inventory.invoicesTable.issueDate}</th>
-                       <th className="py-4 text-xs font-bold text-gray-400 uppercase">{dictionary.inventory.invoicesTable.items}</th>
-                       <th className="py-4 text-xs font-bold text-gray-400 uppercase text-right">{dictionary.inventory.invoicesTable.totalValue}</th>
+                       <th className="py-4 text-xs font-bold text-gray-400 uppercase">{dictionary?.inventory?.invoicesTable.nfNumber}</th>
+                       <th className="py-4 text-xs font-bold text-gray-400 uppercase">{dictionary?.inventory?.invoicesTable.provider}</th>
+                       <th className="py-4 text-xs font-bold text-gray-400 uppercase">{dictionary?.inventory?.invoicesTable.issueDate}</th>
+                       <th className="py-4 text-xs font-bold text-gray-400 uppercase">{dictionary?.inventory?.invoicesTable.items}</th>
+                       <th className="py-4 text-xs font-bold text-gray-400 uppercase text-right">{dictionary?.inventory?.invoicesTable.totalValue}</th>
                     </tr>
                  </thead>
                  <tbody>
                     {loading ? (
-                      <tr><td colSpan={5} className="py-8 text-center text-gray-500">{dictionary.inventory.invoicesTable.loading}</td></tr>
+                      <tr><td colSpan={5} className="py-8 text-center text-gray-500">{dictionary?.inventory?.invoicesTable.loading}</td></tr>
                     ) : invoices.length === 0 ? (
-                      <tr><td colSpan={5} className="py-8 text-center text-gray-500">{dictionary.inventory.invoicesTable.empty}</td></tr>
+                      <tr><td colSpan={5} className="py-8 text-center text-gray-500">{dictionary?.inventory?.invoicesTable.empty}</td></tr>
                     ) : (
                       invoices.map((inv) => (
                         <tr key={inv.id} className="border-b border-gray-50 dark:border-gray-800/50 hover:bg-gray-50 dark:hover:bg-gray-800/30 transition-colors">
@@ -304,7 +304,7 @@ export default function InventoryStock({ dictionary }: { dictionary: any }) {
                                       • {i.produto?.nome} ({i.quantidade} un)
                                     </span>
                                   ))}
-                                  {inv.itens.length > 2 && <span className="text-xs text-blue-500 font-medium">+{inv.itens.length - 2} {dictionary.inventory.invoicesTable.items.toLowerCase()}</span>}
+                                  {inv.itens.length > 2 && <span className="text-xs text-blue-500 font-medium">+{inv.itens.length - 2} {dictionary?.inventory?.invoicesTable?.items?.toLowerCase() || "itens"}</span>}
                                </div>
                              ) : '-'}
                            </td>

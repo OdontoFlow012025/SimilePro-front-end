@@ -1,18 +1,54 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import MiniCalendar from "./MiniCalendar";
-import { RESOURCES } from "./mockData";
+import { api } from "@/services/api";
 
-export default function SidebarFilters({ dictionary, locale }: { dictionary: any, locale: string }) {
-    const [selectedResources, setSelectedResources] = useState<number[]>(RESOURCES.map(r => r.id));
+interface Professional {
+    id: number;
+    nome: string;
+    cro: string;
+}
+
+interface SidebarFiltersProps {
+    dictionary: any;
+    locale: string;
+    onProfessionalsChange: (ids: number[]) => void;
+}
+
+export default function SidebarFilters({ dictionary, locale, onProfessionalsChange }: SidebarFiltersProps) {
+    const [professionals, setProfessionals] = useState<Professional[]>([]);
+    const [selectedResources, setSelectedResources] = useState<number[]>([]);
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchProfessionals = async () => {
+            try {
+                const data = await api.dentists.getAgendaProfessionals();
+                setProfessionals(data);
+                // Select all by default
+                const allIds = data.map((p: Professional) => p.id);
+                setSelectedResources(allIds);
+                onProfessionalsChange(allIds);
+            } catch (error) {
+                console.error("Failed to fetch professionals:", error);
+            } finally {
+                setIsLoading(false);
+            }
+        };
+
+        fetchProfessionals();
+    }, []);
 
     const toggleResource = (id: number) => {
+        let newSelection;
         if (selectedResources.includes(id)) {
-            setSelectedResources(selectedResources.filter(r => r !== id));
+            newSelection = selectedResources.filter(r => r !== id);
         } else {
-            setSelectedResources([...selectedResources, id]);
+            newSelection = [...selectedResources, id];
         }
+        setSelectedResources(newSelection);
+        onProfessionalsChange(newSelection);
     };
 
     return (
@@ -28,22 +64,29 @@ export default function SidebarFilters({ dictionary, locale }: { dictionary: any
                 <h3 className="text-sm font-bold text-gray-900 dark:text-white mb-3 uppercase tracking-wider">
                     {dictionary?.dashboard?.sidebarFilters?.professionals || "Profissionais"}
                 </h3>
-                <div className="space-y-2">
-                    {RESOURCES.map(resource => (
-                        <label key={resource.id} className="flex items-center gap-3 cursor-pointer group">
-                             <div className={`size-5 rounded border flex items-center justify-center transition-colors ${selectedResources.includes(resource.id) ? 'bg-blue-500 border-blue-500' : 'bg-white border-gray-300 dark:bg-gray-700 dark:border-gray-600'}`}>
-                                {selectedResources.includes(resource.id) && <span className="material-symbols-outlined text-white text-[16px]">check</span>}
-                             </div>
-                             <input 
-                                type="checkbox" 
-                                className="hidden" 
-                                checked={selectedResources.includes(resource.id)}
-                                onChange={() => toggleResource(resource.id)}
-                             />
-                             <span className="text-sm text-gray-700 dark:text-gray-300 group-hover:text-blue-600 transition-colors">{resource.title}</span>
-                        </label>
-                    ))}
-                </div>
+                
+                {isLoading ? (
+                    <div className="text-sm text-gray-500 animate-pulse">Carregando...</div>
+                ) : professionals.length === 0 ? (
+                    <div className="text-sm text-gray-500">Nenhum profissional.</div>
+                ) : (
+                    <div className="space-y-2">
+                        {professionals.map(resource => (
+                            <label key={resource.id} className="flex items-center gap-3 cursor-pointer group">
+                                 <div className={`size-5 rounded border flex items-center justify-center transition-colors ${selectedResources.includes(resource.id) ? 'bg-blue-500 border-blue-500' : 'bg-white border-gray-300 dark:bg-gray-700 dark:border-gray-600'}`}>
+                                    {selectedResources.includes(resource.id) && <span className="material-symbols-outlined text-white text-[16px]">check</span>}
+                                 </div>
+                                 <input 
+                                    type="checkbox" 
+                                    className="hidden" 
+                                    checked={selectedResources.includes(resource.id)}
+                                    onChange={() => toggleResource(resource.id)}
+                                 />
+                                 <span className="text-sm text-gray-700 dark:text-gray-300 group-hover:text-blue-600 transition-colors">Dr(a). {resource.nome}</span>
+                            </label>
+                        ))}
+                    </div>
+                )}
             </div>
 
              <div>
