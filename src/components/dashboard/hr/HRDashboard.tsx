@@ -4,10 +4,11 @@ import React, { useState, useEffect } from "react";
 import { api } from "@/services/api";
 import AddEmployeeModal from "./AddEmployeeModal";
 import DismissEmployeeModal from "./DismissEmployeeModal";
+import RubricasConfig from "./RubricasConfig";
 
 export default function HRDashboard({ dict }: { dict: any }) {
   const hrDict = dict.hr;
-  const [activeTab, setActiveTab] = useState<"payroll" | "employees" | "dismissals">("payroll");
+  const [activeTab, setActiveTab] = useState<"payroll" | "employees" | "dismissals" | "rubrics">("payroll");
 
   // Payroll State
   const [loading, setLoading] = useState(false);
@@ -21,6 +22,7 @@ export default function HRDashboard({ dict }: { dict: any }) {
     { id: "payroll", label: hrDict.tabs.payroll },
     { id: "employees", label: hrDict.tabs.employees },
     { id: "dismissals", label: hrDict.tabs.dismissals },
+    { id: "rubrics", label: "Rubricas" },
   ] as const;
 
   // Employees State
@@ -205,6 +207,7 @@ export default function HRDashboard({ dict }: { dict: any }) {
                                         <th className="px-6 py-3 text-right">{hrDict.payroll.table.base}</th>
                                         <th className="px-6 py-3 text-right text-red-500">{hrDict.payroll.table.discounts}</th>
                                         <th className="px-6 py-3 text-right text-green-600">{hrDict.payroll.table.net}</th>
+                                        <th className="px-6 py-3 text-center">Ações</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -222,6 +225,14 @@ export default function HRDashboard({ dict }: { dict: any }) {
                                             <td className="px-6 py-4 text-right">R$ {(h.salarioBase||0).toLocaleString('pt-BR', {minimumFractionDigits: 2})}</td>
                                             <td className="px-6 py-4 text-right text-red-500">- R$ {(h.totalDescontos||0).toLocaleString('pt-BR', {minimumFractionDigits: 2})}</td>
                                             <td className="px-6 py-4 text-right text-green-600 font-bold">R$ {(h.salarioLiquido||0).toLocaleString('pt-BR', {minimumFractionDigits: 2})}</td>
+                                            <td className="px-6 py-4 text-center">
+                                                <button className="text-blue-600 hover:text-blue-800 p-1" title="Editar Lançamentos">
+                                                    <span className="material-symbols-outlined text-[20px]">edit_note</span>
+                                                </button>
+                                                <button className="text-gray-600 hover:text-gray-800 p-1" title="Gerar PDF">
+                                                    <span className="material-symbols-outlined text-[20px]">picture_as_pdf</span>
+                                                </button>
+                                            </td>
                                         </tr>
                                     ))}
                                 </tbody>
@@ -358,6 +369,9 @@ export default function HRDashboard({ dict }: { dict: any }) {
                      </div>
                 )}
              </div>
+         )}
+         {activeTab === 'rubrics' && (
+             <RubricasConfig dict={dict} />
          )}
       </div>
 

@@ -1,6 +1,6 @@
 const API_URL = typeof window !== 'undefined' 
   ? '/api' // Browser -> Next.js Proxy -> Backend
-  : (process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080/api'); // Server-side -> Direct to Backend
+  : (process.env.NEXT_PUBLIC_API_URL || 'http://odontoflow_backend:8080'); // Server-side -> Direct to Backend
 
 async function request(endpoint: string, options: RequestInit = {}) {
   const headers: Record<string, string> = {
@@ -14,14 +14,7 @@ async function request(endpoint: string, options: RequestInit = {}) {
   let finalUrl = `${API_URL}${endpoint}`;
   
   if (typeof window !== 'undefined') {
-      const method = options.method || 'GET';
-      if (method.toUpperCase() === 'GET') {
-          const clinicaId = localStorage.getItem('selectedClinicaId');
-          if (clinicaId) {
-             const separator = finalUrl.includes('?') ? '&' : '?';
-             finalUrl = `${finalUrl}${separator}clinicaId=${clinicaId}`;
-          }
-      }
+      // Remover injeção de clinicaId - A autorização agora é estrita ao backend/jwt
   }
 
   // Use credentials: 'include' to ensure cookies are sent automatically
@@ -82,6 +75,7 @@ export const api = {
   dentists: {
     create: (data: any) => request('/dentistas', { method: 'POST', body: JSON.stringify(data) }),
     list: () => request('/dentistas'),
+    getAgendaProfessionals: () => request('/v1/profissionais'),
     getById: (id: string) => request(`/dentistas/${id}`),
     update: (id: string, data: any) => request(`/dentistas/${id}`, { method: 'PATCH', body: JSON.stringify(data) }),
     delete: (id: string) => request(`/dentistas/${id}`, { method: 'DELETE' }),
@@ -222,6 +216,8 @@ export const api = {
   hr: {
     processPayroll: (data: { mes: number, ano: number }) => request('/rh/folha/processar', { method: 'POST', body: JSON.stringify(data) }),
     getPayroll: (mes: number, ano: number) => request(`/rh/folha?mes=${mes}&ano=${ano}`),
+    getRubricas: () => request('/rh/rubricas'),
+    createRubrica: (data: any) => request('/rh/rubricas', { method: 'POST', body: JSON.stringify(data) }),
   },
 
   fiscal: {

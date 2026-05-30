@@ -1,7 +1,6 @@
 "use client";
 
 import { api } from "@/services/api";
-import { jwtDecode } from "jwt-decode";
 import { useEffect, useState } from "react";
 
 interface Props {
@@ -57,28 +56,9 @@ export default function AppointmentModal({ isOpen, onClose, onSuccess, preSelect
     }
   };
 
-  const getUserIdFromToken = () => {
-     try {
-         const match = document.cookie.match(new RegExp("(^| )auth_token=([^;]+)"));
-         if (match && match[2]) {
-             const decoded: any = jwtDecode(match[2]);
-             return decoded.sub || decoded.id; // Usually 'sub' is ID in JWT
-         }
-     } catch (e) {
-         console.error("Token decode error", e);
-     }
-     return null;
-  };
-
   const handleSubmit = async () => {
     setLoading(true);
     try {
-        const userId = getUserIdFromToken();
-        if (!userId) {
-            alert(dictionary.appointmentModal?.authError || "Erro de autenticação. Faça login novamente.");
-            return;
-        }
-
         // Calculate End Time
         const startDateTime = new Date(`${formData.date}T${formData.time}:00`);
         const endDateTime = new Date(startDateTime.getTime() + formData.duration * 60000);
@@ -90,7 +70,7 @@ export default function AppointmentModal({ isOpen, onClose, onSuccess, preSelect
             dataHoraFim: endDateTime.toISOString(),
             motivoConsulta: formData.notes || "Consulta Geral",
             status: "AGENDADO",
-            usuarioCriacaoId: Number(userId) 
+            usuarioCriacaoId: 0 // Backend will inject the correct ID from the JWT token
         };
 
         await api.scheduling.create(payload);

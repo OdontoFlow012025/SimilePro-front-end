@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: odontoflow_frontend
+    ports:
+      - "3001:3001"  # Vincula a porta 3001 do container à 3001 da sua máquina física
+    environment:
+      - PORT=3001   # Força o Next.js a rodar internamente na porta 3001
+      - NEXT_PUBLIC_API_URL=http://odontoflow_backend:8080 # Faz o front achar o Go na rede interna
+    networks:
+      - odontoflow_shared
+    restart: always
+
+networks:
+  odontoflow_shared:
+    external:
+      name: odontoflow_global_net

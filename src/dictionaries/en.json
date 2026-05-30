@@ -10,6 +10,7 @@
     "closeTimer": "Close"
   },
   "navbar": {
+    "home": "Home",
     "features": "Features",
     "compliance": "Compliance",
     "pricing": "Pricing",
@@ -52,6 +53,42 @@
       "title": "RNDS Interoperable Record",
       "description": "Data integrated with the National Health Data Network, ensuring total patient mobility and absolute legal compliance."
     }
+  },
+  "featuresPage": {
+    "title": "System Features",
+    "subtitle": "Everything you need to manage your dental clinic with excellence.",
+    "items": [
+      {
+        "title": "Smart Scheduling",
+        "description": "Organize your schedule easily. Reduce no-shows with automated WhatsApp reminders and manage multiple dental chairs.",
+        "icon": "calendar_month"
+      },
+      {
+        "title": "Electronic Health Record",
+        "description": "Securely record patients' clinical evolution. Includes an interactive visual odontogram and complete treatment history.",
+        "icon": "medical_information"
+      },
+      {
+        "title": "Financial Management",
+        "description": "Full control of cash flow, accounts payable, and receivable. Issue receipts and track your clinic's profitability in real-time.",
+        "icon": "payments"
+      },
+      {
+        "title": "Insurance Billing",
+        "description": "Automatically generate standard billing files for agile and error-free processing with major dental insurance providers.",
+        "icon": "receipt_long"
+      },
+      {
+        "title": "Digital Signature",
+        "description": "Legally sign certificates, prescriptions, and clinical notes using your standard digital certificate.",
+        "icon": "history_edu"
+      },
+      {
+        "title": "RNDS Interoperability",
+        "description": "Connected to the National Health Data Network, ensuring the secure sharing of citizens' clinical histories.",
+        "icon": "hub"
+      }
+    ]
   },
   "compliancePage": {
     "title": "Trust and Compliance Center",
@@ -98,19 +135,57 @@
     "categories": {
       "title": "Help Categories",
       "items": [
-        { "title": "Getting Started", "slug": "getting-started", "desc": "Clinic and staff configuration", "icon": "rocket_launch" },
-        { "title": "Scheduling", "slug": "scheduling", "desc": "Calendar and returns management", "icon": "calendar_month" },
-        { "title": "Health Records", "slug": "health-records", "desc": "Clinical notes and interoperability", "icon": "medical_information" },
-        { "title": "Billing", "slug": "billing", "desc": "Insurance, billing, and plans", "icon": "payments" }
+        {
+          "title": "Getting Started",
+          "slug": "getting-started",
+          "desc": "Clinic and staff configuration",
+          "icon": "rocket_launch"
+        },
+        {
+          "title": "Scheduling",
+          "slug": "scheduling",
+          "desc": "Calendar and returns management",
+          "icon": "calendar_month"
+        },
+        {
+          "title": "Health Records",
+          "slug": "health-records",
+          "desc": "Clinical notes and interoperability",
+          "icon": "medical_information"
+        },
+        {
+          "title": "Billing",
+          "slug": "billing",
+          "desc": "Insurance, billing, and plans",
+          "icon": "payments"
+        },
+        {
+          "title": "Understand the flowchart",
+          "slug": "system-flowchart",
+          "desc": "System overview and operability",
+          "icon": "account_tree"
+        }
       ]
     },
     "faq": {
       "title": "Frequently Asked Questions",
       "items": [
-        { "q": "How do I change my subscription plan?", "a": "You can change your plan at any time by going to Settings > Subscription in your dashboard. Billing will be prorated." },
-        { "q": "Does OdontoFlow do automatic backups?", "a": "Yes! We perform hourly backups across different cloud regions, ensuring secure retention for up to 20 years as required by law." },
-        { "q": "Can I use it on my phone?", "a": "Yes, the platform is 100% responsive and can be accessed from any smartphone or tablet browser. However, for the best team experience (especially with the odontogram and billing), we highly recommend using a computer or laptop." },
-        { "q": "How do I configure digital signatures?", "a": "Go to Settings > Professional and upload your A1 certificate, or install the browser extension for A3 certificates." }
+        {
+          "q": "How do I change my subscription plan?",
+          "a": "You can change your plan at any time by going to Settings > Subscription in your dashboard. Billing will be prorated."
+        },
+        {
+          "q": "Does OdontoFlow do automatic backups?",
+          "a": "Yes! We perform hourly backups across different cloud regions, ensuring secure retention for up to 20 years as required by law."
+        },
+        {
+          "q": "Can I use it on my phone?",
+          "a": "Yes, the platform is 100% responsive and can be accessed from any smartphone or tablet browser. However, for the best team experience (especially with the odontogram and billing), we highly recommend using a computer or laptop."
+        },
+        {
+          "q": "How do I configure digital signatures?",
+          "a": "Go to Settings > Professional and upload your A1 certificate, or install the browser extension for A3 certificates."
+        }
       ]
     },
     "contact": {
@@ -129,41 +204,110 @@
   },
   "supportArticles": {
     "getting-started": {
-      "title": "Getting Started",
-      "subtitle": "Quick guide to set up your clinic and invite your team to OdontoFlow.",
+      "title": "Getting Started & Initial Setup",
+      "subtitle": "Complete guide for deploying your clinic in the OdontoFlow ecosystem, ensuring full compliance from day one.",
       "sections": [
-        { "h": "1. Clinic Setup", "p": "To start, go to Settings > Clinic. Fill in the address, TAX ID, and operating hours. This data will appear on your medical certificate headers." },
-        { "h": "2. Inviting the Team", "p": "Access the 'Team' tab and click 'New User'. You can define the permission level (Dentist, Receptionist, or Administrator). An invitation will be sent via email." }
+        {
+          "h": "1. Your Clinic's Details",
+          "p": "First, go to 'Settings > Clinic' and fill out basic information like name, address, and phone. This is important because the system uses this to create the beautiful header on all prescriptions and receipts handed to your patients."
+        },
+        {
+          "h": "2. Bringing Your Team",
+          "p": "In the 'Team' tab, invite the people who work with you. It's very practical: a receptionist will only see the calendar and front desk, while a dentist gets direct access to their patients' charts. Everyone has their designated workspace without confusion."
+        },
+        {
+          "h": "3. Setting Up Dentists",
+          "p": "Dentists just need to open their profile and add their professional license number and set up their Digital Certificate. Once done, they will never need to stamp paper again—they can sign prescriptions directly in the system."
+        }
       ],
       "nextSlug": "scheduling",
-      "nextTitle": "Next: Scheduling"
+      "nextTitle": "Next: Appointment Management"
     },
     "scheduling": {
-      "title": "Scheduling",
-      "subtitle": "How to organize the clinic's calendar and optimize dentists' time.",
+      "title": "Appointment Management & Reception Flow",
+      "subtitle": "Automate patient reception and traffic using smart triage.",
       "sections": [
-        { "h": "1. Creating an Appointment", "p": "In the Dashboard, click the blue 'New Appointment' button. Select the patient, dentist, time slot, and reason for the visit." },
-        { "h": "2. Status and Confirmation", "p": "You can change the appointment status (Confirmed, Waiting, In Service) by clicking the appointment card. The status color updates automatically." }
+        {
+          "h": "1. Booking Appointments",
+          "p": "Using the calendar is just like on your phone. You pick a day, find a free slot, and book the patient. The appointment block changes color on its own to let you know if the patient confirmed, arrived, or is currently in the chair."
+        },
+        {
+          "h": "2. Arrival at Reception",
+          "p": "When the patient walks in, reception clicks 'Check-in'. Instantly, the dentist's computer notifies them that their 2 PM patient is here. It's the end of the intercom ringing constantly."
+        },
+        {
+          "h": "3. Doing the Triage",
+          "p": "If your clinic takes blood pressure or asks about the visit reason before the dentist sees them, the Triage tab handles this. You jot it down quickly, and the dentist reads it before the patient even sits in the chair."
+        }
       ],
       "nextSlug": "health-records",
-      "nextTitle": "Next: Health Records"
+      "nextTitle": "Next: EHR & Interoperability"
     },
     "health-records": {
-      "title": "Health Records",
-      "subtitle": "Secure clinical records and interoperability.",
+      "title": "Electronic Health Records & Interoperability",
+      "subtitle": "The clinical heart of OdontoFlow: diagnostic precision with full legal validity.",
       "sections": [
-        { "h": "1. Interactive Odontogram", "p": "Inside the patient chart, click the 'Odontogram' tab. You can select teeth and mark procedures (e.g., Caries, Filling, Extraction) using the color palette." },
-        { "h": "2. RNDS Synchronization", "p": "If your clinic is integrated, any digitally signed clinical note can be sent directly to the Ministry of Health by clicking the 'Sync RNDS' button." }
+        {
+          "h": "1. The Odontogram in Practice",
+          "p": "The dentist's main screen features a full drawing of the patient's mouth. If a filling is needed, just click the tooth and mark it. The system understands what was done and automatically adds it to the patient's history."
+        },
+        {
+          "h": "2. Notes and Prescriptions",
+          "p": "When writing down how the visit went, the dentist has free space to type. If a prescription or work note is needed, the system has ready-made templates. Just fill in the days off and hit print or send via WhatsApp."
+        },
+        {
+          "h": "3. Going Paperless",
+          "p": "At the end of the visit, the system asks for the dentist's password (digital signature). This 'locks' the chart for that day, ensuring no one alters the work and giving it full validity, just like a legally notarized document."
+        }
       ],
       "nextSlug": "billing",
-      "nextTitle": "Next: Billing"
+      "nextTitle": "Next: Financial Management"
     },
     "billing": {
-      "title": "Billing",
-      "subtitle": "Management of invoicing, budgets, and treatment plans.",
+      "title": "Financial Management, Inventory & Business Intelligence",
+      "subtitle": "Connect clinical decisions to cash flow without double data entry.",
       "sections": [
-        { "h": "1. Creating Budgets", "p": "In the medical record, access 'Treatment Plan'. Add the procedures that need to be done. The system will calculate the total value based on your standard price list." },
-        { "h": "2. Insurance Billing", "p": "For insured patients, upon finishing the plan, you can export the XML file in the standard format under the 'Billing' tab to send to the insurance provider." }
+        {
+          "h": "1. From Budget to Payment",
+          "p": "Remember that drawing the dentist made on the tooth? Reception can turn it into a budget with one click. If the patient approves, the system creates the bill to be paid by card, and the money enters the cash flow."
+        },
+        {
+          "h": "2. Purchases and Inventory",
+          "p": "When a box of gloves arrives, you enter the invoice into the system. OdontoFlow stores the gloves in your virtual cabinet and reminds you in the finance tab that you have a bill to pay the supplier next week."
+        },
+        {
+          "h": "3. Tracking the Money",
+          "p": "On the main screen (Dashboard), the manager gets easy-to-read charts. You can see instantly if the clinic made a profit this month, how many new patients walked in, and which dentist saw the most people. Everything is simplified to help the clinic grow."
+        }
+      ],
+      "nextSlug": "system-flowchart",
+      "nextTitle": "Next: System Flowchart"
+    },
+    "system-flowchart": {
+      "title": "Understand the flowchart",
+      "subtitle": "Discover how OdontoFlow modules connect end-to-end.",
+      "sections": [
+        {
+          "h": "Architecture Overview",
+          "p": "OdontoFlow is designed to eliminate rework. The chart below details how an action at the reception automatically reflects in the clinical and financial modules.",
+          "mermaid": "graph TD\n    classDef auth fill:#e1f5fe,stroke:#039be5,stroke-width:2px;\n    classDef dashboard fill:#fff3e0,stroke:#f57c00,stroke-width:2px;\n    classDef clinical fill:#e8f5e9,stroke:#388e3c,stroke-width:2px;\n    classDef reception fill:#fce4ec,stroke:#c2185b,stroke-width:2px;\n    classDef admin fill:#e8eaf6,stroke:#3f51b5,stroke-width:2px;\n    classDef integration fill:#f3e5f5,stroke:#8e24aa,stroke-width:2px,stroke-dasharray: 5 5;\n    A([Acesso]) --> B{Logado?}\n    B -- Nao --> C[Página de Login]\n    C --> D[Criação de Conta]\n    D --> E[Validação]\n    E --> F([Dashboard])\n    B -- Sim --> F\n    C:::auth\n    D:::auth\n    E:::auth\n    F:::dashboard\n    F --> G[Recepção]\n    F --> H[Triagem]\n    F --> I[Clínico Médico]\n    F --> J[Administrativo Financeiro]\n    G:::reception\n    G --> G1[Agendamento]\n    G --> G2[Check-in]\n    G --> G3[Cadastro RNDS]\n    G2 --> H\n    H:::clinical\n    H --> H1[Sinais Vitais]\n    H --> H2[Classificação Risco]\n    H1 --> H3[Fila de Atendimento]\n    H2 --> H3\n    H3 --> I\n    I:::clinical\n    I --> I1[Odontograma / Diagnóstico]\n    I --> I2[Evolução Clínica]\n    I --> I3[Atestados / Receitas]\n    I --> I4[Plano Tratamento / Orçamentos]\n    I1 --> I5[[Assinatura ICP-Brasil]]\n    I2 --> I5\n    I3 --> I5\n    I5 --> I6[[Sincronização RNDS Min. Saúde]]\n    I5:::integration\n    I6:::integration\n    I4 --> J1[Geração Faturas / TISS]\n    J:::admin\n    J1 --> J2[Contas a Receber]\n    J --> J3[Estoque]\n    J --> J4[Lançamento NFs]\n    J3 --> J5[Atualização Insumos]\n    J4 --> J6[Contas a Pagar]\n    J2 --> J7[Fluxo de Caixa / Relatórios]\n    J6 --> J7"
+        },
+        {
+          "h": "1. Where It All Begins (Reception)",
+          "p": "It all starts when the patient reaches out. The receptionist schedules the appointment and gives them a 'Check-in' on the day of the visit. The best part is there's no double entry: the name typed at the front desk is exactly what shows up on the dentist's chart and the payment receipt."
+        },
+        {
+          "h": "2. In the Waiting Room (Triage)",
+          "p": "While waiting, the team can note if the patient is in severe pain or check their blood pressure. The system is smart: if the patient reports an urgent issue, their name is highlighted on the dentist's screen to prioritize care."
+        },
+        {
+          "h": "3. In the Dentist's Chair (Clinical)",
+          "p": "Inside, the dentist opens the Visual Odontogram and simply clicks on the teeth to indicate what needs to be done. When finished, they write their notes, generate a prescription, and digitally sign it with their password. No more paper folders passing around!"
+        },
+        {
+          "h": "4. At the Checkout (Financial)",
+          "p": "When it's time to leave, the treatment plan drawn by the dentist appears at the reception computer with the final prices. Once paid, the clinic owner can instantly see the money hitting the cash flow on their phone's dashboard."
+        }
       ],
       "nextSlug": "getting-started",
       "nextTitle": "Back to Start"
@@ -297,31 +441,84 @@
     }
   },
   "financial": {
-    "title": "Financial",
-    "subtitle": "Complete management of receipts, expenses, and billing.",
+    "title": "Financial Management",
+    "subtitle": "Complete control of cash, billing, and inventory.",
     "tabs": {
       "general": "General",
       "patients": "Patients",
       "insurances": "Insurances",
-      "inventory": "Inventory"
-    },
-    "bills": {
-      "cancelPrompt": "Are you sure you want to cancel this invoice?"
-    },
-    "errors": {
-      "loadTransactions": "Failed to load transactions.",
-      "cancelBill": "Failed to cancel invoice."
+      "inventory": "Inventory & Invoices"
     },
     "status": {
-      "ALL": "ALL",
       "paid": "Paid",
       "pending": "Pending",
-      "canceled": "Canceled"
+      "canceled": "Canceled",
+      "ALL": "ALL",
+      "PAID": "PAID",
+      "PENDING": "PENDING",
+      "CANCELED": "CANCELED"
+    },
+    "errors": {
+      "loadTransactions": "Error loading transactions",
+      "cancelBill": "Error cancelling invoice.",
+      "loadBills": "Error loading invoices"
+    },
+    "accountFlow": {
+      "title": "Latest Cash Flow",
+      "general": "General",
+      "empty": "No transactions recorded.",
+      "table": {
+        "launch": "Launch",
+        "category": "Category",
+        "date": "Date",
+        "status": "Status",
+        "value": "Value"
+      }
+    },
+    "bills": {
+      "title": "Accounts Receivable",
+      "subtitle": "Invoice management and receipt tracking.",
+      "cancelPrompt": "Are you sure you want to cancel this invoice?",
+      "patientId": "Patient ID: ",
+      "plan": "Plan #",
+      "loose": "Loose",
+      "delayed": "Delayed",
+      "payTitle": "Receive Payment / Mark Paid",
+      "cancelTitle": "Cancel Invoice",
+      "receiptTitle": "Receipt",
+      "emptyTitle": "No invoices found",
+      "emptyAll": "No invoices registered in the system. Generate budgets in the clinical chart to bill.",
+      "emptyFilter": "No invoices with status {status}.",
+      "table": {
+        "invoice": "Invoice / Patient",
+        "treatment": "Linked Treatment",
+        "dueDate": "Due Date",
+        "value": "Value ($)",
+        "status": "Status",
+        "actions": "Actions"
+      }
+    },
+    "payModal": {
+      "title": "Receive Payment",
+      "amountToReceive": "Amount to Receive",
+      "invoiceLabel": "Invoice #",
+      "paymentMethod": "Payment Method",
+      "methods": {
+        "pix": "PIX",
+        "credit": "Credit Card",
+        "debit": "Debit Card",
+        "cash": "Cash",
+        "transfer": "Bank Transfer"
+      },
+      "infoText": "Upon confirmation, the invoice status will change to **PAID** and an **Income** Financial Transaction will automatically be posted to the clinic's Cash Flow.",
+      "cancel": "Cancel",
+      "processing": "Processing...",
+      "confirm": "Confirm Receipt"
     }
   },
   "inventory": {
-    "title": "Inventory & Stock",
-    "subtitle": "Manage your products, materials, and purchase invoices.",
+    "title": "Stock & Invoice Entry",
+    "subtitle": "Control of supplies and incoming goods.",
     "newNfBtn": "New Invoice",
     "cancelBtn": "Cancel",
     "nfDataTitle": "Invoice Details",
@@ -329,16 +526,16 @@
     "providerLabel": "Provider",
     "addProductsTitle": "Add Products",
     "productLabel": "Product",
+    "quantityLabel": "Qty.",
+    "unitPriceLabel": "Unit Price ($)",
+    "addBtn": "Add",
     "selectProduct": "Select a product...",
-    "quantityLabel": "Quantity",
-    "unitPriceLabel": "Unit Price",
-    "addBtn": "Add Item",
     "subtotalLabel": "Subtotal",
-    "totalValueLabel": "Total Value",
-    "saveBtn": "Save Invoice & Update Stock",
+    "totalValueLabel": "Total Value:",
+    "saveBtn": "Save Invoice and Generate Expense",
     "tabs": {
-      "products": "Product List",
-      "invoices": "Purchase Invoices"
+      "products": "Products in Stock",
+      "invoices": "Incoming Invoices"
     },
     "productsTable": {
       "product": "Product",
@@ -346,132 +543,25 @@
       "currentStock": "Current Stock",
       "unit": "Unit",
       "status": "Status",
-      "loading": "Loading products...",
-      "empty": "No products found.",
+      "loading": "Loading stock...",
+      "empty": "No products registered.",
       "lowStatus": "LOW",
       "okStatus": "OK"
     },
     "invoicesTable": {
-      "nfNumber": "Number",
+      "nfNumber": "Invoice Num.",
       "provider": "Provider",
       "issueDate": "Issue Date",
       "items": "Items",
       "totalValue": "Total Value",
       "loading": "Loading invoices...",
-      "empty": "No invoices found."
+      "empty": "No invoices registered."
     },
     "errors": {
-      "emptyNf": "Add at least one item to the invoice.",
-      "successNf": "Invoice submitted successfully!",
-      "failNf": "Failed to submit invoice: "
+      "emptyNf": "Add at least one product to the Invoice.",
+      "successNf": "Invoice created successfully!",
+      "failNf": "Error creating invoice: "
     }
-  },
-  "dashboard": {
-    "bi": {
-      "title": "BI Indicators",
-      "newPatients": "New Patients",
-      "currentMonth": "Current Month",
-      "vsPrevMonth": "vs previous month"
-    },
-    "attendance": {
-      "occupancy": "Room Occupancy"
-    }
-  },
-  "footer": {
-    "description": "The all-in-one management platform designed for the modern dental ecosystem. Secure, fast, and reliable.",
-    "product": "Product",
-    "resources": "Resources",
-    "company": "Company",
-    "legal": {
-      "privacy": "Privacy Policy",
-      "terms": "Terms of Service",
-      "copyright": "© 2026 OdontoFlow Inc. All rights reserved."
-    },
-    "links": {
-      "features": "Features",
-      "pricing": "Pricing",
-      "integrations": "Integrations",
-      "enterprise": "Enterprise",
-      "blog": "Blog",
-      "caseStudies": "Case Studies",
-      "helpCenter": "Help Center",
-      "apiDocs": "API Docs",
-      "aboutUs": "About Us",
-      "careers": "Careers",
-      "legal": "Legal",
-      "contact": "Contact"
-    }
-  },
-  "auth": {
-    "title": "Access your account",
-    "subtitle": "Manage your clinic efficiently and simply.",
-    "emailLabel": "Email or Username",
-    "emailPlaceholder": "example@odontoflow.com",
-    "passwordLabel": "Password",
-    "passwordPlaceholder": "Enter your password",
-    "forgotPassword": "Forgot password?",
-    "loginButton": "Login to Platform",
-    "or": "OR",
-    "noAccount": "Don't have an account yet?",
-    "signUp": "Register your clinic",
-    "copyright": "Terms of Use Privacy Help",
-    "loading": "Logging in...",
-    "errorGeneric": "Login error. Please check your credentials.",
-    "footer": {
-      "terms": "Terms",
-      "privacy": "Privacy",
-      "help": "Help"
-    }
-  },
-  "signup": {
-    "title": "Create your account",
-    "subtitle": "Fill in the details below to start transforming your clinic management today.",
-    "clinicData": {
-      "title": "Clinic Data",
-      "fantasyNameLabel": "Fantasy Name",
-      "fantasyNamePlaceholder": "Ex: Healthy Smile Clinic",
-      "companyNameLabel": "Business Name",
-      "companyNamePlaceholder": "Business Name LLC",
-      "cnpjLabel": "Business Tax ID",
-      "cnpjPlaceholder": "00-0000000",
-      "addressLabel": "Clinic Address",
-      "addressPlaceholder": "Street, Number, City - State",
-      "phoneLabel": "Clinic Phone",
-      "phonePlaceholder": "(000) 000-0000"
-    },
-    "userData": {
-      "title": "Professional Data",
-      "nameLabel": "Full Name",
-      "namePlaceholder": "Your full name",
-      "emailLabel": "Email",
-      "emailPlaceholder": "you@email.com",
-      "passwordLabel": "Password",
-      "passwordPlaceholder": "********",
-      "phoneLabel": "Mobile Phone",
-      "phonePlaceholder": "(000) 000-0000",
-      "cpfLabel": "Personal Tax ID",
-      "cpfPlaceholder": "000-00-0000",
-      "croLabel": "Professional License",
-      "croPlaceholder": "ABC-12345"
-    },
-    "submitButton": "Create Account",
-    "haveAccount": "Already have an account?",
-    "loginLink": "Login",
-    "loading": "Sending...",
-    "errorGeneric": "An error occurred while trying to create the account.",
-    "termsAgreement": "By clicking \"{submitButton}\", you agree to our",
-    "termsLink": "Terms of Use",
-    "privacyLink": "Privacy Policy",
-    "hero": {
-      "title": "Elevate your clinic's standard",
-      "subtitle": "The management you deserve, the technology your patients trust. Join the OdontoFlow revolution."
-    }
-  },
-  "loginFeatures": {
-    "badge": "Leader in Dental Management",
-    "title": "Transform smiles while we take care of management.",
-    "description": "Join over 5,000 clinics that have automated scheduling, billing, and records with OdontoFlow.",
-    "testimonial": "Approved by experts"
   },
   "dashboard": {
     "header": {
@@ -764,128 +854,104 @@
       }
     }
   },
-  "inventory": {
-    "title": "Stock & Invoice Entry",
-    "subtitle": "Control of supplies and incoming goods.",
-    "newNfBtn": "New Invoice",
-    "cancelBtn": "Cancel",
-    "nfDataTitle": "Invoice Details",
-    "nfNumberLabel": "Invoice Number",
-    "providerLabel": "Provider",
-    "addProductsTitle": "Add Products",
-    "productLabel": "Product",
-    "quantityLabel": "Qty.",
-    "unitPriceLabel": "Unit Price ($)",
-    "addBtn": "Add",
-    "selectProduct": "Select a product...",
-    "subtotalLabel": "Subtotal",
-    "totalValueLabel": "Total Value:",
-    "saveBtn": "Save Invoice and Generate Expense",
-    "tabs": {
-      "products": "Products in Stock",
-      "invoices": "Incoming Invoices"
+  "footer": {
+    "description": "The all-in-one management platform designed for the modern dental ecosystem. Secure, fast, and reliable.",
+    "product": "Product",
+    "resources": "Resources",
+    "company": "Company",
+    "legal": {
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "copyright": "© 2026 OdontoFlow Inc. All rights reserved."
     },
-    "productsTable": {
-      "product": "Product",
-      "sku": "SKU",
-      "currentStock": "Current Stock",
-      "unit": "Unit",
-      "status": "Status",
-      "loading": "Loading stock...",
-      "empty": "No products registered.",
-      "lowStatus": "LOW",
-      "okStatus": "OK"
-    },
-    "invoicesTable": {
-      "nfNumber": "Invoice Num.",
-      "provider": "Provider",
-      "issueDate": "Issue Date",
-      "items": "Items",
-      "totalValue": "Total Value",
-      "loading": "Loading invoices...",
-      "empty": "No invoices registered."
-    },
-    "errors": {
-      "emptyNf": "Add at least one product to the Invoice.",
-      "successNf": "Invoice created successfully!",
-      "failNf": "Error creating invoice: "
+    "links": {
+      "features": "Features",
+      "pricing": "Pricing",
+      "integrations": "Integrations",
+      "enterprise": "Enterprise",
+      "blog": "Blog",
+      "caseStudies": "Case Studies",
+      "helpCenter": "Help Center",
+      "apiDocs": "API Docs",
+      "aboutUs": "About Us",
+      "careers": "Careers",
+      "legal": "Legal",
+      "contact": "Contact"
     }
   },
-  "financial": {
-    "title": "Financial Management",
-    "subtitle": "Complete control of cash, billing, and inventory.",
-    "tabs": {
-      "general": "General",
-      "patients": "Patients",
-      "insurances": "Insurances",
-      "inventory": "Inventory & Invoices"
-    },
-    "status": {
-      "paid": "Paid",
-      "pending": "Pending",
-      "canceled": "Canceled",
-      "ALL": "ALL",
-      "PAID": "PAID",
-      "PENDING": "PENDING",
-      "CANCELED": "CANCELED"
-    },
-    "errors": {
-      "loadTransactions": "Error loading transactions",
-      "cancelBill": "Error cancelling invoice.",
-      "loadBills": "Error loading invoices"
-    },
-    "accountFlow": {
-      "title": "Latest Cash Flow",
-      "general": "General",
-      "empty": "No transactions recorded.",
-      "table": {
-        "launch": "Launch",
-        "category": "Category",
-        "date": "Date",
-        "status": "Status",
-        "value": "Value"
-      }
-    },
-    "bills": {
-      "title": "Accounts Receivable",
-      "subtitle": "Invoice management and receipt tracking.",
-      "cancelPrompt": "Are you sure you want to cancel this invoice?",
-      "patientId": "Patient ID: ",
-      "plan": "Plan #",
-      "loose": "Loose",
-      "delayed": "Delayed",
-      "payTitle": "Receive Payment / Mark Paid",
-      "cancelTitle": "Cancel Invoice",
-      "receiptTitle": "Receipt",
-      "emptyTitle": "No invoices found",
-      "emptyAll": "No invoices registered in the system. Generate budgets in the clinical chart to bill.",
-      "emptyFilter": "No invoices with status {status}.",
-      "table": {
-        "invoice": "Invoice / Patient",
-        "treatment": "Linked Treatment",
-        "dueDate": "Due Date",
-        "value": "Value ($)",
-        "status": "Status",
-        "actions": "Actions"
-      }
-    },
-    "payModal": {
-      "title": "Receive Payment",
-      "amountToReceive": "Amount to Receive",
-      "invoiceLabel": "Invoice #",
-      "paymentMethod": "Payment Method",
-      "methods": {
-        "pix": "PIX",
-        "credit": "Credit Card",
-        "debit": "Debit Card",
-        "cash": "Cash",
-        "transfer": "Bank Transfer"
-      },
-      "infoText": "Upon confirmation, the invoice status will change to **PAID** and an **Income** Financial Transaction will automatically be posted to the clinic's Cash Flow.",
-      "cancel": "Cancel",
-      "processing": "Processing...",
-      "confirm": "Confirm Receipt"
+  "auth": {
+    "title": "Access your account",
+    "subtitle": "Manage your clinic efficiently and simply.",
+    "emailLabel": "Email or Username",
+    "emailPlaceholder": "example@odontoflow.com",
+    "passwordLabel": "Password",
+    "passwordPlaceholder": "Enter your password",
+    "forgotPassword": "Forgot password?",
+    "loginButton": "Login to Platform",
+    "or": "OR",
+    "noAccount": "Don't have an account yet?",
+    "signUp": "Register your clinic",
+    "copyright": "Terms of Use Privacy Help",
+    "loading": "Logging in...",
+    "errorGeneric": "Login error. Please check your credentials.",
+    "footer": {
+      "terms": "Terms",
+      "privacy": "Privacy",
+      "help": "Help"
     }
+  },
+  "signup": {
+    "title": "Create your account",
+    "subtitle": "Fill in the details below to start transforming your clinic management today.",
+    "clinicData": {
+      "title": "Clinic Data",
+      "fantasyNameLabel": "Fantasy Name",
+      "fantasyNamePlaceholder": "Ex: Healthy Smile Clinic",
+      "companyNameLabel": "Business Name",
+      "companyNamePlaceholder": "Business Name LLC",
+      "cnpjLabel": "Business Tax ID",
+      "cnpjPlaceholder": "00-0000000",
+      "addressLabel": "Clinic Address",
+      "addressPlaceholder": "Street, Number, City - State",
+      "phoneLabel": "Clinic Phone",
+      "phonePlaceholder": "(000) 000-0000"
+    },
+    "userData": {
+      "title": "Professional Data",
+      "nameLabel": "Full Name",
+      "namePlaceholder": "Your full name",
+      "emailLabel": "Email",
+      "emailPlaceholder": "you@email.com",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "********",
+      "confirmPasswordLabel": "Confirm Password",
+      "confirmPasswordPlaceholder": "Confirm your password",
+      "phoneLabel": "Mobile Phone",
+      "phonePlaceholder": "(000) 000-0000",
+      "cpfLabel": "Personal Tax ID",
+      "cpfPlaceholder": "000-00-0000",
+      "croLabel": "Professional License",
+      "croPlaceholder": "ABC-12345"
+    },
+    "submitButton": "Create Account",
+    "haveAccount": "Already have an account?",
+    "loginLink": "Login",
+    "loading": "Sending...",
+    "errorGeneric": "An error occurred while trying to create the account.",
+    "passwordsNotMatch": "Passwords do not match.",
+    "termsAgreement": "By clicking \"{submitButton}\", you agree to our",
+    "termsLink": "Terms of Use",
+    "privacyLink": "Privacy Policy",
+    "hero": {
+      "title": "Elevate your clinic's standard",
+      "subtitle": "The management you deserve, the technology your patients trust. Join the OdontoFlow revolution."
+    }
+  },
+  "loginFeatures": {
+    "badge": "Leader in Dental Management",
+    "title": "Transform smiles while we take care of management.",
+    "description": "Join over 5,000 clinics that have automated scheduling, billing, and records with OdontoFlow.",
+    "testimonial": "Approved by experts"
   },
   "placeholder": {
     "construction": "Page Under Construction",

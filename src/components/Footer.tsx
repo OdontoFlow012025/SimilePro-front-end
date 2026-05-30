@@ -1,6 +1,15 @@
+"use client";
+
 import Link from 'next/link';
 
 export default function Footer({ dict, locale }: { dict: any, locale: string }) {
+  const alertMsg = locale === 'pt-BR' ? 'Página em construção' : locale === 'es' ? 'Página en construcción' : 'Page under construction';
+
+  const handleUnderConstruction = (e: React.MouseEvent) => {
+    e.preventDefault();
+    alert(alertMsg);
+  };
+
   return (
     <footer className="bg-slate-950 pt-24 pb-12 text-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -24,30 +33,30 @@ export default function Footer({ dict, locale }: { dict: any, locale: string }) 
           <div>
             <h3 className="text-sm font-black text-white uppercase tracking-wider mb-6">{dict.footer.product}</h3>
             <ul className="flex flex-col gap-4">
-              <li><Link className="text-sm text-slate-400 hover:text-blue-400 transition-colors" href="#">{dict.footer.links.features}</Link></li>
-              <li><Link className="text-sm text-slate-400 hover:text-blue-400 transition-colors" href="#">{dict.footer.links.pricing}</Link></li>
-              <li><Link className="text-sm text-slate-400 hover:text-blue-400 transition-colors" href="#">{dict.footer.links.integrations}</Link></li>
-              <li><Link className="text-sm text-slate-400 hover:text-blue-400 transition-colors" href="#">{dict.footer.links.enterprise}</Link></li>
+              <li><Link className="text-sm text-slate-400 hover:text-blue-400 transition-colors" href={`/${locale}/features`}>{dict.footer.links.features}</Link></li>
+              <li><Link className="text-sm text-slate-400 hover:text-blue-400 transition-colors" href={`/${locale}/pricing`}>{dict.footer.links.pricing}</Link></li>
+              <li><a className="text-sm text-slate-400 hover:text-blue-400 transition-colors cursor-pointer" onClick={handleUnderConstruction}>{dict.footer.links.integrations}</a></li>
+              <li><a className="text-sm text-slate-400 hover:text-blue-400 transition-colors cursor-pointer" onClick={handleUnderConstruction}>{dict.footer.links.enterprise}</a></li>
             </ul>
           </div>
 
           <div>
             <h3 className="text-sm font-black text-white uppercase tracking-wider mb-6">{dict.footer.resources}</h3>
             <ul className="flex flex-col gap-4">
-              <li><Link className="text-sm text-slate-400 hover:text-blue-400 transition-colors" href="#">{dict.footer.links.blog}</Link></li>
-              <li><Link className="text-sm text-slate-400 hover:text-blue-400 transition-colors" href="#">{dict.footer.links.caseStudies}</Link></li>
-              <li><Link className="text-sm text-slate-400 hover:text-blue-400 transition-colors" href="#">{dict.footer.links.helpCenter}</Link></li>
-              <li><Link className="text-sm text-slate-400 hover:text-blue-400 transition-colors" href="#">{dict.footer.links.apiDocs}</Link></li>
+              <li><a className="text-sm text-slate-400 hover:text-blue-400 transition-colors cursor-pointer" onClick={handleUnderConstruction}>{dict.footer.links.blog}</a></li>
+              <li><a className="text-sm text-slate-400 hover:text-blue-400 transition-colors cursor-pointer" onClick={handleUnderConstruction}>{dict.footer.links.caseStudies}</a></li>
+              <li><Link className="text-sm text-slate-400 hover:text-blue-400 transition-colors" href={`/${locale}/support`}>{dict.footer.links.helpCenter}</Link></li>
+              <li><Link className="text-sm text-slate-400 hover:text-blue-400 transition-colors" href={`/${locale}/api-docs`}>{dict.footer.links.apiDocs}</Link></li>
             </ul>
           </div>
 
           <div>
             <h3 className="text-sm font-black text-white uppercase tracking-wider mb-6">{dict.footer.company}</h3>
             <ul className="flex flex-col gap-4">
-              <li><Link className="text-sm text-slate-400 hover:text-blue-400 transition-colors" href="#">{dict.footer.links.aboutUs}</Link></li>
-              <li><Link className="text-sm text-slate-400 hover:text-blue-400 transition-colors" href="#">{dict.footer.links.careers}</Link></li>
-              <li><Link className="text-sm text-slate-400 hover:text-blue-400 transition-colors" href="#">{dict.footer.links.legal}</Link></li>
-              <li><Link className="text-sm text-slate-400 hover:text-blue-400 transition-colors" href="#">{dict.footer.links.contact}</Link></li>
+              <li><a className="text-sm text-slate-400 hover:text-blue-400 transition-colors cursor-pointer" onClick={handleUnderConstruction}>{dict.footer.links.aboutUs}</a></li>
+              <li><a className="text-sm text-slate-400 hover:text-blue-400 transition-colors cursor-pointer" onClick={handleUnderConstruction}>{dict.footer.links.careers}</a></li>
+              <li><Link className="text-sm text-slate-400 hover:text-blue-400 transition-colors" href={`/${locale}/compliance`}>{dict.footer.links.legal}</Link></li>
+              <li><Link className="text-sm text-slate-400 hover:text-blue-400 transition-colors" href={`/${locale}/support`}>{dict.footer.links.contact}</Link></li>
             </ul>
           </div>
         </div>
@@ -57,8 +66,8 @@ export default function Footer({ dict, locale }: { dict: any, locale: string }) 
             {dict.footer.legal.copyright}
           </p>
           <div className="flex gap-8">
-            <Link className="text-sm text-slate-500 hover:text-blue-400 transition-colors" href="#">{dict.footer.legal.privacy}</Link>
-            <Link className="text-sm text-slate-500 hover:text-blue-400 transition-colors" href="#">{dict.footer.legal.terms}</Link>
+            <a className="text-sm text-slate-500 hover:text-blue-400 transition-colors cursor-pointer" onClick={handleUnderConstruction}>{dict.footer.legal.privacy}</a>
+            <a className="text-sm text-slate-500 hover:text-blue-400 transition-colors cursor-pointer" onClick={handleUnderConstruction}>{dict.footer.legal.terms}</a>
           </div>
         </div>
       </div>
