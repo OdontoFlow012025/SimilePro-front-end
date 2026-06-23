@@ -1,8 +1,8 @@
 const API_URL = typeof window !== 'undefined' 
   ? '/api' // Browser -> Next.js Proxy -> Backend
-  : (process.env.NEXT_PUBLIC_API_URL || 'http://odontoflow_backend:8080'); // Server-side -> Direct to Backend
+  : (process.env.NEXT_PUBLIC_API_URL || 'http://similepro_backend:8080'); // Server-side -> Direct to Backend
 
-async function request(endpoint: string, options: RequestInit = {}) {
+export async function request(endpoint: string, options: RequestInit = {}) {
   const headers: Record<string, string> = {
     'Content-Type': 'application/json',
     'Bypass-Tunnel-Reminder': 'true',

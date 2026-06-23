@@ -92,7 +92,7 @@ export default async function SupportPage({ params }: { params: Promise<{ locale
               <h3 className="text-2xl font-bold mb-2">{support.contact.whatsapp.title}</h3>
               <p className="text-green-50 mb-6">{support.contact.whatsapp.desc}</p>
               <a 
-                href="https://wa.me/5511999999999?text=Olá,%20preciso%20de%20ajuda%20com%20o%20OdontoFlow!" 
+                href="https://wa.me/5511999999999?text=Olá,%20preciso%20de%20ajuda%20com%20o%20Simile Pro!" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-full bg-white text-green-600 font-bold py-3 px-6 rounded-xl hover:bg-green-50 transition-colors inline-block text-center"

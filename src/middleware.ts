@@ -7,13 +7,13 @@ import i18nConfig from '../i18nConfig';
 const PUBLIC_PATHS = ['/', '/login', '/signup', '/pricing', '/compliance', '/support', '/features', '/api-docs'];
 
 const PUBLIC_KEY_PEM = process.env.JWT_PUBLIC_KEY || `-----BEGIN PUBLIC KEY-----
-MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwIoHYbqhXApNeXUa30ob
-yzdmf0ajn8MvJQ5XabruXt0e3Amd4GIjrYoFC0FU6rcCUhD7sU+VnHfjgfVacKCN
-hfvsJdSSU6W7opyRCQ+UXWMASdZ8FfFMiwbamqkF2mvSbXZPCIP2SdM3p5jhMsHs
-MeHYmSMz1ZWkOWLkw/+/YMADnfUK9PB/1gUKKKo7XsRz68In9x2hQOvBWMk+1U1r
-x5aBRMA82Bj/OGdLcpmn3QdW+PLgaJ/qhd1W0dcDulaR2kan0X4PKBpiDbugr6FN
-/dbYVbzj+JkXe6ISeZZN09ysyPWMdrKcW+vw9ubayKJ747ONh62n+TNcFJQpLrJi
-ZwIDAQAB
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAz7NA0ouS2klaSmczz9GB
+hceUTKFrnTMclTfcPY2IgdCYfcQS2AepBpkmYp9u5h7xBJRtAl+L0thE+YtFjb/q
+PIysu6/0cFP4RiyvIVjwi1SHAytzunZcUuzTe1b5lA4WxNDehgugKYffKqv5fC39
+8NuIEAWAz32aeMvCSo9mu9yA8xJCaa1OQJYN/m0XuuBRxHXkLz+7MAjQbaw3ohnx
+6Yz6+MOohp5Tluh3R7MoJ3S/RFY47Q1IY+tODJ8XIUwPQODou519ZEy3X9YXS7lZ
+QJIxlv4bXBqDk1Lr8i2Qxnffa/UyVE52ycW/9BdmKvWAd7A4nZ6jr3h6dI5PUY/K
+nwIDAQAB
 -----END PUBLIC KEY-----`;
 
 async function verifyAuth(token: string): Promise<boolean> {

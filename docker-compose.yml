@@ -12,10 +12,10 @@ services:
       - PORT=3001   # Força o Next.js a rodar internamente na porta 3001
       - NEXT_PUBLIC_API_URL=http://odontoflow_backend:8080 # Faz o front achar o Go na rede interna
     networks:
-      - odontoflow_shared
+      - similepro_shared
     restart: always
 
 networks:
-  odontoflow_shared:
+  similepro_shared:
     external:
-      name: odontoflow_global_net
+      name: similepro_global_net
