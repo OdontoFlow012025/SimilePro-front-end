@@ -43,7 +43,7 @@ export default async function RootLayout({
                 {children}
             </div>
           </TransitionProvider>
-          {dictionary.systemAlert && <SystemAlert dict={dictionary.systemAlert} />}
+          {/* {dictionary.systemAlert && <SystemAlert dict={dictionary.systemAlert} />} - Oculto até a homologação */}
           <ScrollToTop />
         </ThemeProvider>
       </body>

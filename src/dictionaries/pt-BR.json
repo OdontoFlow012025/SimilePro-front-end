@@ -380,6 +380,7 @@
     "title": "Planos que cabem no seu bolso",
     "subtitle": "Escolha a melhor opção para a sua clínica ou para seus estudos.",
     "bestChoice": "MELHOR ESCOLHA",
+    "comingSoon": "Em breve",
     "plans": {
       "free": {
         "name": "Gratuito",
@@ -1294,6 +1295,110 @@
       "footer2": "Para verificar a autenticidade acesse o portal da prefeitura.",
       "viewTitle": "Visualização de NFS-e",
       "printSave": "Salvar em PDF / Imprimir"
+    }
+  },
+  "settings": {
+    "header": {
+      "title": "Configurações Integradas",
+      "subtitle": "Gerencie todos os parâmetros, integrações e dados operacionais da clínica.",
+      "readOnly": "Somente Leitura",
+      "cancel": "Cancelar",
+      "save": "Salvar Alterações"
+    },
+    "clinicData": {
+      "title": "Dados da Clínica",
+      "editAll": "Editar Tudo",
+      "visualIdentity": "Identidade Visual",
+      "noLogo": "SEM LOGO",
+      "currentLogo": "logo_atual.png",
+      "noImage": "Nenhuma imagem",
+      "changeLogo": "Alterar Logo",
+      "generalInfo": "Informações Gerais",
+      "clinicName": "Nome da Clínica",
+      "cnpj": "CNPJ",
+      "contactAddress": "Contato e Endereço",
+      "mainPhone": "Telefone Principal",
+      "fullAddress": "Endereço Completo"
+    },
+    "users": {
+      "title": "Usuários e Permissões",
+      "add": "Adicionar",
+      "subtitle": "Gerencie o acesso de dentistas, recepcionistas e administradores.",
+      "notFound": "Nenhum usuário localizado.",
+      "noName": "Usuário Sem Nome",
+      "employee": "Funcionário",
+      "active": "Ativo",
+      "inactive": "Inativo",
+      "seeAll": "Ver todos os {count} usuários"
+    },
+    "services": {
+      "title": "Serviços e Preços",
+      "add": "Novo Serviço",
+      "subtitle": "Configure os procedimentos e a tabela de valores padrão da clínica.",
+      "notFound": "Nenhum serviço cadastrado.",
+      "service": "Serviço",
+      "general": "Geral",
+      "seeAll": "Tabela Completa ({count})"
+    },
+    "integrations": {
+      "title": "Integrações",
+      "add": "Nova Integração",
+      "subtitle": "Conecte-se com sistemas de parceiros, equipamentos e meios de pagamento.",
+      "xray": "Raio-X Digital",
+      "pagseguro": "PagSeguro",
+      "connected": "Conectado",
+      "disconnected": "Desconectado",
+      "configure": "Configurar",
+      "connect": "Conectar"
+    },
+    "preferences": {
+      "title": "Preferências Gerais",
+      "systemTheme": "Tema do Sistema",
+      "themeDesc": "Aparência do painel administrativo.",
+      "emailNotif": "Notificações por Email",
+      "emailDesc": "Receba alertas de agendamentos.",
+      "autoBackup": "Backup Automático",
+      "backupDesc": "Gera um backup seguro diariamente.",
+      "export": "Exportar Dados do Sistema"
+    },
+    "bi": {
+      "title": "Relatórios e BI",
+      "subtitle": "Personalize os painéis de BI exibidos no dashboard principal.",
+      "financialData": "Destaque de Dados Financeiros",
+      "financialDesc": "Exibir faturamento em tela cheia.",
+      "defaultWindow": "Janela de Análise Padrão",
+      "days7": "Últimos 7 dias",
+      "days30": "Últimos 30 dias",
+      "days90": "Último Trimestre",
+      "days365": "Último Ano"
+    },
+    "rooms": {
+      "title": "Salas e Equipamentos",
+      "add": "Nova Sala",
+      "subtitle": "Gerencie os ambientes e restrições de horários de cada espaço.",
+      "notFound": "Nenhuma sala cadastrada.",
+      "noEquip": "Sem equipamentos listados",
+      "seeAll": "Ver todas as {count} salas",
+      "cleaning": "Exigir intervalo de limpeza entre consultas (15min)"
+    },
+    "portal": {
+      "title": "Portal do Paciente",
+      "subtitle": "Configure o que os pacientes podem acessar no aplicativo móvel ou web.",
+      "active": "Ativar Área Privada do Paciente",
+      "onlinePayment": "Acesso a Pagamentos Online",
+      "clinicalHistory": "Visualizar Histórico Clínico",
+      "openInvoices": "Visualizar Faturas em Aberto"
+    },
+    "suppliers": {
+      "title": "Configurações de Fornecedores",
+      "add": "Nova Categoria",
+      "categories": "Categorias de Insumos",
+      "disposables": "Materiais Descartáveis",
+      "medicalEquip": "Equipamentos Médicos",
+      "maintenance": "Serviços de Manutenção",
+      "paymentTerms": "Condições de Pagamento",
+      "defaultTerm": "Prazo Padrão (dias)",
+      "requireInvoice": "Exigir Nota Fiscal para pagamento"
     }
   }
 }

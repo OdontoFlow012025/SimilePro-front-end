@@ -1,4 +1,4 @@
-version: '3.8'
+# docker-compose.yml
 
 services:
   frontend:
@@ -11,11 +11,12 @@ services:
     environment:
       - PORT=3001   # Força o Next.js a rodar internamente na porta 3001
       - NEXT_PUBLIC_API_URL=http://odontoflow_backend:8080 # Faz o front achar o Go na rede interna
+      - TZ=America/Sao_Paulo # Define o fuso horário para São Paulo
     networks:
       - similepro_shared
     restart: always
 
 networks:
   similepro_shared:
-    external:
-      name: similepro_global_net
+    name: similepro_global_net
+    external: true

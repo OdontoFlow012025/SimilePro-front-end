@@ -380,6 +380,7 @@
     "title": "Plans that fit your pocket",
     "subtitle": "Choose the best option for your clinic or your studies.",
     "bestChoice": "BEST CHOICE",
+    "comingSoon": "Coming soon",
     "plans": {
       "free": {
         "name": "Free",
@@ -1289,6 +1290,110 @@
       "footer2": "To verify authenticity access the city hall portal.",
       "viewTitle": "NFS-e Visualization",
       "printSave": "Save as PDF / Print"
+    }
+  },
+  "settings": {
+    "header": {
+      "title": "Integrated Settings",
+      "subtitle": "Manage all parameters, integrations, and operational data of the clinic.",
+      "readOnly": "Read Only",
+      "cancel": "Cancel",
+      "save": "Save Changes"
+    },
+    "clinicData": {
+      "title": "Clinic Data",
+      "editAll": "Edit All",
+      "visualIdentity": "Visual Identity",
+      "noLogo": "NO LOGO",
+      "currentLogo": "current_logo.png",
+      "noImage": "No image",
+      "changeLogo": "Change Logo",
+      "generalInfo": "General Information",
+      "clinicName": "Clinic Name",
+      "cnpj": "Registration Number",
+      "contactAddress": "Contact and Address",
+      "mainPhone": "Main Phone",
+      "fullAddress": "Full Address"
+    },
+    "users": {
+      "title": "Users and Permissions",
+      "add": "Add",
+      "subtitle": "Manage access for dentists, receptionists, and administrators.",
+      "notFound": "No user found.",
+      "noName": "Nameless User",
+      "employee": "Employee",
+      "active": "Active",
+      "inactive": "Inactive",
+      "seeAll": "See all {count} users"
+    },
+    "services": {
+      "title": "Services and Prices",
+      "add": "New Service",
+      "subtitle": "Configure the procedures and the clinic default price table.",
+      "notFound": "No service registered.",
+      "service": "Service",
+      "general": "General",
+      "seeAll": "Complete Table ({count})"
+    },
+    "integrations": {
+      "title": "Integrations",
+      "add": "New Integration",
+      "subtitle": "Connect with partner systems, equipment, and payment methods.",
+      "xray": "Digital X-Ray",
+      "pagseguro": "PagSeguro",
+      "connected": "Connected",
+      "disconnected": "Disconnected",
+      "configure": "Configure",
+      "connect": "Connect"
+    },
+    "preferences": {
+      "title": "General Preferences",
+      "systemTheme": "System Theme",
+      "themeDesc": "Appearance of the administrative panel.",
+      "emailNotif": "Email Notifications",
+      "emailDesc": "Receive scheduling alerts.",
+      "autoBackup": "Automatic Backup",
+      "backupDesc": "Generates a secure daily backup.",
+      "export": "Export System Data"
+    },
+    "bi": {
+      "title": "Reports and BI",
+      "subtitle": "Customize the BI panels displayed on the main dashboard.",
+      "financialData": "Financial Data Highlight",
+      "financialDesc": "Display revenue in full screen.",
+      "defaultWindow": "Default Analysis Window",
+      "days7": "Last 7 days",
+      "days30": "Last 30 days",
+      "days90": "Last Quarter",
+      "days365": "Last Year"
+    },
+    "rooms": {
+      "title": "Rooms and Equipment",
+      "add": "New Room",
+      "subtitle": "Manage environments and scheduling restrictions for each space.",
+      "notFound": "No room registered.",
+      "noEquip": "No equipment listed",
+      "seeAll": "See all {count} rooms",
+      "cleaning": "Require cleaning interval between appointments (15min)"
+    },
+    "portal": {
+      "title": "Patient Portal",
+      "subtitle": "Configure what patients can access on the mobile or web app.",
+      "active": "Activate Private Patient Area",
+      "onlinePayment": "Access to Online Payments",
+      "clinicalHistory": "View Clinical History",
+      "openInvoices": "View Open Invoices"
+    },
+    "suppliers": {
+      "title": "Supplier Settings",
+      "add": "New Category",
+      "categories": "Supply Categories",
+      "disposables": "Disposable Materials",
+      "medicalEquip": "Medical Equipment",
+      "maintenance": "Maintenance Services",
+      "paymentTerms": "Payment Terms",
+      "defaultTerm": "Default Term (days)",
+      "requireInvoice": "Require Invoice for payment"
     }
   }
 }

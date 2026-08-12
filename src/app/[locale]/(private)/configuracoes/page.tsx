@@ -1,10 +1,11 @@
-import React from 'react';
-import ConfiguracoesClient from '@/components/configuracoes/ConfiguracoesClient';
+import ConfiguracoesClient from './_components/ConfiguracoesClient';
+import { getDictionary } from '@/utils/get-dictionary';
 
-export default function ConfiguracoesPage() {
-  return (
-    <div className="min-h-screen bg-gray-50/50">
-      <ConfiguracoesClient />
-    </div>
-  );
+export default async function ConfiguracoesPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  
+  // Fetch dictionary server-side
+  const dict = await getDictionary(locale);
+
+  return <ConfiguracoesClient dict={dict} />;
 }
