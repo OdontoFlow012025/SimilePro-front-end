@@ -130,7 +130,7 @@ export default function UnitFormModal({
                  </div>
                  <div>
                    <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-1">{formDict?.razaoLabel || "Razão Social *"}</label>
-                   <input type="text" name="razaoSocial" value={formData.razaoSocial} onChange={handleChange} required className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5" placeholder={formDict?.razaoPlaceholder || "Ex: OdontoFlow Clínica LTDA"}/>
+                   <input type="text" name="razaoSocial" value={formData.razaoSocial} onChange={handleChange} required className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5" placeholder={formDict?.razaoPlaceholder || "Ex: Simile Pro Clínica LTDA"}/>
                  </div>
                  
                  <div>

@@ -1,7 +1,7 @@
 {
   "meta": {
     "_cache_buster": "v1",
-    "title": "OdontoFlow - Gestión Moderna de Clínicas Dentales"
+    "title": "Simile Pro - Gestión Moderna de Clínicas Dentales"
   },
   "systemAlert": {
     "title": "ATENCIÓN:",
@@ -96,7 +96,7 @@
     "cards": {
       "lgpd": {
         "title": "LGPD en la Salud",
-        "desc": "OdontoFlow cumple íntegramente con la Ley General de Protección de Datos. Los datos confidenciales se almacenan en nubes cifradas (AES-256) con estricto control de acceso."
+        "desc": "Simile Pro cumple íntegramente con la Ley General de Protección de Datos. Los datos confidenciales se almacenan en nubes cifradas (AES-256) con estricto control de acceso."
       },
       "icp": {
         "title": "Certificación ICP-Brasil",
@@ -120,7 +120,7 @@
       },
       "iso": {
         "title": "Prácticas ISO 27001",
-        "desc": "Los procesos de ingeniería de OdontoFlow están inspirados en los requisitos de ISO 27001, el estándar más alto para la Seguridad de la Información."
+        "desc": "Los procesos de ingeniería de Simile Pro están inspirados en los requisitos de ISO 27001, el estándar más alto para la Seguridad de la Información."
       },
       "backup": {
         "title": "Retención Legal (SLA 99.9%)",
@@ -175,7 +175,7 @@
           "a": "Puede cambiar su plan en cualquier momento yendo a Configuración > Suscripción. El cobro será prorrateado."
         },
         {
-          "q": "¿OdontoFlow hace copias de seguridad automáticas?",
+          "q": "¿Simile Pro hace copias de seguridad automáticas?",
           "a": "¡Sí! Realizamos copias de seguridad por hora en diferentes regiones de la nube, asegurando retención por hasta 20 años."
         },
         {
@@ -205,7 +205,7 @@
   "supportArticles": {
     "getting-started": {
       "title": "Primeros Pasos y Configuración Inicial",
-      "subtitle": "Guía completa para el despliegue de su clínica en el ecosistema OdontoFlow, garantizando cumplimiento total desde el primer día.",
+      "subtitle": "Guía completa para el despliegue de su clínica en el ecosistema Simile Pro, garantizando cumplimiento total desde el primer día.",
       "sections": [
         {
           "h": "1. Datos de su Clínica",
@@ -245,7 +245,7 @@
     },
     "health-records": {
       "title": "Historias Clínicas Electrónicas e Interoperabilidad",
-      "subtitle": "El corazón clínico de OdontoFlow: precisión diagnóstica con validez legal plena.",
+      "subtitle": "El corazón clínico de Simile Pro: precisión diagnóstica con validez legal plena.",
       "sections": [
         {
           "h": "1. El Odontograma en la Práctica",
@@ -273,7 +273,7 @@
         },
         {
           "h": "2. Compras e Inventario",
-          "p": "Cuando llega una caja de guantes, ingresas la factura al sistema. OdontoFlow guarda los guantes en tu armario virtual y te recuerda en la pestaña financiera que debes pagarle al proveedor la próxima semana."
+          "p": "Cuando llega una caja de guantes, ingresas la factura al sistema. Simile Pro guarda los guantes en tu armario virtual y te recuerda en la pestaña financiera que debes pagarle al proveedor la próxima semana."
         },
         {
           "h": "3. Siguiendo el Dinero",
@@ -285,11 +285,11 @@
     },
     "system-flowchart": {
       "title": "Entienda el diagrama de flujo",
-      "subtitle": "Descubra cómo se conectan los módulos de OdontoFlow de extremo a extremo.",
+      "subtitle": "Descubra cómo se conectan los módulos de Simile Pro de extremo a extremo.",
       "sections": [
         {
           "h": "Visión General de la Arquitectura",
-          "p": "OdontoFlow fue diseñado para eliminar el retrabajo. El gráfico a continuación detalla cómo una acción en la recepción se refleja automáticamente en los módulos clínicos y financieros.",
+          "p": "Simile Pro fue diseñado para eliminar el retrabajo. El gráfico a continuación detalla cómo una acción en la recepción se refleja automáticamente en los módulos clínicos y financieros.",
           "mermaid": "graph TD\n    classDef auth fill:#e1f5fe,stroke:#039be5,stroke-width:2px;\n    classDef dashboard fill:#fff3e0,stroke:#f57c00,stroke-width:2px;\n    classDef clinical fill:#e8f5e9,stroke:#388e3c,stroke-width:2px;\n    classDef reception fill:#fce4ec,stroke:#c2185b,stroke-width:2px;\n    classDef admin fill:#e8eaf6,stroke:#3f51b5,stroke-width:2px;\n    classDef integration fill:#f3e5f5,stroke:#8e24aa,stroke-width:2px,stroke-dasharray: 5 5;\n    A([Acesso]) --> B{Logado?}\n    B -- Nao --> C[Página de Login]\n    C --> D[Criação de Conta]\n    D --> E[Validação]\n    E --> F([Dashboard])\n    B -- Sim --> F\n    C:::auth\n    D:::auth\n    E:::auth\n    F:::dashboard\n    F --> G[Recepção]\n    F --> H[Triagem]\n    F --> I[Clínico Médico]\n    F --> J[Administrativo Financeiro]\n    G:::reception\n    G --> G1[Agendamento]\n    G --> G2[Check-in]\n    G --> G3[Cadastro RNDS]\n    G2 --> H\n    H:::clinical\n    H --> H1[Sinais Vitais]\n    H --> H2[Classificação Risco]\n    H1 --> H3[Fila de Atendimento]\n    H2 --> H3\n    H3 --> I\n    I:::clinical\n    I --> I1[Odontograma / Diagnóstico]\n    I --> I2[Evolução Clínica]\n    I --> I3[Atestados / Receitas]\n    I --> I4[Plano Tratamento / Orçamentos]\n    I1 --> I5[[Assinatura ICP-Brasil]]\n    I2 --> I5\n    I3 --> I5\n    I5 --> I6[[Sincronização RNDS Min. Saúde]]\n    I5:::integration\n    I6:::integration\n    I4 --> J1[Geração Faturas / TISS]\n    J:::admin\n    J1 --> J2[Contas a Receber]\n    J --> J3[Estoque]\n    J --> J4[Lançamento NFs]\n    J3 --> J5[Atualização Insumos]\n    J4 --> J6[Contas a Pagar]\n    J2 --> J7[Fluxo de Caixa / Relatórios]\n    J6 --> J7"
         },
         {
@@ -337,7 +337,7 @@
   "security": {
     "badge": "Autoridad Técnica",
     "title": "Seguridad y Validez Jurídica",
-    "description": "OdontoFlow utiliza tecnología de cifrado de nivel bancario y está plenamente alineado con las exigencias del Ministerio de Salud para el tráfico de datos clínicos nacionales.",
+    "description": "Simile Pro utiliza tecnología de cifrado de nivel bancario y está plenamente alineado con las exigencias del Ministerio de Salud para el tráfico de datos clínicos nacionales.",
     "signature": {
       "title": "Firma Digital ICP-Brasil",
       "description": "Utilizamos certificados digitales estándar ICP-Brasil para garantizar la autenticidad y el no repudio en el envío de información a la RNDS."
@@ -364,7 +364,7 @@
   },
   "testimonials": {
     "title": "Confiado por líderes de la industria",
-    "t1": "OdontoFlow transformó completamente cómo gestionamos nuestras tres clínicas. Los informes financieros por sí solos nos ahorraron horas de trabajo manual cada semana.",
+    "t1": "Simile Pro transformó completamente cómo gestionamos nuestras tres clínicas. Los informes financieros por sí solos nos ahorraron horas de trabajo manual cada semana.",
     "t1_role": "Directora Clínica, BrightSmile",
     "t2": "La interfaz es tan intuitiva que mi nuevo personal aprende a usarla en menos de un día. El odontograma digital es un cambio de juego para las consultas con pacientes.",
     "t2_role": "Propietario, Mendez Orthodontics",
@@ -379,7 +379,8 @@
   "pricing": {
     "title": "Planes que caben en tu bolsillo",
     "subtitle": "Elige la mejor opción para tu clínica o para tus estudios.",
-    "bestChoice": "MEJOR OPCIÓN",
+    "bestChoice": "MEJOR ELECCIÓN",
+    "comingSoon": "Próximamente",
     "plans": {
       "free": {
         "name": "Gratuito",
@@ -862,7 +863,7 @@
     "legal": {
       "privacy": "Política de Privacidad",
       "terms": "Términos de Servicio",
-      "copyright": "© 2026 OdontoFlow Inc. Todos los derechos reservados."
+      "copyright": "© 2026 Simile Pro Inc. Todos los derechos reservados."
     },
     "links": {
       "features": "Características",
@@ -883,7 +884,7 @@
     "title": "Acceda a su cuenta",
     "subtitle": "Administre su clínica con eficiencia y simplicidad.",
     "emailLabel": "Correo electrónico o Usuario",
-    "emailPlaceholder": "ejemplo@odontoflow.com",
+    "emailPlaceholder": "ejemplo@similepro.com",
     "passwordLabel": "Contraseña",
     "passwordPlaceholder": "Ingrese su contraseña",
     "forgotPassword": "¿Olvidó su contraseña?",
@@ -946,13 +947,13 @@
     "privacyLink": "Política de Privacidad",
     "hero": {
       "title": "Eleve el estándar de su clínica",
-      "subtitle": "La gestión que usted merece, la tecnología en la que sus pacientes confían. Únase a la revolución de OdontoFlow."
+      "subtitle": "La gestión que usted merece, la tecnología en la que sus pacientes confían. Únase a la revolución de Simile Pro."
     }
   },
   "loginFeatures": {
     "badge": "Líder en Gestión Odontológica",
     "title": "Transforme sonrisas mientras nosotros cuidamos la gestión.",
-    "description": "Únase a más de 5,000 clínicas que han automatizado citas, facturación y registros con OdontoFlow.",
+    "description": "Únase a más de 5,000 clínicas que han automatizado citas, facturación y registros con Simile Pro.",
     "testimonial": "Aprobado por expertos"
   },
   "placeholder": {
@@ -1119,7 +1120,7 @@
       "nameLabel": "Nombre Comercial de la Unidad *",
       "namePlaceholder": "Ej: Clínica Centro",
       "razaoLabel": "Razón Social *",
-      "razaoPlaceholder": "Ej: OdontoFlow Clínica S.A.",
+      "razaoPlaceholder": "Ej: Simile Pro Clínica S.A.",
       "cnpjLabel": "Identificación Fiscal *",
       "cnpjPlaceholder": "00.000.000/0001-00",
       "phoneLabel": "Teléfono de la Unidad",
@@ -1287,10 +1288,114 @@
       "issRetained": "Impuesto Retenido",
       "yes": "SÍ",
       "no": "NO",
-      "footer1": "Documento emitido electrónicamente por el sistema OdontoFlow.",
+      "footer1": "Documento emitido electrónicamente por el sistema Simile Pro.",
       "footer2": "Para verificar su autenticidad, acceda al portal de la alcaldía.",
       "viewTitle": "Visualización de NFS-e",
       "printSave": "Guardar en PDF / Imprimir"
+    }
+  },
+  "settings": {
+    "header": {
+      "title": "Configuraciones Integradas",
+      "subtitle": "Gestione todos los parámetros, integraciones y datos operativos de la clínica.",
+      "readOnly": "Solo Lectura",
+      "cancel": "Cancelar",
+      "save": "Guardar Cambios"
+    },
+    "clinicData": {
+      "title": "Datos de la Clínica",
+      "editAll": "Editar Todo",
+      "visualIdentity": "Identidad Visual",
+      "noLogo": "SIN LOGO",
+      "currentLogo": "logo_actual.png",
+      "noImage": "Ninguna imagen",
+      "changeLogo": "Cambiar Logo",
+      "generalInfo": "Información General",
+      "clinicName": "Nombre de la Clínica",
+      "cnpj": "RUT/NIT",
+      "contactAddress": "Contacto y Dirección",
+      "mainPhone": "Teléfono Principal",
+      "fullAddress": "Dirección Completa"
+    },
+    "users": {
+      "title": "Usuarios y Permisos",
+      "add": "Añadir",
+      "subtitle": "Gestione el acceso de dentistas, recepcionistas y administradores.",
+      "notFound": "Ningún usuario encontrado.",
+      "noName": "Usuario sin Nombre",
+      "employee": "Empleado",
+      "active": "Activo",
+      "inactive": "Inactivo",
+      "seeAll": "Ver los {count} usuarios"
+    },
+    "services": {
+      "title": "Servicios y Precios",
+      "add": "Nuevo Servicio",
+      "subtitle": "Configure los procedimientos y la tabla de precios predeterminada de la clínica.",
+      "notFound": "Ningún servicio registrado.",
+      "service": "Servicio",
+      "general": "General",
+      "seeAll": "Tabla Completa ({count})"
+    },
+    "integrations": {
+      "title": "Integraciones",
+      "add": "Nueva Integración",
+      "subtitle": "Conéctese con sistemas de socios, equipos y métodos de pago.",
+      "xray": "Radiografía Digital",
+      "pagseguro": "PagSeguro",
+      "connected": "Conectado",
+      "disconnected": "Desconectado",
+      "configure": "Configurar",
+      "connect": "Conectar"
+    },
+    "preferences": {
+      "title": "Preferencias Generales",
+      "systemTheme": "Tema del Sistema",
+      "themeDesc": "Apariencia del panel administrativo.",
+      "emailNotif": "Notificaciones por Email",
+      "emailDesc": "Reciba alertas de programación.",
+      "autoBackup": "Copia de Seguridad Automática",
+      "backupDesc": "Genera una copia de seguridad diaria y segura.",
+      "export": "Exportar Datos del Sistema"
+    },
+    "bi": {
+      "title": "Informes y BI",
+      "subtitle": "Personalice los paneles de BI mostrados en el dashboard principal.",
+      "financialData": "Destacado de Datos Financieros",
+      "financialDesc": "Mostrar ingresos en pantalla completa.",
+      "defaultWindow": "Ventana de Análisis Predeterminada",
+      "days7": "Últimos 7 días",
+      "days30": "Últimos 30 días",
+      "days90": "Último Trimestre",
+      "days365": "Último Año"
+    },
+    "rooms": {
+      "title": "Salas y Equipos",
+      "add": "Nueva Sala",
+      "subtitle": "Gestione los entornos y las restricciones de horario de cada espacio.",
+      "notFound": "Ninguna sala registrada.",
+      "noEquip": "Sin equipos listados",
+      "seeAll": "Ver todas las {count} salas",
+      "cleaning": "Exigir intervalo de limpieza entre consultas (15min)"
+    },
+    "portal": {
+      "title": "Portal del Paciente",
+      "subtitle": "Configure a qué pueden acceder los pacientes en la aplicación móvil o web.",
+      "active": "Activar Área Privada del Paciente",
+      "onlinePayment": "Acceso a Pagos en Línea",
+      "clinicalHistory": "Ver Historial Clínico",
+      "openInvoices": "Ver Facturas Abiertas"
+    },
+    "suppliers": {
+      "title": "Configuraciones de Proveedores",
+      "add": "Nueva Categoría",
+      "categories": "Categorías de Suministros",
+      "disposables": "Materiales Desechables",
+      "medicalEquip": "Equipos Médicos",
+      "maintenance": "Servicios de Mantenimiento",
+      "paymentTerms": "Condiciones de Pago",
+      "defaultTerm": "Plazo Predeterminado (días)",
+      "requireInvoice": "Exigir Factura para pago"
     }
   }
 }

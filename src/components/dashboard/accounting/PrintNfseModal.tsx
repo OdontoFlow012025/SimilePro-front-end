@@ -94,7 +94,7 @@ export default function PrintNfseModal({ isOpen, onClose, nf, dict }: PrintNfseM
             <div className="border border-black mb-6">
                 <div className="bg-gray-200 border-b border-black px-2 py-1 font-bold text-xs uppercase uppercase">{pDict.provider}</div>
                 <div className="p-3 text-sm">
-                    <p><strong>Clínica OdontoFlow LTDA</strong></p>
+                    <p><strong>Clínica Simile Pro LTDA</strong></p>
                     <p>CNPJ: 00.000.000/0001-00</p>
                     <p>Inscrição Municipal: 12345/00</p>
                     <p>Endereço: Av. Principal, 1000 - Centro - Cidade/UF</p>

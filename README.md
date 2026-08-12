@@ -1,6 +1,6 @@
-# OdontoFlow - Dental Clinic Management System
+# Simile Pro - Dental Clinic Management System
 
-**OdontoFlow** is a modern, comprehensive web application designed to streamline the management of dental clinics. It integrates administrative, financial, and clinical workflows into a single, intuitive platform.
+**Simile Pro** is a modern, comprehensive web application designed to streamline the management of dental clinics. It integrates administrative, financial, and clinical workflows into a single, intuitive platform.
 
 ## 🚀 Key Features
 
@@ -34,8 +34,8 @@
 
 1.  Clone the repository:
     ```bash
-    git clone https://github.com/OdontoFlow012025/odontoflow-front-end.git
-    cd odontoflow-front-end
+    git clone https://github.com/Simile Pro012025/similepro-front-end.git
+    cd similepro-front-end
     ```
 
 2.  Install dependencies:
@@ -75,4 +75,4 @@ git checkout -b fix/your-fix-name
 ```
 
 ---
-© 2026 OdontoFlow Inc.
+© 2026 Simile Pro Inc.

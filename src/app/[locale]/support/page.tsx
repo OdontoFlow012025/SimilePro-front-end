@@ -2,6 +2,7 @@ import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { getDictionary } from "@/utils/get-dictionary";
 import Link from "next/link";
+import SupportChatSearch from "@/components/SupportChatSearch";
 
 export default async function SupportPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -24,14 +25,7 @@ export default async function SupportPage({ params }: { params: Promise<{ locale
             {support.subtitle}
           </p>
           
-          <div className="relative max-w-2xl mx-auto animate-in fade-in slide-in-from-bottom-8 duration-700 delay-300">
-            <span className="absolute left-4 top-1/2 -translate-y-1/2 material-symbols-outlined text-slate-400 text-3xl">search</span>
-            <input 
-              type="text" 
-              placeholder={support.searchPlaceholder}
-              className="w-full h-16 pl-14 pr-6 rounded-2xl bg-white text-slate-900 text-lg shadow-2xl focus:outline-none focus:ring-4 focus:ring-blue-400/50 transition-all placeholder:text-slate-400"
-            />
-          </div>
+          <SupportChatSearch placeholder={support.searchPlaceholder} />
         </div>
       </section>
 
@@ -92,7 +86,7 @@ export default async function SupportPage({ params }: { params: Promise<{ locale
               <h3 className="text-2xl font-bold mb-2">{support.contact.whatsapp.title}</h3>
               <p className="text-green-50 mb-6">{support.contact.whatsapp.desc}</p>
               <a 
-                href="https://wa.me/5511999999999?text=Olá,%20preciso%20de%20ajuda%20com%20o%20OdontoFlow!" 
+                href="https://wa.me/5511999999999?text=Olá,%20preciso%20de%20ajuda%20com%20o%20Simile Pro!" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-full bg-white text-green-600 font-bold py-3 px-6 rounded-xl hover:bg-green-50 transition-colors inline-block text-center"

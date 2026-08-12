@@ -141,7 +141,7 @@ export default function SignupClient({ dict, locale }: SignupClientProps) {
             <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-600 text-white shadow-md">
               <span className="material-symbols-outlined text-lg">dentistry</span>
             </div>
-            <span className="text-xl font-bold text-slate-900 dark:text-white">OdontoFlow</span>
+            <span className="text-xl font-bold text-slate-900 dark:text-white">Simile Pro</span>
           </Link>
           <h1 className="mb-2 text-3xl font-bold text-slate-900 dark:text-white">{dict.signup.title}</h1>
           <p className="text-slate-500 dark:text-slate-400">{dict.signup.subtitle}</p>

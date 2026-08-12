@@ -68,7 +68,7 @@ export default function LoginClient({ dict, locale }: LoginClientProps) {
             <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-600 text-white shadow-lg">
               <span className="material-symbols-outlined text-3xl">dentistry</span>
             </div>
-            <span className="text-2xl font-bold text-slate-900 dark:text-white">OdontoFlow</span>
+            <span className="text-2xl font-bold text-slate-900 dark:text-white">Simile Pro</span>
           </Link>
         </div>
 

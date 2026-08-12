@@ -150,7 +150,7 @@ export default function Sidebar({ dictionary, locale }: { dictionary: any; local
           <div className="size-10 bg-blue-500 rounded-lg flex items-center justify-center text-white">
             <span className="material-symbols-outlined">dentistry</span>
           </div>
-          <h1 className="text-xl font-extrabold text-[#111518] dark:text-white">OdontoFlow</h1>
+          <h1 className="text-xl font-extrabold text-[#111518] dark:text-white">Simile Pro</h1>
         </div>
         
         <nav className="flex-1 space-y-1 overflow-y-auto pr-2">

@@ -9,11 +9,11 @@ import apiDocs from "../../../../docs.json";
 const pageDicts: Record<string, any> = {
   "pt-BR": {
     title: "Portal do Desenvolvedor",
-    subtitle: "Explore a documentação técnica e integre as APIs do OdontoFlow ao seu ecossistema.",
+    subtitle: "Explore a documentação técnica e integre as APIs do Simile Pro ao seu ecossistema.",
     searchPlaceholder: "Buscar por rotas, tags ou resumo...",
     sidebarTitle: "Módulos da API",
     authTitle: "Autenticação & Segurança",
-    authDesc: "A maioria das rotas do OdontoFlow exige um Token JWT Bearer nos cabeçalhos da requisição.",
+    authDesc: "A maioria das rotas do Simile Pro exige um Token JWT Bearer nos cabeçalhos da requisição.",
     paramsTitle: "Parâmetros da Rota",
     bodyTitle: "Corpo da Requisição (JSON)",
     responsesTitle: "Respostas da API",
@@ -54,11 +54,11 @@ const pageDicts: Record<string, any> = {
   },
   en: {
     title: "Developer Portal",
-    subtitle: "Explore the technical documentation and integrate the OdontoFlow APIs into your ecosystem.",
+    subtitle: "Explore the technical documentation and integrate the Simile Pro APIs into your ecosystem.",
     searchPlaceholder: "Search by routes, tags or summary...",
     sidebarTitle: "API Modules",
     authTitle: "Authentication & Security",
-    authDesc: "Most OdontoFlow routes require a JWT Bearer Token in request headers.",
+    authDesc: "Most Simile Pro routes require a JWT Bearer Token in request headers.",
     paramsTitle: "Route Parameters",
     bodyTitle: "Request Body (JSON)",
     responsesTitle: "API Responses",
@@ -99,11 +99,11 @@ const pageDicts: Record<string, any> = {
   },
   es: {
     title: "Portal de Desarrolladores",
-    subtitle: "Explore la documentación técnica e integre las API de OdontoFlow en su ecosistema.",
+    subtitle: "Explore la documentación técnica e integre las API de Simile Pro en su ecosistema.",
     searchPlaceholder: "Buscar por rutas, etiquetas o resumen...",
     sidebarTitle: "Módulos de API",
     authTitle: "Autenticación y Seguridad",
-    authDesc: "La mayoría de las rutas de OdontoFlow requieren un Token JWT Bearer en los encabezados de solicitud.",
+    authDesc: "La mayoría de las rutas de Simile Pro requieren un Token JWT Bearer en los encabezados de solicitud.",
     paramsTitle: "Parámetros de Ruta",
     bodyTitle: "Cuerpo de la Solicitud (JSON)",
     responsesTitle: "Respuestas de la API",
@@ -179,7 +179,7 @@ function generateExample(schema: any, components: any, depth = 0): any {
   if (schema.example !== undefined) return schema.example;
   
   if (schema.type === "string") {
-    if (schema.format === "email") return "dentista@odontoflow.com";
+    if (schema.format === "email") return "dentista@similepro.com";
     if (schema.pattern && schema.pattern.includes("cpf")) return "123.456.789-00";
     return "string";
   }

@@ -17,7 +17,7 @@ export default function Footer({ dict, locale }: { dict: any, locale: string }) 
           <div className="col-span-2 lg:col-span-2 flex flex-col gap-6">
             <Link href={`/${locale}`} className="flex items-center gap-2 hover:opacity-80 transition-opacity">
               <span className="material-symbols-outlined text-blue-500 text-3xl">dentistry</span>
-              <h2 className="text-2xl font-black text-white">OdontoFlow</h2>
+              <h2 className="text-2xl font-black text-white">Simile Pro</h2>
             </Link>
             <p className="text-slate-400 max-w-xs leading-relaxed">
               {dict.footer.description}

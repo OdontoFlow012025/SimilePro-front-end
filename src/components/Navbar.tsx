@@ -9,7 +9,7 @@ export default function Navbar({ dict, locale }: { dict: any, locale: string }) 
           <div className="flex items-center justify-center text-blue-600 dark:text-blue-400">
             <span className="material-symbols-outlined text-3xl">dentistry</span>
           </div>
-          <h2 className="text-xl font-black tracking-tight text-slate-900 dark:text-white">OdontoFlow</h2>
+          <h2 className="text-xl font-black tracking-tight text-slate-900 dark:text-white">Simile Pro</h2>
         </div>
         <nav className="hidden md:flex flex-1 justify-center gap-8">
           <Link className="text-sm font-bold hover:text-blue-600 transition-colors text-slate-600 dark:text-slate-400 dark:hover:text-blue-400" href={`/${locale}`}>{dict.navbar.home}</Link>
