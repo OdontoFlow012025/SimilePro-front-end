@@ -3,7 +3,7 @@
 @variant dark (&:where(.dark, .dark *));
 
 :root {
-  --background: #f1f2f3;
+  --background: #f1f5f9;
   --foreground: #111418;
   --primary: #0031FD;
   --primary-hover: #2f5BFD;

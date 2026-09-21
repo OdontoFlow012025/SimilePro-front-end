@@ -1,8 +1,9 @@
-'use client';
+import LoginClient from "@/components/LoginClient";
+import { getDictionary } from "@/utils/get-dictionary";
 
-import { ThemeToggle } from '@/components/ThemeToggle';
-import { useRouter } from 'next/navigation';
-import { use } from 'react';
+export default async function LoginPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const dict = await getDictionary(locale);
 
 export default function LoginPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = use(params);

@@ -1,8 +1,11 @@
-'use client';
+import ClientDashboardWrapper from '@/components/dashboard/ClientDashboardWrapper';
+import { getDictionary } from '@/utils/get-dictionary';
 
-import { ThemeToggle } from '@/components/ThemeToggle';
-import { useRouter } from 'next/navigation';
-import { use } from 'react';
+export default async function DashboardPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  
+  // Fetch dictionary server-side
+  const dict = await getDictionary(locale);
 
 export default function DashboardPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = use(params);
@@ -49,3 +52,4 @@ export default function DashboardPage({ params }: { params: Promise<{ locale: st
     </div>
   );
 }
+

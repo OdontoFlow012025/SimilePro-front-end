@@ -1,6 +1,9 @@
 import i18nConfig from "@/../i18nConfig"; // Import from root
 import ScrollToTop from "@/components/ScrollToTop";
+import SystemAlert from "@/components/SystemAlert";
+import TransitionProvider from "@/components/TransitionProvider";
 import { ThemeProvider } from "@/providers/ThemeProvider";
+import { getDictionary } from "@/utils/get-dictionary";
 import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 import "../globals.css";
@@ -24,6 +27,10 @@ export default async function RootLayout({
   params: Promise<{ locale: string }>;
 }>) {
   const { locale } = await params;
+  
+  // Fetch dictionary for current locale
+  const dictionary = await getDictionary(locale);
+
   return (
     <html lang={locale} suppressHydrationWarning>
       <head>
