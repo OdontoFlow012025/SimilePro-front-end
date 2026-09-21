@@ -1,6 +1,6 @@
 {
   "meta": {
-    "title": "OdontoFlow - Modern Dental Clinic Management"
+    "title": "SimilePro - Modern Dental Clinic Management"
   },
   "navbar": {
     "features": "Features",
@@ -59,7 +59,7 @@
   },
   "testimonials": {
     "title": "Trusted by industry leaders",
-    "t1": "OdontoFlow completely transformed how we manage our three clinics. The financial reporting alone saved us hours of manual work every week.",
+    "t1": "SimilePro completely transformed how we manage our three clinics. The financial reporting alone saved us hours of manual work every week.",
     "t1_role": "Clinical Director, BrightSmile",
     "t2": "The interface is so intuitive that my new staff learns to use it in less than a day. The digital odontogram is a game changer for patient consultations.",
     "t2_role": "Owner, Mendez Orthodontics",
@@ -68,7 +68,7 @@
   },
   "cta": {
     "title": "Ready to modernize your clinic?",
-    "description": "Join thousands of dental professionals who have switched to OdontoFlow. Start your 14-day free trial today. No credit card required.",
+    "description": "Join thousands of dental professionals who have switched to SimilePro. Start your 14-day free trial today. No credit card required.",
     "getStarted": "Get Started for Free",
     "scheduleDemo": "Schedule a Demo"
   },
@@ -80,7 +80,7 @@
     "legal": {
         "privacy": "Privacy Policy",
         "terms": "Terms of Service",
-        "copyright": "© 2026 OdontoFlow Inc. All rights reserved."
+        "copyright": "© 2026 SimilePro Inc. All rights reserved."
     },
     "links": {
         "features": "Features",

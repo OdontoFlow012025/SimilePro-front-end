@@ -22,7 +22,7 @@ export default function LoginPage({ params }: { params: Promise<{ locale: string
           <ThemeToggle />
         </div>
         <h1 className="mb-6 text-center text-2xl font-bold text-gray-900 dark:text-white">
-          Access OdontoFlow
+          Access SimilePro
         </h1>
         <p className="mb-6 text-center text-gray-600 dark:text-gray-400">
           This is a public route. Click below to simulate logging in.

@@ -8,7 +8,7 @@ export default function Footer({ dict, locale }: { dict: any, locale: string }) 
           <div className="col-span-2 lg:col-span-2">
             <div className="flex items-center gap-2 mb-4">
               <span className="material-symbols-outlined text-white text-2xl">dentistry</span>
-              <h2 className="text-xl font-bold text-white">OdontoFlow</h2>
+              <h2 className="text-xl font-bold text-white">SimilePro</h2>
             </div>
             <p className="text-sm text-slate-400 max-w-xs mb-6">
               {dict.footer.description}
