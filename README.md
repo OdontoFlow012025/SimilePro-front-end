@@ -1,78 +1,55 @@
-# Simile Pro - Dental Clinic Management System
+# SimilePro-front-end
 
-**Simile Pro** is a modern, comprehensive web application designed to streamline the management of dental clinics. It integrates administrative, financial, and clinical workflows into a single, intuitive platform.
+SimilePro is a modern, responsive web application designed for dental clinic management. This repository contains the front-end source code, built with the latest web technologies to ensure a high-performance, accessible, and user-friendly experience for both clinic administrators and patients.
 
-## 🚀 Key Features
+## System Overview & Evaluation
 
-*   **Multi-Tenant Architecture:** Designed to serve multiple clinics and units efficiently.
-*   **Internationalization (i18n):** Native support for **Portuguese (pt-BR)**, **English (en)**, and **Spanish (es)**.
-*   **Reception Module:**
-    *   **Patient Check-in:** Streamlined flow for tracking patient arrival and waiting times.
-    *   **Kanban Board:** Visual management of appointments (Scheduled, Waiting, In Service).
-    *   **RNDS Compliance:** Patient registration form aligned with Brazilian National Health Data Network standards.
-*   **Scheduling:** Smart calendar validation, preventing conflicts and organizing daily agendas.
-*   **Dashboard:** Real-time metrics for clinic performance (Revenue, Appointments, Occupancy).
-*   **Authentication:** Secure login and customized access for Dentists, Receptionists, and Managers.
+SimilePro provides a comprehensive suite of tools tailored to streamline dental practice workflows. The front-end is designed as a landing page and dashboard interface (currently featuring mockups) that highlights the system's core capabilities:
+- **Smart Scheduling**: Manage appointments and calendars efficiently.
+- **Financial Management**: Track revenue, invoices, and payments.
+- **Patient Charts (Electronic Health Records)**: Securely manage patient histories and documents.
 
-## 🛠️ Tech Stack
+The architecture strictly follows modern React patterns, utilizing Server Components and the Next.js App Router for optimal performance and SEO. The UI is component-driven, responsive by design, and supports both theming and multiple languages out of the box.
 
-*   **Framework:** [Next.js 16](https://nextjs.org/) (App Router)
-*   **Language:** JavaScript / TypeScript
-*   **Styling:** Tailwind CSS
-*   **Internationalization:** `next-i18n-router`
-*   **State/Validation:** `zod` for schemas, React Hooks.
-*   **Icons:** Google Material Symbols
+## Main Updates & Features
 
-## 📦 Getting Started
+- **Framework Upgrade**: Upgraded to **Next.js 16** leveraging the robust App Router architecture.
+- **React 19 Integration**: Utilizing the latest React 19 features for improved rendering performance and state management.
+- **Next-Gen Styling**: Migrated to **Tailwind CSS v4** for faster builds and a streamlined utility-first styling approach.
+- **Internationalization (i18n)**: Fully integrated multi-language support using `next-i18n-router`, allowing localized content based on user preference.
+- **Dark/Light Mode**: Seamless theme switching implementation powered by `next-themes`.
+- **Component Architecture**: Modular component structure (Hero, Features, Stats, Testimonials, RoleSection, CTABanner) for easy maintainability and reusability.
 
-### Prerequisites
+## Tech Stack
 
-- Node.js 18+
-- Yarn or NPM
+- **Framework**: [Next.js 16](https://nextjs.org/) (App Router)
+- **Library**: [React 19](https://react.dev/)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
+- **Theming**: `next-themes`
+- **Internationalization**: `next-i18n-router`
+- **Linting**: ESLint
 
-### Installation
+## Getting Started
 
-1.  Clone the repository:
-    ```bash
-    git clone https://github.com/Simile Pro012025/similepro-front-end.git
-    cd similepro-front-end
-    ```
+First, install the dependencies:
 
-2.  Install dependencies:
-    ```bash
-    yarn install
-    # or
-    npm install
-    ```
-
-3.  Run the development server:
-    ```bash
-    yarn dev
-    # or
-    npm run dev
-    ```
-
-4.  Open [http://localhost:3000](http://localhost:3000) (or the port shown in your terminal) to view the application.
-
-## 🌐 Localization
-
-The application automatically detects the browser language or uses the URL path prefix:
-- `/pt-BR/...` for Portuguese
-- `/en/...` for English
-- `/es/...` for Spanish
-
-To update translations, edit the JSON files in `src/dictionaries/`.
-
-## 🤝 Contributing
-
-Please ensure you create a feature branch for any changes:
 ```bash
-git checkout -b feat/your-feature-name
-```
-For bug fixes:
-```bash
-git checkout -b fix/your-fix-name
+npm install
+# or
+yarn install
+# or
+pnpm install
 ```
 
----
-© 2026 Simile Pro Inc.
+Then, run the development server:
+
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the application running.

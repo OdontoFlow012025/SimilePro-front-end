@@ -13,13 +13,13 @@ export default function Footer({ dict, locale }: { dict: any, locale: string }) 
   return (
     <footer className="bg-slate-950 pt-24 pb-12 text-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-12 lg:gap-8 mb-20">
-          <div className="col-span-2 lg:col-span-2 flex flex-col gap-6">
-            <Link href={`/${locale}`} className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-              <span className="material-symbols-outlined text-blue-500 text-3xl">dentistry</span>
-              <h2 className="text-2xl font-black text-white">Simile Pro</h2>
-            </Link>
-            <p className="text-slate-400 max-w-xs leading-relaxed">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 mb-12">
+          <div className="col-span-2 lg:col-span-2">
+            <div className="flex items-center gap-2 mb-4">
+              <span className="material-symbols-outlined text-white text-2xl">dentistry</span>
+              <h2 className="text-xl font-bold text-white">SimilePro</h2>
+            </div>
+            <p className="text-sm text-slate-400 max-w-xs mb-6">
               {dict.footer.description}
             </p>
             <div className="flex gap-4">
