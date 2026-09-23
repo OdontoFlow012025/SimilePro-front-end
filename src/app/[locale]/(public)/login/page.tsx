@@ -1,8 +1,9 @@
-'use client';
+import LoginClient from "@/components/LoginClient";
+import { getDictionary } from "@/utils/get-dictionary";
 
-import { ThemeToggle } from '@/components/ThemeToggle';
-import { useRouter } from 'next/navigation';
-import { use } from 'react';
+export default async function LoginPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const dict = await getDictionary(locale);
 
 export default function LoginPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = use(params);
@@ -22,7 +23,7 @@ export default function LoginPage({ params }: { params: Promise<{ locale: string
           <ThemeToggle />
         </div>
         <h1 className="mb-6 text-center text-2xl font-bold text-gray-900 dark:text-white">
-          Access OdontoFlow
+          Access SimilePro
         </h1>
         <p className="mb-6 text-center text-gray-600 dark:text-gray-400">
           This is a public route. Click below to simulate logging in.

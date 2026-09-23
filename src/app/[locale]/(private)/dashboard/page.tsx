@@ -1,8 +1,11 @@
-'use client';
+import ClientDashboardWrapper from '@/components/dashboard/ClientDashboardWrapper';
+import { getDictionary } from '@/utils/get-dictionary';
 
-import { ThemeToggle } from '@/components/ThemeToggle';
-import { useRouter } from 'next/navigation';
-import { use } from 'react';
+export default async function DashboardPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  
+  // Fetch dictionary server-side
+  const dict = await getDictionary(locale);
 
 export default function DashboardPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = use(params);
@@ -21,7 +24,7 @@ export default function DashboardPage({ params }: { params: Promise<{ locale: st
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 justify-between">
             <div className="flex items-center">
-              <span className="text-xl font-bold text-blue-600">OdontoFlow Dashboard</span>
+              <span className="text-xl font-bold text-blue-600">SimilePro Dashboard</span>
             </div>
             <div className="flex items-center gap-4">
               <ThemeToggle />
@@ -49,3 +52,4 @@ export default function DashboardPage({ params }: { params: Promise<{ locale: st
     </div>
   );
 }
+

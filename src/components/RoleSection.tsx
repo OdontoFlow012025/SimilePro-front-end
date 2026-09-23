@@ -1,47 +1,65 @@
+import Image from "next/image";
+
 export default function RoleSection({ dict }: { dict: any }) {
+  const roles = [
+    {
+      title: dict.roles.dentists.title,
+      description: dict.roles.dentists.description,
+      icon: "person_search",
+    },
+    {
+      title: dict.roles.receptionists.title,
+      description: dict.roles.receptionists.description,
+      icon: "headset_mic",
+    },
+    {
+      title: dict.roles.managers.title,
+      description: dict.roles.managers.description,
+      icon: "insights",
+    },
+  ];
+
   return (
-    <div className="bg-surface-light dark:bg-surface-dark py-20 lg:py-24">
+    <section className="bg-slate-100 dark:bg-slate-950 py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col lg:flex-row gap-12 items-center">
+        <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
+          {/* Illustration Content */}
           <div className="w-full lg:w-1/2">
-            <h2 className="text-3xl font-bold text-text-main mb-6">{dict.roles.title}</h2>
-            <div className="flex flex-col gap-6">
-              <div className="flex gap-4 p-4 rounded-xl hover:bg-gray-50 hover:shadow-md transition-all dark:hover:bg-gray-800">
-                <div className="mt-1 shrink-0 text-primary">
-                  <span className="material-symbols-outlined">stethoscope</span>
-                </div>
-                <div>
-                  <h4 className="text-lg font-bold text-text-main">{dict.roles.dentists.title}</h4>
-                  <p className="mt-1 text-sm text-text-secondary">{dict.roles.dentists.description}</p>
-                </div>
-              </div>
-              <div className="flex gap-4 p-4 rounded-xl hover:bg-gray-50 hover:shadow-md transition-all dark:hover:bg-gray-800">
-                <div className="mt-1 shrink-0 text-primary">
-                  <span className="material-symbols-outlined">support_agent</span>
-                </div>
-                <div>
-                  <h4 className="text-lg font-bold text-text-main">{dict.roles.receptionists.title}</h4>
-                  <p className="mt-1 text-sm text-text-secondary">{dict.roles.receptionists.description}</p>
-                </div>
-              </div>
-              <div className="flex gap-4 p-4 rounded-xl hover:bg-gray-50 hover:shadow-md transition-all dark:hover:bg-gray-800">
-                <div className="mt-1 shrink-0 text-primary">
-                  <span className="material-symbols-outlined">trending_up</span>
-                </div>
-                <div>
-                  <h4 className="text-lg font-bold text-text-main">{dict.roles.managers.title}</h4>
-                  <p className="mt-1 text-sm text-text-secondary">{dict.roles.managers.description}</p>
-                </div>
-              </div>
+            <div className="relative aspect-square rounded-[3rem] overflow-hidden bg-emerald-50 dark:bg-emerald-900/10 group shadow-2xl ring-1 ring-slate-100 dark:ring-slate-800">
+               <Image
+                  src="https://images.unsplash.com/photo-1590650046871-92c887180603?auto=format&fit=crop&q=80&w=1200"
+                  alt="Developed for the whole network"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-linear-to-tr from-emerald-100/20 to-transparent"></div>
             </div>
           </div>
-          <div className="w-full lg:w-1/2">
-            <div className="rounded-2xl overflow-hidden shadow-2xl border border-slate-200 dark:border-slate-800">
-              <div className="aspect-4/3 bg-cover bg-center" style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuCpeB4i0P7FK2jM17j6dDiOXjd4Tv4JJ8nfN6wGi5GExQ5WfJutolUykmRLX4BGqcyIkBqpO1tS30LWEh80asfxXTJYFRNB-GvrWU_RrH7paLbJzQYr_9ZfJ5IuDNMsKJ7H4AvS_NXa-zYg5E4GAj1FoxBXdkC2QS-eR7QBaqp3nxjILmfjHkRgDcZWBfoy9S0X4QaqCUoRwOK1tlifxr7AAzuYYHYkxNGNrCqVypkHySjfh2cP7RqvUnM4x4UeG8YKr4SOBjZ4NLc')" }}></div>
+
+          {/* Text/List Content */}
+          <div className="w-full lg:w-1/2 flex flex-col gap-10">
+            <h2 className="text-4xl lg:text-5xl font-black text-slate-900 dark:text-white leading-tight">
+              {dict.roles.title}
+            </h2>
+            
+            <div className="flex flex-col gap-8">
+              {roles.map((role, index) => (
+                <div key={index} className="flex gap-6 group">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-all dark:bg-blue-900/30 dark:text-blue-400">
+                    <span className="material-symbols-outlined text-2xl">{role.icon}</span>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-black text-slate-900 dark:text-white mb-2">{role.title}</h3>
+                    <p className="text-slate-600 leading-relaxed dark:text-slate-400">
+                      {role.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

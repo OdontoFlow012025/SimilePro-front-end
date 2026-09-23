@@ -1,20 +1,29 @@
 {
-  "name": "odontoflow-next",
+  "name": "similepro-front-end",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 3001",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 3001",
+    "share": "ssh -o ServerAliveInterval=10 -R odonto-front-testes:80:localhost:3001 serveo.net",
+    "share:cf": "cloudflared tunnel --url http://localhost:3001",
     "lint": "eslint",
     "test": "vitest",
     "test:ui": "vitest --ui"
   },
   "dependencies": {
+    "date-fns": "^4.1.0",
+    "dompurify": "^3.2.0",
+    "jose": "^6.2.2",
+    "jwt-decode": "^4.0.0",
+    "lucide-react": "^1.21.0",
+    "mermaid": "^11.15.0",
     "next": "16.1.1",
     "next-i18n-router": "^5.5.6",
     "next-themes": "^0.4.6",
     "react": "19.2.3",
+    "react-big-calendar": "^1.19.4",
     "react-dom": "19.2.3"
   },
   "devDependencies": {
@@ -22,8 +31,10 @@
     "@testing-library/dom": "^10.4.2",
     "@testing-library/jest-dom": "^7.0.1",
     "@testing-library/react": "^16.3.3",
+    "@types/dompurify": "^3.2.0",
     "@types/node": "^20",
     "@types/react": "^19",
+    "@types/react-big-calendar": "^1.16.3",
     "@types/react-dom": "^19",
     "@vitejs/plugin-react": "^6.1.1",
     "eslint": "^9",

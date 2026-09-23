@@ -1,24 +1,29 @@
 {
   "meta": {
-    "title": "OdontoFlow - Gestão Moderna de Clínicas Odontológicas"
+    "title": "SimilePro - Gestão Moderna de Clínicas Odontológicas"
   },
   "navbar": {
+    "home": "Início",
     "features": "Funcionalidades",
-    "solutions": "Soluções",
-    "pricing": "Planos",
-    "resources": "Recursos",
-    "login": "Entrar",
-    "requestDemo": "Pedir Demo"
+    "compliance": "Conformidade",
+    "pricing": "Preços",
+    "support": "Suporte",
+    "login": "Login",
+    "register": "Cadastre-se"
   },
   "hero": {
-    "newVersion": "Nova Versão 2.0 Disponível",
-    "titlePrefix": "O Sistema de Gestão Completo para",
-    "titleSuffix": "Clínicas Odontológicas Modernas",
-    "description": "Otimize agendamentos, finanças e atendimento ao paciente em uma plataforma intuitiva. Junte-se ao novo padrão em eficiência de gestão odontológica.",
-    "startTrial": "Começar Teste Grátis",
-    "watchVideo": "Assistir Vídeo",
-    "trustedBy": "Confiado por mais de 2.500 dentistas",
-    "dailyRevenue": "Receita Diária"
+    "badge": "Pronto para a Interoperabilidade Saúde",
+    "titlePrefix": "Gestão Odontológica Completa com",
+    "titleSuffix": "Interoperabilidade RNDS",
+    "description": "A plataforma definitiva para clínicas que buscam excelência operacional e conformidade total com a Rede Nacional de Dados em Saúde.",
+    "startTrial": "Cadastre-se",
+    "statusRnds": "Homologação RNDS"
+  },
+  "partners": {
+    "institutional": "PARCERIA INSTITUCIONAL",
+    "protocols": "PROTOCOLOS MS",
+    "standard": "PADRÃO ICP-BRASIL",
+    "network": "REDE NACIONAL SAÚDE"
   },
   "stats": {
     "clinics": "Clínicas Gerenciadas",
@@ -27,39 +32,332 @@
     "uptime": "Tempo de Atividade"
   },
   "features": {
-    "title": "Gestão Completa da Clínica",
-    "subtitle": "Tudo o que você precisa para gerenciar seu consultório odontológico de forma eficiente em um sistema de gestão centralizado.",
+    "title": "Ecossistema Odontológico Integrado",
+    "subtitle": "Tecnologia de ponta para centralizar sua operação clínica com foco em interoperabilidade e eficiência.",
     "scheduling": {
       "title": "Agendamento Inteligente",
-      "description": "Reduza faltas com lembretes automáticos via WhatsApp, agendamentos codificados por cores e gestão inteligente de lista de espera."
+      "description": "Reduza faltas com lembretes automáticos via WhatsApp, gestão dinâmica de listas de espera."
     },
     "financial": {
-      "title": "Saúde Financeira",
-      "description": "Acompanhe o fluxo de caixa em tempo real, gerencie o faturamento de convênios automaticamente e gere relatórios de despesas abrangentes."
+      "title": "Gestão Financeira",
+      "description": "Fluxo de caixa em tempo real, faturamento automatizado de convênios e relatórios de lucratividade."
     },
     "charts": {
-      "title": "Prontuários Digitais",
-      "description": "Anamnese completa e odontogramas interativos disponíveis em um clique. Seguro, acessível e sem papel."
+      "title": "Prontuário Interoperável RNDS",
+      "description": "Dados integrados à Rede Nacional de Dados em Saúde, garantindo a mobilidade total do paciente e conformidade legal absoluta."
+    }
+  },
+  "featuresPage": {
+    "title": "Funcionalidades do Sistema",
+    "subtitle": "Tudo o que você precisa para gerenciar sua clínica odontológica com excelência.",
+    "items": [
+      {
+        "title": "Agendamento Inteligente",
+        "description": "Organize sua agenda com facilidade. Reduza faltas com lembretes automáticos via WhatsApp e gerencie múltiplas cadeiras de atendimento.",
+        "icon": "calendar_month"
+      },
+      {
+        "title": "Prontuário Eletrônico",
+        "description": "Registre a evolução clínica dos pacientes de forma segura. Inclui odontograma visual interativo e histórico completo de tratamentos.",
+        "icon": "medical_information"
+      },
+      {
+        "title": "Gestão Financeira",
+        "description": "Controle total do fluxo de caixa, contas a pagar e receber. Emita recibos e acompanhe a lucratividade da sua clínica em tempo real.",
+        "icon": "payments"
+      },
+      {
+        "title": "Faturamento TISS",
+        "description": "Gere arquivos no padrão TISS automaticamente para faturamento ágil e sem glosas com os principais convênios odontológicos.",
+        "icon": "receipt_long"
+      },
+      {
+        "title": "Assinatura Digital ICP-Brasil",
+        "description": "Assine atestados, receitas e evoluções com validade jurídica usando seu certificado digital padrão ICP-Brasil.",
+        "icon": "history_edu"
+      },
+      {
+        "title": "Interoperabilidade RNDS",
+        "description": "Conectado à Rede Nacional de Dados em Saúde, garantindo o compartilhamento seguro do histórico clínico do cidadão.",
+        "icon": "hub"
+      }
+    ]
+  },
+  "compliancePage": {
+    "title": "Central de Confiança e Conformidade",
+    "subtitle": "Segurança de dados e adequação legal em nível corporativo para sua clínica.",
+    "cards": {
+      "lgpd": {
+        "title": "LGPD na Saúde",
+        "desc": "O Simile Pro cumpre integralmente a Lei Geral de Proteção de Dados (Lei nº 13.709/2018). Dados sensíveis são armazenados em nuvens criptografadas (AES-256) com controle de acesso rigoroso."
+      },
+      "icp": {
+        "title": "Certificação ICP-Brasil",
+        "desc": "Todos os documentos, atestados e prontuários eletrônicos possuem suporte para assinatura digital via certificado ICP-Brasil, garantindo não-repúdio e validade jurídica plena."
+      },
+      "rnds": {
+        "title": "Interoperabilidade RNDS",
+        "desc": "Nosso sistema é desenvolvido com base nas normativas do Ministério da Saúde para integração nativa com a Rede Nacional de Dados em Saúde, permitindo o intercâmbio legal de registros clínicos."
+      },
+      "hipaa": {
+        "title": "Padrões Internacionais",
+        "desc": "Utilizamos infraestrutura escalável que segue os padrões de conformidade globais, incluindo diretrizes semelhantes à HIPAA (Health Insurance Portability and Accountability Act)."
+      },
+      "cfo": {
+        "title": "Resolução CFO-226/2020",
+        "desc": "Alinhamento estrito com o Conselho Federal de Odontologia quanto ao exercício da Odontologia a distância (Telemonitoramento) e emissão de atestados digitais."
+      },
+      "tiss": {
+        "title": "Padrão TISS / TUSS",
+        "desc": "Suporte completo para a Troca de Informação de Saúde Suplementar (TISS), garantindo o faturamento preciso e sem glosas junto aos convênios odontológicos (ANS)."
+      },
+      "iso": {
+        "title": "Práticas ISO 27001",
+        "desc": "Os processos de engenharia do Simile Pro são desenhados inspirados nas exigências da ISO 27001, o mais alto padrão de Sistema de Gestão de Segurança da Informação."
+      },
+      "backup": {
+        "title": "Retenção Legal (SLA 99.9%)",
+        "desc": "Políticas de backup contínuo e retenção de prontuários em conformidade com as leis que exigem armazenamento de prontuários eletrônicos por no mínimo 20 anos."
+      }
+    }
+  },
+  "supportPage": {
+    "title": "Como podemos ajudar você hoje?",
+    "subtitle": "Busque por artigos, tutoriais ou entre em contato direto com nossa equipe.",
+    "searchPlaceholder": "Ex: Como emitir um atestado com ICP-Brasil...",
+    "categories": {
+      "title": "Categorias de Ajuda",
+      "items": [
+        {
+          "title": "Primeiros Passos",
+          "slug": "getting-started",
+          "desc": "Configuração da clínica e equipe",
+          "icon": "rocket_launch"
+        },
+        {
+          "title": "Agendamentos",
+          "slug": "scheduling",
+          "desc": "Gerenciamento de agenda e retornos",
+          "icon": "calendar_month"
+        },
+        {
+          "title": "Prontuários & RNDS",
+          "slug": "health-records",
+          "desc": "Evoluções e interoperabilidade",
+          "icon": "medical_information"
+        },
+        {
+          "title": "Financeiro",
+          "slug": "billing",
+          "desc": "TISS, faturamento e planos",
+          "icon": "payments"
+        },
+        {
+          "title": "Entenda o fluxograma",
+          "slug": "system-flowchart",
+          "desc": "Visão geral e operabilidade do sistema",
+          "icon": "account_tree"
+        }
+      ]
+    },
+    "faq": {
+      "title": "Perguntas Frequentes",
+      "items": [
+        {
+          "q": "Como altero meu plano de assinatura?",
+          "a": "Você pode alterar seu plano a qualquer momento acessando Configurações > Assinatura no seu painel. A cobrança será ajustada pro-rata."
+        },
+        {
+          "q": "O Simile Pro faz backup automático?",
+          "a": "Sim! Realizamos backups a cada hora em diferentes regiões da nuvem, garantindo retenção segura por até 20 anos conforme manda a lei."
+        },
+        {
+          "q": "Consigo usar no celular?",
+          "a": "Sim, a plataforma é 100% responsiva e pode ser acessada pelo navegador de qualquer smartphone ou tablet. Porém, para uma melhor experiência da equipe (especialmente no odontograma e faturamento), recomendamos fortemente o uso de um computador ou notebook."
+        },
+        {
+          "q": "Como configuro a assinatura ICP-Brasil?",
+          "a": "Vá em Configurações > Profissional e faça o upload do seu certificado A1, ou instale a extensão do navegador para certificados A3."
+        }
+      ]
+    },
+    "contact": {
+      "title": "Ainda precisa de ajuda?",
+      "whatsapp": {
+        "title": "Suporte Premium",
+        "desc": "Atendimento rápido via WhatsApp (apenas planos pagos).",
+        "btn": "Chamar no WhatsApp"
+      },
+      "email": {
+        "title": "Abertura de Ticket",
+        "desc": "Envie um e-mail detalhado para nossa equipe técnica.",
+        "btn": "Enviar E-mail"
+      }
+    }
+  },
+  "supportArticles": {
+    "getting-started": {
+      "title": "Primeiros Passos e Configuração",
+      "subtitle": "Veja como é simples deixar sua clínica pronta para os primeiros atendimentos no Simile Pro.",
+      "sections": [
+        {
+          "h": "1. Dados da sua Clínica",
+          "p": "O primeiro passo é acessar 'Configurações > Clínica' e preencher os dados básicos, como nome, endereço e telefone. Isso é super importante porque o sistema vai usar essas informações para montar o cabeçalho bonitinho de todos os atestados, receitas e recibos que você entregar para os pacientes."
+        },
+        {
+          "h": "2. Trazendo sua Equipe",
+          "p": "Na aba 'Equipe', você convida quem trabalha com você. O sistema é bem prático: se você convidar uma recepcionista, ela só vai ver a agenda e a recepção. Se for um dentista, ele vai ter acesso direto aos prontuários dos pacientes dele. Cada um no seu quadrado, sem confusão."
+        },
+        {
+          "h": "3. Preparando os Dentistas",
+          "p": "Para os dentistas, basta entrar no perfil e cadastrar o número do CRO. Depois, é só configurar o Certificado Digital (aquela assinatura eletrônica). Com isso pronto, o dentista nunca mais vai precisar carimbar papel, ele assina as receitas direto no sistema."
+        }
+      ],
+      "nextSlug": "scheduling",
+      "nextTitle": "Próximo: Agendamentos"
+    },
+    "scheduling": {
+      "title": "Como usar a Agenda e a Recepção",
+      "subtitle": "Organize o dia a dia da clínica e nunca mais deixe um paciente esperando sem saber.",
+      "sections": [
+        {
+          "h": "1. Marcando Consultas",
+          "p": "Usar a agenda é como usar um calendário no celular. Você escolhe o dia, vê qual dentista tem horário livre e marca o paciente. O bloco da consulta muda de cor sozinho para te avisar se o paciente confirmou que vem, se ele acabou de chegar ou se já está lá dentro sendo atendido."
+        },
+        {
+          "h": "2. A Chegada na Recepção",
+          "p": "Quando o paciente abre a porta da clínica, a recepção clica em 'Check-in'. Na mesma hora, o computador do dentista avisa que o paciente das 14h chegou. É o fim daquele telefone tocando na sala do dentista toda hora."
+        },
+        {
+          "h": "3. Fazendo a Triagem",
+          "p": "Se a clínica costuma aferir a pressão ou perguntar o motivo da visita antes do dentista, a aba de Triagem serve para isso. Você anota tudo rapidinho e o dentista já lê essas informações antes mesmo do paciente sentar na cadeira."
+        }
+      ],
+      "nextSlug": "health-records",
+      "nextTitle": "Próximo: Prontuários e Atendimento"
+    },
+    "health-records": {
+      "title": "Prontuários e o Atendimento ao Paciente",
+      "subtitle": "Esqueça as fichas de papel. Veja como o atendimento clínico funciona na prática.",
+      "sections": [
+        {
+          "h": "1. O Odontograma na Prática",
+          "p": "A tela principal do dentista tem um desenho completo da boca do paciente. Se precisar fazer uma restauração, é só clicar no dente e marcar. O sistema já entende o que você fez e anota isso no histórico do paciente automaticamente."
+        },
+        {
+          "h": "2. Anotações e Receitas",
+          "p": "Na hora de escrever como foi a consulta, o dentista tem um espaço livre para digitar (a evolução). Se precisar de remédio ou atestado para o trabalho, o sistema já tem modelos prontos. É só preencher os dias de repouso e mandar imprimir ou enviar por WhatsApp."
+        },
+        {
+          "h": "3. Assinando sem Papel",
+          "p": "No final do atendimento, o sistema pede a senha do dentista (a assinatura digital). Isso serve para 'trancar' a ficha daquele dia, garantindo que ninguém altere o que foi feito e dando validade total ao que foi escrito, igualzinho a um documento registrado em cartório."
+        }
+      ],
+      "nextSlug": "billing",
+      "nextTitle": "Próximo: Financeiro e Estoque"
+    },
+    "billing": {
+      "title": "Financeiro, Estoque e Resultados",
+      "subtitle": "Descubra como o Simile Pro cuida do seu dinheiro enquanto você cuida dos pacientes.",
+      "sections": [
+        {
+          "h": "1. Do Orçamento ao Pagamento",
+          "p": "Sabe aquele desenho que o dentista fez no dente do paciente? A recepção consegue transformar aquilo num orçamento com um clique. O paciente aprovou? O sistema já cria a continha para ele pagar na máquina de cartão ou PIX, e o dinheiro já entra no fluxo de caixa."
+        },
+        {
+          "h": "2. Compras e Estoque",
+          "p": "Quando chegar uma caixa de luvas ou anestesia, você lança a nota fiscal no sistema. O Simile Pro já guarda as luvas no seu armário virtual (estoque) e te lembra lá no financeiro que você tem um boleto para pagar para aquele fornecedor na semana que vem."
+        },
+        {
+          "h": "3. Acompanhando o Dinheiro",
+          "p": "Na tela principal (Dashboard), o gestor tem gráficos super fáceis de ler. Dá para ver na hora se a clínica fechou o mês no azul, quantos pacientes novos entraram pela porta e qual dentista atendeu mais pessoas. Tudo mastigado para ajudar a clínica a crescer."
+        }
+      ],
+      "nextSlug": "system-flowchart",
+      "nextTitle": "Próximo: Entenda o Fluxograma"
+    },
+    "system-flowchart": {
+      "title": "Entenda o fluxograma",
+      "subtitle": "Descubra como os módulos do Simile Pro se conectam de ponta a ponta.",
+      "sections": [
+        {
+          "h": "Visão Geral da Arquitetura",
+          "p": "O Simile Pro foi desenhado para eliminar o retrabalho. O gráfico abaixo detalha como uma ação na recepção reflete automaticamente nos módulos clínicos e financeiros.",
+          "mermaid": "graph TD\n    classDef auth fill:#e1f5fe,stroke:#039be5,stroke-width:2px;\n    classDef dashboard fill:#fff3e0,stroke:#f57c00,stroke-width:2px;\n    classDef clinical fill:#e8f5e9,stroke:#388e3c,stroke-width:2px;\n    classDef reception fill:#fce4ec,stroke:#c2185b,stroke-width:2px;\n    classDef admin fill:#e8eaf6,stroke:#3f51b5,stroke-width:2px;\n    classDef integration fill:#f3e5f5,stroke:#8e24aa,stroke-width:2px,stroke-dasharray: 5 5;\n    A([Acesso]) --> B{Logado?}\n    B -- Nao --> C[Página de Login]\n    C --> D[Criação de Conta]\n    D --> E[Validação]\n    E --> F([Dashboard])\n    B -- Sim --> F\n    C:::auth\n    D:::auth\n    E:::auth\n    F:::dashboard\n    F --> G[Recepção]\n    F --> H[Triagem]\n    F --> I[Clínico Médico]\n    F --> J[Administrativo Financeiro]\n    G:::reception\n    G --> G1[Agendamento]\n    G --> G2[Check-in]\n    G --> G3[Cadastro RNDS]\n    G2 --> H\n    H:::clinical\n    H --> H1[Sinais Vitais]\n    H --> H2[Classificação Risco]\n    H1 --> H3[Fila de Atendimento]\n    H2 --> H3\n    H3 --> I\n    I:::clinical\n    I --> I1[Odontograma / Diagnóstico]\n    I --> I2[Evolução Clínica]\n    I --> I3[Atestados / Receitas]\n    I --> I4[Plano Tratamento / Orçamentos]\n    I1 --> I5[[Assinatura ICP-Brasil]]\n    I2 --> I5\n    I3 --> I5\n    I5 --> I6[[Sincronização RNDS Min. Saúde]]\n    I5:::integration\n    I6:::integration\n    I4 --> J1[Geração Faturas / TISS]\n    J:::admin\n    J1 --> J2[Contas a Receber]\n    J --> J3[Estoque]\n    J --> J4[Lançamento NFs]\n    J3 --> J5[Atualização Insumos]\n    J4 --> J6[Contas a Pagar]\n    J2 --> J7[Fluxo de Caixa / Relatórios]\n    J6 --> J7"
+        },
+        {
+          "h": "1. O Início de Tudo (Recepção)",
+          "p": "Tudo começa quando o paciente entra em contato. A recepcionista faz o agendamento e, no dia da consulta, dá o 'Check-in'. O mais legal aqui é que não há retrabalho: o nome e os dados que a recepção digitou são os mesmos que vão aparecer na ficha do dentista e no recibo de pagamento."
+        },
+        {
+          "h": "2. Na Sala de Espera (Triagem)",
+          "p": "Enquanto o paciente aguarda, a equipe pode anotar se ele está com muita dor ou medir a pressão (Triagem). O sistema é inteligente: se o paciente relatar algo urgente, o nome dele ganha destaque na tela do dentista, ajudando a organizar quem precisa ser atendido primeiro."
+        },
+        {
+          "h": "3. Na Cadeira do Dentista (Clínico)",
+          "p": "Lá dentro, o dentista abre o Odontograma Visual e apenas clica nos dentes para dizer o que precisa ser feito (como tratar uma cárie). Quando termina, ele faz as anotações, gera a receita médica e assina tudo com a senha dele no computador. Nada de pastas de papel circulando pela clínica!"
+        },
+        {
+          "h": "4. No Caixa da Clínica (Financeiro)",
+          "p": "Na hora de ir embora, aquele plano que o dentista desenhou no dente já aparece no computador da recepção com os valores prontos para o paciente pagar. Ao mesmo tempo, o dono da clínica já consegue ver no gráfico do celular que o dinheiro entrou no caixa."
+        }
+      ],
+      "nextSlug": "getting-started",
+      "nextTitle": "Voltar para o Início"
+    }
+  },
+  "ticketPage": {
+    "title": "Abertura de Ticket",
+    "subtitle": "Nossa equipe técnica responderá o mais rápido possível.",
+    "form": {
+      "email": "E-mail para contato",
+      "emailPlaceholder": "seu@email.com",
+      "subject": "Assunto do Ticket",
+      "subjectPlaceholder": "Ex: Erro ao emitir atestado",
+      "message": "Descreva o problema",
+      "messagePlaceholder": "Descreva com o máximo de detalhes possível o que aconteceu...",
+      "charLimit": "caracteres restantes",
+      "submit": "Enviar Ticket",
+      "submitting": "Enviando..."
+    },
+    "success": {
+      "title": "Ticket Criado com Sucesso!",
+      "subtitle": "Guarde o número do seu protocolo para acompanhamento.",
+      "protocol": "Número do Protocolo",
+      "back": "Voltar para o Suporte"
+    }
+  },
+  "security": {
+    "badge": "Autoridade Técnica",
+    "title": "Segurança e Validade Jurídica",
+    "description": "O Simile Pro utiliza tecnologia de criptografia de nível bancário e está plenamente alinhado às exigências do Ministério da Saúde para o tráfego de dados clínicos nacionais.",
+    "signature": {
+      "title": "Assinatura Digital ICP-Brasil",
+      "description": "Utilizamos certificados digitais padrão ICP-Brasil para garantir a autenticidade e o não repúdio no envio de informações à RNDS."
+    },
+    "compliance": {
+      "title": "Conformidade LGPD Health",
+      "description": "Tratamento rigoroso de dados sensíveis de saúde, seguindo os mais altos padrões da Lei Geral de Proteção de Dados."
     }
   },
   "roles": {
-    "title": "Feito para toda a sua equipe",
+    "title": "Desenvolvido para toda a rede",
     "dentists": {
       "title": "Para Dentistas",
-      "description": "Foco no atendimento ao paciente com acesso em 1 clique ao histórico clínico, raios-X e planos de tratamento diretamente da cadeira."
+      "description": "Focotal no paciente com prontuário que carrega o histórico nacional do cidadão via RNDS."
     },
     "receptionists": {
-      "title": "Para Recepcionistas",
-      "description": "Gerencie a recepção sem esforço. Check-ins rápidos, reagendamento fácil e comunicação automatizada com pacientes."
+      "title": "Para Recepção",
+      "description": "Check-ins ágeis e comunicação automatizada integrada ao fluxo de atendimento."
     },
     "managers": {
       "title": "Para Gestores",
-      "description": "Tenha visibilidade total do desempenho da clínica com relatórios granulares sobre receita, estoque e produtividade da equipe."
+      "description": "Visão analítica completa e tranquilidade jurídica no cumprimento das normativas de saúde brasileiras."
     }
   },
   "testimonials": {
     "title": "Confiado por líderes do setor",
-    "t1": "OdontoFlow transformou completamente a forma como gerenciamos nossas três clínicas. O relatório financeiro sozinho nos economizou horas de trabalho manual toda semana.",
+    "t1": "SimilePro transformou completamente a forma como gerenciamos nossas três clínicas. O relatório financeiro sozinho nos economizou horas de trabalho manual toda semana.",
     "t1_role": "Diretora Clínica, BrightSmile",
     "t2": "A interface é tão intuitiva que minha nova equipe aprende a usar em menos de um dia. O odontograma digital é um divisor de águas para consultas com pacientes.",
     "t2_role": "Dono, Mendez Orthodontics",
@@ -68,7 +366,7 @@
   },
   "cta": {
     "title": "Pronto para modernizar sua clínica?",
-    "description": "Junte-se a milhares de profissionais da odontologia que mudaram para o OdontoFlow. Comece seu teste gratuito de 14 dias hoje. Sem necessidade de cartão de crédito.",
+    "description": "Junte-se a milhares de profissionais da odontologia que mudaram para o SimilePro. Comece seu teste gratuito de 14 dias hoje. Sem necessidade de cartão de crédito.",
     "getStarted": "Começar Grátis",
     "scheduleDemo": "Agendar Demo"
   },
@@ -80,21 +378,641 @@
     "legal": {
         "privacy": "Política de Privacidade",
         "terms": "Termos de Serviço",
-        "copyright": "© 2026 OdontoFlow Inc. Todos os direitos reservados."
+        "copyright": "© 2026 SimilePro Inc. Todos os direitos reservados."
     },
     "links": {
-        "features": "Funcionalidades",
-        "pricing": "Planos",
-        "integrations": "Integrações",
-        "enterprise": "Empresarial",
-        "blog": "Blog",
-        "caseStudies": "Estudos de Caso",
-        "helpCenter": "Central de Ajuda",
-        "apiDocs": "Documentação da API",
-        "aboutUs": "Sobre Nós",
-        "careers": "Carreiras",
-        "legal": "Legal",
-        "contact": "Contato"
+      "features": "Funcionalidades",
+      "pricing": "Planos",
+      "integrations": "Integrações",
+      "enterprise": "Empresarial",
+      "blog": "Blog",
+      "caseStudies": "Estudos de Caso",
+      "helpCenter": "Central de Ajuda",
+      "apiDocs": "Documentação da API",
+      "aboutUs": "Sobre Nós",
+      "careers": "Carreiras",
+      "legal": "Legal",
+      "contact": "Contato"
+    }
+  },
+  "auth": {
+    "title": "Acesse sua conta",
+    "subtitle": "Gerencie sua clínica com eficiência e simplicidade.",
+    "emailLabel": "Email ou Usuário",
+    "emailPlaceholder": "exemplo@similepro.com",
+    "passwordLabel": "Senha",
+    "passwordPlaceholder": "Insira sua senha",
+    "forgotPassword": "Esqueceu a senha?",
+    "loginButton": "Entrar na Plataforma",
+    "or": "OU",
+    "noAccount": "Ainda não tem uma conta?",
+    "signUp": "Cadastre sua clínica",
+    "copyright": "Termos de Uso Privacidad Ajuda",
+    "loading": "Entrando...",
+    "loadingStart": "Iniciando Sistema...",
+    "loadingEnd": "Concluído",
+    "errorGeneric": "Erro ao realizar login. Verifique suas credenciais.",
+    "footer": {
+      "terms": "Termos",
+      "privacy": "Privacidade",
+      "help": "Ajuda"
+    }
+  },
+  "signup": {
+    "title": "Crie sua conta",
+    "subtitle": "Preencha os dados abaixo para começar a transformar a gestão da sua clínica hoje.",
+    "clinicData": {
+      "title": "Dados da Clínica",
+      "fantasyNameLabel": "Nome Fantasia",
+      "fantasyNamePlaceholder": "Ex: Clínica Sorriso Saudável",
+      "companyNameLabel": "Razão Social",
+      "companyNamePlaceholder": "Razão Social Ltda",
+      "cnpjLabel": "CNPJ",
+      "cnpjPlaceholder": "00.000.000/0000-00",
+      "addressLabel": "Endereço da Clínica",
+      "addressPlaceholder": "Rua, Número, Bairro, Cidade - UF",
+      "phoneLabel": "Telefone da Clínica",
+      "phonePlaceholder": "(00) 00000-0000"
+    },
+    "userData": {
+      "title": "Dados do Profissional",
+      "nameLabel": "Nome Completo",
+      "namePlaceholder": "Seu nome completo",
+      "emailLabel": "E-mail",
+      "emailPlaceholder": "seu@email.com",
+      "passwordLabel": "Senha",
+      "passwordPlaceholder": "********",
+      "confirmPasswordLabel": "Confirmar Senha",
+      "confirmPasswordPlaceholder": "Confirme sua senha",
+      "phoneLabel": "Telefone Celular",
+      "phonePlaceholder": "(00) 90000-0000",
+      "cpfLabel": "CPF",
+      "cpfPlaceholder": "000.000.000-00",
+      "croLabel": "CRO",
+      "croPlaceholder": "UF-00000"
+    },
+    "submitButton": "Criar Conta",
+    "haveAccount": "Já possui uma conta?",
+    "loginLink": "Fazer Login",
+    "loading": "Enviando...",
+    "errorGeneric": "Ocorreu um erro ao tentar criar a conta.",
+    "passwordsNotMatch": "As senhas não coincidem.",
+    "termsAgreement": "Ao clicar em \"{submitButton}\", você concorda com nossos",
+    "termsLink": "Termos de Uso",
+    "privacyLink": "Política de Privacidade",
+    "hero": {
+      "title": "Eleve o padrão da sua clínica",
+      "subtitle": "A gestão que você merece, a tecnologia que seus pacientes confiam. Junte-se à revolução Simile Pro."
+    }
+  },
+  "loginFeatures": {
+    "badge": "Líder em Gestão Odontológica",
+    "title": "Transforme sorrisos enquanto nós cuidamos da gestão.",
+    "description": "Junte-se a mais de 5.000 clínicas que automatizaram agendamentos, faturamento e prontuários com o Simile Pro.",
+    "testimonial": "Aprovado por especialistas"
+  },
+  "bi": {
+    "title": "Indicadores BI",
+    "newPatients": "Novos Pacientes",
+    "currentMonth": "Mês Atual"
+  },
+  "appointmentModal": {
+    "title": "Novo Agendamento",
+    "patientLabel": "Paciente",
+    "patientSelect": "Selecione um paciente...",
+    "dentistLabel": "Dentista",
+    "dentistSelect": "Selecione um dentista...",
+    "dateLabel": "Data",
+    "timeLabel": "Hora",
+    "notesLabel": "Observações",
+    "notesPlaceholder": "Motivo da consulta...",
+    "submitButton": "Agendar Consulta",
+    "successMessage": "Agendamento criado com sucesso!",
+    "authError": "Erro de autenticação. Faça login novamente.",
+    "genericError": "Erro ao agendar"
+  },
+  "triage": {
+    "title": "Triagem e Classificação de Risco",
+    "waitingQueue": "Fila de Espera",
+    "empty": "Nenhum paciente aguardando triagem.",
+    "startBtn": "Realizar Triagem",
+    "modalTitle": "Triagem Clínica",
+    "patientLabel": "Paciente",
+    "vitalsTitle": "Sinais Vitais",
+    "pressureLabel": "PA (mmHg)",
+    "heartRateLabel": "FC (bpm)",
+    "tempLabel": "Temp (ºC)",
+    "oxygenLabel": "Sat. O2 (%)",
+    "weightLabel": "Peso (kg)",
+    "complaintLabel": "Queixa Principal / História",
+    "complaintPlaceholder": "Descreva o motivo da visita...",
+    "riskLabel": "Classificação de Risco",
+    "riskHelper": "Selecione a gravidade (Manchester)",
+    "cancelBtn": "Cancelar",
+    "saveBtn": "Salvar Triagem",
+    "saving": "Salvando...",
+    "success": "Triagem salva com sucesso!",
+    "error": "Erro ao salvar triagem"
+  },
+  "medical": {
+    "title": "Atendimento Médico",
+    "waitingList": "Pacientes Aguardando",
+    "empty": "Nenhum paciente aguardando atendimento.",
+    "startBtn": "Iniciar Atendimento",
+    "patient": "Paciente",
+    "finishBtn": "Finalizar Atendimento",
+    "classification": "Classificação",
+    "noRisk": "Sem Risco",
+    "risks": {
+      "red": "VERMELHO",
+      "orange": "LARANJA",
+      "yellow": "AMARELO",
+      "green": "VERDE",
+      "blue": "AZUL"
+    },
+    "odontogram": {
+      "title": "Odontograma Visual",
+      "tools": {
+        "explorer": "Explorador (Limpar)",
+        "cavity": "Cárie (Vermelho)",
+        "restoration": "Restauração (Azul)",
+        "crown": "Coroa (Amarelo)",
+        "extraction": "Extraído (X)"
+      },
+      "arches": {
+        "upper": "Arcada Superior",
+        "lower": "Arcada Inferior"
+      },
+      "faces": {
+        "O": "Oclusal",
+        "V": "Vestibular",
+        "L": "Lingual",
+        "M": "Mesial",
+        "D": "Distal"
+      },
+      "toothLabel": "Dente",
+      "helpText": "Clique nas faces do dente para aplicar a ferramenta selecionada."
+    },
+    "attendanceRoom": {
+      "title": "Atendimento Odontológico",
+      "finishBtn": "Finalizar Atendimento",
+      "cancelBtn": "Cancelar",
+      "loading": "Carregando paciente...",
+      "errorLoad": "Erro ao carregar atendimento",
+      "errorFinish": "Erro ao finalizar atendimento",
+      "successFinish": "Atendimento finalizado com sucesso!",
+      "diagnostics": "Diagnóstico e Procedimentos",
+      "notes": "Evolução Clínica / Observações",
+      "notesPlaceholder": "Descreva o procedimento realizado...",
+      "confirmFinish": "Deseja finalizar este atendimento?",
+      "notFound": "Paciente não encontrado.",
+      "triageTitle": "Triagem",
+      "noTriageData": "Sem dados de triagem.",
+      "evolutionNote": {
+        "header": "[EVOLUÇÃO]"
+      }
+    }
+  },
+  "placeholder": {
+    "construction": "Página em Construção",
+    "desc1": "O módulo",
+    "desc2": "ainda está sendo desenvolvido. Em breve você terá acesso a todas as funcionalidades desta área."
+  },
+  "reports": {
+    "title": "Relatórios BI",
+    "subtitle": "Análise avançada e indicadores de performance da clínica.",
+    "filters": {
+      "thisMonth": "Este Mês",
+      "lastMonth": "Mês Passado",
+      "thisYear": "Este Ano",
+      "oneDay": "1 Dia",
+      "oneWeek": "1 Semana",
+      "oneMonth": "1 Mês",
+      "oneQuarter": "1 Trimestre"
+    },
+    "metrics": {
+      "revenue": "Receita Total",
+      "patients": "Pacientes Ativos",
+      "appointments": "Consultas Realizadas",
+      "pending": "Inadimplência"
+    },
+    "charts": {
+      "revenue": "Evolução de Receita",
+      "procedures": "Atendimentos por Procedimento"
+    },
+    "allUnits": "Rede Completa (Todas as Unidades)",
+    "headquarters": "(Matriz)",
+    "exportBtn": "Exportar"
+  },
+  "team": {
+    "title": "Gestão de Equipe",
+    "subtitle": "Gerencie toda a equipe clínica e administrativa.",
+    "addMemberBtn": "Adicionar Membro",
+    "tabs": {
+      "dentists": "Dentistas",
+      "technicians": "Técnicos (ASB/TSB)",
+      "receptionists": "Recepcionistas",
+      "finance": "Secretárias (Finan/RH)",
+      "admins": "Administradores"
+    },
+    "list": {
+      "loading": "Carregando lista...",
+      "emptyTitle": "Nenhum membro encontrado",
+      "emptyDesc": "Você ainda não cadastrou nenhum {role} nesta unidade.",
+      "roles": {
+        "dentistas": "dentista",
+        "tecnicos": "técnico",
+        "secretarias": "secretária",
+        "recepcionistas": "recepcionista",
+        "administradores": "administrador"
+      },
+      "table": {
+        "name": "Nome",
+        "contact": "Contato",
+        "roleProfile": "Cargo / Perfil",
+        "specialist": "CRO / Espec.",
+        "status": "Status",
+        "actions": "Ações"
+      },
+      "status": {
+        "active": "Ativo"
+      },
+      "actions": {
+        "edit": "Editar",
+        "delete": "Remover"
+      },
+      "noName": "Sem Nome",
+      "noCro": "Sem CRO",
+      "general": "Geral",
+      "basicAccess": "Acesso Básico",
+      "owner": "Proprietário(a)",
+      "admin": "Administrador(a)"
+    },
+    "messages": {
+      "deleteOwnerError": "Não é possível excluir o proprietário padrão da clínica.",
+      "deleteConfirm": "Tem certeza que deseja excluir este membro?",
+      "deleteError": "Erro ao excluir. Tente novamente.",
+      "saveError": "Ocorreu um erro ao salvar os dados.",
+      "saveSuccess": "Colaborador salvo com sucesso!",
+      "userFetchError": "Falha ao recuperar o ID do novo usuário criado. Verifique a API."
+    },
+    "form": {
+      "editTitle": "Editar Membro",
+      "newTitle": "Novo Membro",
+      "profiles": {
+        "dentist": "Dentista",
+        "technician": "Técnico",
+        "reception": "Recepção",
+        "finance": "Financeiro/RH",
+        "admin": "Administrador"
+      },
+      "labels": {
+        "fullName": "Nome Completo *",
+        "email": "E-mail *",
+        "phone": "Telefone (WhatsApp)",
+        "password": "Senha Provisória *",
+        "specialistData": "Dados de Especialista",
+        "hiringData": "Dados de Contratação",
+        "cro": "CRO *",
+        "specialty": "Especialidade Principal",
+        "accessLevel": "Nível de Acesso no Sistema",
+        "specificRole": "Cargo Específico",
+        "linkUnit": "Vincular à Unidade"
+      },
+      "placeholders": {
+        "name": "Nome do profissional",
+        "email": "email@clinica.com",
+        "phone": "(00) 00000-0000",
+        "password": "Min. 6 caracteres",
+        "cro": "00.000-SP",
+        "specialty": "Ex: Ortodontia",
+        "role": "Ex: Secretária Clínica"
+      },
+      "accessLevels": {
+        "receptionist": "Recepcionista",
+        "assistant": "Assistente (ASB/TSB)",
+        "billing": "Faturamento / Financeiro",
+        "unitManager": "Gerente da Unidade (ADMIN_GERENCIAL)",
+        "owner": "Proprietário / Rede (ADMIN_TOTAL)"
+      },
+      "helpers": {
+        "autoFill": "Preenchido automaticamente pela categoria escolhida.",
+        "adminChoice": "Escolha se este administrador gerencia apenas uma unidade ou toda a rede."
+      },
+      "buttons": {
+        "cancel": "Cancelar",
+        "saveChanges": "Salvar Alterações",
+        "complete": "Concluir Cadastro"
+      },
+      "defaultCargos": {
+        "technician": "Técnico Especialista",
+        "finance": "RH e Contabilidade",
+        "reception": "Atendente / Secretária",
+        "admin": "Gerente da Unidade"
+      }
+    }
+  },
+  "units": {
+    "title": "Gestão de Unidades",
+    "subtitle": "Gerencie as clínicas (filiais) da rede.",
+    "newUnitBtn": "Nova Unidade",
+    "listTitle": "Clínicas Cadastradas",
+    "loading": "Buscando filiais...",
+    "loadingAuth": "Validando permissões...",
+    "empty": "Nenhuma unidade cadastrada no sistema.",
+    "mainUnit": "Unidade Principal",
+    "noInfo": "Não informado",
+    "emptyCnpj": "Sem CNPJ",
+    "table": {
+      "name": "Nome da Unidade",
+      "phone": "Telefone",
+      "address": "Endereço",
+      "actions": "Ações"
+    },
+    "form": {
+      "newTitle": "Nova Unidade",
+      "editTitle": "Editar Unidade",
+      "newSubtitle": "Adicione uma nova filial na rede",
+      "editSubtitle": "Atualize os dados da clínica",
+      "nameLabel": "Nome Fantasia da Unidade *",
+      "namePlaceholder": "Ex: Clínica Centro",
+      "razaoLabel": "Razão Social *",
+      "razaoPlaceholder": "Ex: Simile Pro Clínica LTDA",
+      "cnpjLabel": "CNPJ *",
+      "cnpjPlaceholder": "00.000.000/0001-00",
+      "phoneLabel": "Telefone da Unidade",
+      "phonePlaceholder": "(00) 0000-0000",
+      "addressLabel": "Endereço Principal",
+      "addressPlaceholder": "Logradouro, Bairro",
+      "numberPlaceholder": "Número",
+      "cancelBtn": "Cancelar",
+      "saveBtn": "Salvar Unidade",
+      "saving": "Salvando...",
+      "errorUpdate": "Edição de clínicas pelo painel ainda não está implementada no backend",
+      "errorGeneric": "Ocorreu um erro ao salvar a unidade."
+    }
+  },
+  "hr": {
+    "title": "Recursos Humanos",
+    "subtitle": "Gestão completa de folha de pagamento, admissão e colaboradores legais.",
+    "tabs": {
+      "payroll": "Visão Geral & Folha",
+      "employees": "Colaboradores (Admissão)",
+      "dismissals": "Desligamentos"
+    },
+    "runPayrollBtn": "Rodar Folha do Mês",
+    "payroll": {
+      "month": "Mês/Ano",
+      "base": "Salário Bruto (Total)",
+      "inss": "Total INSS",
+      "irrf": "Total IRRF",
+      "net": "Líquido a Pagar",
+      "status": "Status",
+      "actions": "Ações",
+      "empty": "Nenhuma folha processada. Clique em 'Rodar Folha do Mês' para gerar os holerites.",
+      "generate": "Gerar",
+      "processed": "Processado",
+      "admin": "Administrativo",
+      "processing": "Processando...",
+      "matricula": "Matrícula #",
+      "table": {
+        "base": "Base",
+        "discounts": "Descontos",
+        "net": "Líquido"
+      }
+    },
+    "employees": {
+      "admitBtn": "Admitir Colaborador",
+      "table": {
+        "employee": "Colaborador",
+        "role": "Cargo",
+        "admission": "Admissão",
+        "salary": "Salário",
+        "status": "Status"
+      },
+      "noName": "Sem nome cadastrado",
+      "emptyTitle": "Nenhum colaborador",
+      "emptyDesc": "Você ainda não registrou funcionários na folha. Clique em Admitir Colaborador para começar."
+    },
+    "dismissals": {
+      "registerBtn": "Registrar Rescisão",
+      "table": {
+        "exEmployee": "Ex-Colaborador",
+        "role": "Cargo",
+        "date": "Data Demissão",
+        "reason": "Motivo",
+        "status": "Status"
+      },
+      "emptyTitle": "Nenhuma Rescisão",
+      "emptyDesc": "Nenhum histórico de desligamento encontrado no sistema."
+    },
+    "add": {
+      "title": "Admitir Colaborador",
+      "emailLabel": "Email do Colaborador *",
+      "searching": "Buscando...",
+      "verify": "Verificar",
+      "existingTitle": "Usuário existente encontrado!",
+      "existingDesc": "O usuário {nome} já possui conta. Ele será vinculado como funcionário da sua clínica sem alterar a senha atual dele.",
+      "newTitle": "Novo Usuário!",
+      "newDesc": "Nenhuma conta encontrada com este email. Um novo acesso será criado com uma senha segura.",
+      "nameLabel": "Nome Completo *",
+      "namePlaceholder": "Nome do colaborador",
+      "passwordLabel": "Senha Autogerada *",
+      "generatePw": "Gerar nova senha",
+      "roleLabel": "Cargo *",
+      "rolePlaceholder": "Ex: Recepcionista",
+      "admissionLabel": "Data Admissão *",
+      "salaryLabel": "Salário (R$) *",
+      "cancel": "Cancelar",
+      "saving": "Salvando...",
+      "finish": "Finalizar Admissão",
+      "successAlert": "Funcionário Cadastrado!\\n\\nUm novo usuário foi criado.\\nA senha gerada de altíssima segurança é:\\n\\n{senha}\\n\\nPor favor, copie e envie para o colaborador."
+    },
+    "dismiss": {
+      "title": "Registrar Rescisão",
+      "selectLabel": "Selecione o Colaborador *",
+      "selectPlaceholder": "Selecione alguém...",
+      "dateLabel": "Data de Desligamento *",
+      "reasonLabel": "Motivo do Desligamento *",
+      "reasonPlaceholder": "Descreva o motivo (opcional)",
+      "warningTitle": "Atenção!",
+      "warningDesc": "O usuário perderá acesso imediato aos módulos da clínica após a demissão.",
+      "cancel": "Cancelar",
+      "saving": "Salvando...",
+      "finish": "Confimar Desligamento"
+    },
+    "errors": {
+      "verifyEmail": "Erro ao verificar email. Tente novamente.",
+      "admit": "Erro ao admitir colaborador.",
+      "noClinic": "Clínica não selecionada.",
+      "dismiss": "Erro ao registrar desligamento."
+    }
+  },
+  "accounting": {
+    "title": "Contábil & Fiscal",
+    "subtitle": "Análise de DRE gerencial, guias de impostos e central de emissão NFS-e.",
+    "tabs": {
+      "dre": "DRE (Resultados)",
+      "nfse": "NFS-e (Emitidas)",
+      "taxes": "Impostos (Guias)"
+    },
+    "dre": {
+      "period": "Período de Apuração",
+      "grossRevenue": "Receitas Brutas de Serviços",
+      "taxes": "(-) Impostos e Retenções",
+      "netRevenue": "(=) Receita Líquida",
+      "costs": "(-) Custos Operacionais Diretos",
+      "grossMargin": "(=) Lucro Bruto",
+      "expenses": "(-) Despesas Fixas / Administrativas",
+      "netIncome": "(=) Resultado Líquido",
+      "generateBtn": "Processar DRE do Mês"
+    },
+    "nfse": {
+      "issueBtn": "Emitir NFS-e Avulsa",
+      "number": "Número da Nota",
+      "rps": "RPS Lote",
+      "value": "Valor",
+      "status": "Integração PMSP",
+      "actions": "Download PDF",
+      "empty": "Nenhuma nota fiscal emitida ainda."
+    },
+    "nfsePrint": {
+      "title": "Nota Fiscal de Serviços Eletrônica - NFS-e",
+      "cityHall": "Prefeitura Municipal",
+      "coatOfArms": "Brasão da Prefeitura",
+      "number": "Número:",
+      "date": "Competência:",
+      "verificationCode": "Código de Verificação:",
+      "provider": "Prestador de Serviços",
+      "taker": "Tomador de Serviços",
+      "pacient": "Paciente / Cliente do Sistema",
+      "consumer": "Consumidor Final",
+      "cpfCnpj": "CPF/CNPJ:",
+      "refInvoice": "Referente à Fatura ID:",
+      "notInformed": "Não informado",
+      "description": "Descrição dos Serviços",
+      "defaultDesc": "Serviços odontológicos.",
+      "serviceCode": "Código do Serviço LC 116/03",
+      "monthYear": "Mês/Ano",
+      "location": "Local da Prestação",
+      "fixedLocation": "Estabelecimento Fixo",
+      "deductions": "Deduções",
+      "discount": "Desc. Incond.",
+      "calcBase": "Base de Cálculo",
+      "issRate": "Alíquota ISS (%)",
+      "issValue": "Valor do ISS",
+      "netValue": "Valor Líquido da Nota",
+      "issRetained": "ISS Retido",
+      "yes": "SIM",
+      "no": "NÃO",
+      "footer1": "Documento emitido eletronicamente pelo sistema Simile Pro.",
+      "footer2": "Para verificar a autenticidade acesse o portal da prefeitura.",
+      "viewTitle": "Visualização de NFS-e",
+      "printSave": "Salvar em PDF / Imprimir"
+    }
+  },
+  "settings": {
+    "header": {
+      "title": "Configurações Integradas",
+      "subtitle": "Gerencie todos os parâmetros, integrações e dados operacionais da clínica.",
+      "readOnly": "Somente Leitura",
+      "cancel": "Cancelar",
+      "save": "Salvar Alterações"
+    },
+    "clinicData": {
+      "title": "Dados da Clínica",
+      "editAll": "Editar Tudo",
+      "visualIdentity": "Identidade Visual",
+      "noLogo": "SEM LOGO",
+      "currentLogo": "logo_atual.png",
+      "noImage": "Nenhuma imagem",
+      "changeLogo": "Alterar Logo",
+      "generalInfo": "Informações Gerais",
+      "clinicName": "Nome da Clínica",
+      "cnpj": "CNPJ",
+      "contactAddress": "Contato e Endereço",
+      "mainPhone": "Telefone Principal",
+      "fullAddress": "Endereço Completo"
+    },
+    "users": {
+      "title": "Usuários e Permissões",
+      "add": "Adicionar",
+      "subtitle": "Gerencie o acesso de dentistas, recepcionistas e administradores.",
+      "notFound": "Nenhum usuário localizado.",
+      "noName": "Usuário Sem Nome",
+      "employee": "Funcionário",
+      "active": "Ativo",
+      "inactive": "Inativo",
+      "seeAll": "Ver todos os {count} usuários"
+    },
+    "services": {
+      "title": "Serviços e Preços",
+      "add": "Novo Serviço",
+      "subtitle": "Configure os procedimentos e a tabela de valores padrão da clínica.",
+      "notFound": "Nenhum serviço cadastrado.",
+      "service": "Serviço",
+      "general": "Geral",
+      "seeAll": "Tabela Completa ({count})"
+    },
+    "integrations": {
+      "title": "Integrações",
+      "add": "Nova Integração",
+      "subtitle": "Conecte-se com sistemas de parceiros, equipamentos e meios de pagamento.",
+      "xray": "Raio-X Digital",
+      "pagseguro": "PagSeguro",
+      "connected": "Conectado",
+      "disconnected": "Desconectado",
+      "configure": "Configurar",
+      "connect": "Conectar"
+    },
+    "preferences": {
+      "title": "Preferências Gerais",
+      "systemTheme": "Tema do Sistema",
+      "themeDesc": "Aparência do painel administrativo.",
+      "emailNotif": "Notificações por Email",
+      "emailDesc": "Receba alertas de agendamentos.",
+      "autoBackup": "Backup Automático",
+      "backupDesc": "Gera um backup seguro diariamente.",
+      "export": "Exportar Dados do Sistema"
+    },
+    "bi": {
+      "title": "Relatórios e BI",
+      "subtitle": "Personalize os painéis de BI exibidos no dashboard principal.",
+      "financialData": "Destaque de Dados Financeiros",
+      "financialDesc": "Exibir faturamento em tela cheia.",
+      "defaultWindow": "Janela de Análise Padrão",
+      "days7": "Últimos 7 dias",
+      "days30": "Últimos 30 dias",
+      "days90": "Último Trimestre",
+      "days365": "Último Ano"
+    },
+    "rooms": {
+      "title": "Salas e Equipamentos",
+      "add": "Nova Sala",
+      "subtitle": "Gerencie os ambientes e restrições de horários de cada espaço.",
+      "notFound": "Nenhuma sala cadastrada.",
+      "noEquip": "Sem equipamentos listados",
+      "seeAll": "Ver todas as {count} salas",
+      "cleaning": "Exigir intervalo de limpeza entre consultas (15min)"
+    },
+    "portal": {
+      "title": "Portal do Paciente",
+      "subtitle": "Configure o que os pacientes podem acessar no aplicativo móvel ou web.",
+      "active": "Ativar Área Privada do Paciente",
+      "onlinePayment": "Acesso a Pagamentos Online",
+      "clinicalHistory": "Visualizar Histórico Clínico",
+      "openInvoices": "Visualizar Faturas em Aberto"
+    },
+    "suppliers": {
+      "title": "Configurações de Fornecedores",
+      "add": "Nova Categoria",
+      "categories": "Categorias de Insumos",
+      "disposables": "Materiais Descartáveis",
+      "medicalEquip": "Equipamentos Médicos",
+      "maintenance": "Serviços de Manutenção",
+      "paymentTerms": "Condições de Pagamento",
+      "defaultTerm": "Prazo Padrão (dias)",
+      "requireInvoice": "Exigir Nota Fiscal para pagamento"
     }
   }
 }
