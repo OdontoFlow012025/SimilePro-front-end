@@ -27,6 +27,8 @@ export interface AgendamentoViewDTO {
   dentistaNome: string;
   horarioInicio: string; // Formatado para exibição (ex: 09:00)
   horarioFim: string; // Formatado para exibição (ex: 10:00)
+  start: Date;
+  end: Date;
   tipoProcedimento: string;
   status: StatusAgendamento;
 }

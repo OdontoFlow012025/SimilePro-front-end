@@ -32,6 +32,8 @@ function toAgendamentoViewDTO(raw: AgendamentoRaw): AgendamentoViewDTO {
     dentistaNome: raw.dentista_nome || (raw as any).dentistaNome || (raw as any).dentista?.nome || 'Dentista',
     horarioInicio: formatTime(raw.data_hora_inicio || (raw as any).dataHoraInicio),
     horarioFim: formatTime(raw.data_hora_fim || (raw as any).dataHoraFim),
+    start: (raw.data_hora_inicio || (raw as any).dataHoraInicio) ? new Date(raw.data_hora_inicio || (raw as any).dataHoraInicio) : new Date(),
+    end: (raw.data_hora_fim || (raw as any).dataHoraFim) ? new Date(raw.data_hora_fim || (raw as any).dataHoraFim) : new Date(),
     tipoProcedimento: raw.procedimento_descricao || (raw as any).motivoConsulta || (raw as any).procedimento?.nome || 'Procedimento',
     status: (raw.status_agendamento || (raw as any).status) as StatusAgendamento || 'PENDENTE',
   };
@@ -65,12 +67,14 @@ export default function AgendaCalendario({ dataSelecionada }: AgendaCalendarioPr
         try {
           const rawArray = Array.isArray(agendamentosRes) ? agendamentosRes : [];
           // O backend GO retorna todo o banco (34k registros) pois /agendamentos não filtra.
-          // Filtramos client-side pela dataSelecionada para evitar lag na UI.
+          // O backend GO retorna todo o banco (34k registros) pois /agendamentos não filtra.
+          // Filtramos client-side pelo MÊS da dataSelecionada para permitir visualização de Semana e Mês.
+          const currentMonthPrefix = dataSelecionada.substring(0, 7);
           agendamentosView = rawArray
              .filter((raw: any) => {
                 const startStr = raw.data_hora_inicio || raw.dataHoraInicio;
                 if (!startStr) return false;
-                return startStr.startsWith(dataSelecionada);
+                return startStr.startsWith(currentMonthPrefix);
              })
              .map(toAgendamentoViewDTO);
         } catch (e) {
@@ -171,10 +175,19 @@ export default function AgendaCalendario({ dataSelecionada }: AgendaCalendarioPr
             onSelectProfessional={setSelectedProfessionalId}
           />
 
-          {/* Coluna 2: Grade de Horários com Filtro Cruzado */}
+          {/* Coluna 2: Grade de Horários com Filtro Cruzado (Usando React Big Calendar) */}
           <GradeHorarios 
             agendamentos={agendamentos}
             selectedProfessionalId={selectedProfessionalId}
+            currentDateStr={dataSelecionada}
+            onNavigate={(newDate) => {
+              const yyyy = newDate.getFullYear();
+              const mm = String(newDate.getMonth() + 1).padStart(2, '0');
+              const dd = String(newDate.getDate()).padStart(2, '0');
+              const newDateStr = `${yyyy}-${mm}-${dd}`;
+              setSelectedProfessionalId(null);
+              router.push(`/agenda?data=${newDateStr}`);
+            }}
           />
 
         </div>

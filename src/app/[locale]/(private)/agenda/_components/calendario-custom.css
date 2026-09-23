@@ -1,0 +1,32 @@
+/* Fixes for React Big Calendar in Dark Mode */
+.dark .rbc-calendar {
+  color: #fff;
+}
+.dark .rbc-month-view, .dark .rbc-time-view, .dark .rbc-header {
+  border-color: #374151; /* gray-700 */
+}
+.dark .rbc-day-bg + .rbc-day-bg, .dark .rbc-month-row + .rbc-month-row, .dark .rbc-time-content > * + * > * {
+  border-color: #374151;
+}
+.dark .rbc-off-range-bg {
+  background-color: #1f2937; /* gray-800 */
+}
+.dark .rbc-today {
+  background-color: #374151; /* gray-700 */
+}
+.dark .rbc-time-header-content, .dark .rbc-time-slot, .dark .rbc-timeslot-group {
+  border-color: #374151;
+}
+.dark .rbc-btn-group button {
+  color: #fff;
+  border-color: #374151;
+}
+.dark .rbc-btn-group button:hover {
+  background-color: #374151;
+}
+.dark .rbc-btn-group button.rbc-active {
+  background-color: #4b5563;
+}
+.rbc-event {
+  outline: none;
+}

@@ -2,31 +2,7 @@ import { AgendamentoViewDTO, AgendamentoRaw, StatusAgendamento } from '@/types/a
 import { api } from '@/services/api';
 import AgendaCalendario from './_components/AgendaCalendario';
 
-// 1. Função Estrita de Sanitização e Mapeamento (View DTO)
-// Garante que nenhum metadado ou timestamp interno escape do Server
-function toAgendamentoViewDTO(raw: AgendamentoRaw): AgendamentoViewDTO {
-  // Helper de formatação de hora no servidor para aliviar carga no Client
-  const formatTime = (isoString: string) => {
-    const date = new Date(isoString);
-    return new Intl.DateTimeFormat('pt-BR', {
-      hour: '2-digit',
-      minute: '2-digit',
-      timeZone: 'America/Sao_Paulo'
-    }).format(date);
-  };
 
-  return {
-    id: raw.uuid, // Usando UUID seguro em vez de id_interno_db
-    profissionalId: raw.dentista_id,
-    profissionalEspecialidade: (raw as any).especialidade || 'Dentista',
-    pacienteNome: raw.paciente_nome_completo,
-    dentistaNome: raw.dentista_nome,
-    horarioInicio: formatTime(raw.data_hora_inicio),
-    horarioFim: formatTime(raw.data_hora_fim),
-    tipoProcedimento: raw.procedimento_descricao,
-    status: raw.status_agendamento as StatusAgendamento,
-  };
-}
 
 interface AgendaPageProps {
   // Suporte a Next.js 15+ onde searchParams pode ser uma Promise
