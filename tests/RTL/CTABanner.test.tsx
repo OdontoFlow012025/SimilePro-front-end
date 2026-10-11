@@ -5,7 +5,7 @@ import CTABanner from '@/components/CTABanner'
 const mockDict = {
   cta: {
     title: 'Transform your clinic today',
-    description: 'Join thousands of dentists using OdontoFlow.',
+    description: 'Join thousands of dentists using SimilePro.',
     getStarted: 'Get Started Now'
   }
 }
@@ -15,7 +15,7 @@ describe('CTABanner component', () => {
     render(<CTABanner dict={mockDict} />)
     
     const title = screen.getByText('Transform your clinic today')
-    const description = screen.getByText('Join thousands of dentists using OdontoFlow.')
+    const description = screen.getByText('Join thousands of dentists using SimilePro.')
     
     expect(title).toBeInTheDocument()
     expect(description).toBeInTheDocument()

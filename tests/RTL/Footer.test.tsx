@@ -23,7 +23,7 @@ const mockDict = {
       contact: 'Contact'
     },
     legal: {
-      copyright: '© 2026 OdontoFlow. All rights reserved.',
+      copyright: '© 2026 SimilePro. All rights reserved.',
       privacy: 'Privacy Policy',
       terms: 'Terms of Service'
     }
@@ -34,7 +34,7 @@ describe('Footer component', () => {
   it('renders the brand name and description', () => {
     render(<Footer dict={mockDict} locale="en" />)
     
-    expect(screen.getByText('OdontoFlow')).toBeInTheDocument()
+    expect(screen.getByText('SimilePro')).toBeInTheDocument()
     expect(screen.getByText('The best software for dentists.')).toBeInTheDocument()
   })
 
@@ -57,7 +57,7 @@ describe('Footer component', () => {
   it('renders copyright and legal links', () => {
     render(<Footer dict={mockDict} locale="en" />)
     
-    expect(screen.getByText('© 2026 OdontoFlow. All rights reserved.')).toBeInTheDocument()
+    expect(screen.getByText('© 2026 SimilePro. All rights reserved.')).toBeInTheDocument()
     expect(screen.getByText('Privacy Policy')).toBeInTheDocument()
   })
 })

@@ -20,7 +20,7 @@ const mockDict = {
 describe('Navbar component', () => {
   it('renders the brand logo and name', () => {
     render(<Navbar dict={mockDict} locale="en" />)
-    expect(screen.getByText('OdontoFlow')).toBeInTheDocument()
+    expect(screen.getByText('SimilePro')).toBeInTheDocument()
   })
 
   it('renders navigation links with correct localized hrefs', () => {

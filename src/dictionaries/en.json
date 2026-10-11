@@ -11,6 +11,17 @@
     "login": "Login",
     "register": "Sign Up"
   },
+  "pricing": {
+    "title": "Plans and pricing",
+    "subtitle": "Plan details will be announced soon.",
+    "comingSoon": "Coming soon",
+    "bestChoice": "Best choice",
+    "plans": {
+      "monthly": { "name": "Monthly", "description": "Details coming soon.", "price": "—", "period": "", "features": [], "buttonText": "Coming soon" },
+      "annual": { "name": "Annual", "description": "Details coming soon.", "price": "—", "period": "", "features": [], "buttonText": "Coming soon" },
+      "student": { "name": "Student", "description": "Details coming soon.", "price": "—", "period": "", "features": [], "buttonText": "Coming soon" }
+    }
+  },
   "hero": {
     "badge": "Ready for Health Interoperability",
     "titlePrefix": "Complete Dental Management with",

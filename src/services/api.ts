@@ -1,6 +1,28 @@
+let sessionRedirectStarted = false;
+
 const API_URL = typeof window !== 'undefined' 
-  ? '/api' // Browser -> Next.js Proxy -> Backend
-  : (process.env.NEXT_PUBLIC_API_URL || 'http://similepro_backend:8080'); // Server-side -> Direct to Backend
+  ? '/api' // Browser -> Security gateway -> Backend
+  : (process.env.API_INTERNAL_URL || 'http://similepro_gateway:8080/api'); // Server-side -> Security gateway -> Backend
+
+async function loginRequest(credentials: { email: string; senha: string }) {
+  const response = await fetch(`${API_URL}/auth/login`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Bypass-Tunnel-Reminder': 'true',
+      'ngrok-skip-browser-warning': 'true',
+    },
+    credentials: 'include',
+    body: JSON.stringify(credentials),
+  });
+
+  // On success, do not wait for/parsing a response body: the HttpOnly cookie
+  // is delivered in the response headers and the caller navigates immediately.
+  if (response.ok) return { success: true };
+
+  const data = await response.json().catch(() => ({}));
+  throw new Error(data?.message || data?.error || `Erro no login: ${response.status} ${response.statusText}`);
+}
 
 export async function request(endpoint: string, options: RequestInit = {}) {
   const headers: Record<string, string> = {
@@ -28,9 +50,20 @@ export async function request(endpoint: string, options: RequestInit = {}) {
 
   const data = await response.json().catch(() => ({}));
 
-  // if (response.status === 401) {
-  //   // Token expired handling disabled to prevent loops until robust refresh logic is added
-  // }
+  if (response.status === 401 && typeof window !== 'undefined') {
+    const isPublicAuthRequest = /^\/auth\/(login|logout|signup|register)(?:[/?]|$)/.test(endpoint);
+    const isLoginPage = window.location.pathname.split('/').includes('login');
+    if (!isPublicAuthRequest && !isLoginPage && !sessionRedirectStarted) {
+      sessionRedirectStarted = true;
+      // Logout clears the HttpOnly cookie; redirect even if the endpoint is unavailable.
+      void fetch(`${API_URL}/auth/logout`, { method: 'POST', credentials: 'include' })
+        .catch(() => undefined)
+        .finally(() => {
+          const locale = window.location.pathname.split('/').filter(Boolean)[0] || 'pt-BR';
+          window.location.replace(`/${locale}/login?reason=session-expired`);
+        });
+    }
+  }
 
   if (!response.ok) {
     let errMsg = `Erro na requisição: ${response.status} ${response.statusText}`;
@@ -49,7 +82,7 @@ export const api = {
   health: () => request('/'),
 
   auth: {
-    login: (data: any) => request('/auth/login', { method: 'POST', body: JSON.stringify(data) }),
+    login: (data: { email: string; senha: string }) => loginRequest(data),
     logout: () => request('/auth/logout', { method: 'POST' }),
     register: (data: any) => request('/auth/register', { method: 'POST', body: JSON.stringify(data) }),
     signup: (data: any) => request('/auth/signup', { method: 'POST', body: JSON.stringify(data) }),
@@ -58,6 +91,7 @@ export const api = {
 
   users: {
     create: (data: any) => request('/usuarios', { method: 'POST', body: JSON.stringify(data) }),
+    createEmployee: (data: any) => request('/usuarios/funcionario', { method: 'POST', body: JSON.stringify(data) }),
     list: () => request('/usuarios'),
     getById: (id: string) => request(`/usuarios/${id}`),
     update: (id: string, data: any) => request(`/usuarios/${id}`, { method: 'PATCH', body: JSON.stringify(data) }),
@@ -97,6 +131,7 @@ export const api = {
     getByDentist: (dentistId: string) => request(`/agendamentos/dentista/${dentistId}`),
     getById: (id: string) => request(`/agendamentos/${id}`),
     update: (id: string, data: any) => request(`/agendamentos/${id}`, { method: 'PATCH', body: JSON.stringify(data) }),
+    updateTriage: (id: string, data: any) => request(`/agendamentos/${id}/triagem`, { method: 'PATCH', body: JSON.stringify(data) }),
     delete: (id: string) => request(`/agendamentos/${id}`, { method: 'DELETE' }),
     updateStatus: (id: string, data: any) => request(`/agendamentos/${id}/status`, { method: 'PATCH', body: JSON.stringify(data) }),
     getDashboardStats: () => request('/agendamentos/dashboard/hoje'),

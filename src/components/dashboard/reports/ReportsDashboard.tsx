@@ -8,21 +8,26 @@ import { api } from "@/services/api";
 
 export default function ReportsDashboard({ dict }: { dict: any }) {
   const [clinics, setClinics] = useState<any[]>([]);
-  const [selectedFilter, setSelectedFilter] = useState("all");
+  const [selectedFilter, setSelectedFilter] = useState("");
+  const [isNetworkAdmin, setIsNetworkAdmin] = useState(false);
   
   // Identify if we're querying the entire network or a single clinic 
   const isRede = selectedFilter === "all";
   const clinicaId = isRede ? "" : selectedFilter;
 
   useEffect(() => {
-    // Fetch clinics belonging to the same network to populate the dropdown
-    api.clinics.getNetworkClinics()
-      .then(data => {
+    // Total admins may select the whole network. Other allowed roles are
+    // scoped to the current clinic and only receive that clinic in this list.
+    Promise.all([api.auth.me(), api.clinics.list()])
+      .then(([user, data]) => {
+        const networkAdmin = (user?.tipoUsuario || user?.user?.tipoUsuario) === "ADMIN_TOTAL";
+        setIsNetworkAdmin(networkAdmin);
         if (Array.isArray(data)) {
           setClinics(data);
+          setSelectedFilter(networkAdmin ? "all" : String(data[0]?.id || ""));
         }
       })
-      .catch(err => console.error("Error fetching network clinics:", err));
+      .catch(err => console.error("Error fetching report clinics:", err));
   }, []);
 
   return (
@@ -44,7 +49,7 @@ export default function ReportsDashboard({ dict }: { dict: any }) {
             value={selectedFilter}
             onChange={(e) => setSelectedFilter(e.target.value)}
           >
-            <option value="all">{dict?.reports?.allUnits || "Rede Completa (Todas as Unidades)"}</option>
+            {isNetworkAdmin && <option value="all">{dict?.reports?.allUnits || "Rede Completa (Todas as Unidades)"}</option>}
             {clinics.map(c => (
               <option key={c.id} value={c.id}>
                 {c.nomeFantasia} {c.matrizId ? "" : (dict?.reports?.headquarters || "(Matriz)")}

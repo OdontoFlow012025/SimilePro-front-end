@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import AdminDashboard from "./AdminDashboard";
-import DentistDashboard from "./DentistDashboard";
 import { api } from "@/services/api";
 
 interface ClientDashboardWrapperProps {
@@ -18,14 +17,12 @@ export default function ClientDashboardWrapper({ locale, dictionary }: ClientDas
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [userData, subStatus] = await Promise.all([
-            api.auth.me(),
-            api.subscription.getStatus()
-        ]);
-        
+        const userData = await api.auth.me();
         const userRole = userData.tipoUsuario || userData.role || null;
         setRole(userRole);
-        setSubscriptionStatus(subStatus);
+        if (userRole === "ADMIN_TOTAL") {
+          setSubscriptionStatus(await api.subscription.getStatus());
+        }
       } catch (err) {
         console.error("Failed to fetch dashboard data:", err);
       } finally {
@@ -47,9 +44,9 @@ export default function ClientDashboardWrapper({ locale, dictionary }: ClientDas
     );
   }
 
-  if (role === "ADMIN" || role === "ADMIN_TOTAL" || role === "RECEPCIONISTA" || role === "FINANCEIRO") {
+  if (role === "ADMIN_TOTAL") {
     return <AdminDashboard dictionary={dictionary} subscriptionStatus={subscriptionStatus} locale={locale} />;
   }
 
-  return <DentistDashboard locale={locale} dictionary={dictionary} />;
+  return <div className="p-8 text-gray-500">O painel geral é exclusivo do administrador total da rede.</div>;
 }

@@ -11,6 +11,17 @@
     "login": "Login",
     "register": "Cadastre-se"
   },
+  "pricing": {
+    "title": "Planos e preços",
+    "subtitle": "Os detalhes dos planos serão divulgados em breve.",
+    "comingSoon": "Em breve",
+    "bestChoice": "Mais escolhido",
+    "plans": {
+      "monthly": { "name": "Mensal", "description": "Detalhes em breve.", "price": "—", "period": "", "features": [], "buttonText": "Em breve" },
+      "annual": { "name": "Anual", "description": "Detalhes em breve.", "price": "—", "period": "", "features": [], "buttonText": "Em breve" },
+      "student": { "name": "Estudante", "description": "Detalhes em breve.", "price": "—", "period": "", "features": [], "buttonText": "Em breve" }
+    }
+  },
   "hero": {
     "badge": "Pronto para a Interoperabilidade Saúde",
     "titlePrefix": "Gestão Odontológica Completa com",

@@ -116,8 +116,9 @@ export default function AddEmployeeModal({ isOpen, onClose, onSuccess, dict }: A
     setCheckingEmail(true);
     setError(null);
     try {
-      const users = await api.users.list();
-      const found = users.find((u: any) => u.email === email);
+      const employees = await api.employees.list();
+      const foundEmployee = employees.find((employee: any) => employee.usuario?.email === email);
+      const found = foundEmployee?.usuario;
       
       if (found) {
         setExistingUser(found);
@@ -146,7 +147,7 @@ export default function AddEmployeeModal({ isOpen, onClose, onSuccess, dict }: A
 
       // 1. Criar Usuário (se não existir)
       if (!existingUser) {
-        const newUser = await api.users.create({
+        const newUser = await api.users.createEmployee({
           nome,
           email,
           senha,

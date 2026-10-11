@@ -21,7 +21,7 @@ export default function TeamFormModal({ onClose, initialData, defaultType, dict 
   const getInitialRole = (t: string) => {
       switch(t) {
           case "dentistas": return "DENTISTA";
-          case "tecnicos": return "ASSISTENTE";
+          case "tecnicos": return "TECNICO";
           case "secretarias": return "FATURISTA";
           case "recepcionistas": return "RECEPCIONISTA";
           case "administradores": return "ADMIN_GERENCIAL";
@@ -54,10 +54,12 @@ export default function TeamFormModal({ onClose, initialData, defaultType, dict 
 
   const [isLoading, setIsLoading] = useState(false);
   const [clinics, setClinics] = useState<any[]>([]);
+  const [isNetworkAdmin, setIsNetworkAdmin] = useState(false);
 
   useEffect(() => {
     // Load clinics so we can attach employees
-    api.clinics.getNetworkClinics().then((data) => {
+    Promise.all([api.auth.me(), api.clinics.list()]).then(([user, data]) => {
+      setIsNetworkAdmin((user?.tipoUsuario || user?.user?.tipoUsuario) === "ADMIN_TOTAL");
       if (Array.isArray(data) && data.length > 0) {
         setClinics(data);
         setFormData(prev => ({ ...prev, clinicaId: data[0].id }));
@@ -70,9 +72,9 @@ export default function TeamFormModal({ onClose, initialData, defaultType, dict 
           inferredType = "dentistas";
       } else {
           const role = initialData.usuario?.tipoUsuario;
-          if (role === "ASSISTENTE") inferredType = "tecnicos";
+          if (role === "TECNICO" || role === "ASSISTENTE") inferredType = "tecnicos";
           else if (role === "FATURISTA") inferredType = "secretarias";
-          else if (role === "ADMIN_GERENCIAL" || role === "ADMIN_TOTAL") inferredType = "administradores";
+          else if (["ADMIN_GERENCIAL", "ADMIN_TOTAL", "ADMINISTRATIVO", "RH"].includes(role)) inferredType = "administradores";
           else inferredType = "recepcionistas";
       }
 
@@ -148,20 +150,22 @@ export default function TeamFormModal({ onClose, initialData, defaultType, dict 
         }
       } else {
         // Create flow
-        // 1. Create User via /auth/signup
-        const authRes = await api.auth.signup({
+        // Create staff accounts through the protected user-management API.
+        const authRes = await api.users.create({
           nome: formData.nome,
           email: formData.email,
           senha: formData.senha,
           telefone: formData.telefone,
-          tipoUsuario: formData.tipoUsuario,
+          role: formData.tipoUsuario,
+          clinicaId: formData.clinicaId,
         });
 
-        if (!authRes.user || !authRes.user.id) {
+        const createdUser = authRes.user || authRes;
+        if (!createdUser?.id) {
            throw new Error(msgDict.userFetchError);
         }
         
-        const newUserId = authRes.user.id;
+        const newUserId = createdUser.id;
 
         // 2. Attach specialized profile
         if (type === "dentistas") {
@@ -314,10 +318,12 @@ export default function TeamFormModal({ onClose, initialData, defaultType, dict 
                      }`} 
                    >
                       <option value="RECEPCIONISTA">{formDict.accessLevels.receptionist}</option>
-                      <option value="ASSISTENTE">{formDict.accessLevels.assistant}</option>
+                      <option value="TECNICO">{formDict.profiles.technician}</option>
                       <option value="FATURISTA">{formDict.accessLevels.billing}</option>
+                      {type === "administradores" && <option value="ADMINISTRATIVO">Administrativo</option>}
+                      {type === "administradores" && <option value="RH">Recursos Humanos</option>}
                       <option value="ADMIN_GERENCIAL">{formDict.accessLevels.unitManager}</option>
-                      {type === "administradores" && <option value="ADMIN_TOTAL">{formDict.accessLevels.owner}</option>}
+                      {type === "administradores" && (isNetworkAdmin || formData.tipoUsuario === "ADMIN_TOTAL") && <option value="ADMIN_TOTAL">{formDict.accessLevels.owner}</option>}
                    </select>
                    {type !== "administradores" && <p className="text-[11px] text-gray-500 mt-1">{formDict.helpers.autoFill}</p>}
                    {type === "administradores" && <p className="text-[11px] text-gray-500 mt-1">{formDict.helpers.adminChoice}</p>}

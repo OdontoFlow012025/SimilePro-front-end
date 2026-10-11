@@ -35,7 +35,7 @@ describe('Login Page', () => {
       )
     })
     
-    expect(await screen.findByText('Access OdontoFlow')).toBeInTheDocument()
+    expect(await screen.findByText('Access SimilePro')).toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'Sign In (Mock)' })).toBeInTheDocument()
     expect(screen.getByText('Back to Home')).toBeInTheDocument()
   })

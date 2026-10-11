@@ -31,12 +31,12 @@ export default function TriageModal({ isOpen, onClose, appointment, dictionary, 
   const handleSubmit = async () => {
     setLoading(true);
     try {
-        const triageNote = `${noteDict?.header || "[TRIAGEM]"} 
+        const triageNote = `[TRIAGEM]\n${noteDict?.header || "Triagem clínica"}
 ${noteDict?.pressure || "PA"}: ${formData.pressure} | ${noteDict?.heartRate || "FC"}: ${formData.heartRate} | ${noteDict?.temp || "Temp"}: ${formData.temp} | ${noteDict?.oxygen || "Sat"}: ${formData.oxygen} | ${noteDict?.weight || "Peso"}: ${formData.weight}
 ${noteDict?.complaint || "Queixa"}: ${formData.complaint}
 ${noteDict?.risk || "Risco"}: ${formData.risk}`;
 
-        await api.scheduling.update(appointment.id.toString(), {
+        await api.scheduling.updateTriage(appointment.id.toString(), {
             motivoConsulta: (appointment.motivoConsulta || "") + "\n\n" + triageNote + "\n" + (noteDict?.footer || "[TRIAGEM_REALIZADA]"),
             status: "CONFIRMADO" 
         });

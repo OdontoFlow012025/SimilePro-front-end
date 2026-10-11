@@ -26,12 +26,12 @@ export default function TeamList({ type, onEdit, dict }: TeamListProps) {
       } else if (type === "administradores") {
         const result = await api.users.list();
         if (Array.isArray(result)) {
-           const filtered = result.filter(u => u.tipoUsuario === "ADMIN_GERENCIAL" || u.tipoUsuario === "ADMIN_TOTAL");
+           const filtered = result.filter(u => ["ADMIN_GERENCIAL", "ADMIN_TOTAL", "ADMINISTRATIVO", "RH"].includes(u.tipoUsuario));
            const mapped = filtered.map(u => ({
               id: u.id,
               usuarioId: u.id,
               usuario: u,
-              cargo: u.tipoUsuario === "ADMIN_TOTAL" ? listDict.owner : listDict.admin,
+              cargo: u.tipoUsuario === "ADMIN_TOTAL" ? listDict.owner : u.tipoUsuario === "ADMINISTRATIVO" ? "Administrativo" : u.tipoUsuario === "RH" ? "Recursos Humanos" : listDict.admin,
            }));
            setData(mapped);
         }
@@ -42,7 +42,7 @@ export default function TeamList({ type, onEdit, dict }: TeamListProps) {
            const filtered = result.filter(emp => {
                const p = emp.usuario?.tipoUsuario;
                if (type === "recepcionistas") return p === "RECEPCIONISTA";
-               if (type === "tecnicos") return p === "ASSISTENTE";
+                if (type === "tecnicos") return p === "TECNICO" || p === "ASSISTENTE";
                if (type === "secretarias") return p === "FATURISTA";
                return false;
            });

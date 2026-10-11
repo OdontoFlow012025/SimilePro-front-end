@@ -6,7 +6,7 @@ const mockDict = {
   hero: {
     titlePrefix: 'Manage your clinic with',
     titleSuffix: 'ease',
-    description: 'OdontoFlow helps you organize patients, appointments, and billing in one place.',
+    description: 'SimilePro helps you organize patients, appointments, and billing in one place.',
     startTrial: 'Start Free Trial',
     watchVideo: 'Watch Video',
     trustedBy: 'Trusted by 500+ clinics',
@@ -20,7 +20,7 @@ describe('Hero component', () => {
     
     expect(screen.getByText('Manage your clinic with')).toBeInTheDocument()
     expect(screen.getByText('ease')).toBeInTheDocument()
-    expect(screen.getByText('OdontoFlow helps you organize patients, appointments, and billing in one place.')).toBeInTheDocument()
+    expect(screen.getByText('SimilePro helps you organize patients, appointments, and billing in one place.')).toBeInTheDocument()
   })
 
   it('renders action buttons', () => {

@@ -4,14 +4,20 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 
 import { api } from "@/services/api";
 import { useEffect, useState } from "react";
+import { isClinicAdministrator } from "@/utils/role-access";
 
 export default function Header({ dictionary }: { dictionary: any }) {
   const [units, setUnits] = useState<any[]>([]);
   const [selectedUnit, setSelectedUnit] = useState<any>(null);
+  const [canSelectUnit, setCanSelectUnit] = useState(false);
 
   useEffect(() => {
     async function fetchUnits() {
         try {
+            const user = await api.auth.me();
+            const role = user?.tipoUsuario || user?.user?.tipoUsuario;
+            if (!isClinicAdministrator(role)) return;
+            setCanSelectUnit(true);
             const data = await api.clinics.list();
             if (Array.isArray(data) && data.length > 0) {
                 setUnits(data);
@@ -58,7 +64,7 @@ export default function Header({ dictionary }: { dictionary: any }) {
         <p className="text-sm text-gray-500">{dictionary?.dashboard?.header?.subtitle || "Monitoramento integrado: Administrativo e Operacional."}</p>
       </div>
       <div className="flex items-center gap-4">
-        <div className="relative group z-50">
+        {canSelectUnit && <div className="relative group z-50">
             {/* Trigger Button */}
             <div className={`hidden sm:flex items-center gap-2 bg-gray-100 dark:bg-gray-800 px-3 py-1.5 rounded-lg border border-gray-200 dark:border-gray-700 transition-colors ${hasBranches ? 'cursor-pointer hover:border-blue-500 group' : 'cursor-default opacity-80'}`}>
                 <span className="material-symbols-outlined text-blue-500 text-lg">location_on</span>
@@ -87,7 +93,7 @@ export default function Header({ dictionary }: { dictionary: any }) {
                     </ul>
                 </div>
             )}
-        </div>
+        </div>}
         
         <ThemeToggle />
         

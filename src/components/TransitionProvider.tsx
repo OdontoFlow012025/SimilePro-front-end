@@ -1,11 +1,11 @@
 "use client";
 
-import { useRouter } from "next/navigation";
-import { createContext, useContext, useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
+import { createContext, useContext, useEffect, useRef, useState } from "react";
 
 type TransitionContextType = {
   isLoading: boolean;
-  startLoginTransition: () => void;
+  startLoginTransition: (destinationPath: string) => void;
 };
 
 const TransitionContext = createContext<TransitionContextType>({
@@ -24,17 +24,36 @@ export default function TransitionProvider({
   locale: string;
   dict: any;
 }) {
-  const router = useRouter();
   // Stages:
   // 1. starting: Initial Frame (Circle 0%)
   // 2. expanding: Animation to Full Screen (Circle 150%)
   // 3. loading: Progress bar runs
   // 4. focusing: Shrinks to center (Circle 18%)
   // 5. finishing: Fades out
+  const router = useRouter();
+  const pathname = usePathname();
+  const pendingNavigation = useRef<string | null>(null);
   const [stage, setStage] = useState<'idle' | 'starting' | 'expanding' | 'loading' | 'focusing' | 'finishing'>('idle');
   const [progress, setProgress] = useState(0);
 
-  const startLoginTransition = () => {
+  useEffect(() => {
+    if (!pendingNavigation.current || pathname !== pendingNavigation.current) return;
+
+    pendingNavigation.current = null;
+    setStage('focusing');
+    const finishingTimer = window.setTimeout(() => {
+      setStage('finishing');
+      window.setTimeout(() => {
+        setStage('idle');
+        setProgress(0);
+      }, 500);
+    }, 800);
+
+    return () => window.clearTimeout(finishingTimer);
+  }, [pathname]);
+
+
+  const startLoginTransition = (destinationPath: string) => {
     // 1. Mount with 0% circle
     setStage('starting');
 
@@ -56,22 +75,11 @@ export default function TransitionProvider({
                 if (p === 100) {
                     clearInterval(interval);
                     
-                    // Shrink to Center (Focusing)
-                    setTimeout(() => {
-                        setStage('focusing'); 
-                        
-                        router.push(`/${locale}/dashboard`);
-                        
-                        setTimeout(() => {
-                            setStage('finishing');
-                            
-                            setTimeout(() => {
-                                setStage('idle');
-                                setProgress(0);
-                            }, 500);
-                            
-                        }, 800); 
-                        
+                    // Keep the loading overlay visible while the dashboard route loads underneath.
+                    window.setTimeout(() => {
+                        const target = `/${locale}${destinationPath}`;
+                        pendingNavigation.current = target;
+                        router.replace(target);
                     }, 400); 
                 }
             }, 100); // Slightly faster updates for smoothness

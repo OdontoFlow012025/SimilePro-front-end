@@ -38,10 +38,12 @@ export default async function RootLayout({
       </head>
       <body className={`${manrope.className} bg-background text-text-main antialiased transition-colors duration-200`}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} disableTransitionOnChange storageKey="similepro-theme">
-          <div className="relative flex min-h-screen w-full flex-col overflow-x-hidden">
-            {children}
-          </div>
-          <ScrollToTop />
+          <TransitionProvider locale={locale} dict={dictionary}>
+            <div className="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+              {children}
+            </div>
+            <ScrollToTop />
+          </TransitionProvider>
         </ThemeProvider>
       </body>
     </html>

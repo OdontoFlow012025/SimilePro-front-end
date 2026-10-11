@@ -42,7 +42,7 @@ describe('Dashboard Page', () => {
     })
     
     // Wait for the 'use(params)' resolution
-    expect(await screen.findByText('OdontoFlow Dashboard')).toBeInTheDocument()
+    expect(await screen.findByText('SimilePro Dashboard')).toBeInTheDocument()
     expect(screen.getByText('Protected Area')).toBeInTheDocument()
     expect(screen.getByTestId('mock-theme-toggle')).toBeInTheDocument()
   })

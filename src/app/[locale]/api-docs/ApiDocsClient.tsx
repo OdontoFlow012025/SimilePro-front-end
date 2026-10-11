@@ -309,7 +309,7 @@ export default function ApiDocsClient({ locale, dict }: { locale: string; dict: 
 
     const { method, path, parameters } = selectedEndpoint;
     const methodUpper = method.toUpperCase();
-    const baseUrl = "http://localhost:8080/api";
+    const baseUrl = typeof window === "undefined" ? "/api" : `${window.location.origin}/api`;
 
     // Build JSON request body
     let bodyJson = "";
@@ -777,7 +777,7 @@ export default function ApiDocsClient({ locale, dict }: { locale: string; dict: 
                     {t.baseApiUrl}
                   </p>
                   <p className="font-mono text-blue-400 bg-slate-950 p-2 rounded border border-slate-800 select-all">
-                    http://localhost:8080/api
+                    {typeof window === "undefined" ? "/api" : `${window.location.origin}/api`}
                   </p>
                 </div>
               </div>

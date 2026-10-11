@@ -2,6 +2,7 @@ import DashboardLayout from "@/components/dashboard/DashboardLayout";
 import InactivityHandler from "@/components/InactivityHandler";
 import { getDictionary } from "@/utils/get-dictionary";
 import React from "react";
+import AccessGuard from "@/components/dashboard/AccessGuard";
 
 export default async function PrivateLayout({
   children,
@@ -17,7 +18,7 @@ export default async function PrivateLayout({
     <>
       <InactivityHandler locale={locale} />
       <DashboardLayout dictionary={dictionary} locale={locale}>
-        {children}
+        <AccessGuard locale={locale}>{children}</AccessGuard>
       </DashboardLayout>
     </>
   );

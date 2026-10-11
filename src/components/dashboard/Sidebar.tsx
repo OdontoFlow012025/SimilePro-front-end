@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import { api } from "@/services/api";
+import { canAccessPath } from "@/utils/role-access";
 
 type MenuItem = {
   label: string;
@@ -55,27 +56,25 @@ export default function Sidebar({ dictionary, locale }: { dictionary: any; local
   const router = useRouter();
   const pathname = usePathname();
   const ALL_ITEMS = getMenuItems(dictionary);
-  const SYSTEM_ITEMS = getSystemItems(dictionary);
 
   // State for expanded menus, default empty or check current path to auto-expand
   const [expandedMenus, setExpandedMenus] = useState<string[]>([]);
   const [userRole, setUserRole] = useState<string | null>(null);
+  const [displayName, setDisplayName] = useState("Usuário");
   const [subscription, setSubscription] = useState<{ isActive: boolean, status: string } | null>(null);
 
   useEffect(() => {
     async function fetchData() {
         try {
-            const [userData, subData] = await Promise.all([
-                api.auth.me(),
-                api.subscription.getStatus()
-            ]);
-            
+            const userData = await api.auth.me();
             if (userData) {
-                const role = userData.tipoUsuario || (userData.user && userData.user.tipoUsuario);
+                const role = userData.tipoUsuario || (userData.user && userData.user.tipoUsuario) || userData.role;
                 if (role) setUserRole(role);
-            }
-            if (subData) {
-                setSubscription(subData);
+                setDisplayName(userData.nome || userData.user?.nome || userData.email || "Usuário");
+                if (role === "ADMIN_TOTAL" || role === "ADMIN_GERENCIAL") {
+                  const subData = await api.subscription.getStatus();
+                  if (subData) setSubscription(subData);
+                }
             }
         } catch (e) {
             console.error("Failed to load sidebar data", e);
@@ -91,22 +90,30 @@ export default function Sidebar({ dictionary, locale }: { dictionary: any; local
     return premiumPaths.some(p => href.includes(p));
   };
 
-  // Filter items based on user role and subscription
-  const MENU_ITEMS = ALL_ITEMS.filter(item => item.section !== 'System' && item.label !== (dictionary?.dashboard?.sidebar?.settings || "Configurações") && item.label !== (dictionary?.dashboard?.sidebar?.system || "Sistema")).map(item => {
-      // Check if it's an administrative parent that might contain premium children
-      if (item.label === (dictionary?.dashboard?.sidebar?.administrative || "Administrativo")) {
-          const children = [...(item.children || [])].map(child => {
-              const locked = !!(subscription && !subscription.isActive && isPremium(child.href));
-              return { ...child, isLocked: locked };
-          });
-          
-          if (userRole === "ADMIN_TOTAL") {
-              children.push({ label: dictionary?.dashboard?.sidebar?.units || "Unidades", href: "/unidades", icon: "domain", isLocked: false });
-          }
-          return { ...item, children };
+  const canSeeSystem = canAccessPath(userRole, "/configuracoes");
+  const SYSTEM_ITEMS = canSeeSystem ? getSystemItems(dictionary) : [];
+  const MENU_ITEMS = userRole ? ALL_ITEMS
+    .filter(item => !item.isHeader && item.label !== (dictionary?.dashboard?.sidebar?.settings || "Configurações") && item.label !== (dictionary?.dashboard?.sidebar?.system || "Sistema"))
+    .map((item): MenuItem | null => {
+      if (item.href) {
+        if (!canAccessPath(userRole, item.href)) return null;
+        return { ...item, isLocked: !!(subscription && !subscription.isActive && isPremium(item.href)) };
       }
-      return item;
-  });
+      if (item.children) {
+        const children: MenuItem[] = item.children
+          .filter(child => !!child.href && canAccessPath(userRole, child.href))
+          .map(child => ({
+            ...child,
+            isLocked: !!(subscription && !subscription.isActive && isPremium(child.href)),
+          }));
+        if (userRole === "ADMIN_TOTAL") {
+          children.push({ label: dictionary?.dashboard?.sidebar?.units || "Unidades", href: "/unidades", icon: "domain", isLocked: false });
+        }
+        return children.length ? { ...item, children } : null;
+      }
+      return null;
+    })
+    .filter((item): item is MenuItem => item !== null) : [];
 
   const toggleMenu = (label: string) => {
     if (expandedMenus.includes(label)) {
@@ -274,11 +281,11 @@ export default function Sidebar({ dictionary, locale }: { dictionary: any; local
            <div className="pt-2 border-t border-gray-100 dark:border-gray-800">
              <div className="flex items-center gap-3 mb-4 mt-2">
                 <div className="size-10 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center text-blue-600 dark:text-blue-300 font-bold">
-                AD
+                {displayName.slice(0, 2).toUpperCase()}
                 </div>
                 <div className="overflow-hidden">
-                <p className="text-sm font-bold truncate text-gray-900 dark:text-white">Admin</p>
-                <p className="text-xs text-gray-500 truncate">{dictionary?.dashboard?.sidebar?.role || "Administrador"}</p>
+                <p className="text-sm font-bold truncate text-gray-900 dark:text-white">{displayName}</p>
+                <p className="text-xs text-gray-500 truncate">{userRole === "RECEPCIONISTA" ? "Recepção" : userRole === "TECNICO" ? "Triagem" : userRole === "DENTISTA" ? "Atendimento médico" : userRole === "ADMIN_GERENCIAL" ? "Administrador da clínica" : userRole === "ADMIN_TOTAL" ? "Administrador total" : userRole === "RH" ? "Recursos Humanos" : userRole === "ADMINISTRATIVO" ? "Administrativo" : userRole || (dictionary?.dashboard?.sidebar?.role || "Usuário")}</p>
                 </div>
             </div>
             <button 

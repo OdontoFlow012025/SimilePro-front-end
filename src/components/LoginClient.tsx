@@ -2,18 +2,17 @@
 
 import { api } from "@/services/api";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { FormEvent, useState } from "react";
+import { useTransition } from "@/components/TransitionProvider";
+import { landingPathForRole } from "@/utils/role-access";
 
 interface LoginClientProps {
   dict: any;
   locale: string;
 }
 
-import { useTransition } from "@/components/TransitionProvider";
 
 export default function LoginClient({ dict, locale }: LoginClientProps) {
-  const router = useRouter();
   const { startLoginTransition, isLoading } = useTransition();
 
   const [email, setEmail] = useState("");
@@ -28,18 +27,23 @@ export default function LoginClient({ dict, locale }: LoginClientProps) {
     setError("");
 
     try {
-      const response = await api.auth.login({ email, senha: password });
+      await api.auth.login({ email, senha: password });
+      const userData = await api.auth.me();
+      const role = userData?.tipoUsuario || userData?.user?.tipoUsuario || userData?.role;
+      const destination = landingPathForRole(role);
+      if (!destination) {
+        throw new Error("Não foi possível identificar o perfil de acesso desta conta.");
+      }
       
-      // The auth_token is now set as a Secure HttpOnly cookie by the server.
-      // We just trigger the transition to the dashboard.
-      startLoginTransition();
+      // Start the branded loading milestone after the server confirms login.
+      // The transition performs a full navigation when it finishes.
+      startLoginTransition(destination);
     } catch (err: any) {
       console.error("Login error:", err);
-      // Wait for loading simulation to finish if any, but since we await API, just set error
+      // Show the authentication or network error and allow another attempt
       setError(err.message || dict.auth.errorGeneric);
       setLoading(false); // Only stop local loading if error
     }
-    // Note: If success, we don't setLoading(false) because the transition takes over visual loading
   };
 
   return (

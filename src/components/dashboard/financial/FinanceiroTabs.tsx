@@ -2,6 +2,7 @@
 
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import { api } from "@/services/api";
 import AccountFlow from "./AccountFlow";
 import InsuranceBilling from "./InsuranceBilling";
 import InventoryStock from "./InventoryStock";
@@ -19,15 +20,25 @@ export default function FinanceiroTabs({ dictionary, locale }: Props) {
   const router = useRouter();
   const tabParam = searchParams.get("tab") as TabType;
   
-  const [activeTab, setActiveTab] = useState<TabType>(tabParam || "geral");
+  const [activeTab, setActiveTab] = useState<TabType>("geral");
+  const [canViewStock, setCanViewStock] = useState(false);
+  const [accessReady, setAccessReady] = useState(false);
 
   useEffect(() => {
-    if (tabParam && tabParam !== activeTab) {
-      setActiveTab(tabParam);
-    }
-  }, [tabParam]);
+    api.auth.me().then((user) => {
+      const role = user?.tipoUsuario || user?.user?.tipoUsuario;
+      setCanViewStock(role === "ADMIN_TOTAL" || role === "ADMIN_GERENCIAL");
+    }).catch(console.error).finally(() => setAccessReady(true));
+  }, []);
+
+  useEffect(() => {
+    if (!accessReady) return;
+    const allowedTabs: TabType[] = canViewStock ? ["geral", "pacientes", "convenios", "estoque"] : ["geral", "pacientes", "convenios"];
+    setActiveTab(tabParam && allowedTabs.includes(tabParam) ? tabParam : "geral");
+  }, [tabParam, accessReady, canViewStock]);
 
   const handleTabChange = (tab: TabType) => {
+    if (tab === "estoque" && !canViewStock) return;
     setActiveTab(tab);
     // Update URL without full refresh to support bookmarking/redirects
     const params = new URLSearchParams(window.location.search);
@@ -39,8 +50,12 @@ export default function FinanceiroTabs({ dictionary, locale }: Props) {
     { id: "geral", label: dictionary.financial?.tabs?.general || "Geral", icon: "payments" },
     { id: "pacientes", label: dictionary.financial?.tabs?.patients || "Pacientes", icon: "person" },
     { id: "convenios", label: dictionary.financial?.tabs?.insurances || "Convênios", icon: "account_balance" },
-    { id: "estoque", label: dictionary.financial?.tabs?.inventory || "Estoque", icon: "inventory_2" },
+    ...(canViewStock ? [{ id: "estoque" as const, label: dictionary.financial?.tabs?.inventory || "Estoque", icon: "inventory_2" }] : []),
   ] as const;
+
+  if (!accessReady) {
+    return <div className="py-12 text-center text-gray-500">Carregando permissões…</div>;
+  }
 
   return (
     <div className="flex flex-col gap-6">

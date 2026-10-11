@@ -13,6 +13,7 @@ interface Props {
 export default function TriageBoard({ dictionary, dateDisplay }: Props) {
   const [appointments, setAppointments] = useState<Appointment[]>([]);
   const [loading, setLoading] = useState(true);
+  const [accessDenied, setAccessDenied] = useState(false);
   const [selectedAppointment, setSelectedAppointment] = useState<Appointment | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -36,13 +37,31 @@ export default function TriageBoard({ dictionary, dateDisplay }: Props) {
   };
 
   useEffect(() => {
-    fetchAppointments();
+    api.auth.me().then(user => {
+      if (user?.tipoUsuario === "RECEPCIONISTA") {
+        setAccessDenied(true);
+        setLoading(false);
+        return;
+      }
+      fetchAppointments();
+    }).catch(error => {
+      console.error(error);
+      setLoading(false);
+    });
   }, []);
 
   const handleStartTriage = (appt: Appointment) => {
     setSelectedAppointment(appt);
     setIsModalOpen(true);
   };
+
+  if (accessDenied) {
+    return (
+      <div className="rounded-xl border border-amber-200 bg-amber-50 p-6 text-amber-900 dark:border-amber-900 dark:bg-amber-950/30 dark:text-amber-200">
+        A triagem está disponível apenas para técnicos e dentistas.
+      </div>
+    );
+  }
 
   return (
     <div className="flex flex-col h-full space-y-6">
