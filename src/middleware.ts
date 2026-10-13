@@ -64,12 +64,22 @@ export async function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL(`/${validLocale}/login`, request.url));
   }
 
-  // If authenticated and trying to access login/signup, redirect to dashboard
+  const normalizedPath = pathname.replace(/^\/(pt-BR|en|es)(?=\/|$)/, '') || '/';
+  if (isAuthenticated && (normalizedPath === '/dashboard' || normalizedPath.startsWith('/dashboard/')) && authenticatedRole !== 'ADMIN_TOTAL') {
+    const locale = request.nextUrl.pathname.split('/')[1];
+    const validLocale = i18nConfig.locales.includes(locale) ? locale : i18nConfig.defaultLocale;
+    const landingPath = landingPathForRole(authenticatedRole);
+    return NextResponse.redirect(new URL(`/${validLocale}${landingPath || '/login'}`, request.url));
+  }
+
+  // If authenticated and trying to access login/signup, redirect to that role's landing page.
   if (isAuthenticated && (pathname.includes('/login') || pathname.includes('/signup'))) {
      const locale = request.nextUrl.pathname.split('/')[1];
      const validLocale = i18nConfig.locales.includes(locale) ? locale : i18nConfig.defaultLocale;
      const landingPath = landingPathForRole(authenticatedRole);
-     return NextResponse.redirect(new URL(`/${validLocale}${landingPath || '/dashboard'}`, request.url));
+     if (landingPath) {
+       return NextResponse.redirect(new URL(`/${validLocale}${landingPath}`, request.url));
+     }
   }
   
   return i18nRouter(request, i18nConfig);
